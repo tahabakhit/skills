@@ -38,7 +38,7 @@ in every host. Target directories and invocation syntax depend on the agent.
 For a non-npm project, or before this package is published, use the checkout:
 
 ```fish
-npx skills@1.7.4 add /home/taha/dev/projects/taha-skills --skill discover-work --skill define-work
+npx skills@1.7.4 add /home/taha/dev/projects/tahabakhit/skills --skill discover-work --skill define-work
 ```
 
 The CLI may download its own code and changes the chosen project's skill files
@@ -57,7 +57,7 @@ pi install -l npm:@tahabakhit/skills
 Before publication:
 
 ```fish
-pi install -l /home/taha/dev/projects/taha-skills
+pi install -l /home/taha/dev/projects/tahabakhit/skills
 ```
 
 `-l` registers the package only in the current project's `.pi/settings.json`.
