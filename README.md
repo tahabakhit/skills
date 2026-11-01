@@ -1,7 +1,14 @@
 # @tahabakhit/skills
 
-Taha's agent skills bundle. Starts with discovery and specification, designed to
-feed an engineering delivery workflow without duplicating it.
+Taha's agent skills bundle. The agreed direction is a standalone collection for
+engineering, systems, operations, and non-coding work, selectively installed
+globally or per project using Vercel's Skills CLI. See
+[the architecture and setup plan](ARCHITECTURE.md) for decisions, proposed
+categories, and migration boundaries.
+
+The current package contains only the two skills below. Its external engineering
+handoff is transitional. Standalone delivery, the expanded catalog, and global
+installation verification are not implemented yet.
 
 | Skill | Use it for | Output |
 | --- | --- | --- |
@@ -14,7 +21,7 @@ Research uses tools the host already provides. They add no execution integration
 installation hook or automatic update process. The optional `pi.skills` manifest
 lets Pi load the same files directly.
 
-## Install only in selected repositories
+## Current installation: selected repositories
 
 This package is prepared for npm but has not been published. Use the local
 checkout or a packed tarball until publication. Run installation commands from
@@ -31,9 +38,10 @@ npx skills@1.7.4 add ./node_modules/@tahabakhit/skills --skill discover-work --s
 ```
 
 The CLI asks which agents to target and installs to the current project by
-default. Do not add `-g`. Review its plan before accepting, especially if a skill
-with the same name already exists. The dependency alone does not activate skills
-in every host. Target directories and invocation syntax depend on the agent.
+default. These recipes use project scope. Selective global installation is part
+of the expanded setup plan but has not been verified here. Review the installer's
+plan before accepting, especially if a skill with the same name already exists.
+The dependency alone does not activate skills in every host. Target directories and invocation syntax depend on the agent.
 
 For a non-npm project, or before this package is published, use the checkout:
 
@@ -82,7 +90,8 @@ For example, in Pi:
 Skip discovery for clear work. Neither skill files issues, creates tickets,
 starts workers or invokes delivery. They save documents only when requested.
 
-After approval, a spec can be handed to
+The current optional external handoff, pending replacement by this repository's
+own delivery workflow, is described below. After approval, a spec can be handed to
 [@1aboveio/engineering-skills](https://www.npmjs.com/package/@1aboveio/engineering-skills).
 For a saved spec, the Pi invocation is:
 
@@ -106,8 +115,9 @@ requirements, explicit uncertainty and local-first output. They do not require
 Matt's automatic tracker publication or background research pattern. Sources,
 revisions and design choices are in [SOURCES.md](SOURCES.md).
 
-Engineering installation remains separate. Its delivery workflow needs compatible
-worker launching and role/model resolution, including different implementer and
+For this existing optional handoff, engineering installation remains separate.
+That external delivery workflow needs compatible worker launching and role/model
+resolution, including different implementer and
 reviewer model IDs. The creator's [pi-better-harness](https://www.npmjs.com/package/pi-better-harness)
 is its Pi extension bundle. Other hosts need their supported integration. These
 skills do not make an unsupported runtime compatible and install no hooks or jobs.

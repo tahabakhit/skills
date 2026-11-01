@@ -71,6 +71,33 @@ not require a background agent or a separate research document.
 uses end-to-end slices and real blocking edges. We permit slice proposals for
 large work but leave ticket creation and scheduling to delivery.
 
+## Expanded-system research
+
+A later read-only assessment informed [the architecture plan](ARCHITECTURE.md).
+These sources are design evidence, not dependencies, imported skills, or passing
+workflow evaluations. The earlier adaptation record above describes the current
+two skills rather than a mandate for the expanded collection.
+
+| Source | Revision inspected | Design finding |
+| --- | --- | --- |
+| Published 1aboveio umbrella and six domain packages | Umbrella 1.0.21; domain packages 0.1.21 | Domain catalogs and explicit workflow ownership are useful. The umbrella selector writes Pi settings and includes a duplicate-hiding extension; some skills request advisory release checks. These are not required merely to distribute skills. |
+| [Vercel Skills CLI](https://github.com/vercel-labs/skills/tree/92a9a34ac3bf88e695e468b90c7bf32f163d32c8) | 92a9a34ac3bf88e695e468b90c7bf32f163d32c8; registry version 1.7.4 | Supports explicit skill/agent selection and global/project scope. Discovery supports categorized catalogs. Profiles proposed here are our selection data, not a claimed CLI profile feature or dependency resolver. |
+| [Matt Pocock](https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d) | 4ae2317ddb22b046e26455e4f9c9b3aaaf62212d | Focused testing, diagnosis, and design practices can inform owned workflows. Its implement-spec orchestration is not a drop-in host-independent runtime. |
+| [Impeccable](https://github.com/pbakaus/impeccable/tree/e89e3ada3e875a89ac2c5d33d11e65ebef6fe285) | e89e3ada3e875a89ac2c5d33d11e65ebef6fe285; skill metadata 4.8.0 | Current instructions invoke an engine that may download a binary. Optional hooks and persistent design artifacts need explicit integration assessment; copying SKILL.md alone is not equivalent to the complete workflow. |
+| [Bolens agent skills](https://github.com/bolens/agent-skills/tree/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d) | e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d | Per-skill provenance, reviewed upstream changes, and migration safeguards are useful models. Twelve local entrypoint blobs match this revision; supporting-file equivalence was not established. |
+
+Additional README/catalog inspection covered Vercel's agent skills, Anthropic's
+skills, Trail of Bits, Superpowers, and OpenAI's skills/plugins repositories.
+These are discovery leads, not approved imports. Anthropic distinguishes its
+source-available document skills from its open-source examples. Trail of Bits
+identifies CC-BY-SA-4.0 terms. OpenAI's skills README redirects new work to its
+plugins repository. Check exact revisions and per-file licenses before importing
+any material from these additional sources.
+
+Fetched instructions asking agents to run update checks, engine launchers, hooks,
+or setup writers were inspected as data. They were not executed. No skills were
+installed or migrated during this assessment.
+
 ## Limits
 
 These are authored instructions informed by source inspection, not upstream

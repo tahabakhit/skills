@@ -1,6 +1,6 @@
 # Verification
 
-## Executed checks
+## Initial package checks
 
 | Check | Result |
 | --- | --- |
@@ -15,8 +15,30 @@ The installation smoke test used `--copy -y` and an isolated temporary HOME with
 telemetry disabled. It changed no real project, global skill directory or personal
 agent settings. Skills CLI was downloaded only into the temporary test environment.
 Discovery checks load instructions but make no model calls and execute no delivery.
-The tarball was tested before this verification record was finalized; no skill or
-manifest contents changed between that test and this record.
+The tarball was tested before the initial verification record was finalized; no
+skill or manifest contents changed between that test and the initial record.
+
+## Architecture setup checks
+
+After adding `ARCHITECTURE.md`, updating the README and source evidence, and
+including the architecture document in the npm allowlist, the following checks
+were rerun:
+
+| Check | Result |
+| --- | --- |
+| `npm test` | `7 structural checks passed; model behavior not evaluated.` |
+| `npm pack --dry-run --ignore-scripts --json` | `@tahabakhit/skills@0.1.0`; 13 entries, including `ARCHITECTURE.md` |
+| `git diff --check` | Exit 0, no output |
+
+Two adversarial agents reviewed the architecture: one for missing safeguards,
+one for unnecessary complexity. Their findings led to explicit private-instruction
+discovery checks and deferred profile/package machinery. Both confirmed their
+findings were addressed. This was document review, not skill-behavior evaluation.
+
+These checks establish documentation/package consistency only. The skill files
+and evaluation cases were not changed. The expanded catalog, standalone delivery,
+global installation, migration, and cross-host behavior are still unimplemented
+or unverified. No live installation or chezmoi ownership changed.
 
 ## Not established
 
