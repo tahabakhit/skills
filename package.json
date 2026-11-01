@@ -1,0 +1,16 @@
+{
+  "name": "@tahabakhit/skills",
+  "version": "0.1.0",
+  "description": "Clarify an idea and define observable requirements before engineering delivery.",
+  "license": "MIT",
+  "author": "Taha Bakhit",
+  "publishConfig": { "access": "public" },
+  "keywords": ["pi-package", "agent-skills", "discovery", "specification"],
+  "files": ["skills", "test", "README.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "scripts": {
+    "test": "sh test/package.sh"
+  },
+  "pi": {
+    "skills": ["./skills"]
+  }
+}
