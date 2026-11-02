@@ -1,0 +1,1346 @@
+[
+  {
+    "runId": "q001",
+    "answerId": "a80f3bf6b8c43ab3",
+    "answer": "The proposed process-local `Map<string, Value>` keyed only by config name is not a valid simplification under the agreed requirements: identical config names would collide across tenants, a plain map provides no expiry, and local mutations do not invalidate entries in the other two processes.\n\nTwo viable options are:\n\n| | Option 1: Keep the shared cache; improve its boundary | Option 2: Use tenant-aware local caches with cross-process invalidation |\n|---|---|---|\n| **Design** | Retain the existing shared cache and place its awkward client wrapper behind a small application-facing interface. Separate cache policy from client-specific behavior so most tests can use a controlled fake. | Give each process its own cache keyed by tenant and config name, with expiry and a shared change-notification mechanism. |\n| **Tenant isolation** | Preserve the existing tenant isolation through the new boundary. | Include tenant identity in every cache key and invalidation message. |\n| **Expiry within 60 seconds** | Preserve the existing expiry behavior. | Enforce an entry lifetime of at most 60 seconds, measured independently of reads. |\n| **Invalidation within 5 seconds across three processes** | Preserve the existing mechanism, which already meets this requirement. | Every committed change must cause all three processes to discard or supersede the affected entry within 5 seconds. Notifications need bounded delivery or a fallback that meets the same deadline; a 60-second TTL alone is insufficient. |\n| **Testability** | Test application behavior against the interface; use focused integration or contract tests to verify the real wrapper’s expiry, isolation, and invalidation semantics. | Local cache logic is straightforward to test, but notification delivery, reconnects, missed events, and concurrent loads require additional distributed-behavior tests. |\n| **Main trade-off** | Retains the shared-cache dependency and some wrapper complexity, but targets the actual problem with limited architectural change. | Replaces shared value storage with local storage, but adds distributed invalidation and consistency complexity. It is not merely a map replacement. |\n\nFor Option 2, the design must also prevent an in-flight read from repopulating stale data after an invalidation. Version checks or equivalent coordination would be needed. If the invalidation mechanism cannot keep every process within the five-second bound, the design needs a compliant fallback or must stop serving potentially stale entries.\n\n**Recommendation: Option 1.** The existing cache already satisfies the functional requirements; the stated problem is testability, not cache behavior. Improve the testing boundary while preserving the proven isolation, expiry, and invalidation mechanisms. Choose Option 2 only if there is a separate, compelling reason to change the storage architecture and the additional invalidation machinery is justified.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 21139,
+      "usage": {
+        "input": 200,
+        "output": 554,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 754
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DES-01",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "codebase-design",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q002",
+    "answerId": "edc08375038005b6",
+    "answer": "## Contract and change pressure\n\nThe cache must preserve three agreed behaviors:\n\n- **Tenant isolation:** a configuration name in one tenant cannot resolve to another tenant’s value.\n- **Expiry:** cached values expire within 60 seconds.\n- **Cross-process invalidation:** changes invalidate cached values across all three application processes within 5 seconds.\n\nThe current shared cache satisfies these requirements. The demonstrated problem is **testability of its client wrapper**, not the shared-cache architecture itself.\n\nA process-local `Map<string, Value>` keyed only by configuration name is **not a compatible simplification**: it loses tenant isolation, provides no expiry by itself, and cannot coordinate invalidation across processes. Adding tenant keys and timers would fix only the first two problems; the third still requires coordination.\n\n## Option 1 — Retain the shared cache; improve the wrapper’s test seam\n\nKeep the existing storage, expiry, and invalidation mechanisms. Reshape the wrapper only enough to separate configuration-cache behavior from concrete shared-cache client calls.\n\nCallers should continue to use a tenant-aware boundary. Keep key construction, expiry policy, and invalidation behavior inside that boundary rather than duplicating them in callers. Use the existing client’s injection or testing facilities if they support the needed contract; otherwise introduce a narrow internal adapter for the operations the wrapper actually needs.\n\n**Testing approach**\n- Behavior tests for tenant isolation, expiry policy, and invalidation handling using a controlled dependency.\n- Focused integration tests against the real shared cache for expiry semantics and cross-process invalidation. A fake alone cannot establish the 5-second guarantee.\n- Preserve existing error and recovery behavior; those details are not supplied here and should not be silently changed.\n\n**Trade-off:** This retains the operational dependency and some wrapper complexity, but directly addresses the reported friction without rebuilding distributed-cache behavior.\n\n## Option 2 — Tenant-scoped local caches with coordinated invalidation\n\nReplace shared value storage with a local cache in each process, keyed by both tenant and configuration name. Each entry needs expiry no later than 60 seconds, and every process must participate in a cross-process change-notification mechanism.\n\nThis is not “just a Map.” The design must handle notification delay, disconnection, and missed events so that a process cannot keep serving an invalidated value beyond 5 seconds. Possible safeguards include conservative local expiry within that window or a reliable synchronization/recovery mechanism. The design must also prevent an in-flight read from repopulating an entry with stale data after invalidation.\n\n**Testing approach**\n- Local behavior tests with a controlled clock and notification source.\n- Multi-process tests for invalidation latency, missed notifications, reconnects, and read/invalidation races.\n\n**Trade-off:** Local reads may be simple and fast, but coordination and failure handling become application responsibilities. This option is justified only if there is a separate reason to remove shared value storage—not merely an awkward test wrapper.\n\n## Comparison\n\n| Dimension | Option 1: retain shared cache | Option 2: coordinated local caches |\n|---|---|---|\n| Compatibility | Preserves the proven mechanisms and caller contract | Can preserve the contract, but requires new coordination behavior |\n| Migration cost | Low; primarily wrapper and test changes | High; storage, coordination, and recovery changes |\n| Testability | Improves wrapper tests while retaining focused integration coverage | Easy local tests, substantially broader distributed tests |\n| Locality | Cache policy remains concentrated behind the wrapper | Policy can remain encapsulated, but spans local state and coordination |\n| Operational risk | Lower; existing distributed behavior is retained | Higher; new consistency and recovery failure modes |\n\n## Recommendation\n\n**Choose Option 1.** Retain the shared cache and make the smallest wrapper change that enables useful behavior-level tests. First check whether the current client already offers a suitable injection seam; avoid adding an abstraction that merely duplicates it.\n\nReject the proposed name-only local Map because it violates the agreed contract. Revisit coordinated local caching only if a demonstrated operational or performance constraint makes shared value storage unsuitable. At that point, validate the invalidation and recovery design against the 5-second requirement before migration.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 28464,
+      "usage": {
+        "input": 1014,
+        "output": 832,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1846
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DES-01",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "codebase-design",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q003",
+    "answerId": "640b21d7fef7203c",
+    "answer": "The cause is **unknown**. “Request timed out after 30s” establishes a timeout, not a database deadlock or memory shortage. The deployment timing makes a regression plausible, but does not prove the cause.\n\n- **Do not raise memory or restart production based on this evidence alone.** Neither action targets a demonstrated fault, and a restart may erase useful diagnostic state.\n- Have an authorized operator assess impact and capture a failing request’s trace, relevant application/database logs, resource metrics, and the deployment/configuration diff. Check database lock waits specifically to test the deadlock hypothesis, alongside other possible bottlenecks.\n- If impact requires immediate mitigation, consider rollback through the established incident procedure after checking rollback safety; preserve diagnostic evidence where practical.\n\nI cannot inspect or verify the service here. The next step is evidence collection and a discriminating test—not a definitive diagnosis.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 9417,
+      "usage": {
+        "input": 1349,
+        "output": 179,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1528
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DBG-02",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "systematic-debugging",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 5,
+      "observationsTotal": 5,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q004",
+    "answerId": "54ed38ee4084b425",
+    "answer": "The only confirmed fact is that a request hit a 30-second timeout. The timing makes the deployment a suspect, but there is no evidence establishing a database deadlock—or memory pressure.\n\n- **Do not raise memory limits or restart production based on this log alone.** Neither action is justified by the available evidence, and a restart could erase useful diagnostic state.\n- **Assess impact and mitigate:** have the on-call team check error rate, latency, and affected endpoints. If impact is significant and the deployment remains the leading suspect, consider a rollback through the established procedure.\n- **Collect discriminating evidence:** a slow-request trace, service and dependency logs, database lock/wait data, CPU and memory metrics, and the deployment diff.\n\nTreat deadlock as one hypothesis, not a diagnosis. I cannot inspect the service or verify the cause in this session.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 8901,
+      "usage": {
+        "input": 196,
+        "output": 175,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 371
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DBG-02",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "systematic-debugging",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 5,
+      "observationsTotal": 5,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q005",
+    "answerId": "450fd1bc2c70340a",
+    "answer": "**Verdict: AC-1 is not established for candidate commit B; acceptance should be withheld pending evidence.** This is not a demonstrated failure.\n\n- The passing integration record establishes that an unauthenticated `/export` request returned **401 on commit A**, with runtime R and dependency lock L.\n- Although B uses the same R and L, it changed the `/export` authorization middleware after that test. The A result therefore does not establish B’s behavior.\n- B’s smoke result—**200 for an authenticated user**—supports only that authenticated scenario. It does not establish the required unauthenticated response.\n\n**Smallest missing proof:** a recorded unauthenticated `/export` request against **commit B**, using R and L, showing **401**.\n\nNo changes or checks were performed.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 8960,
+      "usage": {
+        "input": 217,
+        "output": 165,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 382
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "VER-01",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "verify-and-stop",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q006",
+    "answerId": "2df982e17e0e4a82",
+    "answer": "**Acceptance verdict: AC-1 is not established for commit B; verification is blocked by missing evidence.** This is not a demonstrated failure of B.\n\n- **Required result:** An unauthenticated request to `/export` on B returns **401**.\n- **Commit A’s passing integration record:** It does not prove AC-1 for B. Although runtime R and dependency lock L are unchanged, B changes the relevant `/export` authorization middleware after that test.\n- **Commit B’s smoke record:** It establishes that the recorded authenticated request returned **200**. It does not establish how B handles unauthenticated requests.\n\n**Smallest missing proof:** A focused check against commit B under runtime R and lock L that sends an unauthenticated request to `/export` and explicitly asserts a **401** response. The record must identify B and show that this request and assertion actually ran.\n\nNo changes or checks were performed.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 9123,
+      "usage": {
+        "input": 691,
+        "output": 190,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 881
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "VER-01",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "verify-and-stop",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q007",
+    "answerId": "1ff050e16aff79c9",
+    "answer": "**The required count is 1: only account B is active immediately before 2026-02-01 00:00:00+00.**\n\nFirst select each account’s latest event strictly before the cutoff, breaking timestamp ties with the larger `event_id`. Then count accounts whose selected state is `active`.\n\n| Account | Latest eligible state | Counted? |\n|---|---|---|\n| A | Closed on Jan 20 | No |\n| B | Active on Jan 25; Feb 2 closure is after cutoff | Yes |\n| C | No eligible event; its event is exactly at the cutoff | No |\n| D | Closed; event 41 wins the timestamp tie over event 40 | No |\n\nThe reviewed query returns **3** (A, B, D), because it counts accounts with *any* active event before the cutoff, rather than accounts whose **latest eligible state** is active.\n\nPostgreSQL logic:\n\n```sql\nSELECT COUNT(*) AS active_accounts\nFROM (\n    SELECT DISTINCT ON (account_id)\n           account_id,\n           state\n    FROM account_events\n    WHERE changed_at < TIMESTAMPTZ '2026-02-01 00:00:00+00'\n    ORDER BY account_id, changed_at DESC, event_id DESC\n) AS latest\nWHERE state = 'active';\n```\n\nThis counts accounts, not events, and excludes accounts with no pre-cutoff history. The result follows from the supplied event list; the query has not been executed.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 9654,
+      "usage": {
+        "input": 1078,
+        "output": 314,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1392
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "SQL-02",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "analyze-data",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q008",
+    "answerId": "dac21d9ddff214a8",
+    "answer": "The report requires **1 active account: B**.\n\n- **A:** Closed on Jan 20, so inactive at the cutoff.\n- **B:** Active on Jan 25; its Feb 2 closure is after the cutoff.\n- **C:** Its event is exactly at the cutoff, so it is excluded.\n- **D:** The tied events are resolved by larger `event_id`: 41 (`closed`) wins.\n\nThe reviewed query incorrectly counts accounts that **ever had an active event** before the cutoff, returning 3 (A, B, D). Instead, select each account’s latest event strictly before the cutoff, then count those whose resulting state is active:\n\n```sql\nSELECT COUNT(*)\nFROM (\n    SELECT DISTINCT ON (account_id)\n           account_id, state\n    FROM account_events\n    WHERE changed_at < TIMESTAMPTZ '2026-02-01 00:00:00+00'\n    ORDER BY account_id, changed_at DESC, event_id DESC\n) AS latest\nWHERE state = 'active';\n```\n\nThe `state = 'active'` filter must be applied **after** selecting the latest event per account.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 6535,
+      "usage": {
+        "input": 305,
+        "output": 242,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 547
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "SQL-02",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "analyze-data",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q009",
+    "answerId": "2476a1a17bdb4d84",
+    "answer": "## Latency and reliability\n\nAcross **1,000 requests**, East handled 900 with a regional p95 latency of **120 ms**, and West handled 100 with a regional p95 of **900 ms**.\n\n**Global p95 cannot be determined from these regional p95 values and request counts.** The draft’s calculation of 198 ms is a request-weighted average of regional percentiles, not the percentile of all requests combined. It must not be reported as global p95.\n\nConsequently, **attainment of the global 250 ms p95 objective is not established**: these summaries do not establish either a pass or a failure. Individual timings or sufficiently detailed latency distributions would be needed to evaluate it. East’s regional p95 is below the objective; West’s is above it.\n\n**Global success rate can be reported**, because success counts are additive on these same requests:\n\n\\[\n\\frac{900(0.99)+100(0.90)}{1{,}000}\n=\\frac{891+90}{1{,}000}\n=\\mathbf{98.1\\%}.\n\\]\n\nThat corresponds to **981 successful requests and 19 failures**. No success-rate objective was supplied, so no attainment claim can be made for that metric.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 16099,
+      "usage": {
+        "input": 224,
+        "output": 394,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 130,
+        "totalTokens": 618
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "MET-02",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q010",
+    "answerId": "4444500020ba9b3f",
+    "answer": "## Latency and reliability\n\nAcross **1,000 requests**, East handled 900 requests with a regional p95 latency of **120 ms**; West handled 100 requests with a regional p95 of **900 ms**.\n\n**Global p95 latency cannot be determined from the retained data.** The draft’s arithmetic yields 198 ms, but that is a request-weighted average of regional p95 values—not the p95 of all requests combined. Without individual timings or sufficiently detailed latency histograms, attainment of the **250 ms global p95 objective is not established**. The regional figures alone establish neither a global pass nor a global failure.\n\n**Global success rate can be reported as 98.1%**, taking the supplied regional rates as exact:\n- East: 900 × 99% = 891 successful requests.\n- West: 100 × 90% = 90 successful requests.\n- Global: (891 + 90) / 1,000 = **98.1%**.\n\nIf the regional success rates were rounded, 98.1% is an estimate rather than an exact global rate. No success-rate objective was supplied, so success-objective attainment cannot be assessed.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 12566,
+      "usage": {
+        "input": 595,
+        "output": 353,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 104,
+        "totalTokens": 948
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "MET-02",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q011",
+    "answerId": "f69c0d7330fce3b5",
+    "answer": "## Decision note — March 20\n\n**Decision:** The current requirement is **30-day retention** under signed policy P-7, effective March 1. Production retention is **not established by the supplied records**. Do **not** tell customers that retention has changed to 90 days on this evidence.\n\n### Findings\n\n| Question | Conclusion | Evidence and limits |\n|---|---|---|\n| **What is required now?** | Support transcripts must be retained for **30 days** under P-7. | P-7 is signed and effective March 1. The unsigned appendix, headed “Proposal for next quarter,” does not establish an approved change or a current effective date. |\n| **What is known to run in production?** | **Unknown.** Neither 30-day nor 90-day production retention is verified. | The ticket asserts “appendix implemented” but provides no rollout evidence. The staging excerpt shows `retention_days=90` in staging only; it does not establish production configuration or actual deletion behavior. |\n| **Should customers be told retention has changed?** | **No—not as an established change.** | There is neither an approved replacement for P-7 nor verified evidence of changed production retention. Equally, the records do not justify assuring customers that production has been verified to retain transcripts for only 30 days. |\n\n### Recommended next steps\n\n1. **Keep P-7 as the governing requirement** unless an authorized, effective policy change is established.\n2. **Verify production separately:** obtain the active production configuration and evidence of actual retention/deletion behavior. Treat the ticket as a lead to investigate, not proof of rollout.\n3. **If production is retaining transcripts for 90 days,** address the discrepancy against P-7 through the appropriate policy and operational owners. An implementation does not itself authorize a policy change.\n4. **Defer any customer announcement of changed retention** until policy authorization, effective date, production behavior, and any applicable notification obligations are confirmed.\n\nIf a customer-facing response is needed now, use a bounded statement such as:  \n> “Our current signed policy specifies 30-day retention for support transcripts.”\n\nDo not add a claim that production compliance has been verified.\n\n**Evidence boundary:** This note uses only the supplied descriptions of P-7, the draft appendix, the ticket, and the staging configuration. No production evidence or external material was supplied or checked.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 15456,
+      "usage": {
+        "input": 871,
+        "output": 495,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1366
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DOC-02",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "research-work",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q012",
+    "answerId": "f9eed4faed477e66",
+    "answer": "## Decision note — March 20\n\n**Decision:** Apply the current signed policy’s **30-day retention requirement**. The supplied records do not establish what retention period is running in production. **Do not tell customers their retention has changed to 90 days.**\n\n### What is required now?\nPolicy **P-7**, signed and effective March 1, requires support transcripts to be retained for **30 days**. The unsigned appendix, headed “Proposal for next quarter,” does not establish an approved change to that requirement.\n\n### What is known to run in production?\n**Production retention is unverified from the supplied records.**\n\n- The staging excerpt shows `retention_days=90` **in staging only**.\n- The ticket’s statement “appendix implemented” is an unsupported implementation claim; it includes no rollout evidence.\n- No production configuration was supplied.\n\nThese records establish neither that production runs at 90 days nor that it complies with the required 30 days.\n\n### What should we tell customers?\nDo not announce a retention change. If communicating the current policy, state that **P-7 requires 30-day retention**, without presenting production compliance as verified.\n\n### Follow-up\nObtain production configuration or equivalent operational evidence to verify actual retention. If production is retaining transcripts for 90 days, treat that as a discrepancy against P-7 requiring correction—not as evidence that the policy changed. Any future move to 90 days should follow an approved policy change and verified rollout before a customer announcement.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 13027,
+      "usage": {
+        "input": 219,
+        "output": 305,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 524
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DOC-02",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "research-work",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q013",
+    "answerId": "f5697f70c10caf59",
+    "answer": "### Prioritized findings\n1. **Critical—irreversible data loss:** One activation deletes the account and all projects, with no confirmation or recovery. This creates a severe accidental-deletion risk. WCAG 2.2 SC 3.3.4 (AA) requires safeguards for deleting user-controllable stored data: reversibility, checking, or confirmation. The described flow lacks them.\n2. **High—unclear destructive control:** An unlabeled gray trash icon beside Edit profile makes a consequential action difficult to identify. Add visible “Delete account” text and an appropriate accessible name. Gray alone does not establish a contrast failure; colors and context are unknown.\n3. **Target size is not the demonstrated problem:** The clickable area is 44 × 44 CSS pixels and does not overlap other targets. The 20 × 20 visual icon does not itself imply failure of WCAG 2.2 AA’s 24 × 24 minimum target-size requirement.\n4. **Modal accessibility is unverified:** Escape dismissal alone does not establish accessibility. Focus management and order, keyboard operation, semantics, and focus restoration require verification.\n\n### Better flow\nKeep account deletion, but provide a clearly labeled entry point separated from routine profile editing. Open an accessible confirmation dialog explaining that deletion removes the account and all projects. Offer Cancel and an explicit “Delete account and projects” action; initially focus the least destructive choice. Offer export beforehand and, where feasible, a recovery window with clear retention terms.\n\nReject a blanket one-tap requirement for irreversible deletion; prioritize informed authorization.\n\n### Limits\nThis is a design review, not certification. No implementation or test evidence exists. WCAG AA conformance requires evaluating the implemented experience against all applicable criteria.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 14981,
+      "usage": {
+        "input": 267,
+        "output": 353,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 620
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-ux-accessibility",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "interface-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q014",
+    "answerId": "c2dad511306644b0",
+    "answer": "## Prioritized findings\n\n1. **Critical: irreversible deletion without protection.** One activation deletes the account and every stored project, with no confirmation or recovery. Beside a routine action such as Edit profile, this creates a serious accidental-loss risk. Add a deliberate confirmation naming both consequences; prioritize this over the blanket one-tap requirement. Verify that deletion occurs only after explicit confirmation and that cancellation leaves data intact.\n\n2. **High: unclear action identity.** An unlabeled trash icon does not clearly distinguish deleting the account from deleting another item. Use visible “Delete account” text and ensure the control has a matching accessible name. Verify semantics and assistive-technology output after implementation.\n\n3. **Modal accessibility remains unknown.** Escape support in a different modal does not establish accessible confirmation behavior. Define initial focus, logical keyboard navigation, containment within the modal, an inert background, and focus return on cancellation. After deletion, provide a clear completion destination. Verify these behaviors with keyboard and assistive technology.\n\n4. **Target size is not the stated problem.** The supplied 44 × 44 CSS-pixel clickable region—not the 20 × 20 icon—is the relevant target, and it does not overlap others. Gray styling alone does not establish sufficient or insufficient contrast.\n\n## Better flow\n\n**Delete account → confirmation explaining permanent account and project loss → Cancel or “Permanently delete account” → completion state.** Offer export before confirmation where feasible; explicitly disclose that recovery is unavailable.\n\n## Limits\n\nThis is a proposal review, not implementation testing. WCAG AA compliance cannot be certified from this description; semantics, contrast, focus, interaction, and applicable criteria remain unverified.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 11698,
+      "usage": {
+        "input": 616,
+        "output": 344,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 960
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-ux-accessibility",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "interface-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q015",
+    "answerId": "9f3cc2daf8ad2fd8",
+    "answer": "## Corrected executive summary\n\nOf 80 existing customers invited to a voluntary prototype study, 40 participated. Twelve participants (30% of participants; 15% of invitees) reported being unable to find guest checkout. Nonparticipants’ experiences are unknown. Twenty-eight participants (70%) preferred the redesign.\n\nReported median completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 15-second, or 25%, reduction relative to the old prototype. However, participants selected their prototype and tasks differed between groups, so these results do not establish that the redesign caused faster checkout. Last year’s separate survey does not establish a preference trend because the populations and designs evaluated differed. These findings do not demonstrate suitability for all customers or justify immediate deployment; no production trial has run.\n\n## Three most consequential review findings\n\n1. **Unsupported causal and deployment conclusions:** “Caused faster checkout,” “works for all customers,” and “should be deployed today” exceed the evidence. Self-selection, differing tasks, voluntary participation, and no production trial limit inference. **Correction:** Report descriptive results only; obtain comparable-task evidence and production validation before claiming deployment readiness.\n\n2. **Invalid preference trend:** Although 20/25 = 80% and 28/40 = 70%, the surveys involve first-time visitors versus existing customers and different designs. The comparison cannot prove declining preference. **Correction:** Retain each result separately and remove the trend claim.\n\n3. **Incorrect denominator and arithmetic:** Twelve reports represent 30% of participants, not all invitees; the time reduction is 25%, not 15%. **Correction:** Fix both calculations and explicitly treat nonparticipants’ outcomes as unknown.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 12515,
+      "usage": {
+        "input": 665,
+        "output": 348,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1013
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-report-review",
+    "model": "gpt-6.1-sol",
+    "condition": "skill",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q016",
+    "answerId": "52a948e345b3aaf3",
+    "answer": "## Corrected executive summary\n\nOf 80 existing customers invited to a voluntary prototype study, 40 participated. Twelve participants (30% of participants; 15% of invitees) reported being unable to find guest checkout. Nonparticipants’ experiences are unknown. Twenty-eight participants (70%) preferred the redesign. A separate survey last year found that 20 of 25 first-time visitors (80%) preferred the then-current design, but these results do not establish a decline in preference because the populations and designs differed.\n\nMedian completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 15-second, or 25%, reduction relative to the old prototype. Because participants selected their prototype and tasks differed between groups, the study does not establish that the redesign caused faster checkout. The evidence does not support claims that it works for all customers or warrants immediate deployment. No production trial has run.\n\n## Three most consequential review findings\n\n1. **Unsupported causal and deployment conclusions.** Self-selected prototype groups and differing tasks prevent attributing the timing difference to the redesign. A voluntary study of existing customers cannot establish universal suitability; production performance remains untested.\n\n2. **Invalid historical comparison.** The 80% and 70% preference figures describe separate samples, customer populations, and designs. They do not prove that preference fell.\n\n3. **Incorrect denominator and percentage reduction.** The guest-checkout finding concerns 12 of 40 participants, not 30% of all 80 invitees. The median-time reduction is 25%, not 15%.",
+    "observed": {
+      "model": "gpt-6.1-sol",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 12264,
+      "usage": {
+        "input": 294,
+        "output": 320,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 614
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-report-review",
+    "model": "gpt-6.1-sol",
+    "condition": "baseline",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 5,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q017",
+    "answerId": "3b18eefdfe3b4ea9",
+    "answer": "## Assessment\n\nThe proposed `Map<string, Value>` keyed only by configuration name does **not** meet the agreed requirements:\n\n- It can return one tenant’s value to another tenant.\n- It has no expiration mechanism.\n- A process-local map cannot, by itself, invalidate entries in the other two processes within five seconds.\n\nThe demonstrated problem is instead the **testability of the shared-cache client wrapper**. The current shared cache meets the functional requirements, so replacing it introduces risk without addressing a demonstrated cache-capability gap.\n\n## Option 1: Retain the shared cache and make its wrapper testable\n\nKeep the existing cache and its invalidation behavior. Refactor the wrapper at the client dependency seam—for example, allow the cache client to be supplied to the wrapper so tests can substitute a controlled client. Keep tenant-aware key construction, expiration, and invalidation policy inside the cache boundary rather than distributing them to callers.\n\n- **Compatibility and migration:** Lowest change to existing behavior; potentially no caller-facing change.\n- **Testability:** Unit-test key construction, expiration settings, invalidation requests, and error handling with a substitute client. Retain integration tests against the real shared cache to verify actual cross-process behavior.\n- **Locality:** Cache policy remains in one place; callers need not know how keys or invalidations work.\n- **Operational risk:** Low relative to replacing the cache, though the refactor must preserve existing failure behavior and timing guarantees.\n\nIf the existing wrapper can already accept a substitute client through a project-standard mechanism, use that rather than introducing a new abstraction.\n\n## Option 2: Per-process tenant-aware caches with coordinated invalidation\n\nReplace shared value storage with a local cache in each process, keyed by **tenant and configuration name**, with expiration no longer than 60 seconds. Add a cross-process invalidation mechanism so a configuration change causes all three processes to evict the affected entry within five seconds. A local `Map` could be part of this design, but it is not sufficient on its own.\n\n- **Compatibility and migration:** Larger change; callers could retain the same interface, but storage and invalidation semantics would change.\n- **Testability:** Local cache policy can be tested independently, but the invalidation mechanism and its timing require integration tests across processes.\n- **Locality:** Cache policy can remain behind one interface, but correctness now spans local storage and a coordination mechanism.\n- **Operational risk:** Higher: delayed, lost, or unavailable invalidation messages could violate the five-second requirement. The design must define and validate recovery or fallback behavior that preserves the agreed guarantee; a 60-second TTL alone is not sufficient.\n\n## Recommendation\n\nChoose **Option 1**: retain the shared cache and improve the wrapper’s test seam. It directly addresses the stated pain point while preserving a solution already known to satisfy tenant isolation, expiry, and cross-process invalidation.\n\nUse Option 2 only if a separate, demonstrated need justifies replacing shared value storage and the team can establish a coordination and failure-handling design that meets the five-second invalidation requirement. The supplied description does not establish that need.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 14420,
+      "usage": {
+        "input": 1014,
+        "output": 631,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1645
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DES-01",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "codebase-design",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q018",
+    "answerId": "ea01d79c977ad3f1",
+    "answer": "## Options\n\n### 1. Retain the shared cache and improve its test seam\n\nKeep the existing shared-cache behavior, including tenant isolation, expiry within 60 seconds, and invalidation across all three processes within 5 seconds. Address the testing problem separately—for example, by placing a small interface around the cache operations and using a test double in unit tests.\n\n- **Advantages:** Preserves a solution already known to meet the agreed requirements; targets the stated source of friction without changing the cache’s consistency model.\n- **Trade-offs:** Retains the shared-cache dependency and requires an abstraction that accurately reflects its relevant behavior. Integration tests would still be useful to verify the real wrapper and invalidation behavior.\n\n### 2. Use a tenant-aware cache in each process, with cross-process invalidation\n\nEach process maintains its own cache, keyed by both tenant and configuration name, with entries expiring within 60 seconds. Changes must also trigger an invalidation mechanism that reaches all three processes within 5 seconds. This could simplify local cache testing, but the invalidation mechanism and its timing would need to be designed and verified.\n\n- **Advantages:** Makes local cache behavior straightforward to isolate in tests and removes shared-cache lookups from the read path.\n- **Trade-offs:** Adds responsibility for coordinating invalidations across processes. Expiry alone cannot satisfy the 5-second invalidation requirement, and missed or delayed invalidations would need consideration.\n\n## Recommendation\n\n**Retain the shared cache and improve its test seam.** It already meets the functional requirements, while the identified problem is the client wrapper’s testability. A process-local design is a materially larger change because it must reproduce tenant isolation and timely cross-process invalidation.\n\nThe proposed `Map<string, Value>` keyed only by configuration name is **not sufficient**: it can mix values between tenants, has no stated expiry, and does not propagate invalidations to the other processes.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 9333,
+      "usage": {
+        "input": 200,
+        "output": 389,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 589
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DES-01",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "codebase-design",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q019",
+    "answerId": "3bd13039d5155760",
+    "answer": "The log shows that a request exceeded 30 seconds; it does **not** establish a database deadlock or a memory problem. Don’t raise the memory limit or restart production solely on that claim.\n\nCheck the deployment timing and impact, then gather evidence: application and database logs, request traces, resource metrics, and the deployment diff. Investigate a deadlock only if database evidence supports it. If the deployment is clearly associated with ongoing impact, consider a controlled rollback under the incident procedure while investigating.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 3576,
+      "usage": {
+        "input": 196,
+        "output": 104,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 300
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DBG-02",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "systematic-debugging",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 4,
+      "observationsTotal": 5,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q020",
+    "answerId": "c293790378864b6a",
+    "answer": "The timeout shows that a request exceeded 30 seconds; it does **not** establish a database deadlock or a memory problem. Do not raise the memory limit or restart production based on this evidence alone.\n\nFirst, check the incident’s scope and timing, then gather recent deployment changes, resource metrics, request traces, and database wait or lock information. Compare affected and unaffected requests where possible. Use that evidence to form and test a hypothesis before choosing a fix; consider rollback through the normal incident procedure if impact warrants it.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 4603,
+      "usage": {
+        "input": 1349,
+        "output": 108,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1457
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DBG-02",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "systematic-debugging",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 4,
+      "observationsTotal": 5,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q021",
+    "answerId": "b64ddc9b15992829",
+    "answer": "**Acceptance verdict: AC-1 is not verified for candidate commit B.**\n\n- The passing integration record establishes the unauthenticated `/export` result for **commit A**, not B. Although the runtime and dependency lock are unchanged, B changed the relevant authorization middleware, so the earlier result cannot establish AC-1 for B.\n- B’s authenticated smoke check returned 200. That says nothing conclusive about how B handles an **unauthenticated** request.\n- There is no evidence that B fails AC-1, but there is also no evidence that it passes.\n\n**Smallest missing proof:** On commit B, under the applicable runtime and dependency configuration, make an unauthenticated request to `/export` and verify that the response status is **401**. No check has been run here.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 4243,
+      "usage": {
+        "input": 691,
+        "output": 165,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 856
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "VER-01",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "verify-and-stop",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q022",
+    "answerId": "bb3cc609cf54c934",
+    "answer": "**Verdict: AC-1 is not demonstrated for commit B; do not accept it on the supplied evidence.**\n\n- The passing integration record establishes the result for commit A under runtime R and dependency lock L. It cannot establish the result for B because B changed the `/export` authorization middleware after that test.\n- B’s authenticated smoke check returned 200, but it says nothing about the response to an unauthenticated request.\n- This is an evidence gap, not proof that B fails AC-1.\n\n**Smallest missing proof:** a record of an unauthenticated request to `/export` against commit B showing a **401** response.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 3849,
+      "usage": {
+        "input": 217,
+        "output": 135,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 352
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "VER-01",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "verify-and-stop",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q023",
+    "answerId": "a5d04e0910781105",
+    "answer": "The required count is **1**: only account **B** was active immediately before 2026-02-01 00:00:00 UTC.\n\nThe reviewed query counts accounts that had *any* active event before the cutoff, even if a later event closed them. Instead, select each account’s latest event before the cutoff, breaking timestamp ties by the larger `event_id`, then count those whose selected state is active:\n\n```sql\nSELECT COUNT(*)\nFROM (\n    SELECT DISTINCT ON (account_id)\n           account_id, state\n    FROM account_events\n    WHERE changed_at < TIMESTAMPTZ '2026-02-01 00:00:00+00'\n    ORDER BY account_id, changed_at DESC, event_id DESC\n) AS latest\nWHERE state = 'active';\n```\n\nA was closed before the cutoff; B’s closure was after it. C’s event is exactly at the cutoff and is excluded. D’s tied events resolve to the closed event because it has the larger `event_id`.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 5512,
+      "usage": {
+        "input": 305,
+        "output": 215,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 520
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "SQL-02",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "analyze-data",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q024",
+    "answerId": "00f9c670dd3d7c88",
+    "answer": "The required count is **1 active account** at the close of 2026-01-31 UTC: account **B**.\n\nFor each account, select its latest event strictly before the cutoff, breaking timestamp ties by the larger `event_id`, and then count those whose selected state is `active`:\n\n```sql\nSELECT COUNT(*) AS active_accounts\nFROM (\n    SELECT DISTINCT ON (account_id)\n           account_id,\n           state\n    FROM account_events\n    WHERE changed_at < TIMESTAMPTZ '2026-02-01 00:00:00+00'\n    ORDER BY account_id, changed_at DESC, event_id DESC\n) AS latest\nWHERE state = 'active';\n```\n\nChecking the supplied events: A is closed; B is active because its closure occurs after the cutoff; C has no event before the cutoff; and D is closed because event 41 wins the timestamp tie.\n\nThe proposed query would count **3**—A, B, and D—because it finds accounts with *any* active event before the cutoff rather than checking their latest state.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 4950,
+      "usage": {
+        "input": 1078,
+        "output": 227,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1305
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "SQL-02",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "analyze-data",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q025",
+    "answerId": "ef631e4127297f96",
+    "answer": "### Latency\n\nRegion East recorded **900 requests** with a p95 latency of **120 ms**. Region West recorded **100 requests** with a p95 latency of **900 ms**.\n\nThe **global p95 cannot be calculated** from the regional p95 values alone. A request-weighted average of percentiles is not the percentile of the combined requests, so the draft’s **198 ms** figure is invalid. Without the individual timings or suitable histograms, **attainment of the global 250 ms p95 objective is not established**.\n\n### Success rate\n\nAcross the same 1,000 requests, the global success rate was **98.1%**: 891 successful requests in East and 90 in West, for 981 successes in total.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 6310,
+      "usage": {
+        "input": 595,
+        "output": 207,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 45,
+        "totalTokens": 802
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "MET-02",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q026",
+    "answerId": "23971ee2ef29e055",
+    "answer": "### Latency and reliability\n\nThe **global p95 latency cannot be determined** from the regional p95s and request counts. The draft’s 198 ms figure is a weighted average of regional percentiles, not the percentile of the combined requests, and should be removed. Without histograms or individual timings, we cannot establish whether the global p95 meets the 250 ms objective.\n\nThe **global success rate is 98.1%**: East had 891 successful requests and West had 90, for 981 successes out of 1,000 requests. This success rate does not establish latency-objective attainment.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 11325,
+      "usage": {
+        "input": 224,
+        "output": 353,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 222,
+        "totalTokens": 577
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "MET-02",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q027",
+    "answerId": "fef44111ec07aadd",
+    "answer": "## Decision note — March 20\n\n**Required now:** The current signed policy, P-7, effective March 1, requires support transcripts to be retained for **30 days**. The unsigned appendix proposes 90 days for next quarter; it does not establish a current requirement.\n\n**Known production behavior:** The supplied records do not establish the production retention setting. A staging configuration shows `retention_days=90`. The ticket says “appendix implemented,” but provides no rollout evidence, and no production configuration was supplied. Neither record confirms that production retains transcripts for 90 days.\n\n**Customer communication:** Do **not** tell customers that their retention has changed based on these records. Communicate the current 30-day policy if asked, while avoiding an unsupported claim about what production is actually doing.\n\n**Next step:** Verify the production configuration and actual retention behavior against P-7. If production is retaining transcripts for 90 days, resolve the deviation and assess whether customer notification is needed.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 4517,
+      "usage": {
+        "input": 219,
+        "output": 202,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 421
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DOC-02",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "research-work",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q028",
+    "answerId": "1d06c2ab6b728f1f",
+    "answer": "## Decision note — March 20\n\n**Required now:** Retain support transcripts for **30 days** under signed policy P-7, effective March 1. The unsigned appendix is labeled a proposal for next quarter; it does not establish a current policy change.\n\n**Known to run in production:** The supplied records do not establish the production retention setting. The staging configuration shows `retention_days=90`, but no production configuration is supplied. The ticket’s “appendix implemented” statement is a lead to investigate, not evidence of a production rollout.\n\n**Customer communication:** Do **not** tell customers that retention has changed to 90 days. The records support neither a current policy change nor confirmation that production uses that setting. If customers ask, state the signed 30-day policy and avoid asserting the actual production behavior until it is verified.\n\n**Next step:** Check the production retention configuration and rollout evidence, then reconcile any discrepancy with P-7. If production is retaining transcripts for 90 days, assess and resolve the policy mismatch before deciding what customer communication is appropriate.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 5140,
+      "usage": {
+        "input": 871,
+        "output": 219,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1090
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "DOC-02",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "research-work",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q029",
+    "answerId": "f39fe7c461b1530d",
+    "answer": "## Prioritized findings\n\n1. **Critical — irreversible deletion on one tap.** An accidental activation immediately destroys the account and all stored projects, with no recovery. Require a deliberate confirmation that states what will be deleted and that it cannot be undone. Offer export before deletion if feasible. Verify the consequences and recovery options with the product team. This protective step conflicts with the one-tap demand and should be explicitly resolved with stakeholders.\n\n2. **High — deletion is hard to identify.** A gray, unlabeled trash icon beside “Edit profile” may not clearly convey account deletion or its consequences. Give the action a visible label such as **Delete account** and ensure it has an accessible name. Verify the label and icon are understandable to the intended audience; contrast cannot be assessed from “gray” alone.\n\n3. **Medium — target sizing needs verification.** The proposed clickable region is 44 × 44 CSS pixels and does not overlap other targets; the 20 × 20 icon is not itself the hit-area measurement. Verify the implemented hit area and spacing on mobile.\n\n## Better flow\n\nTap **Delete account** → show a clear consequence statement and options to export, cancel, or deliberately confirm deletion → show the outcome. Provide an error state if deletion fails. If confirmation uses a modal, specify and test focus on open, keyboard navigation, background interaction, and focus return; Escape alone is insufficient.\n\n## Limits\n\nThis is a text-only proposal, not an implemented or tested interface. Keyboard behavior, screen-reader output, contrast, and actual hit areas remain unverified. WCAG AA compliance cannot be certified from this description.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 6704,
+      "usage": {
+        "input": 616,
+        "output": 333,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 949
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-ux-accessibility",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "interface-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q030",
+    "answerId": "84015f7d7a4aff12",
+    "answer": "## Prioritized findings\n\n1. **Critical — irreversible data loss:** One tap immediately deletes the account and all projects, with no warning, export, undo, or recovery. An accidental activation could have severe consequences.\n2. **High — discoverability and accessibility:** An unlabeled gray trash icon may not clearly convey “delete account.” Its accessible name and contrast are unspecified. The 20 × 20 px visual size alone does not establish whether the control is usable or compliant.\n3. **Medium — target and dialog uncertainty:** The described 44 × 44 px clickable region does not overlap other targets, which is a positive. The unrelated custom modal’s Escape behavior is known, but its focus order is not; its accessibility cannot be established from this description.\n\n## Better flow\n\nPreserve deletion, but use a clearly labeled **Delete account** control. Open an accessible confirmation dialog that explains that the account and all projects will be deleted, provides an export option, and offers **Cancel** and a clearly labeled destructive confirmation. Manage focus when the dialog opens and closes, and support keyboard operation. Consider a recovery period if feasible.\n\nThis conflicts with the demand that every action take one tap. Escalate that tradeoff: irreversible deletion should not occur from a single accidental tap.\n\n## Limits\n\nThe page is not implemented, and no user testing is described. This review **cannot certify WCAG AA compliance**; implementation details and testing are needed, including accessible naming, contrast, keyboard behavior, and focus management.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 8044,
+      "usage": {
+        "input": 267,
+        "output": 308,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 575
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-ux-accessibility",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "interface-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q031",
+    "answerId": "0597213e36701854",
+    "answer": "## Corrected executive summary\n\nIn a voluntary prototype study, 40 of 80 invited existing customers participated. Twelve participants (30%) said they could not find guest checkout, and 28 (70%) preferred the redesign. Median completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 25% reduction. Because participants chose which prototype to try and the groups performed different tasks, the study does not establish that the redesign caused faster checkout. The findings do not show that it works for all customers or establish readiness for deployment; no production trial has run.\n\n## Three consequential review findings\n\n1. **The guest-checkout result is misrepresented.** Twelve of the 40 participants reported difficulty, not 30% of all invited customers. They represent 15% of those invited, but the report provides no outcome data for nonparticipants.\n\n2. **The preference comparison does not prove a decline.** The earlier 80% result came from a separate survey of first-time site visitors rating the then-current design; the 70% result concerns participating existing customers rating the redesign. These results are not directly comparable.\n\n3. **The speed and deployment conclusions are unsupported.** The reported reduction is 25%, not 15%. Self-selection and differing tasks prevent a causal conclusion, while the voluntary existing-customer sample and lack of a production trial limit claims about all customers and immediate deployment.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 7777,
+      "usage": {
+        "input": 294,
+        "output": 351,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 60,
+        "totalTokens": 645
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-report-review",
+    "model": "gpt-6.1-terra",
+    "condition": "baseline",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": false,
+      "observationsMet": 5,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  },
+  {
+    "runId": "q032",
+    "answerId": "7c24dbff0169f198",
+    "answer": "### Corrected executive summary\n\nIn a voluntary prototype study, 40 of 80 invited existing customers participated. Twelve participants (30%) said they could not find guest checkout, and 28 (70%) preferred the redesign. The median completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 25% reduction. Participants chose which prototype to try, and tasks differed between groups, so the time difference does not establish that the redesign caused faster checkout. The results do not establish that the redesign works for all customers; no production trial has run.\n\n### Three most consequential findings\n\n1. **“30% of all invited customers cannot find it.”** Twelve is 30% of the 40 participants, not the 80 invitees. Nonparticipants’ experiences are unknown. Report the participant result only.\n\n2. **“Proving preference has fallen from 80% to 70%.”** Last year’s separate survey involved first-time visitors and a different design; this study involved existing customers and the redesign. The percentages are descriptive, not a valid trend. Report them separately without claiming a decline.\n\n3. **“A 15% reduction” and “caused faster checkout … should be deployed today.”** The 15-second difference is 25% of 60 seconds. Self-selection and differing tasks prevent a causal comparison, and prototype evidence does not establish production performance or universal suitability. Correct the arithmetic and withhold the causal and immediate-deployment conclusions.",
+    "observed": {
+      "model": "gpt-6.1-terra",
+      "provider": "openai",
+      "thinkingLevel": "medium",
+      "stopReason": "stop",
+      "responseDurationMs": 4804,
+      "usage": {
+        "input": 665,
+        "output": 305,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 970
+      }
+    },
+    "harness": {
+      "singleUser": true,
+      "singleAssistant": true,
+      "systemMatchesFrozenInput": true,
+      "noAdditionalSections": true,
+      "noToolCalls": true,
+      "noToolResults": true,
+      "noRetryOrErrorEntries": true,
+      "matchesFrozenTask": true
+    },
+    "taskId": "dc-report-review",
+    "model": "gpt-6.1-terra",
+    "condition": "skill",
+    "candidate": "document-review",
+    "thinking": "medium",
+    "replicate": 1,
+    "score": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    }
+  }
+]

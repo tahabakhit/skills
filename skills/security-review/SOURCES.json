@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "name": "security-review",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/secret-serialization/SKILL.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/secret-serialization/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/gha-security-review/SKILL.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/gha-security-review/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/differential-review/skills/differential-review/SKILL.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/differential-review/skills/differential-review/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/post-patch-validation/skills/post-patch-validation/SKILL.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/post-patch-validation/skills/post-patch-validation/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/secret-serialization/references/javascript-typescript.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/secret-serialization/references/javascript-typescript.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/gha-security-review/references/ai-prompt-injection-via-ci.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/gha-security-review/references/ai-prompt-injection-via-ci.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/post-patch-validation/skills/post-patch-validation/references/evidence-model.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/post-patch-validation/skills/post-patch-validation/references/evidence-model.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "9759878752b4c036975188d1683ec356f191eac8ec3bc4606ae3f5452eda41c1"
+    },
+    {
+      "path": "references/security-paths.md",
+      "kind": "original",
+      "sha256": "d69d830e4271e2baddd7c73afc754fc6ff1ef415c9bfe53d4fe2856bd54ed5ca"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

@@ -57,13 +57,13 @@ When the user authorized a fix:
 3. Run the focused check, then the repository's proportionate validation.
 4. Confirm the original behavior now works and report any verification gaps.
 
-The optional `tdd` specialist is not bundled. When test-first work is requested, use it if available or follow the repository's existing red-green-refactor procedure; report any missing capability. If diagnosis was requested without implementation, stop after explaining the cause and supported options.
+When test-first work is requested, use this collection's optional `testing-work` if available, or follow the repository's existing red-green-refactor procedure. Report any missing capability. If diagnosis was requested without implementation, stop after explaining the cause and supported options.
 
 ## Stop conditions
 
 Carry forward authorization already given in the conversation. Ask only when the next action needs authority that has not been granted, missing access, or a consequential product decision that cannot be inferred. Prepare a concrete proposed change and complete independent diagnostics before requesting approval for a production mutation or destructive recovery. If the issue remains unresolved, report what is known, what was ruled out, and the next discriminating probe.
 
-When a requested endpoint includes PR or release delivery, return the cause, fix, and proof to its active coordinator. The optional `babysit` specialist is not bundled or required for diagnosis. Use it when available and appropriate, otherwise follow the project's authorized delivery procedure. A diagnosis, status lookup, or local fix alone does not start follow-through. Report any missing required capability rather than starting a second delivery loop or installing a specialist.
+When a requested endpoint includes PR or release delivery, return the cause, fix, and proof to its active coordinator. This collection's optional `deliver-work` can own follow-through when available and within scope. Otherwise follow the project's authorized delivery procedure. A diagnosis, status lookup, or local fix alone does not start follow-through. Report any missing required capability rather than starting a second delivery loop or installing a specialist.
 
 For an already-authorized fleet task, return the confirmed cause and applicability conditions to its current coordinator. The optional `audit-repo-fleet` specialist is not bundled. Continue confirmed peer fixes only within the existing fleet scope and documented procedure; report a missing procedure when it blocks safe work. A single-repository fix does not authorize a fleet sweep.
 

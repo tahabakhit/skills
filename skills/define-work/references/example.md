@@ -50,6 +50,7 @@ Approval of this draft is pending.
 
 ## Delivery handoff
 
-After approval, pass this spec to resolve-issues. Its preflight determines scope
-size, implementation approach and delivery settings. No issues have been filed,
+After approval and a separate request for delivery, pass this spec to the optional
+`deliver-work` owner when available. It determines unit size, implementation
+approach and the already-authorized endpoint. No issues have been filed,
 no tests have run, and no merge or release authority has been granted.

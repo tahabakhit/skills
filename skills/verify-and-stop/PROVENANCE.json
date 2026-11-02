@@ -35,7 +35,8 @@
   "changes": [
     "Make delivery follow-through optional without changing validation-only scope.",
     "Preserve candidate-bound proof, non-vacuous checks, and existing action authority.",
-    "Replace root-only provenance pointers with this self-contained record and retain complete author notices."
+    "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
+    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records."
   ],
   "upstreamFiles": [
     {
@@ -81,17 +82,17 @@
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "80a5d738bdb19d6272077a8e5f7c3116ac344601",
-      "sha256": "1b9149ed40b0eba788ab3b5516621d0e8ba3328c148282505f9bb2a3764c080f"
+      "gitBlob": "59e6b3fe0c2228401424633d3ea576a2eba1c7e7",
+      "sha256": "fe605c77e1e8cf87ce807dbb8d6c3242eb3a4ff961f055e9b61057acfc678782"
     },
     {
       "path": "UPSTREAM.md",
-      "gitBlob": "46c87fa6ecfd22c0f6baa8ff07af014f410947c8",
-      "sha256": "abf8a4c05fe313e29d03d122c677ebdc5b1ff51f65ffdc5eb1d7f546f1aba0f1"
+      "gitBlob": "7c9ff5ef67bc69359c5f49dae5de570d5925eb18",
+      "sha256": "99e622706da5d0a12cb1eaacc7fe1f42a69d2b0df41a4962a45d0014b1682c05"
     }
   ],
   "verification": {
-    "scope": "File identities, isolated supporting-file closure, metadata and disposable helper fixtures. No model-driven evaluation or live installation.",
+    "scope": "File identities, isolated notice/reference closure and disposable helper fixtures. Frozen pre-routing entrypoint pilot coverage is separate in the catalog; current full-skill and live-install behavior unverified.",
     "note": "upstreamFiles identifies original inputs at source.revision. files records this fork's resulting bytes and excludes this provenance file to avoid a self-reference."
   }
 }

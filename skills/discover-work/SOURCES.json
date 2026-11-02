@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "name": "discover-work",
+  "authorship": "Authored adaptation of the patterns described in SOURCES.md. No 1AboveIO runtime or package implementation is included.",
+  "sources": [
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "path": "skills/productivity/grilling/SKILL.md",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/productivity/grilling/SKILL.md",
+      "license": "MIT"
+    },
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "path": "skills/engineering/domain-modeling/SKILL.md",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/domain-modeling/SKILL.md",
+      "license": "MIT"
+    },
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "path": "skills/engineering/research/SKILL.md",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/research/SKILL.md",
+      "license": "MIT"
+    }
+  ],
+  "localChanges": [
+    "Carry project and Matt Pocock notices inside the independently selected folder."
+  ],
+  "requiredSiblingSkills": []
+}

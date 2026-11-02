@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "name": "change-safely",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/migration/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/migration/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/safe-refactor/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/safe-refactor/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/to-tickets/SKILL.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/to-tickets/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "sanyuan0704/sanyuan-skills",
+      "package": null,
+      "revision": "08b6572ef108f22d4e8a3ecf9182a4bbef097744",
+      "version": null,
+      "path": "skills/code-review-expert/references/removal-plan.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE.",
+      "url": "https://github.com/sanyuan0704/sanyuan-skills/blob/08b6572ef108f22d4e8a3ecf9182a4bbef097744/skills/code-review-expert/references/removal-plan.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "7ddbf551d9f0fed187ec6c68bdfcf3a7baeef996d9af4291c850b4da673f238e"
+    },
+    {
+      "path": "references/migration.md",
+      "kind": "original",
+      "sha256": "2df5f0f334575483ccaf8180a247d22da86f8d4c4839c521268b4efdf53a5a03"
+    },
+    {
+      "path": "references/refactor.md",
+      "kind": "original",
+      "sha256": "bf248c137418736be84d7571bfd3adce988372ec30b8c04ca0e918f70b66b99c"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

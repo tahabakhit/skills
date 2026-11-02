@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "name": "testing-work",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/tdd/SKILL.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/tdd/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/tdd/tests.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/tdd/tests.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/tdd/mocking.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/tdd/mocking.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "obra/superpowers",
+      "package": null,
+      "revision": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "version": null,
+      "path": "skills/test-driven-development/writing-good-tests.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE, Jesse Vincent.",
+      "url": "https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/test-driven-development/writing-good-tests.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/test-quality/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/property-based-testing/skills/property-based-testing/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/mutation-testing/skills/mutation-testing/SKILL.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/mutation-testing/skills/mutation-testing/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/ensure-coverage/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/test-quality/references/principles.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/property-based-testing/skills/property-based-testing/references/generating.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/property-based-testing/skills/property-based-testing/references/generating.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "trailofbits/skills",
+      "package": null,
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "version": null,
+      "path": "plugins/mutation-testing/skills/mutation-testing/references/equivalent-mutants.md",
+      "upstreamLicense": "CC-BY-SA-4.0",
+      "upstreamLicenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+      "url": "https://github.com/trailofbits/skills/blob/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a/plugins/mutation-testing/skills/mutation-testing/references/equivalent-mutants.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "f87d1308acb67746b0ef62e4d5dd66fc3cd81ac89dc08e37ebcb957f5692c38b"
+    },
+    {
+      "path": "references/adequacy.md",
+      "kind": "original",
+      "sha256": "2452bb8bf63086d9e438723e6888d25a86867bc7db05408a6135ea2c6d0b7086"
+    },
+    {
+      "path": "references/behavior-tests.md",
+      "kind": "original",
+      "sha256": "1006e9829ea62ece8b91ee049938547d4dce212cbee5bfd8089c35a08bc1b013"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  },
+  "integrationChanges": [
+    "Separate test-only authoring from an already-authorized production repair in the entrypoint and behavior reference."
+  ]
+}

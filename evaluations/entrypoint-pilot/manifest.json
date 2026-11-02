@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "kind": "entrypoint-only-development-pilot",
+  "plannedAnswerSessions": 32,
+  "completedAnswerSessions": 32,
+  "modelIds": [
+    "gpt-6.1-sol",
+    "gpt-6.1-terra"
+  ],
+  "provider": "openai",
+  "thinking": "medium",
+  "replicatesPerTaskConditionId": 1,
+  "conditions": [
+    "baseline",
+    "skill"
+  ],
+  "taskIds": [
+    "DES-01",
+    "DBG-02",
+    "VER-01",
+    "SQL-02",
+    "MET-02",
+    "DOC-02",
+    "dc-ux-accessibility",
+    "dc-report-review"
+  ],
+  "candidateSnapshots": [
+    {
+      "name": "analyze-data",
+      "path": "candidates/analyze-data.md",
+      "sha256": "8fd79655122807a6583291b21fcba903305df226427e819b5692ed0adce79a5d",
+      "notices": "notices/analyze-data",
+      "currentEntrypointDiffers": false
+    },
+    {
+      "name": "codebase-design",
+      "path": "candidates/codebase-design.md",
+      "sha256": "a518993855939875a9109221bce20ce98cd0bd0d40b26bcb8607b3d4cdd0692c",
+      "notices": "notices/codebase-design",
+      "currentEntrypointDiffers": false
+    },
+    {
+      "name": "document-review",
+      "path": "candidates/document-review.md",
+      "sha256": "a1aec4993522f2e9fc9b8181d0d88390de25d0e50e61c128dfd9d2445296d7eb",
+      "notices": "notices/document-review",
+      "currentEntrypointDiffers": false
+    },
+    {
+      "name": "interface-review",
+      "path": "candidates/interface-review.md",
+      "sha256": "49b970c12619206931b828d15015c9732b8bc05b7de470eb40ddb58096fd8589",
+      "notices": "notices/interface-review",
+      "currentEntrypointDiffers": false
+    },
+    {
+      "name": "research-work",
+      "path": "candidates/research-work.md",
+      "sha256": "206f2804075b539c03da1731a63f694d90d9639999618da5abda1f29dbff2079",
+      "notices": "notices/research-work",
+      "currentEntrypointDiffers": false
+    },
+    {
+      "name": "systematic-debugging",
+      "path": "candidates/systematic-debugging.md",
+      "sha256": "b64b95e6c2bfb3e99557d351e4f1bb6396464386a10b441c38b53fcf0f457b03",
+      "notices": "notices/systematic-debugging",
+      "currentEntrypointDiffers": true
+    },
+    {
+      "name": "verify-and-stop",
+      "path": "candidates/verify-and-stop.md",
+      "sha256": "1b9149ed40b0eba788ab3b5516621d0e8ba3328c148282505f9bb2a3764c080f",
+      "notices": "notices/verify-and-stop",
+      "currentEntrypointDiffers": true
+    }
+  ],
+  "commonSystem": {
+    "path": "common-system.md",
+    "sha256": "2ce4ad57d76c7887dc768c80d5e00ff60f1b9d75d2cf011ba3303a8f35e803df"
+  },
+  "sourceTaskBanks": [
+    {
+      "path": "../development-bank.json",
+      "sha256": "45b8c4865b5248dde5abf950e204820afec76fbae7a1e0f03aa4c94e23586173",
+      "selectedTasks": 6
+    },
+    {
+      "path": "../content-cases.json",
+      "sha256": "28260009fb314c57a4bc8bf3c2f82bf9ee7484ec454407589c46c6e067b42389",
+      "selectedTasks": 2
+    }
+  ],
+  "grading": {
+    "freshToolFreeJudges": 2,
+    "labelsWithheld": true,
+    "preUnblindingAdjudication": true,
+    "operatorWasRunner": true,
+    "scoreFreezeSha256": "176a4d8aa41f965c9bd6e197f530d59d0c9f71159b4ec2136c47c8b6ade53732",
+    "postScoreMethodAudit": "method-audit.md",
+    "methodAuditChangesPrimaryScores": false
+  },
+  "limits": [
+    "Registered IDs do not establish independent model families.",
+    "Entrypoints only; no tools, routing, reference loading or host-portability proof.",
+    "One sample per cell, development cases, no generic control or representative sampling.",
+    "Strict rubric differences are not automatically substantive decision-quality gains.",
+    "Current debugging and verification contain routing-only changes after the frozen snapshots."
+  ]
+}

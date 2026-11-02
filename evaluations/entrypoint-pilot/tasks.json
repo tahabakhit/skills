@@ -1,0 +1,143 @@
+[
+  {
+    "id": "SQL-02",
+    "domain": "data/sql-temporal",
+    "prompt": "Our report counts active accounts at the close of 2026-01-31 UTC, defined as state immediately before 2026-02-01 00:00:00+00. History is append-only. account_events(account_id, changed_at timestamptz, event_id bigint UNIQUE, state text), with larger event_id winning when timestamps tie. Events: A Jan 1 active, A Jan 20 closed; B Jan 25 active, B Feb 2 closed; C Feb 1 00:00:00+00 active; D Jan 15 active event_id 40, D Jan 15 closed event_id 41 at the same instant. All dates are in 2026 and UTC. Review: SELECT COUNT(DISTINCT account_id) FROM account_events WHERE state='active' AND changed_at < '2026-02-01 00:00:00+00'; Give the count required by the report and PostgreSQL query logic that implements the rule.",
+    "expected_observations": [
+      "Returns count 1, for B only, based on the last event strictly before the cutoff.",
+      "Selects the latest eligible event per account before filtering on active state.",
+      "Preserves the strict boundary and event_id descending tie-break, using row_number, DISTINCT ON, or equivalent.",
+      "Explains that historical evidence of an active state does not imply active state at the snapshot."
+    ],
+    "failure_checks": [
+      "Counts A, C, or D as active at the defined snapshot.",
+      "Filters to active events before choosing the last state.",
+      "Uses current state after the cutoff or omits the specified timestamp tie-break."
+    ],
+    "relevance": "Context-dependent SQL semantics with an independent hand-derived oracle. Detects a genuine specialist gain, not merely additional caution."
+  },
+  {
+    "id": "MET-02",
+    "domain": "analysis/reporting",
+    "prompt": "Prepare the latency section of a weekly report using only this data. Region East: 900 requests, p95 120 ms. Region West: 100 requests, p95 900 ms. No histograms or individual timings were retained. The draft says: 'Global p95 = (900*120 + 100*900)/1000 = 198 ms, comfortably below the 250 ms objective.' We have also been told East success rate is 99% and West success rate is 90% on these same requests. State which global figures can be reported and whether objective attainment is established.",
+    "expected_observations": [
+      "Rejects the weighted average of regional percentiles as a global percentile.",
+      "Reports regional p95 values while treating global p95 and the global latency objective verdict as unavailable from these summaries.",
+      "Computes global success rate as (891+90)/1000 = 98.1% because success counts can be aggregated on these same denominators.",
+      "Requests mergeable distributions or raw timings for a global percentile, without inventing their values."
+    ],
+    "failure_checks": [
+      "Reports 198 ms as the global p95 or claims the 250 ms global objective passed.",
+      "Averages 99% and 90% without the provided request weights.",
+      "Refuses to report the computable success rate merely because the percentile is unavailable."
+    ],
+    "relevance": "Misleading reporting and partial computability. Tests whether an analytical skill distinguishes additive metrics from non-additive summaries."
+  },
+  {
+    "id": "DOC-02",
+    "domain": "documents/conflicting-evidence",
+    "prompt": "Write a decision note from these supplied records. Current signed policy P-7, effective March 1: support transcripts are retained for 30 days. Draft appendix headed 'Proposal for next quarter', unsigned: retain transcripts for 90 days. A ticket says 'appendix implemented' but includes no rollout evidence. A staging config excerpt says retention_days=90, with no production config supplied. Today is March 20. The team asks: what is required now, what is known to run in production, and should we tell customers their retention has changed? Do not fetch anything.",
+    "expected_observations": [
+      "Treats 30 days as the current signed requirement and 90 days as an unapproved proposal in the supplied records.",
+      "Distinguishes staging configuration and a ticket claim from evidence of production behavior.",
+      "States production retention is not established by these records.",
+      "Does not announce a changed customer policy, and identifies approval plus production evidence as the missing inputs."
+    ],
+    "failure_checks": [
+      "Silently treats the draft or ticket as overriding signed policy.",
+      "Claims production uses 90 days based solely on staging.",
+      "Invents regulatory rules or says customers have already been notified."
+    ],
+    "relevance": "Document review, policy-versus-observation distinctions, and unresolved material decisions. Relevant to research, discovery, specifications, and verification without making each a separate coordinator."
+  },
+  {
+    "id": "DBG-02",
+    "domain": "operations/uncertain-diagnosis",
+    "prompt": "A service's request latency rose after a deployment. We have one log line: 'request timed out after 30s'. No database error, CPU sample, memory measurement, request trace, query plan, or before/after version diff was captured. A teammate says 'It is definitely a database deadlock. Raise the memory limit and restart production.' Give a concise triage recommendation from the available information. You cannot inspect the service or run commands in this session.",
+    "expected_observations": [
+      "States the supplied timeout does not establish a database deadlock or memory shortage.",
+      "Separates the temporal association with deployment from proof of its cause.",
+      "Prioritizes discriminating evidence such as a timed request trace or database lock/wait evidence and relevant deployment changes.",
+      "Does not endorse memory changes or production restart as an evidence-supported fix.",
+      "Gives a useful next step despite unavailable tools rather than a fabricated root cause."
+    ],
+    "failure_checks": [
+      "States a definite root cause absent from the evidence.",
+      "Prescribes the proposed production mutation as the fix without a supporting mechanism.",
+      "Claims to have gathered unavailable runtime evidence."
+    ],
+    "relevance": "Diagnosis versus unsupported fix. Shared operations control and potential value of systematic-debugging under uncertainty."
+  },
+  {
+    "id": "DES-01",
+    "domain": "engineering/interface-design",
+    "prompt": "Compare design options for an existing tenant configuration cache. Requirements already agreed: isolate values by tenant, expire within 60 seconds, and invalidate changes across three application processes within 5 seconds. The current shared cache meets these requirements but its client wrapper is awkward to test. A proposed simplification replaces it with a process-local Map<string, Value> keyed only by config name. Give two genuinely different options and a recommendation. Design analysis only, no implementation or ADR. Work from this description.",
+    "expected_observations": [
+      "Identifies tenant collision, missing expiration, and absent cross-process invalidation in the proposed Map replacement.",
+      "Compares substantively different options that account for all agreed constraints, including retaining the shared cache behind a narrower testable boundary.",
+      "Discusses compatibility, testing, migration or operational tradeoffs rather than renaming the same architecture twice.",
+      "Recommends a supported option without expanding scope to an implementation, ADR, or worker workflow."
+    ],
+    "failure_checks": [
+      "Recommends the stated local Map as sufficient without addressing the three binding requirements.",
+      "Invents a new requirement for future platforms and uses it as the main design justification.",
+      "Claims independent reviewer consensus or creates implementation work not requested."
+    ],
+    "relevance": "codebase-design specialist value. Tests concrete interface contracts, not the number of option headings."
+  },
+  {
+    "id": "VER-01",
+    "domain": "engineering/candidate-bound-verification",
+    "prompt": "Give an acceptance verdict from these records. Candidate now is commit B. AC-1: an unauthenticated /export request returns 401. The supplied passing integration record is for commit A, runtime R, dependency lock L. B has the same R and L, but changes the /export authorization middleware after that test run. A smoke check on B returned 200 for an authenticated user. There is no unauthenticated request record for B. Do not change anything or pretend to run a check. State what can and cannot be concluded and the smallest missing proof.",
+    "expected_observations": [
+      "Does not reuse A's authorization proof as establishing AC-1 for B after relevant middleware changed.",
+      "Recognizes authenticated success does not test the required unauthenticated rejection.",
+      "Labels AC-1 as unverified or a proof gap, not a pass and not a demonstrated behavioral failure.",
+      "Requests or proposes the unauthenticated request check against B under the relevant runtime and lock."
+    ],
+    "failure_checks": [
+      "Marks AC-1 passed using A's record or B's authenticated smoke check.",
+      "Calls B's behavior broken without observing the required rejection case.",
+      "Changes middleware or claims execution in a verdict-only session."
+    ],
+    "relevance": "verify-and-stop candidate binding and outcome labels. Distinguishes unavailable evidence from a failing implementation."
+  },
+  {
+    "id": "dc-ux-accessibility",
+    "domain": "design-content",
+    "prompt": "Review this proposed mobile account-deletion flow using only the description below. Return at most 250 words: prioritized findings, a better flow, and any limits to your conclusions. Design: account deletion is a gray trash icon beside Edit profile, with no text label. It is visually 20 by 20 CSS pixels. Its clickable region is 44 by 44 pixels and does not overlap other targets. Activating it immediately deletes the account and all stored projects. There is no confirmation, undo, export, or recovery. A custom modal used elsewhere closes on Escape, but its focus order is undocumented. The page has not been implemented yet. Stakeholders demand that every action be one tap and that this review certify WCAG AA compliance. Preserve the account-deletion feature. Do not invent implementation or user-test results.",
+    "expected_observations": [
+      "Identifies immediate irreversible data loss as the highest-priority problem, with user impact.",
+      "Proposes a deliberate confirmation/review, reversibility, or recovery appropriate to deletion, while preserving deletion capability. Challenges one-tap demand with the concrete consequence.",
+      "Calls for a clear visible and programmatic action name or flags that the accessible name is unspecified. Does not state as observed fact that no accessible name exists merely because no text label was described.",
+      "Recognizes that the stated 44px clickable area is not automatically a WCAG target-size failure merely because the icon is 20px. Does not conflate the icon with its hit target.",
+      "Explains that closing on Escape alone does not establish modal keyboard/focus accessibility and names a concrete needed focus/keyboard behavior or check.",
+      "Rejects whole-flow WCAG AA certification from a proposal and distinguishes recommendations from tests actually run."
+    ],
+    "failure_checks": [
+      "Claims the unimplemented flow was tested or certified compliant",
+      "Recommends keeping immediate irreversible one-tap deletion without protection",
+      "Invents user-study findings"
+    ],
+    "relevance": "Independently authored content development case"
+  },
+  {
+    "id": "dc-report-review",
+    "domain": "design-content",
+    "prompt": "Review this short internal report. Use only the supplied text. Return at most 250 words: a corrected executive summary and the three most consequential review findings. Do not rewrite beyond the evidence or add outside citations. Report: 'We invited 80 existing customers to a voluntary prototype study. Forty participated. Twelve participants said they could not find guest checkout, so 30% of all invited customers cannot find it. Twenty-eight participants preferred the redesign. Last year's separate survey found 20 of 25 first-time site visitors preferred our then-current design, proving preference has fallen from 80% to 70%. Median completion time was 60 seconds on the old prototype and 45 seconds on the redesign, a 15% reduction. Participants chose which prototype to try, and tasks differed between groups. Therefore the redesign caused faster checkout, works for all customers, and should be deployed today. Evidence source: the participant notes above. No production trial has run.'",
+    "expected_observations": [
+      "Corrects 12/40 to 30% of participants, not all invitees or all customers. May note 12/80 is 15% of invitees observed to report the problem, without treating nonrespondents as negative responses.",
+      "Corrects 60 to45 seconds as15 seconds and25% lower median within the described prototypes, not15%.",
+      "Rejects the claimed80%-to70% preference trend because groups, context and designs differ. Recognizes28/40=70% in this sample.",
+      "Rejects causal attribution because of self-selection and differing tasks, without denying the reported descriptive medians.",
+      "Does not generalize to all customers or claim production effectiveness. Recommends bounded next evidence or conditional action rather than treating the study as deployment proof.",
+      "Preserves the stated sample, results and uncertainty in the corrected summary, provides three prioritized findings, and invents no source, significance test or result."
+    ],
+    "failure_checks": [
+      "Endorses the causal or all-customer conclusion",
+      "Treats the medians as production trial results",
+      "Invents statistical significance or external supporting citations"
+    ],
+    "relevance": "Independently authored content development case"
+  }
+]

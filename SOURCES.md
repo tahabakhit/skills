@@ -75,8 +75,8 @@ large work but leave ticket creation and scheduling to delivery.
 
 A later read-only assessment informed [the architecture plan](ARCHITECTURE.md).
 These sources are design evidence, not dependencies, imported skills, or passing
-workflow evaluations. The earlier adaptation record above describes the current
-two skills rather than a mandate for the expanded collection.
+workflow evaluations. The earlier adaptation record above describes the original
+discovery pair rather than a mandate for the expanded collection.
 
 | Source | Revision inspected | Design finding |
 | --- | --- | --- |
@@ -174,10 +174,43 @@ These three companions close design/diagnosis/proof gaps. They do not establish
 dependency closure for unchanged CI or Git workflows, full delivery, or host
 behavior. Those consumers and the other audited skills remain future work.
 
+## Consolidated expansion
+
+[The expansion research](research/README.md) and [pinned source register](research/collections.json)
+cover 20 public repositories plus two cached npm artifacts. Inventoried entrypoints
+are not all deep-read or behaviorally tested. The [21-owner map](CATALOG.md)
+distinguishes selected workflows, merged modes and substantive coverage gaps.
+
+Sixteen new procedures record original expression and conceptual comparisons,
+not copied upstream runtime, scripts or assets. Their local source records and
+`PROVENANCE.json` files travel with each selected folder. The existing three
+attributed forks retain their layered notices and original-input identities.
+The discovery pair now also carries its project and Matt Pocock notices locally.
+
+Owned optional handoffs are `deliver-work` and `testing-work`, not external
+`resolve-issues`, `babysit` or `tdd` setup requirements. Two imported entrypoints
+received routing-only updates after the pilot snapshots were frozen. Their source
+records identify the edits. The pilot's immutable snapshots are not silently
+relabeled as the current bytes.
+
+Do not copy Anthropic's restricted document implementations, unlicensed UX
+expression, proprietary finance workflows, MPL files or CC-BY-SA expression under
+this package's MIT label. Impeccable is Apache-2.0 with additional notice/ancestry
+considerations, not a blanket MIT source. Complete grants and per-file ancestry
+remain independent of behavioral scores. Conceptual comparisons are not a legal
+clearance opinion.
+
+For source updates, inspect the pinned delta, rights, side effects and dependency
+closure. Preserve historical import uncertainty and full notices. Give changed
+payloads new recorded identities. Run offline checks, inspect the actual tarball,
+and use fresh tasks after development exposure. Source maintenance belongs to this
+repository's maintainer, not an upstream auto-updater or a hidden private skill.
+
 ## Limits
 
-The original discovery pair is authored from the design sources above. The
-three companions are attributed, adapted forks. Neither is an endorsed
-integration or measured proof of better delivery. Model behavior needs evaluation.
-Package changes can alter handoff requirements. There is no automatic source
-download or update hook in this package.
+The discovery pair is authored from the design sources above. The three companions
+are attributed forks. The 16 new procedures are provisional original workflows.
+None is an endorsed integration. [The recorded pilot](evaluations/entrypoint-pilot/RESULTS.md)
+is entrypoint-only development evidence, not proof of whole-system effectiveness,
+routing, tools, stopping behavior or host compatibility. Package changes can alter
+handoffs. There is no automatic source download or update hook.

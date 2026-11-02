@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "discover-work",
+  "kind": "authored-adaptation",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-MATT",
+      "copyright": "Copyright (c) 2026 Matt Pocock",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Carry project and Matt Pocock notices inside the independently selected folder."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-MATT",
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "760ca76c70c95c4917aa6e95d661df7b61b352649aa461e6912715779c6fdad0",
+      "gitBlob": "c8f676766c39104e9583946010abc24f7263b994"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "73bd177d66e725f57f4856bd1b1c59cda82dce797b4d1f8e59ff0ffa2d3ee3d1",
+      "gitBlob": "381dde99a960ae3f1ac83036ac91c610c695e4bc"
+    }
+  ]
+}

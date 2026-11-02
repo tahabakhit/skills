@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "data-pipelines",
+  "status": "Original draft for evaluation, not installed or behaviorally verified",
+  "authorship": "Original prose authored for this collection during the 2026-11-02 research task",
+  "draftLicense": "MIT",
+  "copiedUpstreamProse": false,
+  "copiedUpstreamCode": false,
+  "bundledUpstreamFiles": [],
+  "method": "Original contract/state/replay/verification procedure. Source ideas below were evaluated critically and expressed independently. No copied upstream commands, diagrams, templates, scripts, MPL/CC-BY-SA material or proprietary content. No adversarial task/gold inspection or model runs.",
+  "sources": [
+    {
+      "repo": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "path": "skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/blob/b8facde20b7a92c40ce3e6b86b71c4b92aa44040/skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md",
+      "license": "Apache-2.0",
+      "use": "Ideas only: consumer compatibility, model metadata, actual data validation and scoped targets. No source expression copied."
+    },
+    {
+      "repo": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "path": "skills/dbt/skills/adding-dbt-unit-test/references/special-cases-incremental-model.md",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/blob/b8facde20b7a92c40ce3e6b86b71c4b92aa44040/skills/dbt/skills/adding-dbt-unit-test/references/special-cases-incremental-model.md",
+      "license": "Apache-2.0",
+      "use": "Ideas only: emitted merge-input rows differ from final stored state. Did not copy broad schema-only execution recipe or fixture code."
+    },
+    {
+      "repo": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "path": "skills/dbt/skills/using-dbt-state/SKILL.md",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/blob/b8facde20b7a92c40ce3e6b86b71c4b92aa44040/skills/dbt/skills/using-dbt-state/SKILL.md",
+      "license": "Apache-2.0",
+      "use": "Reference idea only: distinguish commercial server-backed reuse from local manifest/selector concepts. No product claims, pricing, version table or source prose copied."
+    },
+    {
+      "repo": "dagster-io/skills",
+      "revision": "c23c97fe5ffc4a39dc9cc1f9834c0311858cc16f",
+      "path": "plugins/dagster/skills/dagster-expert/references/cli/api/run/launch.md",
+      "url": "https://github.com/dagster-io/skills/blob/c23c97fe5ffc4a39dc9cc1f9834c0311858cc16f/plugins/dagster/skills/dagster-expert/references/cli/api/run/launch.md",
+      "license": "Apache-2.0",
+      "use": "Ideas only: remote versus local execution, explicit asset keys, partition and repository/location capability boundaries. No CLI examples or MCP signatures copied."
+    }
+  ],
+  "requiredLocalFiles": ["SKILL.md"],
+  "optionalLocalReferences": ["references/platform-evidence.md"],
+  "requiredSiblingSkills": [],
+  "requiredCapabilities": ["Read source/configuration, pipeline contracts and available run evidence"],
+  "optionalExternalCapabilities": ["Installed versioned dbt CLI/adapter and development warehouse", "Dagster/dg or configured orchestrator", "Authenticated deployed-service MCP/client", "Isolated fixture and integration-test target", "Domain/consumer owner review"],
+  "capabilityLimits": "The procedure does not implement an orchestrator, database client, CDC protocol, exactly-once guarantee, every platform's syntax, or consumer discovery outside available evidence.",
+  "sideEffects": "No automatic installation or secret export. Pipeline execution, replay, schedule changes and stored-data mutation require scope-appropriate task authority. Native commands can execute project code and incur cloud cost.",
+  "documentationLinks": "Vendor documentation entry points in optional reference are leads for runtime/version verification, not freshly fetched pages or evaluated command contracts.",
+  "evaluation": "Main agent owns model runs and independent gold. No behavioral or runtime safety success claimed."
+}

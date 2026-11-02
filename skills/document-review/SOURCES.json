@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "name": "document-review",
+  "authorship": "Original prose authored in this scratch area. No verbatim upstream skill/script/asset import and no proprietary document-procedure port. Source links identify inspected concepts, not copied files or claimed historical import events.",
+  "license": "MIT",
+  "copiedUpstreamFiles": [],
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/peer-review/SKILL.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/peer-review/SKILL.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/peer-review/references/ethical_review_practice.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/peer-review/references/ethical_review_practice.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/scientific-writing/SKILL.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/scientific-writing/SKILL.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    }
+  ],
+  "limits": "No third-party binary/font/image/schema assets included. No upstream text copied as a file. If integration retains substantial adapted upstream expression, conservatively carry the applicable full MIT/Apache license, relevant attribution and changed-file notices in the selectable folder; do not treat public availability or a root MIT label as per-file clearance."
+}

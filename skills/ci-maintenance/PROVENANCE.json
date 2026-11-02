@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "ci-maintenance",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Assemble original procedure and local references with the project notice and source comparison record."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/command-evidence.md",
+      "sha256": "bbfe19e3c4ab7afa5d7aa933c77ae70280883127d42929638333ec0aa37c7509",
+      "gitBlob": "4f588ca9e70c019f6c1ecec1739206d6802db330"
+    },
+    {
+      "path": "references/trust-and-coverage.md",
+      "sha256": "ec5874bd607006ec03c0b79190be20609b898a14affaf4c8e7270c8cebd70d3c",
+      "gitBlob": "df78704e31fbf8e11d31a7f04c56879cdfd8fcdd"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "48dda9c0e218b72832894548a2bcbb039c5b211bfc5b7d2460b39a43ce285790",
+      "gitBlob": "6642f16c9547b2906bd51fa716fcd9da862ed67e"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "3ad2c55f070dd1091c5bf583bdede1648767ececbe2345cb44b5f696c048f052",
+      "gitBlob": "08355067328c864fffae14e519a39ca98029855a"
+    }
+  ]
+}

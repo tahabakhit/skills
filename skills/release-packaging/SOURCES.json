@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "name": "release-packaging",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/release-packaging/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/release-packaging/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/release-packaging/references/targets-and-variants.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/release-packaging/references/targets-and-variants.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/release-packaging/references/lean-portability.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/release-packaging/references/lean-portability.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "d2e053d541cefbda038186a6a4ba30e9b67f22215fa5f0633ebad68949caa99d"
+    },
+    {
+      "path": "references/artifact-validation.md",
+      "kind": "original",
+      "sha256": "25f8811262abf7fbb9706692293f20d09584c0fcf86af230c428bdd515c44198"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

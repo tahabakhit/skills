@@ -102,13 +102,67 @@ project test executions, live installations, global selections, host-model
 sessions, remote writes, or ownership transfers. New model-driven cases in
 [test/scenarios.md](test/scenarios.md) remain proposed checks, not passing results.
 
+## Consolidated source catalog and entrypoint pilot
+
+The expanded source has 21 canonical owners, local notices/provenance and no
+required sibling instructions. The original attributed imports retain their 29
+source-input records and complete ancestor grants. Two independent final source
+reviews found no remaining material integration blockers in their assigned scope.
+Their findings led to test-only authority, in-scope defect, CSV/formula, OCR,
+candidate-code execution and pre-hosted-output privacy corrections. These are
+source-review results, not passing behavioral tests.
+
+[The pilot record](evaluations/entrypoint-pilot/RESULTS.md) contains 32 completed
+answer sessions across eight frozen tasks, two conditions and the two registered
+OpenAI IDs. There were also two fresh tool-free grading sessions and independent
+adjudication. The 32 figure counts task answers, not all research/grading work.
+Saved contexts matched task/common/candidate bytes and expected sections. Every
+answer completed with recorded medium thinking and no tool calls/results or
+observed retry/error entries. This establishes the tested construction, not
+hidden provider identity or internal server behavior.
+
+Frozen strict scores were 7/8 versus 8/8 for `gpt-6.1-sol` and 3/8 versus 6/8 for
+`gpt-6.1-terra`, baseline versus skill. No listed failure flags occurred. A separate
+post-score audit found the eight nonpasses mostly reflect explicit completeness
+or restatement rather than substantive wrong behavior. The strict scores remain
+unchanged. Do not report the four discordant pairs as four corrected factual
+errors or whole-system uplift. Additional input was 4,957 reported tokens per ID
+across eight treatment calls. Gateway billing was not independently verified.
+
+Frozen candidate snapshots remain separate from current source. Debugging and
+verification received optional-routing updates after freezing. The original
+pair and 12 other owners were not tested. The pilot did not load references,
+run SQL, inspect a service, edit a document, render a UI or exercise real delivery.
+
+## Expanded package checks
+
+The checkout and an independently extracted 188-entry npm tarball both returned:
+
+```text
+14 package checks passed; no model calls made by this command.
+```
+
+Those checks include all 21 independently copied folders, 111 recorded payload
+identities, six selectable-folder fixtures, seven helper fixtures, five command
+status fixtures and offline consistency checks for the 32-answer record. The
+record checks cover manifest/snapshot/task-bank hashes, scoring-freeze identity,
+assignments, quoted evidence and paired calculations. They do not certify semantic
+judgments or repeat model calls. The archive has no required runtime dependencies
+or install hooks.
+
+All 67 historical live shared-skill files still matched the audit snapshot after
+source integration. No installed folder, live lock, chezmoi source or host setting
+was migrated by this task. The source tarball is not an installation test.
+
 ## Not established
 
-No model-driven acceptance scenarios have been run. There is no evidence yet for
-question quality, consistent authority handling or engineering delivery success.
-`test/scenarios.md` defines the evaluation cases, not passing results.
+The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
+results. Question quality for the original pair, real authority/stopping behavior,
+automatic routing, full engineering success and source-specialist equivalence
+are not established. A forced text-only comparison cannot establish those facts.
 
-Discovery with Pi's loader and installation into Claude/Codex directories do not
-establish model behavior in those clients. No interactive TUI or full engineering
-workflow was tested. npm publication and authority over the `@tahabakhit` scope
-have not been verified. No package was published or registered in real projects.
+Earlier two-skill loader/directory installation smoke tests do not verify the
+expanded catalog in Claude Code or Codex. The native interactive Pi sessions were
+used as a runner, not a client-TUI acceptance test. Global installation, ownership
+transfer, npm publication and authority over the `@tahabakhit` scope remain
+unverified. No package was published or registered in real projects.

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "name": "data-pipelines",
+  "kind": "original-procedure",
+  "sourceRecord": "source.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Assemble original procedure and local references with the project notice and source comparison record."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/platform-evidence.md",
+      "sha256": "1116d82d1e9839c994f02e98c326d32a8cca49495847263713077eda4efa34a9",
+      "gitBlob": "211567b7847652e7bfe1224287bc73bb93b3e78e"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "bea3c8c9a3f4fda988c395b2f59c2f6ede768d507e6493aca9c55da2ae37205c",
+      "gitBlob": "ce9c6896bddd92523375b7a0f1a7d3a0c0cbbe71"
+    },
+    {
+      "path": "source.json",
+      "sha256": "8ff27c37c68af6dba8f27ab2251d5ec22b4e77c8f053b8459e6f0ff89bda51a8",
+      "gitBlob": "b9796a2d3987ce4814fc69ba6cb871a2cd4fc59e"
+    }
+  ]
+}

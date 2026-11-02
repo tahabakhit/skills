@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "name": "research-work",
+  "authorship": "Original prose authored in this scratch area. No verbatim upstream skill/script/asset import and no proprietary document-procedure port. Source links identify inspected concepts, not copied files or claimed historical import events.",
+  "license": "MIT",
+  "copiedUpstreamFiles": [],
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/literature-review/SKILL.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/literature-review/SKILL.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/scientific-writing/references/evidence_workflow.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/scientific-writing/references/evidence_workflow.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/market-research-reports/references/evidence_model.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/market-research-reports/references/evidence_model.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "coreyhaines31/marketingskills",
+      "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+      "path": "skills/customer-research/SKILL.md",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/customer-research/SKILL.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "copyright": "2025 Corey Haines",
+        "terms": "Retain copyright and permission notice in all copies/substantial portions. Copywriting and copy-editing references explicitly name MIT Profound/Wispr Flow ancestry; root Corey notice alone may be insufficient for these passages. Preserve inherited attribution and verify original scope before copying.",
+        "ancestor": "P"
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "coreyhaines31/marketingskills",
+      "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+      "path": "skills/customer-research/references/interviews-and-surveys.md",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/88c79f6528a9347420e57ceb1fff9a60de651768/skills/customer-research/references/interviews-and-surveys.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE",
+        "copyright": "2025 Corey Haines",
+        "terms": "Retain copyright and permission notice in all copies/substantial portions. Copywriting and copy-editing references explicitly name MIT Profound/Wispr Flow ancestry; root Corey notice alone may be insufficient for these passages. Preserve inherited attribution and verify original scope before copying.",
+        "ancestor": "P"
+      }
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "path": "skills/market-research-reports/SKILL.md",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/a25cf9ec00e2745d03f8704acf6f6919694ccd9a/skills/market-research-reports/SKILL.md",
+      "license": {
+        "spdx": "MIT",
+        "path": "LICENSE.md",
+        "copyright": "2025 K-Dense Inc.",
+        "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+      }
+    },
+    {
+      "kind": "observation-only-no-content-import",
+      "repository": "saraeldebissy/ux-research-skills",
+      "revision": "5f1143513403ca7bed0a283594718fa2b7abfeb1",
+      "path": "research-mode/SKILL.md",
+      "url": "https://github.com/saraeldebissy/ux-research-skills/blob/5f1143513403ca7bed0a283594718fa2b7abfeb1/research-mode/SKILL.md",
+      "license": {
+        "spdx": null,
+        "path": null,
+        "terms": "No LICENSE/NOTICE file in complete tree; GitHub repository license field null. Public availability is not a grant. Hold copying, derivative import and bundled ZIP redistribution."
+      }
+    },
+    {
+      "kind": "observation-only-no-content-import",
+      "repository": "saraeldebissy/ux-research-skills",
+      "revision": "5f1143513403ca7bed0a283594718fa2b7abfeb1",
+      "path": "research-plan/SKILL.md",
+      "url": "https://github.com/saraeldebissy/ux-research-skills/blob/5f1143513403ca7bed0a283594718fa2b7abfeb1/research-plan/SKILL.md",
+      "license": {
+        "spdx": null,
+        "path": null,
+        "terms": "No LICENSE/NOTICE file in complete tree; GitHub repository license field null. Public availability is not a grant. Hold copying, derivative import and bundled ZIP redistribution."
+      }
+    },
+    {
+      "kind": "observation-only-no-content-import",
+      "repository": "saraeldebissy/ux-research-skills",
+      "revision": "5f1143513403ca7bed0a283594718fa2b7abfeb1",
+      "path": "synthesis/SKILL.md",
+      "url": "https://github.com/saraeldebissy/ux-research-skills/blob/5f1143513403ca7bed0a283594718fa2b7abfeb1/synthesis/SKILL.md",
+      "license": {
+        "spdx": null,
+        "path": null,
+        "terms": "No LICENSE/NOTICE file in complete tree; GitHub repository license field null. Public availability is not a grant. Hold copying, derivative import and bundled ZIP redistribution."
+      }
+    }
+  ],
+  "limits": "No third-party binary/font/image/schema assets included. No upstream text copied as a file. If integration retains substantial adapted upstream expression, conservatively carry the applicable full MIT/Apache license, relevant attribution and changed-file notices in the selectable folder; do not treat public availability or a root MIT label as per-file clearance."
+}

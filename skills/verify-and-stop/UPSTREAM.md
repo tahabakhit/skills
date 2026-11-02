@@ -18,7 +18,7 @@ by their upstream authors.
 
 ## Local adaptations
 
-- Make delivery follow-through optional without changing validation-only scope.
+- Make delivery follow-through optional without changing validation-only scope. In the consolidated catalog, use `deliver-work` when available and already within the requested endpoint.
 - Preserve candidate-bound proof, non-vacuous checks, and existing action authority.
 
 The self-contained [provenance record](PROVENANCE.json) lists original source

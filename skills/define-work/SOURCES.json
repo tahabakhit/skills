@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "name": "define-work",
+  "authorship": "Authored adaptation of the patterns described in SOURCES.md. No 1AboveIO runtime or package implementation is included.",
+  "sources": [
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "path": "skills/engineering/to-spec/SKILL.md",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/to-spec/SKILL.md",
+      "license": "MIT"
+    },
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "path": "skills/engineering/to-tickets/SKILL.md",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/to-tickets/SKILL.md",
+      "license": "MIT"
+    }
+  ],
+  "localChanges": [
+    "Replace transitional external delivery with optional owned deliver-work, preserving specification-only scope.",
+    "Update the example handoff and carry project and Matt Pocock notices locally."
+  ],
+  "requiredSiblingSkills": []
+}

@@ -1,0 +1,64 @@
+[
+  {
+    "model": "gpt-6.1-sol",
+    "arms": [
+      {
+        "condition": "baseline",
+        "samples": 8,
+        "strictPasses": 7,
+        "meanObservationFraction": 0.9791666666666666,
+        "inputTokensSum": 1922,
+        "medianInputTokens": 221.5,
+        "outputTokensSum": 2508,
+        "cacheReadTokensSum": 0,
+        "cacheWriteTokensSum": 0,
+        "medianResponseDurationMs": 12645.5,
+        "listedFailures": 0
+      },
+      {
+        "condition": "skill",
+        "samples": 8,
+        "strictPasses": 8,
+        "meanObservationFraction": 1,
+        "inputTokensSum": 6879,
+        "medianInputTokens": 781,
+        "outputTokensSum": 3055,
+        "cacheReadTokensSum": 0,
+        "cacheWriteTokensSum": 0,
+        "medianResponseDurationMs": 12106.5,
+        "listedFailures": 0
+      }
+    ]
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "arms": [
+      {
+        "condition": "baseline",
+        "samples": 8,
+        "strictPasses": 3,
+        "meanObservationFraction": 0.8604166666666666,
+        "inputTokensSum": 1922,
+        "medianInputTokens": 221.5,
+        "outputTokensSum": 2057,
+        "cacheReadTokensSum": 0,
+        "cacheWriteTokensSum": 0,
+        "medianResponseDurationMs": 6644.5,
+        "listedFailures": 0
+      },
+      {
+        "condition": "skill",
+        "samples": 8,
+        "strictPasses": 6,
+        "meanObservationFraction": 0.94375,
+        "inputTokensSum": 6879,
+        "medianInputTokens": 781,
+        "outputTokensSum": 2195,
+        "cacheReadTokensSum": 0,
+        "cacheWriteTokensSum": 0,
+        "medianResponseDurationMs": 5045,
+        "listedFailures": 0
+      }
+    ]
+  }
+]

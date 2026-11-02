@@ -3,11 +3,12 @@
 This document records the agreed direction and a proposed structure. It does not
 mean the full proposed system is implemented or grant permission to install,
 publish, migrate, or deploy.
-Five skills currently ship: the original discovery/specification pair and three
-companion imports for concrete design, debugging, and acceptance proof. The
-[small catalog](catalog.json) records their boundaries. This is not the full
-expanded collection or a delivery coordinator. The specification skill's external
-delivery handoff remains transitional and has not yet been replaced.
+The source catalog now contains 21 canonical workflow owners: the original five
+and 16 new original procedures. [The owner map](CATALOG.md) records consolidation,
+capability limits and deferred specialist dispositions. `deliver-work` owns the
+engineering endpoint and replaces the external delivery recommendation. This is
+not complete specialist coverage or proven model uplift. Installation, migration
+and expanded host behavior remain separately unverified.
 
 ## Agreed decisions
 
@@ -133,18 +134,19 @@ rules after the transition. An isolated host check can use harmless synthetic
 instructions to test precedence without copying private content into this public
 repository. File preservation alone does not establish that the host loads it.
 
-## Next implementation stages
+## Current implementation and remaining verification
 
-1. Assign provisional domain ownership and define the minimal catalog from
-   existing skills. Ask only about consequential scope choices, not folder names.
-2. Audit and import the existing collection without replacing live installations.
-3. Verify selective global/project installs and supporting-file access in all
-   three hosts before a live ownership transfer.
-4. Add missing engineering stages with one delivery coordinator and explicit
-   capability checks, then expand domains against recurring needs.
-5. Verify the chosen direct distribution path. Generate packages only if needed.
-   Publication remains a separately authorized action, not an automatic
-   consequence of completing setup.
+1. The 21 source owners have one delivery coordinator, local required references
+   and per-folder notices/provenance. Deferred installed specialists are not
+   retired or assumed equivalent to these procedures.
+2. Verify selective global/project installs and supporting-file access in all
+   three hosts before any authorized live ownership transfer.
+3. Compare fresh representative work against no skill and a short generic control.
+   The entrypoint development pilot does not establish full-skill effectiveness.
+4. Expand substantive gaps against recurring tasks, including platform recovery,
+   statistical methods and format-specific engines. Do not fill them with labels.
+5. Verify direct distribution. Generate packages or profiles only when needed.
+   Publication remains separately authorized, not a consequence of source setup.
 
 Use structural checks for metadata, links, licenses, package contents, and
 required dependencies. Test install collisions, duplicate discovery, updates,

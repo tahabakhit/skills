@@ -1,0 +1,290 @@
+[
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "DBG-02",
+    "candidate": "systematic-debugging",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 5,
+      "observationsTotal": 5,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 5,
+      "observationsTotal": 5,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "DES-01",
+    "candidate": "codebase-design",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "DOC-02",
+    "candidate": "research-work",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "MET-02",
+    "candidate": "document-review",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "SQL-02",
+    "candidate": "analyze-data",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "VER-01",
+    "candidate": "verify-and-stop",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "dc-report-review",
+    "candidate": "document-review",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 5,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "outcome": "skill-only"
+  },
+  {
+    "model": "gpt-6.1-sol",
+    "taskId": "dc-ux-accessibility",
+    "candidate": "interface-review",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "DBG-02",
+    "candidate": "systematic-debugging",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 4,
+      "observationsTotal": 5,
+      "failures": 0
+    },
+    "skill": {
+      "pass": false,
+      "observationsMet": 4,
+      "observationsTotal": 5,
+      "failures": 0
+    },
+    "outcome": "neither-pass"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "DES-01",
+    "candidate": "codebase-design",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "DOC-02",
+    "candidate": "research-work",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "neither-pass"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "MET-02",
+    "candidate": "document-review",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "skill-only"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "SQL-02",
+    "candidate": "analyze-data",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "VER-01",
+    "candidate": "verify-and-stop",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 3,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 4,
+      "observationsTotal": 4,
+      "failures": 0
+    },
+    "outcome": "skill-only"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "dc-report-review",
+    "candidate": "document-review",
+    "baseline": {
+      "pass": false,
+      "observationsMet": 5,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "outcome": "skill-only"
+  },
+  {
+    "model": "gpt-6.1-terra",
+    "taskId": "dc-ux-accessibility",
+    "candidate": "interface-review",
+    "baseline": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "skill": {
+      "pass": true,
+      "observationsMet": 6,
+      "observationsTotal": 6,
+      "failures": 0
+    },
+    "outcome": "both-pass"
+  }
+]

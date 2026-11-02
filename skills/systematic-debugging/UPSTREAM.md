@@ -19,7 +19,7 @@ by their upstream authors.
 ## Local adaptations
 
 - Vendor three CI support references and localize required links.
-- Mark PR, fleet, NixOS, Git, TDD and publication-audit specialists optional; do not auto-install them.
+- Mark specialist contributions optional; do not auto-install them. In the consolidated catalog, use `testing-work` for test-first work and `deliver-work` for authorized follow-through. Fleet/platform gaps remain explicit.
 - Document helper prerequisites and non-sandboxed test execution.
 - Retain historical prompts and example outcome claims as data, not instructions or local evaluation results.
 - Preserve diagnostic producer status and privacy; omit the unsafe prefix-only containment example.

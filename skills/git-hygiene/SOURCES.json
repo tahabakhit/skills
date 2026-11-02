@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "name": "git-hygiene",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/git-hygiene/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/git-hygiene/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/git-hygiene/references/work-units.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/git-hygiene/references/work-units.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "4528c88c25c3fb2df19d7c411a3d7f33ddeb48e942254f8de84ce190436c97fe"
+    },
+    {
+      "path": "references/ownership.md",
+      "kind": "original",
+      "sha256": "7752636f67756b8378603b60095a27f9f07421301a17b8895b49e3271a622d50"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

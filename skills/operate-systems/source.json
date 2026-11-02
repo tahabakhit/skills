@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "operate-systems",
+  "status": "Original draft for evaluation, not installed or behaviorally verified",
+  "authorship": "Original prose authored for this collection during the 2026-11-02 research task",
+  "draftLicense": "MIT",
+  "copiedUpstreamProse": false,
+  "copiedUpstreamCode": false,
+  "bundledUpstreamFiles": [],
+  "method": "Original general operations/evidence/change procedure informed by the local architecture and historical installed audit. No distro skill, command recipe, source script or licensed upstream passage copied. The exact prior-audit source identities below are provenance leads, not claims of fresh full-file upstream review in this drafting step. No adversarial task/gold inspection or model runs.",
+  "localContext": [
+    {"path":"ARCHITECTURE.md","use":"Ideas only: domain ownership and distro-specific optional profiles, standalone instructions and capability boundaries"},
+    {"path":"audits/installed-skills.md","use":"Ideas only: config ownership, scope/authority, diagnostic privacy, non-Arch probe failure classification, actual comparison bounds and recovery proof"}
+  ],
+  "sources": [
+    {
+      "repo": "bolens/agent-skills",
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "paths": ["skills/arch-linux/SKILL.md", "skills/arch-package-maintenance/SKILL.md", "skills/arch-update-recovery/SKILL.md", "skills/cachyos/SKILL.md", "skills/managed-config-drift/SKILL.md", "skills/workstation-health-triage/SKILL.md"],
+      "url": "https://github.com/bolens/agent-skills/tree/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills",
+      "license": "MIT as recorded by the prior installed-skill audit, copyright 2026 bolens",
+      "inspection": "Prior local audit findings and available skill descriptions, not a fresh content audit of these upstream files in this drafting step",
+      "use": "Ideas only: distinct Arch/package/recovery/CachyOS owners, read-only comparison default, platform-selected evidence and explicit diagnostics limits"
+    },
+    {
+      "repo": "iuliandita/skills",
+      "revision": "496420bfb995892598e0eae18aff2a5be3d800b2",
+      "path": "skills/rhel-fedora/SKILL.md",
+      "url": "https://github.com/iuliandita/skills/blob/496420bfb995892598e0eae18aff2a5be3d800b2/skills/rhel-fedora/SKILL.md",
+      "license": "MIT as recorded by the prior installed-skill audit, copyright 2025 Iulian Dita",
+      "inspection": "Prior local audit findings and available skill description, not a fresh content audit of the upstream body in this drafting step",
+      "use": "Ideas only: Fedora/RHEL-specific ownership, SELinux and image-mode distinctions, privacy corrections and carrying existing authorization forward"
+    },
+    {
+      "repo": "ansible/aap-skills",
+      "revision": "4f30b4eb7207e6c2602e5354dbe00b319ff18dc4",
+      "path": "skills/aap-pre-upgrade-readiness/SKILL.md",
+      "url": "https://github.com/ansible/aap-skills/blob/4f30b4eb7207e6c2602e5354dbe00b319ff18dc4/skills/aap-pre-upgrade-readiness/SKILL.md",
+      "license": "Apache-2.0",
+      "inspection": "Read during fresh public-source research",
+      "use": "Boundary idea only: product-specific preassessment and unavailable evidence do not prove upgrade success. No AAP workflow, matrix or text copied. AAP MCP is not required by this skill."
+    }
+  ],
+  "requiredLocalFiles": ["SKILL.md"],
+  "optionalLocalReferences": ["references/platform-boundaries.md"],
+  "requiredSiblingSkills": [],
+  "requiredCapabilities": ["Read relevant host/platform evidence and existing configuration"],
+  "optionalExternalCapabilities": ["Installed native system/package/deployment tools", "Distribution/version-specific primary documentation", "Scoped Arch/Fedora/CachyOS/SELinux/storage/boot expertise", "Recoverable backup or snapshot with known scope", "Out-of-band console for risky remote access changes"],
+  "capabilityLimits": "A portable workflow does not supply distribution expertise, replace native documentation, implement a universal CLI, or guarantee backup restoration. Specialized guidance and tools remain optional declared capabilities, required only for actions needing them.",
+  "sideEffects": "Diagnosis does not authorize mutation. Existing scoped repair authority can carry forward without repeated default approval. No automatic installations, OS upgrades, configuration synchronization, service restarts or log publication.",
+  "documentationLinks": "Optional reference gives primary documentation leads and native tool names, not a claim to have fetched current vendor pages or validated every command/version.",
+  "evaluation": "Main agent owns all model runs and independent gold. No behavior, recovery or runtime safety success claimed."
+}

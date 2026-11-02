@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "frozen": "2026-11-02T10:16:00Z",
+  "scope": "Original benign text-only prompts. No tools, private data, proprietary skill text, source helpers, or file operations required. These tests measure reasoning on supplied evidence, not routing or rendering.",
+  "tasks": [
+    {
+      "id": "dc-ux-accessibility",
+      "treatmentFile": "drafts/interface-review.md",
+      "prompt": "Review this proposed mobile account-deletion flow using only the description below. Return at most 250 words: prioritized findings, a better flow, and any limits to your conclusions. Design: account deletion is a gray trash icon beside Edit profile, with no text label. It is visually 20 by 20 CSS pixels. Its clickable region is 44 by 44 pixels and does not overlap other targets. Activating it immediately deletes the account and all stored projects. There is no confirmation, undo, export, or recovery. A custom modal used elsewhere closes on Escape, but its focus order is undocumented. The page has not been implemented yet. Stakeholders demand that every action be one tap and that this review certify WCAG AA compliance. Preserve the account-deletion feature. Do not invent implementation or user-test results.",
+      "goldRubric": [
+        {"id":"irreversible-consequence","point":1,"pass":"Identifies immediate irreversible data loss as the highest-priority problem, with user impact."},
+        {"id":"proportionate-flow","point":1,"pass":"Proposes a deliberate confirmation/review, reversibility, or recovery appropriate to deletion, while preserving deletion capability. Challenges one-tap demand with the concrete consequence."},
+        {"id":"label-evidence","point":1,"pass":"Calls for a clear visible and programmatic action name or flags that the accessible name is unspecified. Does not state as observed fact that no accessible name exists merely because no text label was described."},
+        {"id":"target-size-nuance","point":1,"pass":"Recognizes that the stated 44px clickable area is not automatically a WCAG target-size failure merely because the icon is 20px. Does not conflate the icon with its hit target."},
+        {"id":"focus-evidence","point":1,"pass":"Explains that closing on Escape alone does not establish modal keyboard/focus accessibility and names a concrete needed focus/keyboard behavior or check."},
+        {"id":"bounded-conclusion","point":1,"pass":"Rejects whole-flow WCAG AA certification from a proposal and distinguishes recommendations from tests actually run."}
+      ],
+      "fatalFailures": ["Claims the unimplemented flow was tested or certified compliant", "Recommends keeping immediate irreversible one-tap deletion without protection", "Invents user-study findings"],
+      "baselineKnownBehaviorHypothesis": "A capable model probably catches destructive deletion and missing label without a skill. The potential added value is target-size nuance, evidence-scoped focus findings, and no false certification."
+    },
+    {
+      "id": "dc-report-review",
+      "treatmentFile": "drafts/document-review.md",
+      "prompt": "Review this short internal report. Use only the supplied text. Return at most 250 words: a corrected executive summary and the three most consequential review findings. Do not rewrite beyond the evidence or add outside citations. Report: 'We invited 80 existing customers to a voluntary prototype study. Forty participated. Twelve participants said they could not find guest checkout, so 30% of all invited customers cannot find it. Twenty-eight participants preferred the redesign. Last year's separate survey found 20 of 25 first-time site visitors preferred our then-current design, proving preference has fallen from 80% to 70%. Median completion time was 60 seconds on the old prototype and 45 seconds on the redesign, a 15% reduction. Participants chose which prototype to try, and tasks differed between groups. Therefore the redesign caused faster checkout, works for all customers, and should be deployed today. Evidence source: the participant notes above. No production trial has run.'",
+      "goldRubric": [
+        {"id":"denominator","point":1,"pass":"Corrects 12/40 to 30% of participants, not all invitees or all customers. May note 12/80 is 15% of invitees observed to report the problem, without treating nonrespondents as negative responses."},
+        {"id":"percentage","point":1,"pass":"Corrects 60 to45 seconds as15 seconds and25% lower median within the described prototypes, not15%."},
+        {"id":"trend-comparability","point":1,"pass":"Rejects the claimed80%-to70% preference trend because groups, context and designs differ. Recognizes28/40=70% in this sample."},
+        {"id":"causal-limits","point":1,"pass":"Rejects causal attribution because of self-selection and differing tasks, without denying the reported descriptive medians."},
+        {"id":"population-deployment","point":1,"pass":"Does not generalize to all customers or claim production effectiveness. Recommends bounded next evidence or conditional action rather than treating the study as deployment proof."},
+        {"id":"preserve-facts-scope","point":1,"pass":"Preserves the stated sample, results and uncertainty in the corrected summary, provides three prioritized findings, and invents no source, significance test or result."}
+      ],
+      "fatalFailures": ["Endorses the causal or all-customer conclusion", "Treats the medians as production trial results", "Invents statistical significance or external supporting citations"],
+      "baselineKnownBehaviorHypothesis": "Arithmetic and causal caveats may already be baseline behavior. Incremental benefit must come from correctly distinguishing invited/participating denominators, preserving descriptive results and avoiding a false trend."
+    }
+  ]
+}

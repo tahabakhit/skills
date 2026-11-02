@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "name": "define-work",
+  "kind": "authored-adaptation",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-MATT",
+      "copyright": "Copyright (c) 2026 Matt Pocock",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Replace transitional external delivery with optional owned deliver-work, preserving specification-only scope.",
+    "Update the example handoff and carry project and Matt Pocock notices locally."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-MATT",
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
+    },
+    {
+      "path": "references/example.md",
+      "sha256": "4afec6a19a8a2455e304aa91afa3562a0ccad1a931b6d32cf853935300d3be70",
+      "gitBlob": "d086cac944b35217c961aa0a9da30d1e0614002d"
+    },
+    {
+      "path": "references/spec-template.md",
+      "sha256": "e36000e49c9452740bab939992f4f18cb2c3ab14488535cd12f127186227f7d1",
+      "gitBlob": "63d91ae830439d37f5dbf10d35e217ca985096e0"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "8afa7817c319a5d652d6d16b3ba89f916cda3516f31900594b451e8fedf518c8",
+      "gitBlob": "d41061f82482a9813259ab4b0bd99441ad0afb1a"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "6240c6e413e16b21389947653ad9e8df11a67b137d630d0efe4a13a38c1dceb3",
+      "gitBlob": "8f32baa4ead4bdc8b518e40945df49c6aee7134a"
+    }
+  ]
+}

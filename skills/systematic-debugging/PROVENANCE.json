@@ -40,7 +40,8 @@
     "Preserve diagnostic producer status and privacy; omit the unsafe prefix-only containment example.",
     "Preserve wrapper/Python bytes; make the documented shell entrypoint executable.",
     "Mark TDD and sensitive-info-audit handoffs explicitly optional.",
-    "Replace root-only provenance pointers with this self-contained record and retain complete author notices."
+    "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
+    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records."
   ],
   "upstreamFiles": [
     {
@@ -236,8 +237,8 @@
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "dfed33295ede490e406e83b38a7edce14df423ca",
-      "sha256": "b64b95e6c2bfb3e99557d351e4f1bb6396464386a10b441c38b53fcf0f457b03"
+      "gitBlob": "0e605c536f55342b03996ae7e8ad4253ea59745b",
+      "sha256": "cff74fea244b095555a168c0fea307705910ae9f295f7ea5e42212e6b6096c35"
     },
     {
       "path": "test-academic.md",
@@ -261,12 +262,12 @@
     },
     {
       "path": "UPSTREAM.md",
-      "gitBlob": "646e960c2afd6cb34e7ed89628d23d9a911f159b",
-      "sha256": "1eecf9167ac47809a13f288056269c41aa9d36d661078bc82121c3757c261703"
+      "gitBlob": "34453886d93cf1d08f19c1bf8c9b2fe1ccd2276c",
+      "sha256": "00bdeac70edf827d39b67d2a10fcc518dbd5fbedca40a3f01425afb6131701e9"
     }
   ],
   "verification": {
-    "scope": "File identities, isolated supporting-file closure, metadata and disposable helper fixtures. No model-driven evaluation or live installation.",
+    "scope": "File identities, isolated notice/reference closure and disposable helper fixtures. Frozen pre-routing entrypoint pilot coverage is separate in the catalog; current full-skill and live-install behavior unverified.",
     "note": "upstreamFiles identifies original inputs at source.revision. files records this fork's resulting bytes and excludes this provenance file to avoid a self-reference."
   }
 }

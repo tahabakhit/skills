@@ -5,6 +5,19 @@ skills. Their sources and the changes made here are described in SOURCES.md.
 This package is not affiliated with or endorsed by Matt Pocock or 1aboveio.
 No 1aboveio package implementation or bundled scripts are redistributed.
 
+## Original procedures and selectable notices
+
+The 16 new consolidated procedures record original expression and conceptual
+source comparisons in their local source records. No upstream engine, document
+implementation, runtime, script or asset is bundled in those additions. Their
+project MIT notice travels in each selected folder. This is not a legal opinion
+that conceptual-source review clears every possible derivative.
+
+The discovery and specification folders each retain a complete project MIT and
+Matt Pocock MIT notice. Frozen attributed entrypoint snapshots used for evaluation
+retain applicable complete notices under the evaluation's `notices` directory.
+They are benchmark data, not additional discoverable skills.
+
 ## Imported companion skills
 
 The three companion folders are maintained forks of Bolens' agent skills at

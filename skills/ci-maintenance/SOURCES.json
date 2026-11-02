@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "name": "ci-maintenance",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/ci-maintenance/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/ci-maintenance/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/ci-maintenance/references/github-actions.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/ci-maintenance/references/github-actions.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/ci-maintenance/references/command-evidence.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/ci-maintenance/references/command-evidence.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/gha-security-review/SKILL.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/gha-security-review/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/ci-maintenance/references/setup-contracts.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/ci-maintenance/references/setup-contracts.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "getsentry/skills",
+      "package": null,
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "version": null,
+      "path": "skills/gha-security-review/references/ai-prompt-injection-via-ci.md",
+      "upstreamLicense": "Apache-2.0-with-exceptions",
+      "upstreamLicenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+      "url": "https://github.com/getsentry/skills/blob/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e/skills/gha-security-review/references/ai-prompt-injection-via-ci.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "48dda9c0e218b72832894548a2bcbb039c5b211bfc5b7d2460b39a43ce285790"
+    },
+    {
+      "path": "references/command-evidence.md",
+      "kind": "original",
+      "sha256": "bbfe19e3c4ab7afa5d7aa933c77ae70280883127d42929638333ec0aa37c7509"
+    },
+    {
+      "path": "references/trust-and-coverage.md",
+      "kind": "original",
+      "sha256": "ec5874bd607006ec03c0b79190be20609b898a14affaf4c8e7270c8cebd70d3c"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

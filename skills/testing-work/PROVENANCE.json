@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "testing-work",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Separate test-only authoring from an already-authorized production repair in the entrypoint and behavior reference."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/adequacy.md",
+      "sha256": "2452bb8bf63086d9e438723e6888d25a86867bc7db05408a6135ea2c6d0b7086",
+      "gitBlob": "7671040c349643b2b41db786ac0fd22e3debc031"
+    },
+    {
+      "path": "references/behavior-tests.md",
+      "sha256": "1006e9829ea62ece8b91ee049938547d4dce212cbee5bfd8089c35a08bc1b013",
+      "gitBlob": "d7378723a8e7e9bf641d4e089572239821ce3dbe"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "f87d1308acb67746b0ef62e4d5dd66fc3cd81ac89dc08e37ebcb957f5692c38b",
+      "gitBlob": "1f9a7fd3897bed652b42963dbde20ee35b3016fe"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "ef444b496b27153226b0d29e216c0962b85045bca22f0effb808e3040e028421",
+      "gitBlob": "e938e5f9fbba7c4eaf47b2f135570a25448adb45"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "deliver-work",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Clarify that unrelated discovered defects do not automatically change acceptance or authorize repair."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/follow-through.md",
+      "sha256": "ede23df6b935a73dafaa972c74e831e5763e165a198843dafb32d13734518fca",
+      "gitBlob": "3ec86c7294b85619f29a19a5a3d9577b34c86f66"
+    },
+    {
+      "path": "references/work-state.md",
+      "sha256": "d0e68a3056570951dae90579464d904830febdd1659404234bbcbe49ed62ff60",
+      "gitBlob": "48c46b17d8eb3862452cb096062bf4894e92579d"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "e571ccd36c72ed3732c8b5c86e439e1447f31a2c4d36f0128721408d5869be20",
+      "gitBlob": "b4f064a85f0f0f93687c2249fbecb8f65843c7d2"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "e309a975110271c2c19fad9bff29fc206e8d166ea6261c4f72b48f8c65eb2dd9",
+      "gitBlob": "052464a51ef108b1a5062b920790cdc9a052404f"
+    }
+  ]
+}

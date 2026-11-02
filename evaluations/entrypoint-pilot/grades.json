@@ -1,0 +1,874 @@
+[
+  {
+    "id": "00f9c670dd3d7c88",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The required count is **1 active account** at the close of 2026-01-31 UTC: account **B**.",
+      "and then count those whose selected state is `active`",
+      "ORDER BY account_id, changed_at DESC, event_id DESC",
+      "rather than checking their latest state"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "0597213e36701854",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      true
+    ],
+    "evidence": [
+      "Twelve participants (30%) said they could not find guest checkout",
+      "Median completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 25% reduction.",
+      "These results are not directly comparable.",
+      "Self-selection and differing tasks prevent a causal conclusion",
+      "",
+      "40 of 80 invited existing customers participated."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Rejects generalization and deployment proof, but recommends no bounded next evidence or conditional action. ADJUDICATED: The answer preserves the descriptive medians and corrects the percentage. The stated values entail a 15-second difference. Requiring the additional literal phrase '15 seconds' would reject equivalent arithmetic content rather than test a substantive correction. This decision does not change the separate, undisputed criterion about next evidence or action."
+  },
+  {
+    "id": "1d06c2ab6b728f1f",
+    "met": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "evidence": [
+      "Retain support transcripts for **30 days** under signed policy P-7",
+      "The ticket’s “appendix implemented” statement is a lead to investigate, not evidence of a production rollout.",
+      "The supplied records do not establish the production retention setting.",
+      ""
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Withholds a change announcement and requests production evidence, but does not identify policy approval as a missing input."
+  },
+  {
+    "id": "1ff050e16aff79c9",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The required count is 1: only account B is active immediately before 2026-02-01 00:00:00+00.",
+      "Then count accounts whose selected state is `active`.",
+      "ORDER BY account_id, changed_at DESC, event_id DESC",
+      "it counts accounts with *any* active event before the cutoff"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "23971ee2ef29e055",
+    "met": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "evidence": [
+      "a weighted average of regional percentiles, not the percentile of the combined requests",
+      "",
+      "East had 891 successful requests and West had 90, for 981 successes out of 1,000 requests.",
+      "Without histograms or individual timings, we cannot establish whether the global p95 meets the 250 ms objective."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Does not report the regional p95 values. Identifying missing histograms or timings is accepted as concise identification of the needed evidence. ADJUDICATED: In context, the answer identifies the missing distributional evidence needed for the combined percentile. Naming histograms or individual timings as the prerequisite is a semantic equivalent of requesting that evidence. An imperative request or a particular reporting template is unnecessary. No distribution values are invented. This does not change the separate, undisputed omission of regional p95 values."
+  },
+  {
+    "id": "2476a1a17bdb4d84",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "It must not be reported as global p95.",
+      "East handled 900 with a regional p95 latency of **120 ms**, and West handled 100 with a regional p95 of **900 ms**.",
+      "=\\frac{891+90}{1{,}000}\n=\\mathbf{98.1\\%}.",
+      "Individual timings or sufficiently detailed latency distributions would be needed to evaluate it."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "2df982e17e0e4a82",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "It does not prove AC-1 for B.",
+      "It does not establish how B handles unauthenticated requests.",
+      "This is not a demonstrated failure of B.",
+      "A focused check against commit B under runtime R and lock L that sends an unauthenticated request to `/export` and explicitly asserts a **401** response."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "3b18eefdfe3b4ea9",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "It has no expiration mechanism.",
+      "Keep the existing cache and its invalidation behavior.",
+      "Lowest change to existing behavior; potentially no caller-facing change.",
+      "Choose **Option 1**: retain the shared cache and improve the wrapper’s test seam."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "3bd13039d5155760",
+    "met": [
+      true,
+      false,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "it does **not** establish a database deadlock or a memory problem.",
+      "",
+      "gather evidence: application and database logs, request traces, resource metrics, and the deployment diff.",
+      "Don’t raise the memory limit or restart production solely on that claim.",
+      "consider a controlled rollback under the incident procedure while investigating."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Does not explicitly distinguish deployment association from proof of causation; checking timing and conditionally considering rollback alone does not state that distinction."
+  },
+  {
+    "id": "4444500020ba9b3f",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "not the p95 of all requests combined",
+      "East handled 900 requests with a regional p95 latency of **120 ms**; West handled 100 requests with a regional p95 of **900 ms**.",
+      "Global: (891 + 90) / 1,000 = **98.1%**.",
+      "Without individual timings or sufficiently detailed latency histograms, attainment of the **250 ms global p95 objective is not established**."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Identifies the missing distribution evidence without inventing values."
+  },
+  {
+    "id": "450fd1bc2c70340a",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The A result therefore does not establish B’s behavior.",
+      "It does not establish the required unauthenticated response.",
+      "This is not a demonstrated failure.",
+      "a recorded unauthenticated `/export` request against **commit B**, using R and L, showing **401**."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "52a948e345b3aaf3",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      false,
+      true
+    ],
+    "evidence": [
+      "Twelve participants (30% of participants; 15% of invitees)",
+      "a 15-second, or 25%, reduction relative to the old prototype",
+      "these results do not establish a decline in preference because the populations and designs differed.",
+      "Because participants selected their prototype and tasks differed between groups, the study does not establish that the redesign caused faster checkout.",
+      "",
+      "Of 80 existing customers invited to a voluntary prototype study, 40 participated."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Rejects universal suitability and immediate deployment, but supplies no bounded next evidence or conditional action."
+  },
+  {
+    "id": "54ed38ee4084b425",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "there is no evidence establishing a database deadlock—or memory pressure.",
+      "The timing makes the deployment a suspect",
+      "a slow-request trace, service and dependency logs, database lock/wait data, CPU and memory metrics, and the deployment diff.",
+      "Do not raise memory limits or restart production based on this log alone.",
+      "have the on-call team check error rate, latency, and affected endpoints."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "640b21d7fef7203c",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "not a database deadlock or memory shortage",
+      "The deployment timing makes a regression plausible, but does not prove the cause.",
+      "Check database lock waits specifically to test the deadlock hypothesis",
+      "Do not raise memory or restart production based on this evidence alone.",
+      "Have an authorized operator assess impact and capture a failing request’s trace"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "7c24dbff0169f198",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Twelve is 30% of the 40 participants, not the 80 invitees.",
+      "The 15-second difference is 25% of 60 seconds.",
+      "The percentages are descriptive, not a valid trend.",
+      "Self-selection and differing tasks prevent a causal comparison",
+      "prototype evidence does not establish production performance or universal suitability. Correct the arithmetic and withhold the causal and immediate-deployment conclusions.",
+      "40 of 80 invited existing customers participated."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Rejects deployment proof, but recommends only correcting or withholding conclusions, not bounded next evidence or conditional action. ADJUDICATED: The answer rejects production and universal claims and explicitly recommends withholding the immediate-deployment conclusion because the evidence does not establish those outcomes. This is an evidence-conditioned recommendation not to endorse immediate deployment, rather than treating this study as deployment proof. The criterion permits conditional action instead of proposing further evidence, so a new study proposal is not required. This judgment credits the actual recommendation, not the mere presence of uncertainty language."
+  },
+  {
+    "id": "84015f7d7a4aff12",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Critical — irreversible data loss",
+      "irreversible deletion should not occur from a single accidental tap.",
+      "Its accessible name and contrast are unspecified.",
+      "The described 44 × 44 px clickable region does not overlap other targets, which is a positive.",
+      "Manage focus when the dialog opens and closes, and support keyboard operation.",
+      "cannot certify WCAG AA compliance"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "9f3cc2daf8ad2fd8",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Twelve participants (30% of participants; 15% of invitees)",
+      "a 15-second, or 25%, reduction relative to the old prototype",
+      "Although 20/25 = 80% and 28/40 = 70%, the surveys involve first-time visitors versus existing customers and different designs.",
+      "participants selected their prototype and tasks differed between groups, so these results do not establish that the redesign caused faster checkout.",
+      "obtain comparable-task evidence and production validation before claiming deployment readiness.",
+      "Of 80 existing customers invited to a voluntary prototype study, 40 participated."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "a5d04e0910781105",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The required count is **1**: only account **B**",
+      "then count those whose selected state is active",
+      "ORDER BY account_id, changed_at DESC, event_id DESC",
+      "even if a later event closed them"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "a80f3bf6b8c43ab3",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "identical config names would collide across tenants, a plain map provides no expiry, and local mutations do not invalidate entries in the other two processes.",
+      "Retain the existing shared cache and place its awkward client wrapper behind a small application-facing interface.",
+      "notification delivery, reconnects, missed events, and concurrent loads require additional distributed-behavior tests.",
+      "Recommendation: Option 1."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "b64ddc9b15992829",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "the earlier result cannot establish AC-1 for B.",
+      "That says nothing conclusive about how B handles an **unauthenticated** request.",
+      "There is no evidence that B fails AC-1, but there is also no evidence that it passes.",
+      "On commit B, under the applicable runtime and dependency configuration, make an unauthenticated request to `/export` and verify that the response status is **401**."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "bb3cc609cf54c934",
+    "met": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "evidence": [
+      "It cannot establish the result for B because B changed the `/export` authorization middleware after that test.",
+      "it says nothing about the response to an unauthenticated request.",
+      "This is an evidence gap, not proof that B fails AC-1.",
+      ""
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "The proposed B check does not specify the relevant runtime and dependency lock."
+  },
+  {
+    "id": "c293790378864b6a",
+    "met": [
+      true,
+      false,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "it does **not** establish a database deadlock or a memory problem.",
+      "",
+      "gather recent deployment changes, resource metrics, request traces, and database wait or lock information.",
+      "Do not raise the memory limit or restart production based on this evidence alone.",
+      "Compare affected and unaffected requests where possible."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Does not explicitly separate deployment timing from causal proof."
+  },
+  {
+    "id": "c2dad511306644b0",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Critical: irreversible deletion without protection.",
+      "prioritize this over the blanket one-tap requirement.",
+      "Use visible “Delete account” text and ensure the control has a matching accessible name.",
+      "the 20 × 20 icon—is the relevant target",
+      "Define initial focus, logical keyboard navigation, containment within the modal, an inert background, and focus return on cancellation.",
+      "This is a proposal review, not implementation testing."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "FORMAT: Exceeds the requested 250-word maximum."
+  },
+  {
+    "id": "dac21d9ddff214a8",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The report requires **1 active account: B**.",
+      "filter must be applied **after** selecting the latest event per account.",
+      "ORDER BY account_id, changed_at DESC, event_id DESC",
+      "incorrectly counts accounts that **ever had an active event** before the cutoff"
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "ea01d79c977ad3f1",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "it can mix values between tenants, has no stated expiry, and does not propagate invalidations to the other processes.",
+      "Keep the existing shared-cache behavior, including tenant isolation, expiry within 60 seconds, and invalidation across all three processes within 5 seconds.",
+      "Adds responsibility for coordinating invalidations across processes.",
+      "Retain the shared cache and improve its test seam."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "edc08375038005b6",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "it loses tenant isolation, provides no expiry by itself, and cannot coordinate invalidation across processes.",
+      "Option 2 — Tenant-scoped local caches with coordinated invalidation",
+      "A fake alone cannot establish the 5-second guarantee.",
+      "Choose Option 1."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "ef631e4127297f96",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "A request-weighted average of percentiles is not the percentile of the combined requests",
+      "Region East recorded **900 requests** with a p95 latency of **120 ms**. Region West recorded **100 requests** with a p95 latency of **900 ms**.",
+      "the global success rate was **98.1%**: 891 successful requests in East and 90 in West, for 981 successes in total.",
+      "Without the individual timings or suitable histograms, **attainment of the global 250 ms p95 objective is not established**."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Identifies raw timings or histograms as the missing evidence."
+  },
+  {
+    "id": "f39fe7c461b1530d",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Critical — irreversible deletion on one tap.",
+      "This protective step conflicts with the one-tap demand",
+      "Give the action a visible label such as **Delete account** and ensure it has an accessible name.",
+      "the 20 × 20 icon is not itself the hit-area measurement.",
+      "specify and test focus on open, keyboard navigation, background interaction, and focus return; Escape alone is insufficient.",
+      "WCAG AA compliance cannot be certified from this description."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "FORMAT: Exceeds the requested 250-word maximum."
+  },
+  {
+    "id": "f5697f70c10caf59",
+    "met": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "Critical—irreversible data loss",
+      "Reject a blanket one-tap requirement for irreversible deletion; prioritize informed authorization.",
+      "Add visible “Delete account” text and an appropriate accessible name.",
+      "The 20 × 20 visual icon does not itself imply failure",
+      "Escape dismissal alone does not establish accessibility.",
+      "This is a design review, not certification."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "FORMAT: Exceeds the requested 250-word maximum."
+  },
+  {
+    "id": "f69c0d7330fce3b5",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The unsigned appendix, headed “Proposal for next quarter,” does not establish an approved change or a current effective date.",
+      "The staging excerpt shows `retention_days=90` in staging only",
+      "Neither 30-day nor 90-day production retention is verified.",
+      "Defer any customer announcement of changed retention** until policy authorization, effective date, production behavior, and any applicable notification obligations are confirmed."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "f9eed4faed477e66",
+    "met": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "evidence": [
+      "The unsigned appendix, headed “Proposal for next quarter,” does not establish an approved change to that requirement.",
+      "The staging excerpt shows `retention_days=90` **in staging only**.",
+      "Production retention is unverified from the supplied records.",
+      "Any future move to 90 days should follow an approved policy change and verified rollout before a customer announcement."
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": ""
+  },
+  {
+    "id": "fef44111ec07aadd",
+    "met": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "evidence": [
+      "The unsigned appendix proposes 90 days for next quarter; it does not establish a current requirement.",
+      "The ticket says “appendix implemented,” but provides no rollout evidence",
+      "The supplied records do not establish the production retention setting.",
+      ""
+    ],
+    "failure": [
+      false,
+      false,
+      false
+    ],
+    "failureEvidence": [
+      "",
+      "",
+      ""
+    ],
+    "notes": "Withholds a change announcement and seeks production verification, but does not identify approval as a missing input."
+  }
+]

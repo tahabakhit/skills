@@ -94,19 +94,21 @@ are correct. Do not ask the user to select model roles, workers or internals.
 ## 5. Hand off without taking over delivery
 
 After approval, give the exact spec path or say the spec is in the conversation.
-When installed, engineering-skills `resolve-issues` accepts local or pasted specs:
-recommend its actual advertised invocation with the saved spec path, for example
-`/skill:resolve-issues <spec-path>` in Pi. A spec without
-issues is assessed as one unit and may need splitting during delivery preflight.
-Use the host's actual advertised skill name if it differs. Do not invoke it here.
+When available, this collection's `deliver-work` accepts the agreed requirements
+from a saved specification or the conversation. Recommend the host's actual
+advertised invocation, for example `/skill:deliver-work <spec-path>` in Pi.
+A spec without issues can be one unit and may need splitting during delivery.
+Do not invoke it here.
 
 Recommend supervised, merge-ready hand-back as the initial delivery choice, but
 state that delivery settings and authority are confirmed separately in preflight.
-Do not encode that recommendation as a user instruction in the spec. Do not use
-`rush-issues` as a shortcut for unresolved questions or unapproved authority.
+Do not encode that recommendation as a user instruction in the spec. Do not turn
+unresolved questions or missing authority into an automatic delivery request.
 
-If resolve-issues or its required runtime/catalog is absent, report that setup is
-still needed. These skills do not supply agent execution or model resolution.
+`deliver-work` is an optional handoff, not a required sibling. If it is absent,
+return the specification and use an existing authorized delivery procedure only
+when delivery is separately requested. These skills do not install runtimes or
+supply worker execution.
 Do not demand tracker publishing or a `ready-for-agent` label for a local spec.
 If the user separately asks to publish, first resolve the destination and existing
 issue under project policy, then use the authorized tracker workflow.

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "name": "deliver-work",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/git-hygiene/references/work-units.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/git-hygiene/references/work-units.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/implement-spec/SKILL.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/implement-spec/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "obra/superpowers",
+      "package": null,
+      "revision": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "version": null,
+      "path": "skills/subagent-driven-development/SKILL.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE, Jesse Vincent.",
+      "url": "https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/subagent-driven-development/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/resolve-issues/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/resolve-release/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/golden-path/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/resolve-issues/references/review.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/babysit/references/release-follow-through.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/babysit/references/release-follow-through.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "obra/superpowers",
+      "package": null,
+      "revision": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "version": null,
+      "path": "skills/subagent-driven-development/references/fix-loop.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE, Jesse Vincent.",
+      "url": "https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/subagent-driven-development/references/fix-loop.md"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "e571ccd36c72ed3732c8b5c86e439e1447f31a2c4d36f0128721408d5869be20"
+    },
+    {
+      "path": "references/follow-through.md",
+      "kind": "original",
+      "sha256": "ede23df6b935a73dafaa972c74e831e5763e165a198843dafb32d13734518fca"
+    },
+    {
+      "path": "references/work-state.md",
+      "kind": "original",
+      "sha256": "d0e68a3056570951dae90579464d904830febdd1659404234bbcbe49ed62ff60"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  },
+  "integrationChanges": [
+    "Clarify that unrelated discovered defects do not automatically change acceptance or authorize repair."
+  ]
+}

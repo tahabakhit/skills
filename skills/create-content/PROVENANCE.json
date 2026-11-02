@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "name": "create-content",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Assign local editorial ownership without a private writing-skill dependency.",
+    "Distinguish literal cells and text exports from formulas; CSV quoting alone does not prevent formula execution.",
+    "Use existing usable scanned-PDF text layers before prescribing OCR."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/analytical-reports.md",
+      "sha256": "4ce0a0605c3d5b61dae88cc4b6798a14fef67f02079af4ec3268a49e25c220ae",
+      "gitBlob": "db2c724317f0c58628c20017778e47213bfc2cb2"
+    },
+    {
+      "path": "references/file-production.md",
+      "sha256": "912b346384d4b3e206c19d4341dc564b62802ffb7625522de15340e5f81e0659",
+      "gitBlob": "7aa8be4c8b9c2b022531c2567a5e479f4b441f5d"
+    },
+    {
+      "path": "references/writing-modes.md",
+      "sha256": "cfcb874ae1fd5bc0e1944621267a7d908b304c5356f9c89091cd238882600881",
+      "gitBlob": "416bd112a3a4ca534f8faa4e8fce4a8831016f74"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "718ba33d87bbce0dab31e0d85400f9732334e26bd6fe6ce1875fd0f2f30dad2f",
+      "gitBlob": "a2ef8bc04785bc8fb1bcc104fcefc2f34cfd3093"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "8e5ecf74e518b7ea01b097d3ac102b35416d94bdd80f4b2b9b9d80c8bc658fc2",
+      "gitBlob": "f4a6fa8c194e1dd9f88334970948a01b34ad1646"
+    }
+  ]
+}

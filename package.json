@@ -1,12 +1,12 @@
 {
   "name": "@tahabakhit/skills",
   "version": "0.1.0",
-  "description": "Portable skills for discovery, specifications, design, debugging, and acceptance verification.",
+  "description": "Selectively installable workflows for engineering, research, content, data, and Linux operations.",
   "license": "MIT",
   "author": "Taha Bakhit",
   "publishConfig": { "access": "public" },
   "keywords": ["pi-package", "agent-skills", "discovery", "specification"],
-  "files": ["skills", "test", "audits", "catalog.json", "README.md", "ARCHITECTURE.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "files": ["skills", "test", "audits", "research", "evaluations", "catalog.json", "CATALOG.md", "README.md", "ARCHITECTURE.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
   "scripts": {
     "test": "sh test/package.sh"
   },

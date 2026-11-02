@@ -8,24 +8,34 @@ categories, and migration boundaries. The
 [installed-skill audit and import map](audits/installed-skills.md) records the
 current candidates, dependencies, and ownership findings.
 
-The package now contains five skills. Three companion imports cover concrete
-design, diagnosis, and acceptance proof. They do not supply full delivery or close
-all dependencies of the audited CI/Git collection. Global installation and expanded
-cross-host behavior remain unverified. The original specification skill's external
-engineering handoff is still transitional.
+The package contains 21 canonical workflow owners: the existing five plus 16
+new original procedures informed by comparative research. Related workflows are
+branches or modes rather than overlapping entrypoints. See [the owner and coverage
+map](CATALOG.md) and [the research findings](research/README.md).
 
-| Skill | Use it for | Output |
-| --- | --- | --- |
-| `discover-work` | An idea, unclear requirement, or choice between approaches | A short agreed brief |
-| `define-work` | Turning that brief or existing requirements into actionable work | A specification with observable acceptance criteria and proposed proof |
-| `codebase-design` | Comparing concrete interfaces or module boundaries | Design options, tradeoffs, and a recommendation |
-| `systematic-debugging` | Diagnosing a failure and making an authorized correction | Evidence-supported cause, scoped fix, and verification gaps |
-| `verify-and-stop` | Checking existing work against acceptance conditions | Candidate-bound proof and an explicit pass, fail, or gap |
+| Area | Available work |
+| --- | --- |
+| Engineering, 14 owners | Discovery, specifications, design, diagnosis, proof, delivery, testing, review, refactoring/migrations, Git, CI, dependency updates, packaging and security |
+| Research and content, 3 owners | Evidence investigation, writing/file-production contracts and document review |
+| Interface review, 1 owner | Evidence-bounded usability and accessibility findings |
+| Data, 2 owners | SQL/measurement analysis and stateful pipelines |
+| Operations, 1 owner | Platform-aware Linux diagnosis and scoped change |
+
+This is a broad workflow foundation, not complete specialist coverage. New UI
+design, advanced statistics, infrastructure/database adapters and incident/restore
+playbooks remain gaps. Binary formats need suitable existing engines. The generic
+operations workflow does not replace audited OS specialists. No live installation
+or ownership was changed.
+
+The [development pilot](evaluations/entrypoint-pilot/RESULTS.md) tests frozen
+entrypoints against no-skill answers. It does not establish full-skill effectiveness,
+routing, tool safety or cross-host behavior. Keep selection task-specific rather
+than loading all 21 skills. Global installation remains unverified.
 
 [The catalog](catalog.json) records domains, optional handoffs, and capability
-requirements. It is metadata, not an installer or dependency resolver. Each new
-companion includes its required references, full license notices, and provenance
-inside its own folder; no sibling skill is required.
+requirements. It is metadata, not an installer or dependency resolver. Every
+selectable folder includes its required references, applicable complete notices,
+and provenance. No sibling skill or repository-root notice is required.
 The skills use the portable `SKILL.md` format. Ordinary local use requires no
 particular agent runtime, worker launcher, external skills bundle, or network
 service. Use tools the host already provides. There is no installation hook,
@@ -59,16 +69,17 @@ of the expanded setup plan but has not been verified here. Review the installer'
 plan before accepting, especially if a skill with the same name already exists.
 The dependency alone does not activate skills in every host. Target directories and invocation syntax depend on the agent.
 
-For a non-npm project, or before this package is published, use the checkout:
+For a non-npm project, or before publication, use the checkout. Replace the
+placeholder path with its actual location:
 
 ```fish
-npx skills@1.7.4 add /home/taha/dev/projects/tahabakhit/skills --skill discover-work --skill define-work
+npx skills@1.7.4 add /path/to/skills-checkout --skill discover-work --skill define-work
 ```
 
 To select only the self-contained debugging companion instead:
 
 ```fish
-npx skills@1.7.4 add /home/taha/dev/projects/tahabakhit/skills --skill systematic-debugging
+npx skills@1.7.4 add /path/to/skills-checkout --skill systematic-debugging
 ```
 
 Use the corresponding names for design or verification. The companion checks
@@ -91,7 +102,7 @@ pi install -l npm:@tahabakhit/skills
 Before publication:
 
 ```fish
-pi install -l /home/taha/dev/projects/tahabakhit/skills
+pi install -l /path/to/skills-checkout
 ```
 
 `-l` registers the package only in the current project's `.pi/settings.json`.
@@ -125,37 +136,32 @@ existing authorized procedure when it supplies sufficient proof; otherwise repor
 the specific missing capability. Do not install specialists or claim equivalent
 coverage automatically.
 
-The current optional external handoff, pending replacement by this repository's
-own delivery workflow, is described below. After approval, a spec can be handed to
-[@1aboveio/engineering-skills](https://www.npmjs.com/package/@1aboveio/engineering-skills).
-For a saved spec, the Pi invocation is:
+## Owned delivery and separately usable stages
+
+`deliver-work` replaces the transitional external delivery recommendation. It
+accepts a saved specification or agreed requirements in the conversation. For Pi,
+using an actual saved path:
 
 ```text
-/skill:resolve-issues docs/specs/order-review.md
+/skill:deliver-work Implement docs/specs/order-review.md and return a tested local candidate. Do not publish.
+/skill:testing-work Review assertion quality in the changed tests. Audit only.
+/skill:code-review Review the staged candidate without editing it.
 ```
 
-That path is an example. Use the actual saved path. Choose supervised,
-merge-ready hand-back in delivery preflight initially. Spec approval does not
-itself authorize implementation, publication, merging or releasing.
+Planning, implementation and follow-through are modes of the same coordinator.
+Review, testing, migration and packaging remain separately callable. Ordinary work
+runs serially without a tracker or worker runtime. Required independent review
+cannot be simulated by a self-check. Missing providers, engines or specialist
+knowledge remain explicit capability gaps.
 
-## Original discovery pair
+The specification skill returns its artifact without automatically invoking
+delivery. When delivery is requested, continue within existing authority without
+a default plan-approval pause. Passing tests does not grant merge, publication or
+deployment permission. No external skills bundle supplies required instructions.
 
-The [1aboveio bundle](https://www.npmjs.com/package/@1aboveio/skills) explicitly
-lists Matt Pocock as an optional third-party source, including grilling, domain
-modeling and specs. These complement its first-party delivery workflows.
-
-These custom skills retain fact-finding before questions, decision-dependent
-interviews and synthesis into a spec. They use bounded discovery, concise
-requirements, explicit uncertainty and local-first output. They do not require
-Matt's automatic tracker publication or background research pattern. Sources,
-revisions and design choices are in [SOURCES.md](SOURCES.md).
-
-For this existing optional handoff, engineering installation remains separate.
-That external delivery workflow needs compatible worker launching and role/model
-resolution, including different implementer and
-reviewer model IDs. The creator's [pi-better-harness](https://www.npmjs.com/package/pi-better-harness)
-is its Pi extension bundle. Other hosts need their supported integration. These
-skills do not make an unsupported runtime compatible and install no hooks or jobs.
+Source influences, licensing boundaries and rejected procedures are recorded in
+[SOURCES.md](SOURCES.md). Domain npm packages and reusable profiles remain deferred.
+Direct named selection is sufficient for the current source catalog.
 
 ## Development and distribution
 
@@ -164,11 +170,14 @@ npm test
 npm pack --dry-run --ignore-scripts
 ```
 
-Package checks need POSIX utilities, jq, Git, Bash, and Python 3.9+, with no npm
+Package checks need a POSIX shell, core utilities including `sha256sum`, jq,
+Git, Bash, and Python 3.9+, with no npm
 dependencies. They check metadata, links, notices, source identities, independently
 copied folders, and the optional helper against disposable fixtures with fake npm.
-They do not run a real project's tests or prove model behavior. [test/scenarios.md](test/scenarios.md) contains
-model-driven evaluation cases. Results and limits are in [VERIFICATION.md](VERIFICATION.md).
+They do not run a real project's tests or make model calls. Offline checks validate
+recorded pilot data, not the truth of every grader judgment.
+[test/scenarios.md](test/scenarios.md) contains additional proposed model-driven
+cases. Recorded results and limits are in [VERIFICATION.md](VERIFICATION.md).
 
 Keep source changes in this Git repository. The npm `files` allowlist includes
 skill folders, the catalog, tests, documentation, and licenses. Add future skills under

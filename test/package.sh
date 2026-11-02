@@ -1,5 +1,5 @@
 #!/bin/sh
-# Structural checks and disposable helper fixtures; no model-driven evaluation.
+# Offline package/record checks and disposable fixtures; never calls a model.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -21,8 +21,11 @@ pass 'no runtime dependencies, install hooks or extensions'
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name] | sort) == ["codebase-design", "define-work", "discover-work", "systematic-debugging", "verify-and-stop"]
-  and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array")' catalog.json >/dev/null
+  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "operate-systems"] | sort)
+  and ([.skills[].name]|unique|length)==21
+  and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
+    and .provenance == ("skills/"+.name+"/PROVENANCE.json"))
+  and ([.skills[]|select(.maturity=="experimental")]|length)==16' catalog.json >/dev/null
 [ "$count" = "$(jq '.skills | length' catalog.json)" ] || fail 'skill folders differ from the catalog'
 for skill in $(jq -r '.skills[].name' catalog.json); do
   file="skills/$skill/SKILL.md"
@@ -36,9 +39,9 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   ' "$file" || fail "invalid frontmatter in $file"
   [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass 'five cataloged, named, described and bounded skills'
+pass '21 cataloged, named, described and bounded skills'
 
-for file in README.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md audits/installed-skills.md skills/define-work/SKILL.md; do
+for file in README.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -88,9 +91,15 @@ pass 'historical audit snapshot retains recorded counts and digests'
 
 sh test/imports.sh
 pass 'imported folders have local dependency closure, notices and recorded identities'
+sh test/standalone.sh
+pass 'all selected folders retain standalone notices, references and exact payload identities'
+sh test/catalog-mutations.sh
+pass 'damaged selectable-folder fixtures are rejected'
+sh test/evaluation-record.sh
+pass 'frozen pilot snapshots, assignments, quotes and paired calculations are internally consistent'
 sh test/polluter.sh
 pass 'optional diagnostic helper passes isolated executable fixtures'
 sh test/command-status.sh
 pass 'documented command-status example propagates producer and renderer failures'
 
-printf '%s package checks passed; model behavior not evaluated.\n' "$checks"
+printf '%s package checks passed; no model calls made by this command.\n' "$checks"

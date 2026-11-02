@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "analyze-data",
+  "status": "Original draft for evaluation, not installed or behaviorally verified",
+  "authorship": "Original prose authored for this collection during the 2026-11-02 research task",
+  "draftLicense": "MIT",
+  "copiedUpstreamProse": false,
+  "copiedUpstreamCode": false,
+  "bundledUpstreamFiles": [],
+  "method": "General measurement and verification procedure authored in original expression. Research sources below supplied ideas and examples of capability boundaries, not copied instructions or a complete specialist implementation. No adversarial evaluation tasks or gold were read to prepare this draft.",
+  "sources": [
+    {
+      "repo": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "path": "skills/dbt/skills/answering-natural-language-questions-with-dbt/SKILL.md",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/blob/b8facde20b7a92c40ce3e6b86b71c4b92aa44040/skills/dbt/skills/answering-natural-language-questions-with-dbt/SKILL.md",
+      "license": "Apache-2.0",
+      "use": "Ideas only: inspect governed metric definitions and distinguish query drafting from actual execution. No four-stage route, wording, diagrams or SQL copied."
+    },
+    {
+      "repo": "openai/plugins",
+      "revision": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "path": "plugins/mixpanel-headless/skills/mixpanelyst/SKILL.md",
+      "url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/mixpanel-headless/skills/mixpanelyst/SKILL.md",
+      "license": "MIT, plugins/mixpanel-headless/LICENSE, copyright 2025 Jared McFarland",
+      "use": "Ideas only: counting unit, cohort/funnel parameter choices, actual event/property discovery, separation of querying from remote CRUD. No API reference, code or analytical threshold copied."
+    },
+    {
+      "repo": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "path": "skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/blob/b8facde20b7a92c40ce3e6b86b71c4b92aa44040/skills/dbt/skills/using-dbt-for-analytics-engineering/SKILL.md",
+      "license": "Apache-2.0",
+      "use": "Ideas only: inspect data before modeling, bounded warehouse inspection and untrusted metadata/results. No source text copied."
+    }
+  ],
+  "requiredLocalFiles": ["SKILL.md"],
+  "requiredSiblingSkills": [],
+  "requiredCapabilities": ["Read supplied tables, metadata and reports"],
+  "optionalExternalCapabilities": ["Suitable SQL/data engine", "Authenticated warehouse client", "Governed metric catalog", "Domain statistical reviewer"],
+  "capabilityLimits": "Instructions do not supply database access, tool syntax for every engine, statistical qualification or a causal identification design.",
+  "sideEffects": "No automatic source writes, connector installation, credential acquisition, remote publication or operational action. Queries can still incur cost or expose data and remain subject to actual tool authority.",
+  "evaluation": "Main agent owns all model runs, frozen independent gold and host verification. This draft carries no passing behavioral claim."
+}

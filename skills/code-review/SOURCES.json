@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "name": "code-review",
+  "kind": "original",
+  "license": "MIT",
+  "copyright": "Taha Bakhit",
+  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "copiedAssets": [],
+  "adaptedAssets": [],
+  "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
+  "sources": [
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/code-review/SKILL.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/code-review/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "mattpocock/skills",
+      "package": null,
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "version": null,
+      "path": "skills/engineering/code-review/SKILL.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+      "url": "https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/code-review/SKILL.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/better-review/SKILL.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "sanyuan0704/sanyuan-skills",
+      "package": null,
+      "revision": "08b6572ef108f22d4e8a3ecf9182a4bbef097744",
+      "version": null,
+      "path": "skills/code-review-expert/references/removal-plan.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Root LICENSE.",
+      "url": "https://github.com/sanyuan0704/sanyuan-skills/blob/08b6572ef108f22d4e8a3ecf9182a4bbef097744/skills/code-review-expert/references/removal-plan.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/code-review/references/seam-probes.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/code-review/references/seam-probes.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": "bolens/agent-skills",
+      "package": null,
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "version": null,
+      "path": "skills/code-review/references/independent-reviews.md",
+      "upstreamLicense": "mixed",
+      "upstreamLicenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+      "url": "https://github.com/bolens/agent-skills/blob/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d/skills/code-review/references/independent-reviews.md"
+    },
+    {
+      "kind": "conceptual-comparison-not-copied",
+      "repository": null,
+      "package": "@1aboveio/engineering-skills",
+      "revision": null,
+      "version": "0.1.21",
+      "path": "skills/better-review/references/domain-hazards.md",
+      "upstreamLicense": "MIT-declared",
+      "upstreamLicenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "url": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+    }
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "kind": "project-license-notice",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
+    },
+    {
+      "path": "SKILL.md",
+      "kind": "original",
+      "sha256": "30fb68e6a21c26e8ec1eefaed24fd4edb8789564dade8330ce41f998560c47a3"
+    },
+    {
+      "path": "references/review-passes.md",
+      "kind": "original",
+      "sha256": "c41113df4eabfaa387e4831485fca8253c0179f519d957ff2c29fd8589199844"
+    }
+  ],
+  "dependencies": {
+    "requiredSiblingSkills": [],
+    "scripts": [],
+    "runtimeExtensions": [],
+    "targetProjectTools": "Use the existing project runtime and tools. Capability gaps must be reported."
+  },
+  "validation": {
+    "structuralChecksOnly": true,
+    "modelEvaluations": 0,
+    "crossHostRuns": 0,
+    "legalReview": "Not a legal clearance opinion. Original-vs-derivative provenance needs human review before publication."
+  }
+}

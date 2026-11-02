@@ -8,7 +8,13 @@
       "requiredSkills": [],
       "optionalSkills": [
         "define-work"
-      ]
+      ],
+      "activation": "selective",
+      "origin": "authored-adaptation",
+      "provenance": "skills/discover-work/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
     },
     {
       "name": "define-work",
@@ -17,8 +23,14 @@
       "requiredSkills": [],
       "optionalSkills": [
         "discover-work",
-        "resolve-issues"
-      ]
+        "deliver-work"
+      ],
+      "activation": "selective",
+      "origin": "authored-adaptation",
+      "provenance": "skills/define-work/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
     },
     {
       "name": "codebase-design",
@@ -26,11 +38,20 @@
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
-        "improve-codebase-architecture",
-        "accessibility"
+        "interface-review",
+        "change-safely"
       ],
       "provenance": "skills/codebase-design/PROVENANCE.json",
-      "capabilities": "Repository/source inspection. Delegation is optional and requires existing authority."
+      "capabilities": "Repository/source inspection. Delegation is optional and requires existing authority.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      },
+      "unbundledSpecialists": [
+        "improve-codebase-architecture"
+      ]
     },
     {
       "name": "systematic-debugging",
@@ -38,15 +59,23 @@
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
-        "tdd",
-        "babysit",
-        "audit-repo-fleet",
-        "sensitive-info-audit",
-        "nixos",
-        "git-hygiene"
+        "testing-work",
+        "deliver-work",
+        "git-hygiene",
+        "security-review"
       ],
       "provenance": "skills/systematic-debugging/PROVENANCE.json",
-      "capabilities": "Use existing repository diagnostics. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox."
+      "capabilities": "Use existing repository diagnostics. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox.",
+      "unbundledSpecialists": [
+        "audit-repo-fleet",
+        "nixos"
+      ],
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
     },
     {
       "name": "verify-and-stop",
@@ -54,10 +83,363 @@
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
-        "babysit"
+        "deliver-work"
       ],
       "provenance": "skills/verify-and-stop/PROVENANCE.json",
-      "capabilities": "Existing repository checks and explicit acceptance conditions. No delivery runtime required."
+      "capabilities": "Existing repository checks and explicit acceptance conditions. No delivery runtime required.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
+    },
+    {
+      "name": "deliver-work",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "define-work",
+        "testing-work",
+        "code-review",
+        "verify-and-stop",
+        "git-hygiene",
+        "release-packaging"
+      ],
+      "provenance": "skills/deliver-work/PROVENANCE.json",
+      "capabilities": "Repository and existing build/test tools. Workers, trackers and provider access are optional and endpoint-dependent.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "testing-work",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "systematic-debugging",
+        "verify-and-stop"
+      ],
+      "provenance": "skills/testing-work/PROVENANCE.json",
+      "capabilities": "Existing test runner and suitable fixtures. Actual boundary/runtime required for integration claims.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "code-review",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "testing-work",
+        "security-review",
+        "git-hygiene"
+      ],
+      "provenance": "skills/code-review/PROVENANCE.json",
+      "capabilities": "Read the exact requested candidate. Safe isolated execution is optional; unavailable checks stay unexecuted.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "change-safely",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "testing-work",
+        "data-pipelines",
+        "verify-and-stop"
+      ],
+      "provenance": "skills/change-safely/PROVENANCE.json",
+      "capabilities": "Existing consumers, baseline checks and recovery evidence. Actual database/runtime needed for transition claims.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "git-hygiene",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "deliver-work",
+        "code-review"
+      ],
+      "provenance": "skills/git-hygiene/PROVENANCE.json",
+      "capabilities": "Git and owned repository state. Remote freshness and integration require authorized provider access.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "ci-maintenance",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "security-review",
+        "testing-work"
+      ],
+      "provenance": "skills/ci-maintenance/PROVENANCE.json",
+      "capabilities": "Workflow/source inspection. Provider-event claims require controlled provider/runner evidence.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "triage-dependency-updates",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "testing-work",
+        "security-review"
+      ],
+      "provenance": "skills/triage-dependency-updates/PROVENANCE.json",
+      "capabilities": "Existing package manager, manifests and lockfiles. Registry freshness and candidate execution require suitable access and isolation.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "release-packaging",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "testing-work",
+        "deliver-work"
+      ],
+      "provenance": "skills/release-packaging/PROVENANCE.json",
+      "capabilities": "Existing builder and disposable extraction/target environments. Publication is not this skill's endpoint.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "security-review",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "code-review",
+        "ci-maintenance",
+        "testing-work"
+      ],
+      "provenance": "skills/security-review/PROVENANCE.json",
+      "capabilities": "Scoped source and trust assumptions. Reproduction uses synthetic values and authorized disposable targets.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "research-work",
+      "domain": "research",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "analyze-data",
+        "create-content"
+      ],
+      "provenance": "skills/research-work/PROVENANCE.json",
+      "capabilities": "Supplied evidence or authorized retrieval. Participant research requires real material and applicable permission.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
+    },
+    {
+      "name": "create-content",
+      "domain": "content",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "research-work",
+        "analyze-data",
+        "document-review"
+      ],
+      "provenance": "skills/create-content/PROVENANCE.json",
+      "capabilities": "Text needs supplied material and text tools. Binary operations require separately available, suitable engines.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "document-review",
+      "domain": "content",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "research-work",
+        "analyze-data"
+      ],
+      "provenance": "skills/document-review/PROVENANCE.json",
+      "capabilities": "Supplied text/evidence. Does not provide legal, statistical or binary-editing expertise.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
+    },
+    {
+      "name": "interface-review",
+      "domain": "design",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "codebase-design",
+        "create-content"
+      ],
+      "provenance": "skills/interface-review/PROVENANCE.json",
+      "capabilities": "Proposal/source supports bounded reasoning. Runtime accessibility and visual claims require appropriate testing.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
+    },
+    {
+      "name": "analyze-data",
+      "domain": "data",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "research-work",
+        "document-review"
+      ],
+      "provenance": "skills/analyze-data/PROVENANCE.json",
+      "capabilities": "Supplied data or an authorized engine. Does not supply credentials, statistical qualification or a causal design.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "frozen-entrypoint-development-pilot",
+        "record": "evaluations/entrypoint-pilot/RESULTS.md",
+        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
+      }
+    },
+    {
+      "name": "data-pipelines",
+      "domain": "data",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "change-safely",
+        "testing-work",
+        "systematic-debugging"
+      ],
+      "provenance": "skills/data-pipelines/PROVENANCE.json",
+      "capabilities": "Existing transformation/orchestration stack and authorized disposable target. Platform-specific commands are not bundled.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "operate-systems",
+      "domain": "operations",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "systematic-debugging"
+      ],
+      "provenance": "skills/operate-systems/PROVENANCE.json",
+      "capabilities": "Native installed tools and authoritative platform evidence. Distro recovery expertise and live access are separate capabilities.",
+      "activation": "selective",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
     }
-  ]
+  ],
+  "consolidations": [
+    {
+      "components": [
+        "planning",
+        "implementation",
+        "issue-delivery",
+        "PR-follow-through",
+        "release-follow-through"
+      ],
+      "owner": "deliver-work"
+    },
+    {
+      "components": [
+        "test-authoring",
+        "TDD",
+        "test-adequacy",
+        "property-testing",
+        "mutation-testing"
+      ],
+      "owner": "testing-work"
+    },
+    {
+      "components": [
+        "safe-refactor",
+        "migration"
+      ],
+      "owner": "change-safely"
+    },
+    {
+      "components": [
+        "writing",
+        "editing",
+        "technical-writing",
+        "marketing-copy",
+        "communications",
+        "report-production",
+        "file-production"
+      ],
+      "owner": "create-content"
+    },
+    {
+      "components": [
+        "evidence-research",
+        "user-research-planning",
+        "user-research-synthesis"
+      ],
+      "owner": "research-work"
+    },
+    {
+      "components": [
+        "SQL-analysis",
+        "metrics",
+        "cohorts",
+        "numerical-analysis"
+      ],
+      "owner": "analyze-data"
+    }
+  ],
+  "coverageNote": "21 canonical workflow owners, not complete specialist coverage. No live installation or retirement of audited specialist skills."
 }

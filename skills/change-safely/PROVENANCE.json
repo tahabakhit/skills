@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "change-safely",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Assemble original procedure and local references with the project notice and source comparison record."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/migration.md",
+      "sha256": "2df5f0f334575483ccaf8180a247d22da86f8d4c4839c521268b4efdf53a5a03",
+      "gitBlob": "c46561afe05adc1344f650e3922fbfd0ccb3bcac"
+    },
+    {
+      "path": "references/refactor.md",
+      "sha256": "bf248c137418736be84d7571bfd3adce988372ec30b8c04ca0e918f70b66b99c",
+      "gitBlob": "fd8571b5dfbd60eeeab0f2bcf105dd5ec9f60c11"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "7ddbf551d9f0fed187ec6c68bdfcf3a7baeef996d9af4291c850b4da673f238e",
+      "gitBlob": "e6281e21e601b2ee4ce23f48985318935d2299f6"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "c011940cc487051ea8a6ceca08bdee56952cfc91460f59697ced409fdbf4856e",
+      "gitBlob": "9e152dfcbd97dea07a25e33e4924bc2404671a56"
+    }
+  ]
+}

@@ -1,0 +1,663 @@
+{
+  "schemaVersion": 1,
+  "scope": "Expansion research: repository inventories are broader than deep reads. Metadata and original assessments only, not redistributed upstream skill bodies or assets.",
+  "repositories": [
+    {
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "revision": "a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/a25cf9ec00e2745d03f8704acf6f6919694ccd9a",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": "MIT",
+            "path": "LICENSE.md",
+            "copyright": "2025 K-Dense Inc.",
+            "terms": "Include copyright and permission notice in copied/substantial material. Specific trees contain third-party overrides such as skills/pacsomatic/LICENSE and skills/13c-metabolic-flux/assets/mfapy-license.txt. Inspected research/writing/market-report paths have no nested license override in complete tree. Upstream asks for scholarly citation when materially used; this is an instruction request, separate from MIT legal conditions."
+          },
+          "physicalSkillFiles": 177,
+          "canonicalSkills": 177,
+          "assessment": "Strong evidence/claim/definition and confidentiality reasoning. Consolidate current text into research-evidence, analytical-report and document-review. Current inspected scientific-writing/market-report/peer-review CLIs are described as local-only optional Python, not old mandatory paid image workflows. Literature review still has optional network and paid schematic paths."
+        }
+      ]
+    },
+    {
+      "repository": "ansible/aap-skills",
+      "revision": "4f30b4eb7207e6c2602e5354dbe00b319ff18dc4",
+      "url": "https://github.com/ansible/aap-skills/tree/4f30b4eb7207e6c2602e5354dbe00b319ff18dc4",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "Apache-2.0",
+          "depth": "2 entrypoints and upgrade matrix fully read. Shared output contract fetched. Other 4 entrypoints inventoried only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 29,
+            "skillEntrypointPaths": 6,
+            "pluginManifestCount": 0,
+            "marketplaceEntries": null,
+            "fetchedFiles": 6,
+            "fetchedSkillEntrypoints": 2
+          },
+          "safety": "Read-only RBAC responses still contain sensitive identity/topology data. No permission-test writes. Shared ../../context/output-format.md required outside selectable folder. Upgrade matrix needs current authoritative vendor validation. Universal HITL pauses conflict with existing authorized-work policy.",
+          "runtime": "AAP >=2.5 and AAP MCP server, tech-preview support boundary. Platform Auditor/System Auditor or explicitly authorized administrator. Not an ansible-playbook or general Linux skill.",
+          "disposition": "reference-or-optional-AAP-only-adapter"
+        }
+      ]
+    },
+    {
+      "repository": "anthropics/skills",
+      "revision": "ca45fc496a3436251f191354091d557da31c15b5",
+      "url": "https://github.com/anthropics/skills/tree/ca45fc496a3436251f191354091d557da31c15b5",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": "mixed",
+            "path": "skills/*/LICENSE.txt",
+            "terms": "Per-folder grants, not a repository-wide Apache inference. 14 skill folders have Apache-2.0 LICENSE.txt. doc-coauthoring has no license file and no root LICENSE in the inspected tree: hold copying pending grant. Four document folders are restricted.",
+            "restrictedPaths": [
+              "skills/docx/",
+              "skills/pdf/",
+              "skills/pptx/",
+              "skills/xlsx/"
+            ],
+            "restrictedLicenseSha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+            "restrictedTerms": "2025 Anthropic PBC, all rights reserved; governed by applicable service agreement with express restrictions on retaining/extracting materials outside Services, copying except transient authorized service copies, derivative works, distribution/sublicense/transfer, embodied inventions and reverse engineering. No portable redistribution grant. Includes all scripts/prompts/assets/files in those skills.",
+            "noticePath": "THIRD_PARTY_NOTICES.md",
+            "perFileRisks": [
+              "skills/canvas-design/canvas-fonts/*.ttf need correct font copyright and SIL OFL-1.1 notice and reserved-name handling; do not infer font licenses from parent Apache label.",
+              "Root notices list imageio BSD-2-Clause, imageio-ffmpeg BSD-2-Clause, FFmpeg GPLv3, Pillow HPND, font OFL terms. Determine what actually ships before assigning obligations; notice does not make every skill GPL.",
+              "Template SKILL is an example, not twentieth production skill."
+            ]
+          },
+          "physicalSkillFiles": 20,
+          "canonicalSkills": 19,
+          "assessment": "Use Apache examples selectively with notices. Exclude all restricted document contents/helpers. Treat unlicensed doc-coauthoring as observation only. Independently author document operations from public tool contracts."
+        },
+        {
+          "lane": "data-operations",
+          "license": "per-skill; skill-creator Apache-2.0; README says docx/pdf/pptx/xlsx source-available, not open source",
+          "depth": "1 entrypoint, grader and blind comparator fully read. run_eval.py and aggregate_benchmark.py fully read. Per-skill license fetched and notices reviewed. Remaining creator tools inventoried only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 446,
+            "skillEntrypointPaths": 20,
+            "pluginManifestCount": 0,
+            "marketplaceEntries": null,
+            "fetchedFiles": 7,
+            "fetchedSkillEntrypoints": 1
+          },
+          "safety": "Do not execute source evaluation harness during research. run_eval writes .claude/commands in ancestor project and launches paid CLI subprocesses inheriting environment. Trigger test measures first relevant tool use on synthetic command, not full native skill behavior. Aggregator falls back from tokens to output_chars and missing metrics to zero.",
+          "runtime": "Creator workflow can be performed manually with independent sessions. Packaged trigger tool uses Python and claude -p, ProcessPoolExecutor and POSIX select. Viewer uses local web server/browser or static HTML.",
+          "disposition": "skill-creator-content-importable-after-portability-and-eval-repairs"
+        }
+      ]
+    },
+    {
+      "repository": "bolens/agent-skills",
+      "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "url": "https://github.com/bolens/agent-skills/tree/e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "mixed",
+          "scope": {
+            "blobs": 768,
+            "entrypoints": 76,
+            "catalogEntries": 66,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 768,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/git-hygiene/SKILL.md",
+            "skills/git-hygiene/references/work-units.md",
+            "skills/code-review/SKILL.md",
+            "skills/code-review/references/seam-probes.md",
+            "skills/code-review/references/independent-reviews.md",
+            "skills/tdd/SKILL.md",
+            "skills/tdd/tests.md",
+            "skills/tdd/mocking.md",
+            "skills/systematic-debugging/SKILL.md",
+            "skills/systematic-debugging/references/wide-events.md",
+            "skills/migration/SKILL.md",
+            "skills/safe-refactor/SKILL.md",
+            "skills/verify-and-stop/SKILL.md",
+            "skills/ci-maintenance/SKILL.md",
+            "skills/ci-maintenance/references/github-actions.md",
+            "skills/ci-maintenance/references/command-evidence.md",
+            "skills/ci-maintenance/references/setup-contracts.md",
+            "skills/triage-dependency-updates/SKILL.md",
+            "skills/release-packaging/SKILL.md",
+            "skills/release-packaging/references/targets-and-variants.md",
+            "skills/release-packaging/references/lean-portability.md",
+            "skills/babysit/SKILL.md",
+            "skills/babysit/references/release-follow-through.md"
+          ],
+          "licenseNotes": "Root MIT for owned work only. Selected migration/safe-refactor/verify-and-stop retain Julius Brussee MIT and Engine exclusion. TDD support matches Matt. Per-folder exceptions apply.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    },
+    {
+      "repository": "coreyhaines31/marketingskills",
+      "revision": "88c79f6528a9347420e57ceb1fff9a60de651768",
+      "url": "https://github.com/coreyhaines31/marketingskills/tree/88c79f6528a9347420e57ceb1fff9a60de651768",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": "MIT",
+            "path": "LICENSE",
+            "copyright": "2025 Corey Haines",
+            "terms": "Retain copyright and permission notice in all copies/substantial portions. Copywriting and copy-editing references explicitly name MIT Profound/Wispr Flow ancestry; root Corey notice alone may be insufficient for these passages. Preserve inherited attribution and verify original scope before copying.",
+            "ancestor": "P"
+          },
+          "physicalSkillFiles": 53,
+          "canonicalSkills": 53,
+          "assessment": "Adapt customer research and copy/edit modes. Fold communication and content strategy into owned references. Reject blind roleplay scoring, universal sample thresholds and undisclosed research framing."
+        }
+      ]
+    },
+    {
+      "repository": "dagster-io/skills",
+      "revision": "c23c97fe5ffc4a39dc9cc1f9834c0311858cc16f",
+      "url": "https://github.com/dagster-io/skills/tree/c23c97fe5ffc4a39dc9cc1f9834c0311858cc16f",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "Apache-2.0",
+          "depth": "1 current entrypoint fully read, automation and remote-run references fully read, benchmark tests fully read. Remaining references inventory only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 227,
+            "skillEntrypointPaths": 2,
+            "pluginManifestCount": 3,
+            "marketplaceEntries": null,
+            "fetchedFiles": 6,
+            "fetchedSkillEntrypoints": 1
+          },
+          "safety": "Local launches execute pipeline code. Remote launches/backfills and secret APIs are not read-only. Skills CLI copies skills without configuring bundled MCP. Two entrypoint paths include legacy/new plugin wrappers, not two independent capabilities.",
+          "runtime": "Python Dagster/dagster-dg-cli, commonly uv. Optional Dagster Plus MCP and account for deployed operations.",
+          "disposition": "content-importable-after-adaptation"
+        }
+      ]
+    },
+    {
+      "repository": "dbt-labs/dbt-agent-skills",
+      "revision": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "url": "https://github.com/dbt-labs/dbt-agent-skills/tree/b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "Apache-2.0",
+          "depth": "4 entrypoints read fully, 2 workflow references, eval README and one scenario read fully. grader.py fetched only. README/catalog reviewed. Remaining skills inventoried only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 354,
+            "skillEntrypointPaths": 17,
+            "pluginManifestCount": 3,
+            "marketplaceEntries": null,
+            "fetchedFiles": 11,
+            "fetchedSkillEntrypoints": 4
+          },
+          "safety": "Warehouse queries cost money and can disclose rows. dbt run/build/--empty mutate warehouse objects. General skill requires working-with-dbt-mesh for breaking consumers. Do not auto-install MCP. dbt State is a separate paid server service, not a local selector.",
+          "runtime": "dbt CLI and configured warehouse/adapter for execution. Optional dbt MCP/semantic-layer endpoints. Python/uv/Claude CLI only for its separate eval harness.",
+          "disposition": "content-importable-after-adaptation"
+        }
+      ]
+    },
+    {
+      "repository": "getsentry/skills",
+      "revision": "d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "url": "https://github.com/getsentry/skills/tree/d12f250460ffd961f549dbebf7eeb0cf4afd4c2e",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "Apache-2.0-with-exceptions",
+          "scope": {
+            "blobs": 166,
+            "entrypoints": 30,
+            "catalogEntries": 30,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 166,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/code-review/SKILL.md",
+            "skills/find-bugs/SKILL.md",
+            "skills/secret-serialization/SKILL.md",
+            "skills/secret-serialization/references/javascript-typescript.md",
+            "skills/gha-security-review/SKILL.md",
+            "skills/gha-security-review/references/ai-prompt-injection-via-ci.md"
+          ],
+          "licenseNotes": "Root Apache-2.0 for original material. security-review OWASP-derived references are CC-BY-SA-4.0.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    },
+    {
+      "repository": "hashicorp/agent-skills",
+      "revision": "bc6b14b77481c3cbfbb06a0166be7245ed45798c",
+      "url": "https://github.com/hashicorp/agent-skills/tree/bc6b14b77481c3cbfbb06a0166be7245ed45798c",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "MPL-2.0",
+          "depth": "3 entrypoints, mock-provider reference, and list_resources.sh fully read. Catalog reviewed. No Terraform commands or source helpers executed.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 126,
+            "skillEntrypointPaths": 20,
+            "pluginManifestCount": 4,
+            "marketplaceEntries": null,
+            "fetchedFiles": 8,
+            "fetchedSkillEntrypoints": 3
+          },
+          "safety": "Helper silently runs terraform init -upgrade if .terraform absent. Provider downloads/code execution, cloud API reads, state mutation, apply-mode tests, and billable infrastructure are real effects. State contains plaintext secrets. Examples need syntax/version verification.",
+          "runtime": "Terraform CLI, pinned providers, Bash/jq for search helper. Search requires Terraform >=1.14 and list-resource support. Tests/mocks version-dependent.",
+          "disposition": "content-importable-under-separate-MPL-file-terms"
+        }
+      ]
+    },
+    {
+      "repository": "mattpocock/skills",
+      "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "url": "https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "MIT",
+          "scope": {
+            "blobs": 184,
+            "entrypoints": 39,
+            "catalogEntries": 39,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 184,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/engineering/to-tickets/SKILL.md",
+            "skills/engineering/implement-spec/SKILL.md",
+            "skills/engineering/code-review/SKILL.md",
+            "skills/engineering/diagnosing-bugs/SKILL.md",
+            "skills/engineering/codebase-design/SKILL.md",
+            "skills/engineering/codebase-design/DEEPENING.md",
+            "skills/engineering/codebase-design/DESIGN-IT-TWICE.md",
+            "skills/engineering/tdd/SKILL.md",
+            "skills/engineering/tdd/tests.md",
+            "skills/engineering/tdd/mocking.md"
+          ],
+          "licenseNotes": "Root LICENSE. Preserve Matt Pocock attribution.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    },
+    {
+      "repository": "obra/superpowers",
+      "revision": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "url": "https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "MIT",
+          "scope": {
+            "blobs": 231,
+            "entrypoints": 15,
+            "catalogEntries": 15,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 231,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/subagent-driven-development/SKILL.md",
+            "skills/subagent-driven-development/references/fix-loop.md",
+            "skills/subagent-driven-development/references/final-review.md",
+            "skills/test-driven-development/SKILL.md",
+            "skills/test-driven-development/writing-good-tests.md",
+            "skills/receiving-code-review/SKILL.md",
+            "skills/requesting-code-review/code-reviewer.md",
+            "skills/writing-skills/SKILL.md"
+          ],
+          "licenseNotes": "Root LICENSE, Jesse Vincent.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    },
+    {
+      "repository": "openai/plugins",
+      "revision": "0722921d5542fc593105c27bd52630babd8b8c2a",
+      "url": "https://github.com/openai/plugins/tree/0722921d5542fc593105c27bd52630babd8b8c2a",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "mixed; no root blanket grant found; Mixpanel MIT; earnings-preview Proprietary/Internal Use Only; plugin-eval/portfolio-risk/model-audit no applicable grant located",
+          "depth": "6 entrypoints fully read: evaluate-skill, improve-skill, metric-pack-designer, portfolio-risk-management, model-audit-tieout, mixpanelyst. plugin-eval README/package/entrypoint and full benchmark-workspace read. benchmark.js lines 310-404 read plus keyword inspection elsewhere, scoring.js fetched only. Marketplace inventoried. Financial runtime/shared references not audited.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 5406,
+            "skillEntrypointPaths": 536,
+            "pluginManifestCount": 64,
+            "marketplaceEntries": 65,
+            "fetchedFiles": 17,
+            "fetchedSkillEntrypoints": 6
+          },
+          "safety": "Do not import the whole public tree. plugin-eval benchmark copies auth.json/config.toml and spreads process.env, can create/remove Git worktrees, writes marketplace/config/run artifacts and launches codex exec. improve-skill has creator-specific absolute path. Mixpanel includes CRUD and business-context overwrite, not just query analytics.",
+          "runtime": "Codex plugins may use manifests/MCP/accounts and private source connectors. plugin-eval requires Node >=20 and Codex CLI for live runs. Its verifier uses /bin/zsh. Mixpanel skill requires Python mixpanel_headless/pandas and authenticated Mixpanel.",
+          "disposition": "reference-only-except-explicitly-licensed-subtrees"
+        }
+      ]
+    },
+    {
+      "repository": "openai/skills",
+      "revision": "49f948faa9258a0c61caceaf225e179651397431",
+      "url": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "per-skill; reviewed threat-model, ownership-map and skill-creator Apache-2.0",
+          "depth": "4 entrypoints fully read, reviewed per-skill licenses fetched; threat-model license fully read and ownership license byte-identical. Threat-model prompt reference fetched. Helper scripts inventoried, not audited.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 783,
+            "skillEntrypointPaths": 44,
+            "pluginManifestCount": 0,
+            "marketplaceEntries": null,
+            "fetchedFiles": 9,
+            "fetchedSkillEntrypoints": 4
+          },
+          "safety": "README explicitly deprecated in favor of openai/plugins. No umbrella licensing inference. Security ownership graph stores personal identifiers/timezones and reflects history, not actual authorization. Generic security-best-practices limited to Python, JS/TS, Go, not a security qualification.",
+          "runtime": "Threat model is file/source workflow. Ownership mapping requires Python/networkx/Git. Creator scripts use Python and generate Codex metadata.",
+          "disposition": "selected-content-importable-deprecated-collection"
+        }
+      ]
+    },
+    {
+      "repository": "pbakaus/impeccable",
+      "revision": "e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+      "url": "https://github.com/pbakaus/impeccable/tree/e89e3ada3e875a89ac2c5d33d11e65ebef6fe285",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": "Apache-2.0",
+            "path": "LICENSE",
+            "copyright": "2025 Paul Bakaus",
+            "noticePath": "NOTICE.md",
+            "terms": "Include license, retain relevant notices, mark modified files, carry relevant NOTICE attribution. Native ios/android references explicitly derive from ehmo/platform-design-skills under MIT; resolve that ancestor and full MIT notice before native-file redistribution. Font/catalog art/assets need separate audit."
+          },
+          "physicalSkillFiles": 26,
+          "canonicalSkills": 1,
+          "assessment": "Adapt permissive design reasoning into owned interface-design/interface-review; do not adopt runtime implicitly.",
+          "inventoryNotes": "26 physical SKILL files: 22 distribution/host variants and 4 test fixtures. One canonical capability, 24 user commands plus administrative verbs. Adapter blobs differ and are not byte-identical copies."
+        }
+      ]
+    },
+    {
+      "repository": "retieedra-profound/skills-marketing-library",
+      "revision": "80293f156c27d3f90aedebfb3c27309769b2eec6",
+      "url": "https://github.com/retieedra-profound/skills-marketing-library/tree/80293f156c27d3f90aedebfb3c27309769b2eec6",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": "MIT",
+            "path": "LICENSE",
+            "copyright": "2026 Profound",
+            "terms": "Retain copyright and permission notice. This comparison revision verifies published license, not the historical revision Corey imported."
+          },
+          "physicalSkillFiles": 19,
+          "assessment": "Ancestry lead from M copywriting/checklist, not an approved source import."
+        }
+      ]
+    },
+    {
+      "repository": "sanyuan0704/sanyuan-skills",
+      "revision": "08b6572ef108f22d4e8a3ecf9182a4bbef097744",
+      "url": "https://github.com/sanyuan0704/sanyuan-skills/tree/08b6572ef108f22d4e8a3ecf9182a4bbef097744",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "MIT",
+          "scope": {
+            "blobs": 32,
+            "entrypoints": 6,
+            "catalogEntries": 6,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 32,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/code-review-expert/SKILL.md",
+            "skills/code-review-expert/references/removal-plan.md"
+          ],
+          "licenseNotes": "Root LICENSE.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    },
+    {
+      "repository": "saraeldebissy/ux-research-skills",
+      "revision": "5f1143513403ca7bed0a283594718fa2b7abfeb1",
+      "url": "https://github.com/saraeldebissy/ux-research-skills/tree/5f1143513403ca7bed0a283594718fa2b7abfeb1",
+      "inspections": [
+        {
+          "lane": "design-content",
+          "license": {
+            "spdx": null,
+            "path": null,
+            "terms": "No LICENSE/NOTICE file in complete tree; GitHub repository license field null. Public availability is not a grant. Hold copying, derivative import and bundled ZIP redistribution."
+          },
+          "physicalSkillFiles": 9,
+          "canonicalSkills": 9,
+          "assessment": "Observe research dependency and participant-evidence risks. Do not import. Reject broad no-recommendation policy as default; external Mobbin/Figma pipeline is not plain skill capability."
+        }
+      ]
+    },
+    {
+      "repository": "supabase/agent-skills",
+      "revision": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "url": "https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "inspections": [
+        {
+          "lane": "data-operations",
+          "license": "MIT",
+          "depth": "1 entrypoint and 4 references fully read. Second skill and remaining rules inventory only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 61,
+            "skillEntrypointPaths": 2,
+            "pluginManifestCount": 0,
+            "marketplaceEntries": null,
+            "fetchedFiles": 7,
+            "fetchedSkillEntrypoints": 1
+          },
+          "safety": "EXPLAIN ANALYZE executes query. DDL, role/policy changes and vacuum have effects. Examples are heuristics, not measured guarantees. Version-check pooler/driver advice and test policy role/EXECUTE semantics.",
+          "runtime": "Postgres client and actual database needed for empirical proof. Supabase auth functions are service-specific, not stock Postgres.",
+          "disposition": "content-importable-after-adaptation"
+        }
+      ]
+    },
+    {
+      "repository": "trailofbits/skills",
+      "revision": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "url": "https://github.com/trailofbits/skills/tree/2be6433b39e009cd2b6fd3be1895f6b1faa5af9a",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "CC-BY-SA-4.0",
+          "scope": {
+            "blobs": 1598,
+            "entrypoints": 97,
+            "catalogEntries": 95,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 1598,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "plugins/property-based-testing/skills/property-based-testing/SKILL.md",
+            "plugins/property-based-testing/skills/property-based-testing/references/generating.md",
+            "plugins/property-based-testing/skills/property-based-testing/references/interpreting-failures.md",
+            "plugins/mutation-testing/skills/mutation-testing/SKILL.md",
+            "plugins/mutation-testing/skills/mutation-testing/references/equivalent-mutants.md",
+            "plugins/differential-review/skills/differential-review/SKILL.md",
+            "plugins/differential-review/skills/differential-review/methodology.md",
+            "plugins/post-patch-validation/skills/post-patch-validation/SKILL.md",
+            "plugins/post-patch-validation/skills/post-patch-validation/references/evidence-model.md",
+            "plugins/post-patch-validation/skills/post-patch-validation/scripts/pyproject.toml"
+          ],
+          "licenseNotes": "Root license applies to selected material. Third-party assets need separate audit.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        },
+        {
+          "lane": "data-operations",
+          "license": "CC-BY-SA-4.0",
+          "depth": "4 entrypoints fully read. fp standard-verification, differential adversarial, Actions cross-file references, fp hooks, supply-chain sources.py, and ablation README fully read. gate-reviews.md and pyproject fetched. Rest inventory only.",
+          "inventory": {
+            "treeTruncated": false,
+            "totalBlobs": 1598,
+            "skillEntrypointPaths": 97,
+            "pluginManifestCount": 49,
+            "marketplaceEntries": 46,
+            "fetchedFiles": 15,
+            "fetchedSkillEntrypoints": 4
+          },
+          "safety": "Not a blanket safety certification. Import closure includes refs and selected agents, not automatic hooks. supply-chain sources.py uses gh auth token internally and public APIs/cache. Adversarial sample invents loss not proved by shown code. Read-only review does not authorize PoC against a live target.",
+          "runtime": "Varies per plugin. Git/source inspection for differential review and fp-check, gh for remote Actions reads, Python >=3.11/uv and network for supply-chain collector. Deep fp-check uses plugin agents and Task APIs. Hooks are separate integrations.",
+          "disposition": "conditional-content-import-separate-sharealike-adaptations"
+        }
+      ]
+    },
+    {
+      "repository": "vercel-labs/agent-skills",
+      "revision": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "url": "https://github.com/vercel-labs/agent-skills/tree/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+      "inspections": [
+        {
+          "lane": "engineering",
+          "license": "MIT-declared",
+          "scope": {
+            "blobs": 444,
+            "entrypoints": 9,
+            "catalogEntries": 9,
+            "treeTruncated": false,
+            "blobVerification": {
+              "checked": 444,
+              "mismatches": []
+            }
+          },
+          "deepReadPaths": [
+            "skills/react-best-practices/SKILL.md",
+            "skills/react-best-practices/rules/server-no-shared-module-state.md",
+            "skills/react-best-practices/rules/async-parallel.md",
+            "skills/composition-patterns/SKILL.md",
+            "skills/composition-patterns/rules/state-context-interface.md",
+            "skills/deploy-to-vercel/SKILL.md"
+          ],
+          "licenseNotes": "README and selected frontmatter declare MIT. Complete copyright/license notice absent from pinned tree.",
+          "limits": "Complete inventory/frontmatter, selected semantic review only. No fetched source executed."
+        }
+      ]
+    }
+  ],
+  "cachedArtifacts": [
+    {
+      "kind": "cached-published-npm-artifact",
+      "package": "@1aboveio/skills",
+      "version": "1.0.21",
+      "dist": {
+        "shasum": "2c57df7308d61f75b892c789968e14cd8b5b6044",
+        "integrity": "sha512-LHgtMp0L04hupIm8A0n1yEgP0XiK20sDqikc9R6/nbRWjMswxSjC1ei0a3rgMtxfjeBZbUzx/zLLiS2FSpXXog==",
+        "tarball": "https://registry.npmjs.org/@1aboveio/skills/-/skills-1.0.21.tgz"
+      },
+      "scope": {
+        "files": 656,
+        "entrypoints": 64
+      },
+      "deepReadPaths": [
+        "README.md"
+      ],
+      "license": "MIT-declared",
+      "licenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "archiveIntegrityIndependentlyVerified": false,
+      "limits": "Source repo not available. Internal release-version 0.50.1 is not package version. Runtime implementation not audited or executed."
+    },
+    {
+      "kind": "cached-published-npm-artifact",
+      "package": "@1aboveio/engineering-skills",
+      "version": "0.1.21",
+      "dist": {
+        "shasum": "ece270bef0ab17e3ae6803eeefb29606ba81b123",
+        "integrity": "sha512-W+oNrHfRZx5WcMSOh08TQFW/CwN6TbkpjXekPHx9HFaqunev7KoMmq2YuovmJ2SdpsOi1iI97S6ktbiW/aEekw==",
+        "tarball": "https://registry.npmjs.org/@1aboveio/engineering-skills/-/engineering-skills-0.1.21.tgz"
+      },
+      "scope": {
+        "files": 205,
+        "entrypoints": 12
+      },
+      "deepReadPaths": [
+        "README.md",
+        "skills/engineering/SKILL.md",
+        "skills/engineering/references/feature-delivery.md",
+        "skills/resolve-issues/SKILL.md",
+        "skills/resolve-issues/references/review.md",
+        "skills/better-review/SKILL.md",
+        "skills/better-review/references/domain-hazards.md",
+        "skills/test-quality/SKILL.md",
+        "skills/test-quality/references/principles.md",
+        "skills/ensure-coverage/SKILL.md",
+        "skills/golden-path/SKILL.md",
+        "skills/resolve-release/SKILL.md"
+      ],
+      "license": "MIT-declared",
+      "licenseNotes": "Package metadata MIT. Skill LICENSE files contain title and copyright only, no full grant. Resolve notice completeness before copied redistribution.",
+      "archiveIntegrityIndependentlyVerified": false,
+      "limits": "Source repo not available. Internal release-version 0.50.1 is not package version. Runtime implementation not audited or executed."
+    }
+  ],
+  "publicContracts": [
+    {
+      "url": "https://pandoc.org/MANUAL.html",
+      "method": "ketch_search scrape, bounded5000chars",
+      "scope": "Lossy AST conversions and separate PDF engine requirement; not full manual read."
+    },
+    {
+      "url": "https://openpyxl.readthedocs.io/en/stable/tutorial.html#loading-from-a-file",
+      "method": "ketch_scrape targeted section,6000char cap",
+      "scope": "data_only,keep_vba,keep_links and lossy shape preservation."
+    },
+    {
+      "url": "https://openpyxl.readthedocs.io/en/stable/simple_formulae.html",
+      "method": "ketch_scrape4500char cap",
+      "scope": "Formula writing does not evaluate formulas."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "method": "ketch_scrape5000char cap",
+      "scope": "AA24px target/spacing and exceptions; not44px icon rule."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html",
+      "method": "ketch_scrape5000char cap",
+      "scope": "Important data deletion: reversibility, checked/correction, or review/confirmation protection."
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.00065",
+      "method": "ketch_scrape7000char cap",
+      "scope": "Scientific Agent Skills paper metadata/abstract only. Abstract explicitly reports no task-level evaluation or host selection rate. Corpus numbers describe163 historical skills, not current177 tree."
+    }
+  ]
+}

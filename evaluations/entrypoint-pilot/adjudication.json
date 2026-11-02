@@ -1,0 +1,35 @@
+{
+  "decisions": [
+    {
+      "id": "0597213e36701854",
+      "criterionIndex": 1,
+      "met": true,
+      "evidence": "Median completion time was 60 seconds on the old prototype and 45 seconds on the redesign—a 25% reduction.",
+      "reason": "The answer preserves the descriptive medians and corrects the percentage. The stated values entail a 15-second difference. Requiring the additional literal phrase '15 seconds' would reject equivalent arithmetic content rather than test a substantive correction. This decision does not change the separate, undisputed criterion about next evidence or action."
+    },
+    {
+      "id": "23971ee2ef29e055",
+      "criterionIndex": 3,
+      "met": true,
+      "evidence": "Without histograms or individual timings, we cannot establish whether the global p95 meets the 250 ms objective.",
+      "reason": "In context, the answer identifies the missing distributional evidence needed for the combined percentile. Naming histograms or individual timings as the prerequisite is a semantic equivalent of requesting that evidence. An imperative request or a particular reporting template is unnecessary. No distribution values are invented. This does not change the separate, undisputed omission of regional p95 values."
+    },
+    {
+      "id": "7c24dbff0169f198",
+      "criterionIndex": 4,
+      "met": true,
+      "evidence": "prototype evidence does not establish production performance or universal suitability. Correct the arithmetic and withhold the causal and immediate-deployment conclusions.",
+      "reason": "The answer rejects production and universal claims and explicitly recommends withholding the immediate-deployment conclusion because the evidence does not establish those outcomes. This is an evidence-conditioned recommendation not to endorse immediate deployment, rather than treating this study as deployment proof. The criterion permits conditional action instead of proposing further evidence, so a new study proposal is not required. This judgment credits the actual recommendation, not the mere presence of uncertainty language."
+    }
+  ],
+  "quoteCorrections": [
+    {
+      "judge": "b",
+      "id": "2df982e17e0e4a82",
+      "criterionIndex": 3,
+      "evidence": "A focused check against commit B under runtime R and lock L that sends an unauthenticated request to `/export` and explicitly asserts a **401** response.",
+      "reason": "Replace the non-verbatim quotation with this contiguous sentence from the answer, preserving its capitalized opening and Markdown. It identifies the candidate, runtime, lock, unauthenticated request and expected status. The existing met=true score is unchanged."
+    }
+  ],
+  "rubricConcerns": []
+}
