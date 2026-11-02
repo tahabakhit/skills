@@ -169,8 +169,9 @@ traces the older installed collection separately.
 [The catalog](CATALOG.md) records responsibilities and gaps. The collection does not
 provide every framework, OS recovery procedure, advanced statistical method or
 binary document engine. OS administration, distribution recovery and workstation health are no longer
-included source capabilities. Removing their source does not migrate or retire
-any live installation.
+included source capabilities. Those seven workflows are maintained separately in
+the owner's chezmoi dotfiles, not distributed by this repository. Moving their
+source does not apply changes to live installations.
 
 Sixteen procedures began as provisional original workflows informed by research
 across 20 public repositories. Three now include attributed installed-reference

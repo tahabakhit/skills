@@ -64,7 +64,7 @@ The catalog itself does not change live skills, links, locks, host settings or c
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
-| `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Removed from current source; retained in immutable npm `0.3.0`. Historical imports and audits do not establish current live ownership |
+| `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Moved to the owner's chezmoi dotfiles source for Linux-only management, not distributed here. Immutable npm `0.3.0` retains the old copies. Source transfer does not apply changes to live installations |
 | `managed-config-drift` | Operations specialist with unchanged optional comparator and honest unbounded-traversal contract |
 | `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
 | `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |
