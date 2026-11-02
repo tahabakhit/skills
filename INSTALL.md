@@ -28,11 +28,12 @@ Enter group names, displayed group numbers, individual skill names, or `all`.
 Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
-Version `0.3.0` includes all 30 skills and the additional CI/Git/writing references.
-The older `0.2.0` contains 21 skills. Check registry availability with
-`npm view @tahabakhit/skills version`. Installing public packages does not require
-npm login. If npm returns E404 for a version, check that it was published or use
-the public source methods below. A GitHub push alone is not npm publication.
+All seven packages are public at `0.3.0`, including all 30 skills and the additional
+CI/Git/writing references. Registry identities and all public selectors were
+verified in [the release record](releases/0.3.0.json). The older `0.2.0` contains
+21 skills. Installing public packages does not require npm login. If npm returns
+E404 for a version, check that it was published or use the public source methods
+below. A GitHub push alone is not npm publication.
 
 ## Explicit and non-interactive use
 
@@ -163,9 +164,10 @@ npx github:tahabakhit/skills
 
 ## Maintainer release process
 
-The immutable `0.2.0` packages were published from `331fbaf`. Later documentation
-commits do not update those artifacts. Before another release, choose an unused
-version and update the package metadata, lockfile and version check together.
+The immutable `0.3.0` packages were published from `9886e55`; the older `0.2.0`
+packages came from `331fbaf`. Later documentation commits do not update those
+artifacts. Before another release, choose an unused version and update the package
+metadata, lockfile and version check together.
 
 npm can accept a publication before its registry metadata becomes visible. After
 an accepted publish, wait for processing and compare the approved integrity before

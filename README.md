@@ -18,13 +18,13 @@ locally, asks for target agents, then previews exact paths before confirmation.
 Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
-Version `0.3.0` contains all 30 skills, including the specialist additions,
-chezmoi and consolidated references. The earlier `0.2.0` contains 21 skills.
-Public installation does not require npm login. Use
-`npx @tahabakhit/skills@0.3.0` to pin this version, or add `--list` to inspect its
-choices without installing skills. Check registry availability with
-`npm view @tahabakhit/skills version`. Verified package identities are kept in
-[the release records](https://github.com/tahabakhit/skills/tree/main/releases).
+All seven packages are published at `0.3.0`, with all 30 skills, including the
+specialist additions, chezmoi and consolidated references. The earlier `0.2.0`
+contains 21 skills. Public installation does not require npm login. Use
+`npx @tahabakhit/skills@0.3.0` to pin this release, or add `--list` to inspect its
+choices without installing skills. All seven public selectors passed version/list
+checks. Exact package identities are in
+[the release record](https://github.com/tahabakhit/skills/blob/main/releases/0.3.0.json).
 
 To use the latest GitHub source instead:
 
@@ -189,9 +189,9 @@ non-overlapping package groups. `dist/npm/` and `dist/tarballs/` are disposable,
 marked generated output, not edited source copies. Maintainer publication requires
 npm authentication for the scope and 2FA where required. GitHub login is separate.
 See [the release process](INSTALL.md) before running `npm run publish:packages`.
-Published `0.2.0` artifacts come from `331fbaf` and are immutable. Documentation
-updates after that commit do not replace those bytes. Choose an unused version
-before preparing another npm release.
+Published `0.3.0` artifacts come from `9886e55` and are immutable, as are the
+older `0.2.0` artifacts from `331fbaf`. Later documentation updates do not replace
+those bytes. Choose an unused version before preparing another npm release.
 
 [ARCHITECTURE.md](ARCHITECTURE.md) records the architecture and ownership boundaries.
 The [historical installed-skill audit](audits/installed-skills.md) remains the

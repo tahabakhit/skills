@@ -353,8 +353,35 @@ Preparation checks passed:
 - Independent read-only review of the six metadata/test/documentation paths:
   no material findings. This was not independent execution of the checks.
 
-These are preparation results, not a claim that publication has completed.
-Registry publication and consumer checks require a separate verified record.
+Those preparation checks preceded the publication verification below.
+
+## npm publication (0.3.0)
+
+All seven packages were published publicly on 2026-11-02 from source commit
+`9886e55e80b35c660b930d79856a7817f832d4da`. The `main` and `skills-spec` worktrees
+were synchronized and the source pushed before publication. No grouping proposal
+was implemented, no live workflow skill was installed and no managed installation
+was replaced.
+
+The clean-commit dry run approved exact tarballs. Gitleaks scanned source history
+and the frozen tarballs under recognized archive names. After browser approval,
+npm accepted core but the release command stopped on delayed registry visibility.
+A resume attempt received 409 for the already-staged core version. It did not
+overwrite that version. The six remaining packages were submitted from the same
+approved, integrity-checked frozen artifacts without resubmitting core. Registry
+processing finished before the checks below were declared passed.
+
+For every package, public registry metadata confirmed `0.3.0`, its `latest` tag,
+SHA-512 integrity and SHA-1 shasum. Independently downloaded tarball bytes matched
+the approved SHA-512 values. Fourteen public consumer checks then passed: version
+and list for each selector, using its package-specific executable in a disposable
+home/cache with no inherited credentials. These checks used Node 22.23.4 and npm
+11.19.1; the parent shell observed Node 24.22.2. No host skills were installed by
+the consumer checks. Scratch state was removed afterward.
+
+Exact source and registry identities are recorded in
+[releases/0.3.0.json](releases/0.3.0.json). Subsequent documentation commits do not
+change the published bytes.
 
 ## Not established
 
@@ -367,4 +394,5 @@ The expanded installation check verifies temporary destination files, not that
 Claude Code, Codex or Pi actually consume every skill correctly. Native interactive
 Pi evaluation sessions were a runner, not client-TUI acceptance tests. Existing
 specialist ownership transfer remains unverified and was not performed. Public npm
-publication is verified for `0.2.0`, but no skills were installed into real projects.
+publication is verified for `0.2.0` and `0.3.0`, but no skills were installed into
+real projects by these publication checks.
