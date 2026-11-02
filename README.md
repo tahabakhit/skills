@@ -47,30 +47,36 @@ it is not read-only or a sandbox. It requires Bash, Python 3.9+, POSIX process
 groups, and the repository's npm test contract. Its TypeScript waiting example
 requires application-specific types and is not a standalone library.
 
-## Current installation: selected repositories
+## Installation
 
-This package is prepared for npm but has not been published. Use the local
-checkout or a packed tarball until publication. Run installation commands from
-the project that should receive the skills, not from your home directory.
+Install selected skills directly from [tahabakhit/skills](https://github.com/tahabakhit/skills)
+with Vercel's Skills CLI. The repository is private, so your Git setup needs access
+to it. npm publication is not required. Run installation commands from the project
+that should receive the skills, not from your home directory.
 
 ### Claude Code, Codex, Pi and other supported agents
 
-Install the npm package as a project dependency after publication, then select
-skills and target agents with the Skills CLI:
+```fish
+npx skills@1.7.4 add tahabakhit/skills --skill discover-work --skill define-work
+```
+
+Replace the skill names with those you want from [CATALOG.md](CATALOG.md).
+The CLI asks which agents to target and installs to the current project by
+default. These recipes use project scope. Selective global installation is part
+of the expanded setup plan but has not been verified here. Review the installer's
+plan before accepting, especially if a skill with the same name already exists.
+Target directories and invocation syntax depend on the agent.
+
+The npm package has not been published. If it is published later, you can instead
+install it as a project dependency and select skills from that copy:
 
 ```fish
 npm install --save-dev --save-exact --ignore-scripts @tahabakhit/skills
 npx skills@1.7.4 add ./node_modules/@tahabakhit/skills --skill discover-work --skill define-work
 ```
 
-The CLI asks which agents to target and installs to the current project by
-default. These recipes use project scope. Selective global installation is part
-of the expanded setup plan but has not been verified here. Review the installer's
-plan before accepting, especially if a skill with the same name already exists.
-The dependency alone does not activate skills in every host. Target directories and invocation syntax depend on the agent.
-
-For a non-npm project, or before publication, use the checkout. Replace the
-placeholder path with its actual location:
+The npm dependency alone does not activate skills in every host.
+To use a local checkout instead, replace the placeholder with its actual location:
 
 ```fish
 npx skills@1.7.4 add /path/to/skills-checkout --skill discover-work --skill define-work
@@ -185,7 +191,7 @@ skill folders, the catalog, tests, documentation, and licenses. Add future skill
 forks; inspect name collisions before activation. Do not bundle unrelated runtime
 extensions. Recheck tests and the tarball before each
 release. Publishing requires an npm identity authorized for `@tahabakhit` and
-explicit approval. No registry access or GitHub repository has been configured.
+explicit approval. The source is hosted on GitHub, but no npm publication has been performed.
 
 ## License
 
