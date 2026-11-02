@@ -20,6 +20,8 @@ by their upstream authors.
 
 - Make delivery follow-through optional without changing validation-only scope. In the consolidated catalog, use `deliver-work` when available and already within the requested endpoint.
 - Preserve candidate-bound proof, non-vacuous checks, and existing action authority.
+- Regroup the complete folder under `skills/core/verify-and-stop`; leave pinned upstream inputs and license notices unchanged.
+- Generalize verification to documents, event plans and analysis, with repository, test and runtime directions conditional on the claim. Add non-code acceptance examples without extra gates; reuse valid proof and return to one active coordinator.
 
 The self-contained [provenance record](PROVENANCE.json) lists original source
 paths and digests, ancestor evidence, adaptations, and the imported file set.

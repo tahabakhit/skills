@@ -17,7 +17,9 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Carry project and Matt Pocock notices inside the independently selected folder."
+    "Carry project and Matt Pocock notices inside the independently selected folder.",
+    "Move the complete standalone folder to skills/core/discover-work, preserving source records and notices.",
+    "Make discovery domain-neutral with conditional repository, test and runtime investigation; add non-code acceptance examples, evidence reuse and return to one existing coordinator without mandatory gates."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -36,8 +38,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "760ca76c70c95c4917aa6e95d661df7b61b352649aa461e6912715779c6fdad0",
-      "gitBlob": "c8f676766c39104e9583946010abc24f7263b994"
+      "sha256": "2741af2f7ac4788553d107cc2679b05d836e9369ec3e33df140c8c5abd1a44b5",
+      "gitBlob": "1268416d8b9b100cfefa3cf6002a58ee9bd43288"
     },
     {
       "path": "SOURCES.json",

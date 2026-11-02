@@ -20,7 +20,9 @@
     "Assign local editorial ownership without a private writing-skill dependency.",
     "Distinguish literal cells and text exports from formulas; CSV quoting alone does not prevent formula execution.",
     "Use existing usable scanned-PDF text layers before prescribing OCR.",
-    "Merge audited installed specialist references and carry Bolens MIT notice."
+    "Merge audited installed specialist references and carry Bolens MIT notice.",
+    "Move the complete standalone folder to skills/core/create-content without changing licenses or existing pinned source inputs.",
+    "Absorb useful scope-bound prose-cleanup guidance from the local unslop adaptation; remove its optional handoff without an alias, retaining the existing Bolens notice."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -36,16 +38,6 @@
       "path": "LICENSE-BOLENS",
       "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
       "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
-    },
-    {
-      "path": "SKILL.md",
-      "sha256": "3275e974ba5271a6bd461cc35f5b31455a9b569ce4f2aad8d367c2304392ea67",
-      "gitBlob": "d03a402751a8404f005ee9b1bdbbde1d247b5a0a"
-    },
-    {
-      "path": "SOURCES.json",
-      "sha256": "7188a86da7970eb4415bbe71f37569d7ff9eacab6e34aaa7883bd417755ecbce",
-      "gitBlob": "6126a0f235387a1149fd51540f281c724a2c6f8c"
     },
     {
       "path": "references/analytical-reports.md",
@@ -76,6 +68,16 @@
       "path": "references/writing-modes.md",
       "sha256": "cfcb874ae1fd5bc0e1944621267a7d908b304c5356f9c89091cd238882600881",
       "gitBlob": "416bd112a3a4ca534f8faa4e8fce4a8831016f74"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "0cd59475ad8eba8f176089018d04342c2031e872fa3cac4225fc3a10e2ac0f1f",
+      "gitBlob": "d5f4b2c92e49db1536ea5b9ce1cf3379831deeab"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "7188a86da7970eb4415bbe71f37569d7ff9eacab6e34aaa7883bd417755ecbce",
+      "gitBlob": "6126a0f235387a1149fd51540f281c724a2c6f8c"
     }
   ],
   "imports": [
@@ -104,6 +106,35 @@
       ],
       "changes": [
         "Preserve useful detailed references under the existing owner, with standalone links and project-selected conventions. No duplicate legacy entrypoint."
+      ]
+    },
+    {
+      "source": {
+        "repository": "https://github.com/bolens/agent-skills",
+        "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+        "path": "skills/unslop"
+      },
+      "upstreamFiles": [
+        {
+          "path": "SKILL.md",
+          "sha256": "cc251ded6040277dadf47e7b005a4fe9b402edfe726d7f8229684af0503de7db",
+          "gitBlob": "e37278e2171441008c5e608865c73b50c18878f4"
+        },
+        {
+          "path": "UPSTREAM.md",
+          "sha256": "b65db672a398df91e1c69c8e1ebd9fec824514af1976ff5290d4872bbb7a8853",
+          "gitBlob": "bae3d59334fd64ea60e1eb59786a08bb15989cd8"
+        }
+      ],
+      "localInput": {
+        "revision": "6ec82322433acbe2272ca310e8a3d514e1d8c272",
+        "path": "skills/unslop/SKILL.md",
+        "sha256": "e7789518474c5664a9e2626f27246f5db7da8a6c28ae2907ca45868439270925",
+        "gitBlob": "e2171de055e067a554f5c79304b9b51053466b2d"
+      },
+      "changes": [
+        "Adapt selected non-redundant cleanup guidance into SKILL.md; omit blanket word and punctuation bans, duplicate sentence rules, and any separate skill or alias.",
+        "Retain the existing complete LICENSE-BOLENS and project LICENSE. Original input identities are copied from the local source record, not re-fetched or rewritten."
       ]
     }
   ]

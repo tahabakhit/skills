@@ -36,7 +36,9 @@
     "Make delivery follow-through optional without changing validation-only scope.",
     "Preserve candidate-bound proof, non-vacuous checks, and existing action authority.",
     "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
-    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records."
+    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records.",
+    "Move the complete standalone folder to skills/core/verify-and-stop, preserving licenses and all pinned upstream inputs.",
+    "Make acceptance proof domain-neutral with non-code examples and conditional repository, test and runtime checks; preserve candidate-bound proof reuse, one existing coordinator, selective activation and no mandatory gates."
   ],
   "upstreamFiles": [
     {
@@ -67,28 +69,28 @@
   "files": [
     {
       "path": "agents/openai.yaml",
-      "gitBlob": "bf3a9261d09db5a01157643537519347dbf0f4ce",
-      "sha256": "9efaaae6ffe812827c1c70af326ebc58b75455f99512f11dc3afccd0298cb45d"
+      "sha256": "9efaaae6ffe812827c1c70af326ebc58b75455f99512f11dc3afccd0298cb45d",
+      "gitBlob": "bf3a9261d09db5a01157643537519347dbf0f4ce"
     },
     {
       "path": "LICENSE",
-      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259",
-      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b"
+      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b",
+      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259"
     },
     {
       "path": "LICENSE-BOLENS",
-      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257",
-      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071"
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "59e6b3fe0c2228401424633d3ea576a2eba1c7e7",
-      "sha256": "fe605c77e1e8cf87ce807dbb8d6c3242eb3a4ff961f055e9b61057acfc678782"
+      "sha256": "d57972e920f3abeee762030c78bcb9d1e65eb65fea3e0a29e8de706b713be9a9",
+      "gitBlob": "4ecdf6a1060d167f42295903fb3109343c3d506a"
     },
     {
       "path": "UPSTREAM.md",
-      "gitBlob": "7c9ff5ef67bc69359c5f49dae5de570d5925eb18",
-      "sha256": "99e622706da5d0a12cb1eaacc7fe1f42a69d2b0df41a4962a45d0014b1682c05"
+      "sha256": "49980cb38bcbd3f560fdfccae76c0b4ca9fa4e3fe6bf04ff219581065da0fa36",
+      "gitBlob": "9a6054620aa2ff41d686e4fd96140d89497d9a0d"
     }
   ],
   "verification": {
