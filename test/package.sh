@@ -35,7 +35,7 @@ for skill in discover-work define-work; do
 done
 pass 'two named, described and bounded skills'
 
-for file in README.md SOURCES.md skills/define-work/SKILL.md; do
+for file in README.md SOURCES.md ARCHITECTURE.md VERIFICATION.md audits/installed-skills.md skills/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -65,5 +65,22 @@ jq -r '.files[]' package.json | while IFS= read -r path; do
   [ -e "$path" ] || fail "missing npm allowlist entry: $path"
 done
 pass 'all npm allowlist entries exist'
+
+jq -e '.schemaVersion == 1
+  and .reference.repository == "bolens/agent-skills"
+  and .reference.revision == "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d"
+  and (.skills | length) == 14 and (.files | length) == 67
+  and ([.files[].path] | unique | length) == 67
+  and ([.files[] | select(.comparison == "identical")] | length) == 50
+  and all(.files[]; (.sha256 | test("^[0-9a-f]{64}$"))
+    and (.gitBlob | test("^[0-9a-f]{40}$")))
+  and (.additionalReferences | length) == 2
+  and all(.additionalReferences[]; .localFiles == .sourceFiles
+    and .matchingFiles == .localFiles and .truncated == false)
+  and .linkScan.checked == 77 and (.linkScan.missing | length) == 34
+  and .linkScan.distinctMissingTargets == 14
+  and ([.linkScan.missing[].normalizedTarget] | unique | length) == 14' \
+  audits/shared-inventory.json >/dev/null || fail 'invalid historical audit snapshot'
+pass 'historical audit snapshot retains recorded counts and digests'
 
 printf '%s structural checks passed; model behavior not evaluated.\n' "$checks"

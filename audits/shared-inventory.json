@@ -1,0 +1,910 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-11-02",
+  "repositoryBaseline": "c8aa56fa4e71b838da7d01a1d6c07020a0cb9167",
+  "scope": "shared installed skill files only",
+  "sourceRoot": "~/.agents/skills",
+  "reference": {
+    "repository": "bolens/agent-skills",
+    "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d"
+  },
+  "skills": [
+    {
+      "skill": "arch-linux",
+      "localFiles": 2,
+      "expectedFiles": 2,
+      "identical": 2,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "arch-package-maintenance",
+      "localFiles": 4,
+      "expectedFiles": 4,
+      "identical": 4,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "arch-update-recovery",
+      "localFiles": 3,
+      "expectedFiles": 3,
+      "identical": 3,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "cachyos",
+      "localFiles": 3,
+      "expectedFiles": 3,
+      "identical": 3,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "ci-maintenance",
+      "localFiles": 6,
+      "expectedFiles": 6,
+      "identical": 6,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "git-hygiene",
+      "localFiles": 7,
+      "expectedFiles": 7,
+      "identical": 7,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "herdr-core",
+      "localFiles": 1,
+      "expectedFiles": 0,
+      "identical": 0,
+      "different": 0,
+      "notInSource": 1,
+      "missing": []
+    },
+    {
+      "skill": "managed-config-drift",
+      "localFiles": 4,
+      "expectedFiles": 4,
+      "identical": 4,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "migration",
+      "localFiles": 4,
+      "expectedFiles": 4,
+      "identical": 4,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "rhel-fedora",
+      "localFiles": 16,
+      "expectedFiles": 0,
+      "identical": 0,
+      "different": 0,
+      "notInSource": 16,
+      "missing": []
+    },
+    {
+      "skill": "safe-refactor",
+      "localFiles": 4,
+      "expectedFiles": 4,
+      "identical": 4,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "technical-writing",
+      "localFiles": 6,
+      "expectedFiles": 6,
+      "identical": 6,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "unslop",
+      "localFiles": 2,
+      "expectedFiles": 2,
+      "identical": 2,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    },
+    {
+      "skill": "workstation-health-triage",
+      "localFiles": 5,
+      "expectedFiles": 5,
+      "identical": 5,
+      "different": 0,
+      "notInSource": 0,
+      "missing": []
+    }
+  ],
+  "files": [
+    {
+      "skill": "arch-linux",
+      "path": "arch-linux/SKILL.md",
+      "mode": "644",
+      "sha256": "6bd360362078f8f1250640da790051446e69f5cfd492b14a3e725d81804d5bb9",
+      "gitBlob": "e4793b921a01eca7e594d32913df48f7dbeba226",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-linux",
+      "path": "arch-linux/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "8832e846d38b19a721fa3dbb029920eb6362971d8b3ce8e3849a6541c00fa7ec",
+      "gitBlob": "5dfd7fde023408804e897753538543f0d327f3e9",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-package-maintenance",
+      "path": "arch-package-maintenance/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "49995d81d2bebe7474919ee8f6c29e88ceeacba6c1a6c5044494da5d0f9b60e2",
+      "gitBlob": "e2a7ba0df7b517fced23660778e7a2b1e7e2574b",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-package-maintenance",
+      "path": "arch-package-maintenance/references/patches-and-builds.md",
+      "mode": "644",
+      "sha256": "65d4f427bd33ef2339caa650ade5f6280afeb7ddc7b2e932d69a6bc5327a8601",
+      "gitBlob": "5eb2cb861f63934521c6dbd16919ba81af48bea9",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-package-maintenance",
+      "path": "arch-package-maintenance/SKILL.md",
+      "mode": "644",
+      "sha256": "01e99d6b3e4c1f6c5d0a908ec938247444a9b9363ebc4a6cb820b43c5b7f7bfc",
+      "gitBlob": "c618ec3d7bbb786e0a1929a9339c16124ac0d908",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-package-maintenance",
+      "path": "arch-package-maintenance/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "a9300ab70dae9835fd198abc8221203279c7dde6d2f689f70ccc2b4d7086abc2",
+      "gitBlob": "dec582fabae747e12f981ab0a8e1ae663190ee02",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-update-recovery",
+      "path": "arch-update-recovery/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "a26d8ece7f694ad5be66028e8dc109cb4d03b138a10d6a36bb1306cd8b1f2227",
+      "gitBlob": "e32a4d73cee23c3019e45a82f991e9d806fdab33",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-update-recovery",
+      "path": "arch-update-recovery/SKILL.md",
+      "mode": "644",
+      "sha256": "00a34aef49b9fce389d0cf768247646806d1cf0aee45757ef572d3b0c08e10dd",
+      "gitBlob": "97e0cbb833c30178ec30f0ac34df068fe7ed45ec",
+      "comparison": "identical"
+    },
+    {
+      "skill": "arch-update-recovery",
+      "path": "arch-update-recovery/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "54c02dcba9f14ba977ae017155e8687a50b02e983890578abaef0235e24e77d7",
+      "gitBlob": "e4c2a7f4d0703dc1258b02961e84407296af34bd",
+      "comparison": "identical"
+    },
+    {
+      "skill": "cachyos",
+      "path": "cachyos/references/settings-and-tuning.md",
+      "mode": "644",
+      "sha256": "8513d98c2c5f4fb9f203f106e11fc4191198ea6e4507a4ed24dd132280980d7f",
+      "gitBlob": "8d02452250c0470176faebb794e081a076dc7657",
+      "comparison": "identical"
+    },
+    {
+      "skill": "cachyos",
+      "path": "cachyos/SKILL.md",
+      "mode": "644",
+      "sha256": "43cc5d7747187de75ad18efe178eadf2a08dc815b1cb0ba7e364f3038e602742",
+      "gitBlob": "e47b2c5d7d2c6c5b6b084dd8caf8688ea08498b4",
+      "comparison": "identical"
+    },
+    {
+      "skill": "cachyos",
+      "path": "cachyos/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "bbd35c20f1f101b82cf736f04ede94cb8ffb5273fe5324d11881d9ff1727f6ad",
+      "gitBlob": "87742c5411cda8bcd909e904ae53ecbac75b80fd",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/references/command-evidence.md",
+      "mode": "644",
+      "sha256": "ae8cd652a872c74b4519b18641b04492494c9668a029c6e918fb3448e90fe8fd",
+      "gitBlob": "76fe33c8c6cf21ab3e539ad46b0f970dc51f58ad",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/references/development-environments.md",
+      "mode": "644",
+      "sha256": "0987e5a98b3968a3ee08a36b26be686938796365b4cc7657961ee8614c5c368a",
+      "gitBlob": "d86149a146f8b4357819dbcb16064e807672d56f",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/references/github-actions.md",
+      "mode": "644",
+      "sha256": "76776f8770ea400953f40f1becb3952c6602271e21c3d1541ecf7c6b378b273c",
+      "gitBlob": "648c7653f9b105ce8218adcb32a90ad70135d04c",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/references/setup-contracts.md",
+      "mode": "644",
+      "sha256": "a3cff1280391efe1eb37f8ff58de2aadaea54c708081e211bd323c8c6fc0ad4c",
+      "gitBlob": "8ac42d5bbb0d2677664d4ebe3ae238c71d079a8e",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/SKILL.md",
+      "mode": "644",
+      "sha256": "1838d0319470b087f2cac9a52f083c6a488863b52a457615ec7a75f1f81f03c3",
+      "gitBlob": "18883d541b9036a4d40ee4cea079d584bd3e287e",
+      "comparison": "identical"
+    },
+    {
+      "skill": "ci-maintenance",
+      "path": "ci-maintenance/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "528effc4c3b6895d8794478a067a87ddf968c173db50ca35d223212b57dc5945",
+      "gitBlob": "8d1a8d9639eaf0acad8b80051eb8aae5e29cb763",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/references/branch-cleanup.md",
+      "mode": "644",
+      "sha256": "a9a129ba26e42a381ec593a9d05f424f410af3b158dcc914b1e40e6232f307c8",
+      "gitBlob": "7211cf3928db5fffe795fe7f5ab0b20994c48e32",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/references/evidence-cleanup.md",
+      "mode": "644",
+      "sha256": "1be99e53002f057e646893eee08df20f8b363e05bb26408103a322d3ae5608d7",
+      "gitBlob": "4b3f44c581b7cfb49f0371caece584b4623f8bab",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/references/freshness.md",
+      "mode": "644",
+      "sha256": "606f4820966f9ad5c11fb3857c83717519818b6a0769aa3ddec66ebc43378c5e",
+      "gitBlob": "e3877aff9152143b0fb59cb4004f61bc8249dcd9",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/references/semantic-conventions.md",
+      "mode": "644",
+      "sha256": "77829f65b17ebe3fcbb9085fc53409629b8d03d34df985a9cbfe104c51350937",
+      "gitBlob": "636827c0f172e5b506d090c955f81b7282a20101",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/references/work-units.md",
+      "mode": "644",
+      "sha256": "16b12cb74f7dcdbbf44d29fba36940200b8a91b011d17848ab75ff5802bcca91",
+      "gitBlob": "fcf7696604b31af71dabc060dd9ed5cb65c02980",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/SKILL.md",
+      "mode": "644",
+      "sha256": "7dd9f6df6698fcef14ed070fdb72b5e55980d19e8f4362f087913bbd0a405412",
+      "gitBlob": "04d1917cc386c88e212c86fd34a46ff12644cf66",
+      "comparison": "identical"
+    },
+    {
+      "skill": "git-hygiene",
+      "path": "git-hygiene/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "b0b5f5a8c9b908144aea2681a05398b27bbd07704850be66446877cfa0801549",
+      "gitBlob": "aa5d31c274a9b6c3e15fe76f5dd4f2afcc6e4755",
+      "comparison": "identical"
+    },
+    {
+      "skill": "herdr-core",
+      "path": "herdr-core/SKILL.md",
+      "mode": "644",
+      "sha256": "677e9f2e21f13a3ecf11708fc50211373fda7e50251e7e0cb303707ac8eed70a",
+      "gitBlob": "864a6e4681d629d1c46fa2f2c5a24fb4028e76d3",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "managed-config-drift",
+      "path": "managed-config-drift/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "a019961c254d7bdc7b8d436a17139218cf35b93c5f9cca39efa6f0b699435c7a",
+      "gitBlob": "101f95029ad8905d43a4190cccd800ff7159ff68",
+      "comparison": "identical"
+    },
+    {
+      "skill": "managed-config-drift",
+      "path": "managed-config-drift/scripts/compare-trees.py",
+      "mode": "755",
+      "sha256": "a40910ca89859174aa2a998aaaba0159bbaf9efb37fa926aa7bc5a26ec59f5bb",
+      "gitBlob": "246b8a9e09dad31045d4d1c739a63dea64847195",
+      "comparison": "identical"
+    },
+    {
+      "skill": "managed-config-drift",
+      "path": "managed-config-drift/SKILL.md",
+      "mode": "644",
+      "sha256": "5ac738ddd1bec238b83d6ee9fcff9a0a62a6ffa41e578a45fbbf331877c95d96",
+      "gitBlob": "4875ed9372932ab19a9f3db0953ddc4becaeb202",
+      "comparison": "identical"
+    },
+    {
+      "skill": "managed-config-drift",
+      "path": "managed-config-drift/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "112770f409514cca7b14bcda486986bebb23833e9c14776860b6907d97db0af3",
+      "gitBlob": "b199dd2d1817159bae6d4d8a92e142ba64afc57c",
+      "comparison": "identical"
+    },
+    {
+      "skill": "migration",
+      "path": "migration/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "ca7090ae9c9465fb7075eb650d530757bd73530437a02ae1ed22e41e3bf0ba79",
+      "gitBlob": "d04b219ca2acd7fd4e83171067a6ef6136766247",
+      "comparison": "identical"
+    },
+    {
+      "skill": "migration",
+      "path": "migration/LICENSE",
+      "mode": "644",
+      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b",
+      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259",
+      "comparison": "identical"
+    },
+    {
+      "skill": "migration",
+      "path": "migration/SKILL.md",
+      "mode": "644",
+      "sha256": "fe7cf96a58b0521130fbb886dab2a326869d6ed0001e0306fd244014ba7a9662",
+      "gitBlob": "7d1f2dcb083dcd182f6df1a5333b6ff9c9d03fe7",
+      "comparison": "identical"
+    },
+    {
+      "skill": "migration",
+      "path": "migration/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "2f6f31e8c884e0eb1424dbc24ceacebadb631162eb0bd2d429294f9c462f1ab6",
+      "gitBlob": "dfe522e18fd0b8297dec9b8ca3dac2d13ff0901e",
+      "comparison": "identical"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/agent-hygiene.md",
+      "mode": "644",
+      "sha256": "59171d1de03c18c3e01d04b1248e2a74f8447597ff506c6f08c4a4133488fe75",
+      "gitBlob": "cfe365fb5c143e8afd7c1eed7cae750e479c6bd5",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/base-linux-and-cli.md",
+      "mode": "644",
+      "sha256": "9ba04c577cbf0cb8a07bb49882473c5ca454c973eeb94f6f0ac5ec2eda7c2bf0",
+      "gitBlob": "9a49e6489f3587c107b5a7cc1ca9fff7bb4c4ba5",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/boot-kernel-and-recovery.md",
+      "mode": "644",
+      "sha256": "32269872b9949aeea706995a81966bf1eba8a3d069aedb4b552a73b0ea0d6c92",
+      "gitBlob": "6859ea31b713ce52d545f86781f247f08a19ad82",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/capture-and-sharing.md",
+      "mode": "644",
+      "sha256": "1f3093f9bde98b0efcfbeeba38504d19cf450fd0c273fb875315eb370036003e",
+      "gitBlob": "dc032a0f6b35bffd3ae5878f618d1b3f35f87b23",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/derivatives-and-vendor-quirks.md",
+      "mode": "644",
+      "sha256": "3d1f7a1ba5de3a16325b6b66496c0fe5ff27818d66f27e496f6cf7968096eaf9",
+      "gitBlob": "85d9a43d53a334f2fb177218013bf57de738f875",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/desktop-audio-and-bluetooth.md",
+      "mode": "644",
+      "sha256": "b550cf25d80bdd440f183426f5e77b21672806599c0fc470cb80c0a0479161c3",
+      "gitBlob": "43e26e3b466f9b00d6704185d898ff4ecb931a46",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/gotchas-and-special-situations.md",
+      "mode": "644",
+      "sha256": "4066405b897574dd03e13b39804809a8859a3c00dff553255f0a06420f5db54a",
+      "gitBlob": "463a616fb870de8b4bd0630fe0edc306d4e7d65a",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/graphics-and-gaming.md",
+      "mode": "644",
+      "sha256": "e7f0867393dd1a9890b31a517f1a2903c3da345dfd257c07d6cf64b6bcefe735",
+      "gitBlob": "315953b381309970a6e5e34a7a8e4fc81ff4bb88",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/output-contract.md",
+      "mode": "644",
+      "sha256": "44262622a3214a2529e7b53ca877384132ae04640ab2b94520d9dd30feb45e6b",
+      "gitBlob": "38b6a0a023108c9936a44f88c656717bbb74e737",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/packages-and-repos.md",
+      "mode": "644",
+      "sha256": "a4869448ff13e21034477326b83a53928094ad8295fbd56f922306f78bb24c8a",
+      "gitBlob": "911a87b205da44bc57ff6c3a5822f1480472c200",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/remote-gaming-input-and-tooling.md",
+      "mode": "644",
+      "sha256": "f4972c2c8030e03f89ecb1b09033487934a2bf9444480bddcecf6b22703ad992",
+      "gitBlob": "91e2315bc6f6eff7409cdffd3cace063ce72aea4",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/security-and-updates.md",
+      "mode": "644",
+      "sha256": "ba3c610d7171f1bb296d825cf13fb37d66987bf95d1c40438ddb9b09826fca80",
+      "gitBlob": "3e8c388cc6b3f072cfc5041ad65feae5b8af796d",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/session-display-and-mobile.md",
+      "mode": "644",
+      "sha256": "f8fdb7c32adb70ce8e70a934599eef52092bf37927dcc2ea5104e4784384be58",
+      "gitBlob": "408ea09f3080e447e4a10faf023a03b05ac2ed6f",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/storage-and-rollback.md",
+      "mode": "644",
+      "sha256": "3d0e992055be83ab5b0a2d2de7e9c8df899aa0eb5bcb56042550492da3f7cf15",
+      "gitBlob": "3205da670acb98415764914e6251a8122f456819",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/references/systemd-and-journal.md",
+      "mode": "644",
+      "sha256": "0febde74d0cec6fb23efb7fa4c28ff1b9fcba6efcf527ec7c096dfa3bfb22d95",
+      "gitBlob": "f936a12656c204db401f6aa41e7ed8cd9bc39c14",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "rhel-fedora",
+      "path": "rhel-fedora/SKILL.md",
+      "mode": "644",
+      "sha256": "cbe034dd2102b011c5bd808526684dded31209ddb4faf06a50fd3dac9f0babfc",
+      "gitBlob": "e54c8f5bfa3d197df19b3232143d22e0f24870d2",
+      "comparison": "not-in-source"
+    },
+    {
+      "skill": "safe-refactor",
+      "path": "safe-refactor/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "df608465dc32de1926bfc91ea0beabe9bc61198c121ff1eef0d2e6d74dd67ac1",
+      "gitBlob": "19606d55eeba3c67ec0a25f5e0c20f6129ed479e",
+      "comparison": "identical"
+    },
+    {
+      "skill": "safe-refactor",
+      "path": "safe-refactor/LICENSE",
+      "mode": "644",
+      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b",
+      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259",
+      "comparison": "identical"
+    },
+    {
+      "skill": "safe-refactor",
+      "path": "safe-refactor/SKILL.md",
+      "mode": "644",
+      "sha256": "cd52867aba26aafb53379d43068cef9b2feca3a3fff850f877a99f710ccd02c0",
+      "gitBlob": "0d492db7d302e87f5bf01738fee6a7543984a787",
+      "comparison": "identical"
+    },
+    {
+      "skill": "safe-refactor",
+      "path": "safe-refactor/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "8f59eb46a24cbfe3895df99acd8b486b4bd2487c1d9ac7adf1676da5c2cdf07e",
+      "gitBlob": "3d616123fbb0be4e97e8a36b865d5256868dac82",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "f8363ff7c377a44944a1227e98b0c0511b1df186bc8e4cc52c6e428c5203e519",
+      "gitBlob": "002b8d3da470cee85f199ea57466dd983fc7ff8b",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/references/document-structure.md",
+      "mode": "644",
+      "sha256": "0ee8dbcef49f6661eb2ad2a269bfcddb136c59e64230a6fdc5c0f0d4a9a526ec",
+      "gitBlob": "859b80993c229891264557a39e7e28d516009a84",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/references/repository-verification.md",
+      "mode": "644",
+      "sha256": "4bcf491eacf5604fa5a5325b2f0f32cd488943c011523ea8a3a844cdc33dbc50",
+      "gitBlob": "7f2fd8b7b6a4b0f39e032aec5b02f2a5461d885d",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/references/sentence-style.md",
+      "mode": "644",
+      "sha256": "6f8abcd097ec60ebaae71cd6e5b65a4670d485ecad2a66cf15b1dc6c264ca97e",
+      "gitBlob": "4417fd8cd1bb31e24dd86050dfa9dd0d6a0ff753",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/SKILL.md",
+      "mode": "644",
+      "sha256": "9f129a1ae15baa2ae28a19c6b0ece0cbd29eb105e701935d30c2f764b06f0785",
+      "gitBlob": "904361b3995f1d1188cf2ae4480a9eba60efd42d",
+      "comparison": "identical"
+    },
+    {
+      "skill": "technical-writing",
+      "path": "technical-writing/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "728b76d1172c6d5fbc35ce91a4159a837d1647e4febafe96e18cb302be7aebed",
+      "gitBlob": "072c43e2468c0a59f3c61a32c38ff2c8b344d56b",
+      "comparison": "identical"
+    },
+    {
+      "skill": "unslop",
+      "path": "unslop/SKILL.md",
+      "mode": "644",
+      "sha256": "cc251ded6040277dadf47e7b005a4fe9b402edfe726d7f8229684af0503de7db",
+      "gitBlob": "e37278e2171441008c5e608865c73b50c18878f4",
+      "comparison": "identical"
+    },
+    {
+      "skill": "unslop",
+      "path": "unslop/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "b65db672a398df91e1c69c8e1ebd9fec824514af1976ff5290d4872bbb7a8853",
+      "gitBlob": "bae3d59334fd64ea60e1eb59786a08bb15989cd8",
+      "comparison": "identical"
+    },
+    {
+      "skill": "workstation-health-triage",
+      "path": "workstation-health-triage/agents/openai.yaml",
+      "mode": "644",
+      "sha256": "6ca2a24f5648e34f6d17004c42fab031ca8837ea5abca8368192f0a5ba964264",
+      "gitBlob": "9c9d1c95f7b802a97b65d75a473bdac89fed9092",
+      "comparison": "identical"
+    },
+    {
+      "skill": "workstation-health-triage",
+      "path": "workstation-health-triage/scripts/collect-health.py",
+      "mode": "755",
+      "sha256": "582affbb556edc4eb8479850805fa80b753717f167ee19336072dcda8a4a3c60",
+      "gitBlob": "2e76dcedb01460aaee01a079db9c48ccc2303c15",
+      "comparison": "identical"
+    },
+    {
+      "skill": "workstation-health-triage",
+      "path": "workstation-health-triage/scripts/collect-health.sh",
+      "mode": "755",
+      "sha256": "1255de1fb3512265bec912ee5bda577f489e5947c04930eaf0e0061fd30b1161",
+      "gitBlob": "b8ce901392145671284ea4203dfd36fefb2d0e64",
+      "comparison": "identical"
+    },
+    {
+      "skill": "workstation-health-triage",
+      "path": "workstation-health-triage/SKILL.md",
+      "mode": "644",
+      "sha256": "5468504fd9a45ed059086e8658478eb1b2b23c641e3fe324aa0e5eda4420d37f",
+      "gitBlob": "265bac951fbf7e62a7109575d68d476eabacc023",
+      "comparison": "identical"
+    },
+    {
+      "skill": "workstation-health-triage",
+      "path": "workstation-health-triage/UPSTREAM.md",
+      "mode": "644",
+      "sha256": "332ef23b0f31126d4ab3650ff828931e4c1c55ad8a4597e4e39747f92bbc9928",
+      "gitBlob": "c1bc582909a12575f33333ee898855df2a0334da",
+      "comparison": "identical"
+    }
+  ],
+  "additionalReferences": [
+    {
+      "skill": "rhel-fedora",
+      "repository": "iuliandita/skills",
+      "revision": "496420bfb995892598e0eae18aff2a5be3d800b2",
+      "sourceDirectory": "skills/rhel-fedora",
+      "localFiles": 16,
+      "sourceFiles": 16,
+      "matchingFiles": 16,
+      "truncated": false
+    },
+    {
+      "skill": "herdr-core",
+      "repository": "herdrdev/herdr-core",
+      "revision": "5a9de29b2f9b6690388a1c297a7ca8d73df7d3e2",
+      "sourceDirectory": "skills/herdr-core",
+      "localFiles": 1,
+      "sourceFiles": 1,
+      "matchingFiles": 1,
+      "truncated": false
+    }
+  ],
+  "linkScan": {
+    "method": "Simple inline relative Markdown file targets, excluding URLs, titles and anchors; bare-name handoffs are not counted.",
+    "checked": 77,
+    "missing": [
+      {
+        "path": "arch-linux/SKILL.md",
+        "line": 58,
+        "target": "../omarchy/SKILL.md",
+        "normalizedTarget": "omarchy/SKILL.md"
+      },
+      {
+        "path": "arch-linux/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "arch-package-maintenance/SKILL.md",
+        "line": 10,
+        "target": "../release-packaging/SKILL.md",
+        "normalizedTarget": "release-packaging/SKILL.md"
+      },
+      {
+        "path": "arch-package-maintenance/SKILL.md",
+        "line": 26,
+        "target": "../babysit/SKILL.md",
+        "normalizedTarget": "babysit/SKILL.md"
+      },
+      {
+        "path": "arch-package-maintenance/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "arch-update-recovery/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "cachyos/SKILL.md",
+        "line": 66,
+        "target": "../omarchy/SKILL.md",
+        "normalizedTarget": "omarchy/SKILL.md"
+      },
+      {
+        "path": "cachyos/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "ci-maintenance/references/development-environments.md",
+        "line": 64,
+        "target": "../../nixos/SKILL.md",
+        "normalizedTarget": "nixos/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 40,
+        "target": "../codebase-design/references/experience-and-interfaces.md",
+        "normalizedTarget": "codebase-design/references/experience-and-interfaces.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 55,
+        "target": "../setup-pre-commit/SKILL.md",
+        "normalizedTarget": "setup-pre-commit/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 59,
+        "target": "../release-packaging/SKILL.md",
+        "normalizedTarget": "release-packaging/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 71,
+        "target": "../triage-dependency-updates/SKILL.md",
+        "normalizedTarget": "triage-dependency-updates/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 73,
+        "target": "../audit-repo-fleet/references/shared-fixes.md",
+        "normalizedTarget": "audit-repo-fleet/references/shared-fixes.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 87,
+        "target": "../systematic-debugging/SKILL.md",
+        "normalizedTarget": "systematic-debugging/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 87,
+        "target": "../sensitive-info-audit/SKILL.md",
+        "normalizedTarget": "sensitive-info-audit/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/SKILL.md",
+        "line": 87,
+        "target": "../babysit/SKILL.md",
+        "normalizedTarget": "babysit/SKILL.md"
+      },
+      {
+        "path": "ci-maintenance/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "git-hygiene/references/freshness.md",
+        "line": 60,
+        "target": "../../babysit/SKILL.md",
+        "normalizedTarget": "babysit/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/references/work-units.md",
+        "line": 36,
+        "target": "../../verify-and-stop/SKILL.md",
+        "normalizedTarget": "verify-and-stop/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/references/work-units.md",
+        "line": 37,
+        "target": "../../systematic-debugging/SKILL.md",
+        "normalizedTarget": "systematic-debugging/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/references/work-units.md",
+        "line": 39,
+        "target": "../../cli-web-evidence/SKILL.md",
+        "normalizedTarget": "cli-web-evidence/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/references/work-units.md",
+        "line": 41,
+        "target": "../../babysit/SKILL.md",
+        "normalizedTarget": "babysit/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/SKILL.md",
+        "line": 81,
+        "target": "../resolving-merge-conflicts/SKILL.md",
+        "normalizedTarget": "resolving-merge-conflicts/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/SKILL.md",
+        "line": 81,
+        "target": "../babysit/SKILL.md",
+        "normalizedTarget": "babysit/SKILL.md"
+      },
+      {
+        "path": "git-hygiene/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "managed-config-drift/SKILL.md",
+        "line": 22,
+        "target": "../nixos/SKILL.md",
+        "normalizedTarget": "nixos/SKILL.md"
+      },
+      {
+        "path": "managed-config-drift/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "migration/UPSTREAM.md",
+        "line": 19,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "safe-refactor/UPSTREAM.md",
+        "line": 19,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "technical-writing/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "unslop/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      },
+      {
+        "path": "workstation-health-triage/SKILL.md",
+        "line": 55,
+        "target": "../nixos/SKILL.md",
+        "normalizedTarget": "nixos/SKILL.md"
+      },
+      {
+        "path": "workstation-health-triage/UPSTREAM.md",
+        "line": 13,
+        "target": "../../PROVENANCE.json",
+        "normalizedTarget": "../PROVENANCE.json"
+      }
+    ],
+    "distinctMissingTargets": 14
+  }
+}

@@ -4,7 +4,9 @@ Taha's agent skills bundle. The agreed direction is a standalone collection for
 engineering, systems, operations, and non-coding work, selectively installed
 globally or per project using Vercel's Skills CLI. See
 [the architecture and setup plan](ARCHITECTURE.md) for decisions, proposed
-categories, and migration boundaries.
+categories, and migration boundaries. The
+[installed-skill audit and import map](audits/installed-skills.md) records the
+current candidates, dependencies, and ownership findings.
 
 The current package contains only the two skills below. Its external engineering
 handoff is transitional. Standalone delivery, the expanded catalog, and global

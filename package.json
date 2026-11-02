@@ -6,7 +6,7 @@
   "author": "Taha Bakhit",
   "publishConfig": { "access": "public" },
   "keywords": ["pi-package", "agent-skills", "discovery", "specification"],
-  "files": ["skills", "test", "README.md", "ARCHITECTURE.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "files": ["skills", "test", "audits", "README.md", "ARCHITECTURE.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
   "scripts": {
     "test": "sh test/package.sh"
   },

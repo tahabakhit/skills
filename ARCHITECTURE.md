@@ -105,10 +105,11 @@ Installation must not be treated as permission to enable those integrations.
 ## Existing installation and ownership
 
 The read-only inventory found 14 skill directories in `~/.agents/skills` on this
-machine. Twelve entrypoint files match the inspected Bolens revision recorded in
-`SOURCES.md`. That comparison covers entrypoints, not every supporting file or
-original authorship. Preserve the provenance chain instead of labeling those
-imports as authored here.
+machine. The subsequent [installed-skill audit](audits/installed-skills.md)
+verified all 50 regular files across 12 folders against the pinned Bolens revision
+recorded in `SOURCES.md`. That establishes file-content equality, not original
+authorship or an active installation manager. Preserve the provenance chain
+instead of labeling those imports as authored here.
 
 Chezmoi currently tracks `herdr-core`, `rhel-fedora`, their supporting managed
 files, and Claude links. Their live skill contents match the inspected chezmoi
@@ -152,9 +153,14 @@ capabilities.
 
 ## Remaining product decisions
 
-The first delivery workflow's required endpoint and any consequential additions
-to the initial skill selection still need concrete task examples. Domain grouping
-is provisional internal organization, not a user approval gate. Do not ask the
-user to design package internals. OS and framework selections depend on the
-intended machine or project. Runtime and hook decisions stay deferred
-until a workflow demonstrates why they are needed.
+Use the requested endpoint and active user/project policy rather than requiring
+a universal stopping-point decision before useful work can continue. Ask only
+when the actual next action needs an unresolved consequential decision, expanded
+scope, or missing permission. Audits and source preparation do not depend on
+choosing every future delivery setting.
+
+Consequential additions to the initial skill selection still need concrete task
+examples. Domain grouping is provisional internal organization, not a user
+approval gate. Do not ask the user to design package internals. OS and framework
+selections depend on the intended machine or project. Runtime and hook decisions
+stay deferred until a workflow demonstrates why they are needed.

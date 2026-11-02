@@ -40,6 +40,33 @@ and evaluation cases were not changed. The expanded catalog, standalone delivery
 global installation, migration, and cross-host behavior are still unimplemented
 or unverified. No live installation or chezmoi ownership changed.
 
+## Installed collection audit checks
+
+The four audits and cross-reviews are summarized in
+[the import map](audits/installed-skills.md), with file evidence in
+[the snapshot](audits/shared-inventory.json). They examined source instructions
+and installation ownership, not model-driven use of the skills.
+
+| Check | Result |
+| --- | --- |
+| Shared inventory and pinned source comparison | 14 folders, 67 regular files; all 50 files in the 12 Bolens-derived folders match, with no missing or extra regular files in those subtrees |
+| Additional pinned vendor comparisons | All 16 Fedora/RHEL files and the one Herdr stub match their respective source snapshots; all 14 shared origins are recoverable |
+| Relative Markdown target scan | 77 occurrences checked; 34 broken occurrences across 14 distinct missing targets, including 12 provenance pointers |
+| Recheck recorded SHA-256 against live shared files | All 67 match; no drift from the recorded snapshot |
+| `bash -n` on the health shell entrypoint | Exit 0; the collector was not executed |
+| Redacted `gitleaks dir` scan of the shared skill directory | `no leaks found` |
+| `npm test` after adding audit records and snapshot checks | `8 structural checks passed; model behavior not evaluated.` |
+| `npm pack --dry-run --ignore-scripts --json` | 15 entries, including the two audit artifacts |
+| Isolated copies with intentionally damaged audit data | `PASS: isolated baseline; corrupt digest rejected; missing audit target rejected.` |
+| `git diff --check` | Exit 0, no output |
+
+The inventory comparison covers recorded regular files, not ACLs, xattrs, full
+installation history, an active updater, or ultimate authorship. Link scanning is
+not a complete dependency resolver. Source/license findings do not establish
+behavioral suitability. No imports, live installation changes, chezmoi retirement,
+host-discovery runs, or bundled diagnostic helpers were executed. Existing skill
+contents and model-driven evaluation cases remain unchanged.
+
 ## Not established
 
 No model-driven acceptance scenarios have been run. There is no evidence yet for

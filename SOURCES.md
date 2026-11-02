@@ -98,6 +98,39 @@ Fetched instructions asking agents to run update checks, engine launchers, hooks
 or setup writers were inspected as data. They were not executed. No skills were
 installed or migrated during this assessment.
 
+## Installed collection audit
+
+The [installed-skill audit](audits/installed-skills.md) extends the earlier
+entrypoint-only comparison. Its [file inventory](audits/shared-inventory.json)
+records all 67 regular files across the 14 shared skill directories. All 50 files
+in the 12 Bolens-derived folders match the complete pinned tree at
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`, with no missing or extra regular files
+in those folders. The recursive tree is not truncated; a fresh GitHub root lookup
+confirmed its revision. This establishes file equality, not authorship, current
+installation ownership, redistribution readiness, or model behavior.
+
+Four adversarial audits covered dependencies/portability, workflows/overlap,
+provenance/licenses, and installation ownership. Cross-review narrowed approval
+and cleanup claims: the present spec-only skill does not execute implementation,
+and the branch-cleanup reference already carries existing deletion authority.
+The future owned workflow must not add redundant approval gates.
+
+The provenance audit also recovered exact matching public snapshots for the two
+shared skills outside Bolens:
+
+| Material | Matching source revision | Finding |
+| --- | --- | --- |
+| [Fedora/RHEL skill](https://github.com/iuliandita/skills/tree/496420bfb995892598e0eae18aff2a5be3d800b2/skills/rhel-fedora) | `496420bfb995892598e0eae18aff2a5be3d800b2` | All 16 files match; retain Iulian Dita's 2025 MIT notice on import. |
+| [Herdr integration stub](https://github.com/herdrdev/herdr-core/tree/5a9de29b2f9b6690388a1c297a7ca8d73df7d3e2/skills/herdr-core) | `5a9de29b2f9b6690388a1c297a7ca8d73df7d3e2` | Entire file matches; Apache-2.0 notice requirements apply. Installed CLI documentation is a normal tool dependency, not another skills bundle. |
+| [Moshi best practices](https://github.com/rjyo/moshi-skill/tree/d09435760329125c30920210ccb1eb1e482f0700) | `d09435760329125c30920210ccb1eb1e482f0700` | Both Pi-path files match; no applicable license grant found in the reviewed source. Hold content import. |
+
+The integration agent independently compared the Fedora/Herdr file sets and
+blob IDs against fresh complete pinned source trees and inspected their root
+licenses. All 14 shared origins are recoverable; copied folders still need
+notice work before redistribution. Moshi's separate unresolved grants do not
+block other candidates. No installed skill, lock, agent setting, or chezmoi
+source was changed by this audit.
+
 ## Limits
 
 These are authored instructions informed by source inspection, not upstream
