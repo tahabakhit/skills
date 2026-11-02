@@ -1,187 +1,147 @@
 # Standalone skill system
 
-This document records the agreed direction and a proposed structure. It does not
-mean the full proposed system is implemented or grant permission to install,
-publish, migrate, or deploy.
-The source catalog now contains 23 canonical workflow owners. Seven OS/platform/
-health skills have been removed; operations retains only `managed-config-drift`
-and `chezmoi` (2). Immutable published npm `0.3.0` retains the former 30-skill
-catalog and old installer behavior; source edits do not change registry artifacts. [The owner map](CATALOG.md) records
-consolidation, capability limits and installed-specialist dispositions. `deliver-work` owns the
-engineering endpoint and replaces the external delivery recommendation. This is
-not complete specialist coverage or proven model uplift. Installation, migration
-and expanded host behavior remain separately unverified.
+The approved source layout has **22 canonical workflow owners** in six disjoint
+bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
+not authority to install, migrate, publish or deploy. Host behavior and native
+bundle installation require integration evidence; documentation alone is not a
+passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage gaps.
 
-## Agreed decisions
+## Decisions
 
 | Area | Decision |
 | --- | --- |
-| Ownership | This repository owns its included skills and workflows. Using them must not require another person's skill repository or bundle. |
-| Sources | Learn from multiple collections. Adapt useful material with its required licenses, attribution, reviewed revisions, and local changes recorded. |
-| Audience | Primarily Taha's use, but shareable with others. Private preferences and personal permissions stay in global `AGENTS.md`, managed separately by dotfiles/chezmoi. |
-| Hosts | Support Pi, Claude Code, and Codex from the first expanded version. Verify each host rather than claiming compatibility from file placement alone. |
-| Distribution | Primary clean Pi install: `npx skills@latest add tahabakhit/skills -a pi`. Vercel's Skills CLI performs file installation. The optional Node wrapper adds group/skill, agent and global/project choices, preflight checks and verification without replacing that installer. |
-| Coverage | Include coding and non-coding work. Research, analytical reports, document review, and content creation are in scope for optional bundles. |
-| Engineering | Provide a complete path through implementation, testing, independent review, and release preparation. Keep stages separately usable. |
-| Agents | Ordinary tasks work with one agent. Advanced workflows may require multiple agents where independent review matters. |
-| Progress | No default pause for plan approval. Continue within the authorized task. Pause only when scope changes, a consequential decision is unresolved, or an action needs permission not already granted. |
-| Interaction | Ask simple questions, one at a time, when user decisions are needed. Investigate discoverable facts rather than asking the user to supply them. |
-| Simplification | Do not remove a step merely because it looks long, repetitive, or costly. Assess its benefit to correctness, coordination, and human interaction before changing it. |
+| Ownership | One canonical source per workflow, including its required supporting files, licenses and provenance. Instructions must not require another person's skill bundle. |
+| Audience | Primarily Taha's use, but shareable. Private preferences and personal permissions stay in global `AGENTS.md`, separately managed by chezmoi. |
+| Sources | Adapt reviewed material with exact revisions, full applicable notices, input identities and local changes recorded. |
+| Hosts | Target Pi, Claude Code and Codex; verify actual discovery and behavior rather than claiming compatibility from file placement. |
+| Distribution | Standard Skills CLI with a GitHub group tree URL and `--skill "*" -a pi`; one-time global core plus whole local bundles. The checkout wrapper is optional. |
+| Progress | No default plan-approval pause. Continue within the requested endpoint and existing authority; pause for unresolved consequential decisions, changed scope or missing permission. |
+| Interaction | Ask simple questions one at a time when user decisions are needed; investigate discoverable facts first. |
+| Review | Ordinary tasks may use one agent, but required independent review cannot be replaced with self-review. Report missing capabilities honestly. |
+| Simplification | Remove steps based on their actual cost and benefit to correctness, coordination and interaction, not length alone. |
 
-No default plan-approval pause does not mean automatic implementation after a
-request only for discovery or a specification. The requested task still defines
-the endpoint. It also does not grant merge, publication, deployment, or other
-external-action authority. Apply the active user's and project's permissions.
+Discovery or specification requests do not silently start implementation, workers
+or tracker publication. Passing tests does not grant merge, publication or deployment
+authority. Skills may use normal installed tools, but must check required capabilities;
+standalone does not mean tool-free.
 
-Standalone does not mean tool-free. Skills can use normal installed tools such
-as Git, a browser, or a supported worker launcher. Document required capabilities
-and verify availability. Do not require another skills collection to supply the
-instructions. If a workflow requires independent agents and none are available,
-report that limitation instead of pretending a self-review is independent.
+## Bundle and scope boundaries
 
-## Proposed domain boundaries
-
-These capability categories remain a working proposal, not a commitment to
-import every upstream capability. The requested installation packages now use
-six non-overlapping groups in `distribution.json`: core, engineering, content,
-design, data and operations. [INSTALL.md](INSTALL.md) distinguishes their current source
-contents from immutable published package contents. Installation grouping does not transfer a workflow's responsibility.
-
-| Domain | Owns | Initial candidates |
+| Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
-| Core | Shared writing, research, and skill maintenance practices | `unslop`, `technical-writing`, reviewed research and skill-maintenance procedures |
-| Engineering | Requirements, implementation, debugging, testing, review, refactoring, migrations, Git coordination, delivery coordination | `discover-work`, `define-work`, `git-hygiene`, `safe-refactor`, `migration` |
-| DevOps | CI, containers, deployment infrastructure, service operations, backups, networking, release packaging | `ci-maintenance`, selected operational workflows |
-| Systems | Current source: configuration drift and chezmoi dotfiles only | OS administration, Arch/CachyOS/Fedora recovery and workstation health are historical candidates, removed from current source |
-| App development | Framework, language, database, authentication, and mobile-platform knowledge | Add only for supported, recurring project needs |
-| Design | UX, visual design, accessibility, design systems, rendered interface verification | Evaluate a self-contained maintained approach before adopting runtime-dependent material |
-| Data | SQL/data modeling, pipelines, catalogs, data quality, analytical verification | Select against actual analytical and engineering work |
-| Content | Reports, articles, diagrams, document review, conversion, and production | Keep shared writing rules in core rather than copying them |
-| Security and risk | Specialized technical security, compliance, contract, payment, and fraud analysis | Separate technical security from business-risk procedures as the collection grows |
+| core | Global | `discover-work`, `research-work`, `create-content`, `verify-and-stop` (4) |
+| engineering | Local | `define-work`, `codebase-design`, `systematic-debugging`, `deliver-work`, `testing-work`, `code-review`, `change-safely`, `git-hygiene`, `ci-maintenance`, `triage-dependency-updates`, `release-packaging`, `security-review` (12) |
+| content | Local | `document-review` (1) |
+| interface-review | Local | `interface-review` (1) |
+| data | Local | `analyze-data`, `data-pipelines` (2) |
+| configuration | Local | `managed-config-drift`, `chezmoi` (2) |
 
-A domain describes ownership. An installation profile selects skills for a
-machine or repository. Global availability is not a reason to make every OS or
-framework part of core. Examples include a small base, Linux-common, Arch or
-Fedora workstations, coding, web projects, data projects, and homelab operations.
-Direct CLI selection may suffice. Introduce reusable profile definitions only
-when repeated selections justify them. They select capabilities, not Taha's
-private behavioral rules.
+`create-content` owns shared writing and prose cleanup. The redundant `unslop`
+entrypoint is removed with no alias. `define-work` is a project engineering skill,
+not global core. Bundle names describe installation sources, not competing workflow
+owners or a new profile framework. OS skills remain external in the owner's
+chezmoi source; `herdr-core` and `ketch` remain excluded CLI integrations.
+
+## Native distribution and optional adapter
+
+The clean Pi journey uses standard commands:
+
+```fish
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
+```
+
+The tree URL narrows the source to one bundle; the quoted wildcard selects all
+skills in it. Other domain bundles follow the same pattern without `--global`.
+Add `--copy` only for explicitly desired plain copies, not as a hidden default.
+The root repository remains an all-skill picker. No native group flag, dependency
+resolver, custom profile framework or auto-migration is implied. These future
+committed `main` URLs depend on the grouped source landing there; install support
+and scope behavior remain subject to integration checks.
+
+The `pi.skills` manifest remains `["./skills"]`; recursive Pi package discovery
+must be verified separately. Do not load the same skill through both package
+registration and a Skills CLI installation.
+
+`distribution.json` partitions the same canonical folders into six generated domain
+packages and an umbrella. `dist/npm/` and `dist/tarballs/` are disposable generated
+output, not edited source copies. Required files must travel with their owner;
+optional sibling handoffs do not become mandatory bundle dependencies. Audit local
+links and supporting-file closure after moves and before packaging.
+
+The optional current-checkout adapter (`node bin/skills.mjs`) resolves group/skill
+selections into pinned Vercel Skills CLI 1.7.4 invocations, with explicit scope,
+agent, collision/lock checks, plan consent and artifact verification. It does not
+replace the native route or write host settings. It has no runtime libraries or
+install hooks. Current source has no custom `.taha-install` guards or replacement
+inter-process lock: serialize installers, and do not treat snapshots as concurrency
+protection. Failures can leave partial installs; no atomic rollback is promised.
+[INSTALL.md](INSTALL.md) describes exact replacement and release limits.
+
+## Source and registry are different identities
+
+This is a source-only change at package version `0.3.0`, not a new release.
+Immutable npm `0.3.0` still contains the former 30 skills, old group names,
+`unslop` and custom guards. Existing `skills-design` and `skills-operations`
+releases are unchanged. The new `@tahabakhit/skills-interface-review` and
+`@tahabakhit/skills-configuration` identities are generated locally, not published.
+A future npm release needs an unused version, approved exact artifacts, secret
+scans, explicit release authority and registry verification. Source/documentation
+commits cannot replace published bytes.
 
 ## One owner for each workflow
 
-A domain skill supplies expertise without starting a second delivery process.
-The delivery coordinator owns progress through the requested engineering
-endpoint. CI skills own pipeline changes, not an independent PR/merge loop.
-Design and security skills contribute relevant findings without silently
-expanding scope. Writing skills improve a spec's expression without taking over
-its acceptance requirements.
+`deliver-work` is the only end-to-end engineering coordinator; plan and implementation
+modes remain separately usable. Domain skills contribute expertise without starting
+a second delivery process. CI owns pipeline contracts, Git owns writer/candidate
+freshness, testing supplies proof, review supplies findings, and verification maps
+candidate-bound evidence to acceptance. Reuse sufficient records and valid evidence
+rather than creating competing trackers or rerunning every stage.
 
-Give each skill a clear trigger, exclusions, output, required capabilities,
-action boundaries, handoffs, and stopping point. Required dependencies must be
-distinct from optional specialist handoffs. Share actual rules from one owner
-rather than keeping competing copies. Do not assume that frontmatter creates
-a permission boundary or that every host interprets it identically.
+Each skill needs clear triggers, exclusions, output, capabilities, action boundaries,
+handoffs and a stopping point. Distinguish required dependencies from optional
+specialists. Frontmatter does not create a permission boundary or guarantee host
+interpretation. Missing optional owners never trigger silent installation.
 
-Review a candidate step by identifying the failure or human need it addresses.
-Record the reason to retain, adapt, or remove it. Use focused evaluation where
-its value is uncertain. Word count, fewer questions, and fewer tools are not
-proof of a better workflow. Adversarial reviewers should challenge both missing
-safeguards and unnecessary complexity.
+## Existing installations and historical evidence
 
-## Proposed source and distribution layout
+The [installed-skill audit](audits/installed-skills.md) is a historical preservation
+baseline, not current ownership evidence. It verified 50 regular files across 12
+Bolens-derived folders against the pin in [SOURCES.md](SOURCES.md). File equality
+does not establish authorship or an active manager. Historical observations about
+chezmoi-managed `herdr-core`, Fedora files or Claude links do not grant permission
+to replace them today. `herdr-core` was never included in this collection.
 
-Keep one canonical source directory at `skills/<name>/`, including its supporting
-files and licenses. Retain the existing skill paths while establishing the
-catalog. Record category and installation selections separately rather than
-maintaining edited copies of the same skill in several packages.
+Preserve complete directories, notices, local modifications, origin pins and
+frozen evaluation snapshots. Historical paths and inventories remain historical;
+only current source references follow `skills/<group>/<name>/`. Moshi, host-bundled
+skills and separate synced directories retain their own ownership/license boundaries.
 
-The catalog and per-folder records track source revision, license and notices, local
-modifications, domain, maturity, host/tool requirements, required dependencies,
-optional handoffs, network or external effects, and verification evidence.
-If bundles or reusable profiles become useful, their definitions should reference
-canonical skill names rather than duplicate instructions.
+Before any authorized live migration, inspect current managers and links, test in
+isolated homes/projects and retain a rollback path. Retire old chezmoi entries
+separately so they do not recreate competing copies. Source movement does not
+apply live changes or remove old names. Verify host discovery of private global
+instructions with harmless synthetic fixtures, without publishing private rules.
 
-Start with direct local or Git distribution through the Skills CLI. Its named
-skill selection is not a general dependency resolver. Required files must ship
-with the selected skill, or required sibling skills must be included explicitly
-and validated. Audit cross-skill paths before promising selective installation.
+## Verification boundaries and gaps
 
-The requested npm distribution generates six domain packages from canonical
-skill folders and retains an umbrella package. A zero-runtime-library Node
-selector resolves groups/skills into an explicit Vercel 1.7.4 invocation. It adds
-scope/agent choices, collision and lock checks, stable-plan consent and copied
-artifact verification. Current source removes the custom `.taha-install` guard;
-there is no replacement inter-process lock, so serialize installers. Snapshot
-checks do not guarantee concurrency safety. Published `0.3.0` retains the former
-guard. The wrapper does not introduce plugins, installation hooks or a
-host-settings writer. Package installation alone does not activate skills.
+Structural checks should cover metadata, links, licenses, complete support files,
+package contents and required dependency closure. Disposable installation checks
+should cover group discovery, global/local scope, all target hosts, collisions,
+duplicate discovery, updates, removal and rollback. Native Pi recursive loading
+needs its own observed result. Neither copied files nor npm availability proves
+host behavior.
 
-## Existing installation and ownership
+Fresh model cases should test triggers, unrelated-work exclusion, useful questions,
+permissions, missing tools, private instruction discovery and stopping behavior.
+Compare representative work with no skill and a short generic control. The
+[entrypoint pilot](evaluations/entrypoint-pilot/RESULTS.md) is frozen development
+evidence, not proof of full-skill uplift. [VERIFICATION.md](VERIFICATION.md) keeps
+recorded checks separate from untested claims; this docs unit does not perform
+native install tests.
 
-The historical read-only inventory found 14 skill directories in `~/.agents/skills`
-on the audited machine. The subsequent [installed-skill audit](audits/installed-skills.md)
-verified all 50 regular files across 12 folders against the pinned Bolens revision
-recorded in `SOURCES.md`. That establishes file-content equality, not original
-authorship or an active installation manager. Preserve the provenance chain
-instead of labeling those imports as authored here.
-
-At audit time, chezmoi tracked `herdr-core`, `rhel-fedora`, their supporting managed
-files, and Claude links; the inspected live contents matched the then-inspected
-sources. These historical observations do not establish current ownership.
-`herdr-core` was never included in this collection. Other installed skills are
-not thereby proven to have no owner.
-Moshi skills and Claude's separate `synced` directory need an ownership check
-before claiming a complete migration. Host-bundled skills need not be imported.
-
-Import recoverable copies before changing live installation. Compare complete
-directories, preserve local modifications and notices, and classify existing
-links and dependencies. Test in isolated homes and repositories first. Switch
-one machine only after the intended migration is authorized. Retire old chezmoi
-source entries and obsolete links separately after verification, so chezmoi does
-not recreate competing installations. Preserve a documented rollback path.
-Private global instructions remain managed by chezmoi. Verify that each host's
-supported instruction-discovery mechanism still loads the intended private
-rules after the transition. An isolated host check can use harmless synthetic
-instructions to test precedence without copying private content into this public
-repository. File preservation alone does not establish that the host loads it.
-
-## Current implementation and remaining verification
-
-1. The 23 source owners have one delivery coordinator, local required references
-   and per-folder notices/provenance. The earlier eight-specialist import, writing/
-   refactor/migration consolidation and CI/Git reference preservation are recorded
-   historically in `audits/installed-skill-import.md`, not a current inventory.
-   Operations now retains only drift and chezmoi; chezmoi consolidates nine upstream
-   topics. Source cleanup does not retire live folders or alter published `0.3.0`.
-2. Verify selective global/project installs and supporting-file access in all
-   three hosts before any authorized live ownership transfer.
-3. Compare fresh representative work against no skill and a short generic control.
-   The entrypoint development pilot does not establish full-skill effectiveness.
-4. Expand substantive gaps against recurring tasks, including platform recovery,
-   statistical methods and format-specific engines. Do not fill them with labels.
-5. The user requested public GitHub and npm distribution with a scope selector.
-   Verify actual generated tarballs and registry identities, not just manifests.
-   This publication authority is task-specific, not permission for later releases.
-
-Use structural checks for metadata, links, licenses, package contents, and
-required dependencies. Test install collisions, duplicate discovery, updates,
-removal, and rollback in disposable locations. Run model-driven cases for correct
-triggers, staying out of unrelated work, useful questions, authority handling,
-missing tools, private instruction discovery, and the no-default-plan-pause rule.
-Keep observed results separate from proposed checks. The existing structural
-checks and historical installation smoke tests do not prove these expanded
-capabilities.
-
-## Remaining product decisions
-
-Use the requested endpoint and active user/project policy rather than requiring
-a universal stopping-point decision before useful work can continue. Ask only
-when the actual next action needs an unresolved consequential decision, expanded
-scope, or missing permission. Audits and source preparation do not depend on
-choosing every future delivery setting.
-
-Consequential additions to the initial skill selection still need concrete task
-examples. Domain grouping is provisional internal organization, not a user
-approval gate. Do not ask the user to design package internals. OS and framework
-selections depend on the intended machine or project. Runtime and hook decisions
-stay deferred until a workflow demonstrates why they are needed.
+Platform recovery, advanced statistical/causal methods, infrastructure/database
+adapters, incident/restore playbooks and format-specific document engines remain
+substantive gaps. Add material for recurring tasks with concrete evidence, not
+labels. Source maintenance belongs to this repository's maintainer; there is no
+hidden updater, profile system or automatic ownership migration.
