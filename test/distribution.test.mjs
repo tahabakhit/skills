@@ -51,7 +51,9 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('1,core,discover-work', distribution), core);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
-  assert.equal(select('all', distribution).length, 29);
+  assert.equal(select('all', distribution).length, 30);
+  assert.deepEqual(select('operations', distribution), ['operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'managed-config-drift', 'workstation-health-triage', 'chezmoi']);
+  assert.deepEqual(select('chezmoi', distribution), ['chezmoi']);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
   assert.throws(() => select('../core', distribution), /Unknown/);
 });
@@ -184,10 +186,10 @@ test('help/list/version and dry run are network-free and leave no installation f
   assert.deepEqual(fs.readdirSync(c.project), []);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
-test('six domain packages partition 29 complete standalone payloads', t => {
+test('six domain packages partition 30 complete standalone payloads', t => {
   const c = fixture(t); const rows = buildPackages(path.join(c.dir, 'built'));
   assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-design', '@tahabakhit/skills-data', '@tahabakhit/skills-operations', '@tahabakhit/skills']);
-  assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 8]);
+  assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 9]);
   for (const row of rows.slice(0, 6)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
     assert.equal(pkg.version, '0.2.0'); assert.equal(pkg.publishConfig.access, 'public');

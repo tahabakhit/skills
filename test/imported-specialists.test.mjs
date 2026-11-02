@@ -35,9 +35,9 @@ test('installed names have one distribution owner and no CLI-managed or legacy a
   const distribution = json('distribution.json');
   const groups = Object.fromEntries(distribution.groups.map(g => [g.name, g.skills]));
   assert.ok(groups.core.includes('unslop'));
-  assert.deepEqual(groups.operations, ['operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'managed-config-drift', 'workstation-health-triage']);
+  assert.deepEqual(groups.operations, ['operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'managed-config-drift', 'workstation-health-triage', 'chezmoi']);
   const names = distribution.groups.flatMap(g => g.skills);
-  assert.equal(new Set(names).size, 29);
+  assert.equal(new Set(names).size, 30);
   for (const name of ['technical-writing', 'migration', 'safe-refactor', 'herdr-core', 'ketch']) assert.ok(!names.includes(name));
   for (const file of ['document-structure', 'sentence-style', 'repository-verification']) assert.ok(fs.existsSync(path.join(root, 'skills/create-content/references', `${file}.md`)));
   assert.match(text('skills/change-safely/SKILL.md'), /Refactor branch/);

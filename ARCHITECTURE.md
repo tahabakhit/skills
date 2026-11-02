@@ -3,9 +3,10 @@
 This document records the agreed direction and a proposed structure. It does not
 mean the full proposed system is implemented or grant permission to install,
 publish, migrate, or deploy.
-The source catalog now contains 29 canonical workflow owners: the original five,
-16 consolidated procedures and eight installed-specialist adaptations. [The owner map](CATALOG.md) records consolidation,
-capability limits and installed-specialist dispositions. `deliver-work` owns the
+The source catalog now contains 30 canonical workflow owners: the original five,
+16 consolidated procedures, eight installed-specialist adaptations and a
+consolidated attributed chezmoi import. [The owner map](CATALOG.md) records
+consolidation, capability limits and installed-specialist dispositions. `deliver-work` owns the
 engineering endpoint and replaces the external delivery recommendation. This is
 not complete specialist coverage or proven model uplift. Installation, migration
 and expanded host behavior remain separately unverified.
@@ -140,11 +141,12 @@ repository. File preservation alone does not establish that the host loads it.
 
 ## Current implementation and remaining verification
 
-1. The 29 source owners have one delivery coordinator, local required references
-   and per-folder notices/provenance. Eight installed specialists are now adapted
+1. The 30 source owners have one delivery coordinator, local required references
+   and per-folder notices/provenance. Eight installed specialists are adapted
    in source, with writing/refactor/migration consolidation and CI/Git reference
-   preservation recorded in `audits/installed-skill-import.md`. No live folders
-   are retired by the source import.
+   preservation recorded in `audits/installed-skill-import.md`. The new chezmoi
+   owner consolidates nine upstream topics without replacing existing specialists.
+   No existing live folders are retired by these source imports.
 2. Verify selective global/project installs and supporting-file access in all
    three hosts before any authorized live ownership transfer.
 3. Compare fresh representative work against no skill and a short generic control.

@@ -29,7 +29,7 @@ Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
 All seven packages are public at `0.2.0`, with the earlier 21-skill catalog.
-The current GitHub source has 29 skills and additional CI/Git/writing references;
+The current GitHub source has 30 skills and additional CI/Git/writing references;
 those changes are not yet on npm. Use the GitHub or checkout alternative below
 for this expanded catalog. Installing public packages does not require npm login. If npm returns E404 for another version, check that it was published or use
 the public source methods below. A GitHub push alone is not npm publication.
@@ -67,13 +67,13 @@ other domain packages. Ownership is a partition, not duplicate source trees.
 
 | Package | Skills |
 | --- | --- |
-| `@tahabakhit/skills` | All 29, selected rather than automatically installed |
+| `@tahabakhit/skills` | All 30, selected rather than automatically installed |
 | `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof, prose cleanup (5) |
 | `@tahabakhit/skills-engineering` | Design, debugging, delivery, tests, review, refactors/migrations, Git, CI, dependencies, packaging, security (11) |
 | `@tahabakhit/skills-content` | Writing/file production and document review (2) |
 | `@tahabakhit/skills-design` | Interface review (1) |
 | `@tahabakhit/skills-data` | Analysis and pipelines (2) |
-| `@tahabakhit/skills-operations` | Linux operations, four Arch/CachyOS specialists, Fedora/RHEL, config drift, workstation health (8) |
+| `@tahabakhit/skills-operations` | Linux operations, Arch/CachyOS, Fedora/RHEL, config drift, workstation health and chezmoi (9) |
 
 The table describes current source builds, not the published `0.2.0` artifacts.
 For example, `npx @tahabakhit/skills-data@latest` offers only the data group. Do not

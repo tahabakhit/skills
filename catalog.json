@@ -368,6 +368,18 @@
       }
     },
     {
+      "name": "chezmoi",
+      "domain": "operations",
+      "maturity": "source-import",
+      "origin": "maintained-fork",
+      "requiredSkills": [],
+      "optionalSkills": ["operate-systems"],
+      "provenance": "skills/chezmoi/PROVENANCE.json",
+      "capabilities": "Installed chezmoi CLI and explicit source, destination, configuration and state paths. Secrets providers and network operations are optional and require task-specific access.",
+      "activation": "selective",
+      "behaviorEvidence": {"status": "not-evaluated"}
+    },
+    {
       "name": "operate-systems",
       "domain": "operations",
       "maturity": "experimental",
@@ -590,7 +602,21 @@
         "numerical-analysis"
       ],
       "owner": "analyze-data"
+    },
+    {
+      "components": [
+        "chezmoi-cli-commands",
+        "chezmoi-configuration",
+        "chezmoi-externals",
+        "chezmoi-file-attributes",
+        "chezmoi-init",
+        "chezmoi-machine-config",
+        "chezmoi-scripts",
+        "chezmoi-secrets-management",
+        "chezmoi-templating"
+      ],
+      "owner": "chezmoi"
     }
   ],
-  "coverageNote": "29 canonical owners. Installed refactor/migration and technical-writing names consolidate into change-safely and create-content. CLI-managed herdr-core/ketch excluded. No live installation or retirement performed."
+  "coverageNote": "30 canonical owners, including nine upstream chezmoi topics consolidated into one standalone owner. Installed refactor/migration and technical-writing names consolidate into change-safely and create-content. CLI-managed herdr-core/ketch excluded. Existing specialists are not retired or replaced; only the new chezmoi skill was installed globally."
 }

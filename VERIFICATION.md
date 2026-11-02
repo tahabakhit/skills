@@ -221,7 +221,7 @@ This checkpoint covers `6fbe1ae`, not later documentation commits.
 
 ## Installed-specialist source import
 
-The source catalog now contains 29 skills. Eight new folders retain pinned
+At this import checkpoint, the source catalog contained 29 skills. Eight new folders retain pinned
 Bolens/Fedora ancestry, complete selectable-folder notices and input/output
 identities. Three existing owners incorporate attributed references rather than
 adding duplicate technical-writing, Git or CI entrypoints. The disposition and
@@ -260,6 +260,74 @@ No live skills, locks, host settings, dotfile/chezmoi sources or private instruc
 were replaced. npm `0.2.0` continues to contain the earlier 21-skill catalog. The
 GitHub source/checkout is required for these additions until a new release.
 
+## Chezmoi import and origin recovery
+
+Environment: Fedora 45 Linux, Node 24.22.2, chezmoi 2.73.0, `gh` 2.97.0,
+`uv` 0.13.5, login shell fish. Baseline `npm ci --ignore-scripts`, ESLint,
+14 package checks and all 44 existing Node tests passed before integration.
+
+The [origin report](audits/skill-origins-and-missing-targets.md) verifies all 67
+existing installed file digests against the historical inventory and complete
+pinned source trees. All 13 missing sibling targets exist at the pinned Bolens
+revision. It distinguishes 22 broken sibling-link occurrences from 12 absent
+collection-root provenance pointers and records conditional dependencies, optional
+handoffs, existing owned replacements and remaining capability gaps. Existing
+installed payloads and historical audit snapshots were preserved.
+
+The new `chezmoi` owner consolidates nine reviewed upstream entrypoints and all
+38 references. Independent review compared all 48 original input identities,
+including the original MIT license, to the complete pinned GitHub tree and
+recomputed all 51 resulting payload identities. One provenance file records those
+results and is excluded from its own hash list. All supporting Markdown links
+resolve within a standalone copy.
+
+Review drove corrections to a negative `chattr` modifier, overbroad `exact_`
+directory scope, invalid `--mode dir`, active-config naming, init-data/lifecycle
+claims, dry-run wording, stale persistent-state paths and unsafe bootstrap/token
+URL examples. These are documentation corrections, not evidence that every
+upstream example works on every chezmoi release.
+
+Ten dedicated tests pass: seven structural/content/identity checks and three
+actual chezmoi CLI fixtures. The latter use inert hand-written data, isolated
+HOME/XDG roots, source, destination, config, cache, working directory, persistent
+state and temporary paths, with a minimal environment. They exercise rendering,
+path mapping, scoped dry-run and exact-directory cleanup boundaries. No imported
+script, real hook, credential provider, network fetch or live dotfile apply is
+part of those fixtures. Text assertions verify documented safeguards, not that an
+agent obeys them.
+
+Before merging the concurrent specialist import, chezmoi worktree checks passed:
+ESLint, all 14 package checks, all 54 Node tests, 22 standalone copies, and the real pinned Skills CLI installer across disposable
+global/project scopes for Pi, Claude Code and Codex. The latter verified 44 physical
+copies, payload hashes, receipts and lock preservation. Seven local tarballs were
+built, and the operations archive includes the new entrypoint, notices, provenance
+and safety reference. These local build artifacts are not a published release.
+
+The upstream `skills-ref` validator at `69ef37e9424c0a7ea9dd2293b559e43ec8176379`
+accepted all 22 source skills at that checkpoint. Gitleaks found no leaks in the imported skill.
+Published npm `0.2.0` artifacts remain unchanged and do not contain this addition.
+No new npm release was published.
+
+Only the new `chezmoi` skill was then globally installed through the pinned
+selector for Pi, Claude Code and Codex. The two physical copies at
+`~/.agents/skills/chezmoi` and `~/.claude/skills/chezmoi` each match all 52 source
+files, including provenance. Receipts and the global lock passed the selector's
+checks; no installation guard remained. All 67 pre-existing installed file
+SHA-256 values still match the historical inventory, and the chezmoi source
+repository remains clean. No existing specialist was replaced, no live dotfile
+apply ran and no managed source entry or host setting was changed. File placement
+and receipts do not prove native host activation; start a fresh host session to
+discover the addition.
+
+The concurrent installed-specialist commit `85c47f0` was then integrated without
+changing any of its skill payloads. The combined catalog contains 30 skills,
+with five in core and nine in operations. All 14 package checks, all 60 Node tests,
+ESLint and all 30 upstream format validations passed again. The real pinned
+installer verified five global and 25 project-local skills in disposable state,
+60 physical copies, receipts, payload hashes, locks and reinstall refusal.
+All seven combined source-build archives passed an archive-depth-2 Gitleaks scan.
+No combined specialist installation was performed on the live machine.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
@@ -269,6 +337,6 @@ are not established. A forced text-only comparison cannot establish those facts.
 
 The expanded installation check verifies temporary destination files, not that
 Claude Code, Codex or Pi actually consume every skill correctly. Native interactive
-Pi evaluation sessions were a runner, not client-TUI acceptance tests. Live global
-installation and ownership transfer remain unverified. Public npm publication is
-verified, but no skills were installed into real projects.
+Pi evaluation sessions were a runner, not client-TUI acceptance tests. Existing
+specialist ownership transfer remains unverified and was not performed. Public npm
+publication is verified for `0.2.0`, but no skills were installed into real projects.

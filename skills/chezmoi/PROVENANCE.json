@@ -1,0 +1,754 @@
+{
+  "schemaVersion": 1,
+  "name": "chezmoi",
+  "kind": "consolidated-source-import",
+  "upstream": {
+    "repository": "https://github.com/mkobit/chezmoi-skills",
+    "revision": "093b6c4ee156d53f6d74257f39b76d22cf9180fc",
+    "snapshot": "/tmp/chezmoi-skill-import.m1vPJZ/source",
+    "revisionFile": "/tmp/chezmoi-skill-import.m1vPJZ/revision",
+    "identityScheme": "sha256 of original bytes and Git SHA-1 blob identity: SHA1(\"blob \" + byteLength + NUL + bytes).",
+    "files": [
+      {
+        "path": "LICENSE",
+        "destination": "LICENSE",
+        "sha256": "d35abd1fb6a99ae97122b1304e69dd20b62c88e2c60333ca28973b5fc4aec15f",
+        "gitBlob": "840bb03cc726f3c3a4a2531c09a97885790c4d59",
+        "changes": [
+          "Preserved byte-for-byte."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/SKILL.md",
+        "destination": "references/cli-commands-guide.md",
+        "sha256": "51c941d11c48f90b23cca77087381ce3e56d6fc074f76a64bbaa35d20fd0ad18",
+        "gitBlob": "de4c2cca6b4c7a4b063ec81a1adbe193ec824f1a",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint.",
+          "Qualify version-dependent color/implementation flag values and dry-run effects using installed help."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/add.md",
+        "destination": "references/cli-commands-add.md",
+        "sha256": "4183cab5a72682e0799f9f2ab0bae6f3a57e6093253e916e499af34e8f04bf80",
+        "gitBlob": "9ec7fe042093a1b07f07f450898baeb6292dbfc8",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/apply.md",
+        "destination": "references/cli-commands-apply.md",
+        "sha256": "a7f1c17e82ec4e28d98699bd6f6e3fb03eed3e3703322420d483251da22c2de1",
+        "gitBlob": "c433edf87c6a0d28fcc53e582d538277cfc83d70",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Correct --mode choices to file/symlink and limit dry-run claims to destination writes, not hooks or evaluation effects."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/chattr.md",
+        "destination": "references/cli-commands-chattr.md",
+        "sha256": "b376c2783e1080fb86f943144591460499bc9af1f6bb38d8237da04ff524589b",
+        "gitBlob": "a12c30a168af3cc0115ead574dc5bc5e0dfe23e8",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Add -- before the negative attribute modifier so it is not parsed as a flag."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/diff.md",
+        "destination": "references/cli-commands-diff.md",
+        "sha256": "c28b470a140aa751792965149017d9a67a8216aba57757932e3c8eea5c994e7d",
+        "gitBlob": "6e2ad94b07468319009371967ced22c59869c9c3",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/dump.md",
+        "destination": "references/cli-commands-dump.md",
+        "sha256": "73087d06aa939850a5cc09f889f3270ab7d4799dd6fb5115a806fc8697fc566c",
+        "gitBlob": "f597ea85ca64ab1be8863929eb240572a25cb2d6",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/edit.md",
+        "destination": "references/cli-commands-edit.md",
+        "sha256": "99e5479455c1281a16864e82e64702768fd5d4318c414c691fdcf5293da2dfe2",
+        "gitBlob": "b1b1aa4259dbb5d2bb794928f6bd04bb06666edb",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/import.md",
+        "destination": "references/cli-commands-import.md",
+        "sha256": "c3627316807c3b1179e21ad9fb76869149ed5acced66e8ed3404048321351d4d",
+        "gitBlob": "701a1fd4e4623a973ef2cff0c410f360a063ccb8",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/inspection.md",
+        "destination": "references/cli-commands-inspection.md",
+        "sha256": "0ccfd9e5c392a70e3d6bb22c2acc365311f9aa1b52e1d5c1cdf05d3b50a59950",
+        "gitBlob": "688fee2a3c12bb9110397497fbd58a3fe264099b",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/merging.md",
+        "destination": "references/cli-commands-merging.md",
+        "sha256": "510d7c0d72bad933628b0a8d33b12997bd87255c6ae3a9201437d3f34f6d0db7",
+        "gitBlob": "71a5faa81ac12419531eb2cbee9acef14dcb296d",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/misc-core.md",
+        "destination": "references/cli-commands-misc-core.md",
+        "sha256": "df189755a5c8ead1b083080aa3d609fdcfb042e90acb240476d3395973a4af37",
+        "gitBlob": "81f93a7cbea875168d6f8d27d2face8647cdb835",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/state.md",
+        "destination": "references/cli-commands-state.md",
+        "sha256": "404685633a0c4be734fd95505ade28342bb0ed92f49afd01c590f2ac783eeab6",
+        "gitBlob": "cd296cce9a1597fc668ed1bda73159adc202e2c1",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Replace conflicting hardcoded state path with effective-path discovery."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/status.md",
+        "destination": "references/cli-commands-status.md",
+        "sha256": "1660039b9c25425b63cf465d2b8fe586ee005d26b26d3df2dc1fe8f83a7428a9",
+        "gitBlob": "b1351a9d6027c40f8a3c16a1b1caac08db0f152b",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/update.md",
+        "destination": "references/cli-commands-update.md",
+        "sha256": "92f08dc962d3430de778e25c09de7aef64d4257007a657452fb4c5d3840c8342",
+        "gitBlob": "91853983345badac759e91cae62897cc6af5a08c",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-cli-commands/references/verify.md",
+        "destination": "references/cli-commands-verify.md",
+        "sha256": "517df9bfbaec225999cf9003925899ec60bddbb1c0e31cf3c6f65f006d18cb3f",
+        "gitBlob": "29b69b683adbf5099b6125e2b169e70d3307db23",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/SKILL.md",
+        "destination": "references/configuration-guide.md",
+        "sha256": "c9d3b48f927611824aff3b91b5a86f268b6d1082d3bad3e02e6ec61004604092",
+        "gitBlob": "fe48eccfa8e8899182ab9fc9e77e58d797c9a390",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/core.md",
+        "destination": "references/configuration-core.md",
+        "sha256": "23717fed46292d7548310a7fbc48c8e6c32cf7901d5f9d9d0d9bb2285de7b422",
+        "gitBlob": "8b7ef5ea34d8a240f0ffea4de3c21744b896a5d9",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Correct XDG_SHARE_HOME to XDG_DATA_HOME and replace conflicting state default with installed-path verification."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/data.md",
+        "destination": "references/configuration-data.md",
+        "sha256": "befc81efea970ea5a64ce8b162fd9bbc67665feede232c0a5fdbc2e27e961d83",
+        "gitBlob": "8af0fecc0d7ed1fe1f9be292e904d818ce423367",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/git.md",
+        "destination": "references/configuration-git.md",
+        "sha256": "7c4c2ee9a922892902a781ea8badf4f9ed5f2f1fb20c7f62b3fe89cf1cc74080",
+        "gitBlob": "c156f7b16e4db37efad32bcc52597fa449b6c3ca",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/hooks.md",
+        "destination": "references/configuration-hooks.md",
+        "sha256": "689f618a62111874fc52933c690ba5007f26896bd1218f124b81feecd0314fbb",
+        "gitBlob": "a3e7807b04d38f3356a6859850cdeada8c8a6a72",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/interpreters.md",
+        "destination": "references/configuration-interpreters.md",
+        "sha256": "3f9e8057f28cc3c533951496f8aa7559f7173a988de575b1bd8ecd24c01de36c",
+        "gitBlob": "612cac3caf8f866c99c636b1c19cd6a3851e1abb",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/pinentry-textconv-warnings.md",
+        "destination": "references/configuration-pinentry-textconv-warnings.md",
+        "sha256": "d0afd3cd2a8fecaafe5203880ccbc7d9b01fd25e99799eb05e6d09bc447fa163",
+        "gitBlob": "58ce81b94be5161ed073dbc0202f7e13360f90ae",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-configuration/references/tools.md",
+        "destination": "references/configuration-tools.md",
+        "sha256": "f5e7c6dcebe812668a59e8374eded77ad383e73620bd16736b86f2a0d83dd169",
+        "gitBlob": "6a0a34b80457e6f5e2e3c4a787e322cb6b5d3533",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-externals/SKILL.md",
+        "destination": "references/externals-guide.md",
+        "sha256": "9e0357572c54868d03e21869206b113bff7491164809ed2e38d5175227c66d1d",
+        "gitBlob": "c2e586868b3ca4a430368e64208be11da9acc071",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-externals/references/declarations.md",
+        "destination": "references/externals-declarations.md",
+        "sha256": "7b0ca6a91f54f7506e04a0e4381732c563f7fa6a4540cb9db7119d03201a7acf",
+        "gitBlob": "923140588ebbd23068aae862598bcb407fffe4bb",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-file-attributes/SKILL.md",
+        "destination": "references/file-attributes-guide.md",
+        "sha256": "2aba32241c02d0fc8e96065f710ea7ca2659d329314b5d035c21fbe8ad9906b0",
+        "gitBlob": "bb50b91deb06535814f39628eb4fa422986a6963",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-file-attributes/references/attributes.md",
+        "destination": "references/file-attributes-attributes.md",
+        "sha256": "2ad69738a376355e27d90377477e7e4cfa2d931bc14d428659dbc0488ffaeeb1",
+        "gitBlob": "a23cd9dbd9be5eb4da83de737552c14353870670",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Scope exact cleanup to dot_config/exact_helix/ rather than all of ~/.config, and warn about parent deletion."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-file-attributes/references/directives.md",
+        "destination": "references/file-attributes-directives.md",
+        "sha256": "d6454eebdf1f45528dba421b07215fcfa11831e8f8051709938fe4e86e536f07",
+        "gitBlob": "e8d4aaf01bfcade84c19406dd3b8466edf21945c",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Replace absolute config-template lifecycle/data-access claims with installed-context verification, and document init --data and --data=false for existing data."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-init/SKILL.md",
+        "destination": "references/init-guide.md",
+        "sha256": "4f1e02d2712dff9c31deadf74a10fa940db1b16e6f7f82a6825c211a3e13b364",
+        "gitBlob": "b7d626bf3c51f1403bf3be15f6f5670db425eadc",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint.",
+          "Replace download-and-execute bootstrap with separately authorized installation and repository review."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-init/references/commands.md",
+        "destination": "references/init-commands.md",
+        "sha256": "6aff1a032cb70060d0b96f7c3c17453576678ee457c379448d627e3bf1d25dec",
+        "gitBlob": "e7cd1863170cd3191003f2c6702dfb11ca87b6a8",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove token-bearing URL example and require credential helper or SSH authentication."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-init/references/setup.md",
+        "destination": "references/init-setup.md",
+        "sha256": "0f3fd158191abbc7add7651214d56754e9ac320963aa2439a7132cf6a4748174",
+        "gitBlob": "9e165f4c2514c73ecaa704f22294d1dc20fb40e0",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Replace shell/PowerShell remote execution examples with pinned-byte inspection and explicit install/init authority."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-machine-config/SKILL.md",
+        "destination": "references/machine-config-guide.md",
+        "sha256": "7a4408bd1e4e0514ff43f8b1ea20a71bf9bd0f9a8b4e479cef830fc5d687f0d2",
+        "gitBlob": "f144abcbc1e5af506025a228f382e2dfd82eda39",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-machine-config/references/conditional-ignore.md",
+        "destination": "references/machine-config-conditional-ignore.md",
+        "sha256": "400a663e3034a7471c5ef19c23a59de735585501fc8e13995716768e5c12d511",
+        "gitBlob": "c2c51d6270760f86b1086c16fddef2af366a035c",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove unsupported target-cat ignore preview and require raw source inspection."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-machine-config/references/os-patterns.md",
+        "destination": "references/machine-config-os-patterns.md",
+        "sha256": "3632a24c84aea09a21d9d0827d3e441111c23ab16b86a648b3abd6450f25d044",
+        "gitBlob": "5dbf8cbf16e407ef88495fa607bb37e27e022208",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Close missing code fence and warn about hardware-command execution and elevation authority."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-machine-config/references/per-machine-data.md",
+        "destination": "references/machine-config-per-machine-data.md",
+        "sha256": "d3c9038f2693c75d8c89b942a991e8b132d1bb35976d5fedd67ca157a2e92e42",
+        "gitBlob": "283be4e9678759a6ac3011d4ba95c0ed0306443f",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-scripts/SKILL.md",
+        "destination": "references/scripts-guide.md",
+        "sha256": "6d0b81a6f6448c71f2e200a9a29c571756080e0f52b6762c294fb17523c9a2b7",
+        "gitBlob": "fd93e9ee5df461ec7240fc7156e4dc62316a92d8",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-scripts/references/script-execution.md",
+        "destination": "references/scripts-script-execution.md",
+        "sha256": "5bdeee35fa9d5f6b7636b2caaa79fbf53f6832bd3f2e3e5b6eaadd05ec691f14",
+        "gitBlob": "0bb95fe64f3571b1c2dcc5abd761d4b81bff933a",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-scripts/references/state-management.md",
+        "destination": "references/scripts-state-management.md",
+        "sha256": "c17c4d77f46d93af0b2cf3ff671178bac22d46e958c0398c012cf3039ecbb8eb",
+        "gitBlob": "96fbde362aa380caa139577b9ba993eae40c3fa3",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove unavailable list-buckets subcommand, reject default bucket deletion, and resolve effective database path."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-secrets-management/SKILL.md",
+        "destination": "references/secrets-management-guide.md",
+        "sha256": "7d0b755a728a32481c423e3c0b0683b91c389309ebb7941b2019357e52ce20c2",
+        "gitBlob": "2ffb39fd6508f3186851059afed10b80ca262fd7",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-secrets-management/references/encryption.md",
+        "destination": "references/secrets-management-encryption.md",
+        "sha256": "e0b5771fe214ddf3973eb83488061c5d76b2872cbe34ce1ea9823c38ce273b9c",
+        "gitBlob": "d255c5bc7bc57ffb9c7e62fbdecf2a79f041c5bd",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-secrets-management/references/password-managers.md",
+        "destination": "references/secrets-management-password-managers.md",
+        "sha256": "d454809f74ad68cb0693e229ea6ae726ce52dd105b81aef6c6e7c6b54df778d1",
+        "gitBlob": "6e11be652637c5c2ceebb533a6064564c2e48325",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Distinguish inspected active config chezmoi.toml from source .chezmoi.toml.tmpl, and tighten token handling guidance."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-secrets-management/references/secret-providers.md",
+        "destination": "references/secrets-management-secret-providers.md",
+        "sha256": "55fca80949ecdc4fd73d7c8f7b3a0db8100a003e5b807555f02096fd8ab8157e",
+        "gitBlob": "8d66c6e6dcce728d5683f24ad576ad4946677943",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Distinguish inspected active config chezmoi.toml from source .chezmoi.toml.tmpl and require helper review."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-templating/SKILL.md",
+        "destination": "references/templating-guide.md",
+        "sha256": "0869e4c916284eaa4bc5a05d3c11169266e71c4488fd608e794362d923394f29",
+        "gitBlob": "e2edaa4a8cc5c59a4ae3959537badec2c1d701a6",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Remove frontmatter, preserve topic guidance as a guide, and route from the single chezmoi entrypoint."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-templating/references/built-in-variables.md",
+        "destination": "references/templating-built-in-variables.md",
+        "sha256": "c652329eab135a3387a812f84587265ab06236ae7846c7241013b21ccb0d9183",
+        "gitBlob": "897b07ff1e1c4d8c937e133cbccdc03ca0567668",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-templating/references/prompt-functions.md",
+        "destination": "references/templating-prompt-functions.md",
+        "sha256": "1758cbd265425bf82cb24c80621262607a45b09e77531324bbe21f123c4fac1c",
+        "gitBlob": "b6bb36704f06194574308a5b1328e38377bd2f35",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate.",
+          "Make prompt simulation examples invoke prompt functions instead of referencing unset data."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-templating/references/shared-template-fragments.md",
+        "destination": "references/templating-shared-template-fragments.md",
+        "sha256": "d3a5b0b58c3a67cbe48095f32091432391dc39d38b82ac922d4077e7360a78c8",
+        "gitBlob": "7a693e696675d9a546990d0a30b42487ad6ca016",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      },
+      {
+        "path": "skills/chezmoi-templating/references/sprig-functions.md",
+        "destination": "references/templating-sprig-functions.md",
+        "sha256": "fdec4d460ee239fbdef1785170e715be9c42a34016a5f42d0a0940e1c3c963d8",
+        "gitBlob": "5d4bd821f4d07e89c56753846b04c4df7a43c40d",
+        "changes": [
+          "Flatten to topic-prefixed filename, localize cross-topic and relative links, and prepend mandatory safety/help gate."
+        ]
+      }
+    ]
+  },
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Mike Kobit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT",
+      "scope": "New local contributions and adaptations."
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Consolidate nine upstream skills into one portable chezmoi entrypoint with nine topic guides and all 38 upstream references in a flat references directory.",
+    "Preserve topic guidance and replace sibling skill dependencies with local topic links.",
+    "Add safety-workflow.md covering source/target/destination/config/persistent state, read-only diagnosis, exact mutation authority, recovery, secrets, previews, hooks, scripts, externals and failed evidence.",
+    "Keep the complete upstream MIT license and add a separate complete local MIT notice.",
+    "Correct selected stale or unsafe examples as recorded on each upstream mapping. Other imported flag tables remain snapshot guidance and require installed --help verification."
+  ],
+  "verification": {
+    "scope": "File identities, attribution, portable frontmatter, routing, local reference closure, topic coverage and explicit safety instruction text. Not legal clearance, agent compliance or behavioral efficacy.",
+    "cli": "Optional inert fixture tests use installed chezmoi only with isolated HOME/XDG roots, source/destination/config/cache/state/temp/working directory and a minimal environment. No imported example, real source script, hook, external download or live dotfile is executed.",
+    "note": "The files list covers every resulting payload file except this provenance record itself. Original identities remain separate from resulting identities."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "d35abd1fb6a99ae97122b1304e69dd20b62c88e2c60333ca28973b5fc4aec15f",
+      "gitBlob": "840bb03cc726f3c3a4a2531c09a97885790c4d59"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "da273a347b49ee054862dcfdcddc34c7d554a1716db02ae3f819d48dc48134bc",
+      "gitBlob": "a5a2c7ca9c597783a74f9159883ddd9b2c3f98ad"
+    },
+    {
+      "path": "references/cli-commands-add.md",
+      "sha256": "23512c24cff5069dbd2e1f226d32db2ba531fb6e70faae6766588536a238d774",
+      "gitBlob": "fb5b31b51f7f4adfbb4a15c077bc0e48b946e704"
+    },
+    {
+      "path": "references/cli-commands-apply.md",
+      "sha256": "1155e71a4acd602ce1058e26a5bfae87ac844b25f0faf409a0ce5bebc3328cfe",
+      "gitBlob": "84b8e59b9c2d515d4cda99a8f76ea4e7af2df195"
+    },
+    {
+      "path": "references/cli-commands-chattr.md",
+      "sha256": "0b6db19a66c38097eb6570ace300673528f0f382a29f582e9d57c4f91452aa80",
+      "gitBlob": "106f53c2662b0c55c16374f11eb01e093b71f8c7"
+    },
+    {
+      "path": "references/cli-commands-diff.md",
+      "sha256": "2261af2fac1f5f0c314f4b56eab9f64c9b80eaec9d8fb159f2ac1234efc1fd36",
+      "gitBlob": "b76b89a48eb77e0b08ee1d89d815638b9c744541"
+    },
+    {
+      "path": "references/cli-commands-dump.md",
+      "sha256": "bfe57d6ed90986fe376429e939946758f9f83aeaf2c7605ba24cd76eb618726e",
+      "gitBlob": "a5954ee52e963e036380417c077f88f673d77f35"
+    },
+    {
+      "path": "references/cli-commands-edit.md",
+      "sha256": "0e18831bd3569c520693f30214ea8f6afa6d4211780d4012515a4371510fb683",
+      "gitBlob": "ff2ea6462a122aca804d84c0def87b63a9dd3ce9"
+    },
+    {
+      "path": "references/cli-commands-guide.md",
+      "sha256": "9e76ef9b87ce856b516c6155d4e3e918f78a39de3f061ea2d782302407fa3ba6",
+      "gitBlob": "110532c39857036c259ec2b2bdc206bcfe8eb9f0"
+    },
+    {
+      "path": "references/cli-commands-import.md",
+      "sha256": "4496478d21887ec1b62cb00fb413e3ce4ef23fadc555950410121c5a00b07c5a",
+      "gitBlob": "eb59e532dd135ee741a3ddcfefff6ea1a3b66f83"
+    },
+    {
+      "path": "references/cli-commands-inspection.md",
+      "sha256": "4276731ee6bb78f957fe752ec82ec8362b332ed2664c5e236d2461afca250a53",
+      "gitBlob": "94c985341a1d8046b2e63fd3690b3ff7250f133d"
+    },
+    {
+      "path": "references/cli-commands-merging.md",
+      "sha256": "58756abc3ea3d9376cebccf1f9c094ba65a888d6cd74fbe3fa7dff9ad25a4da4",
+      "gitBlob": "69c5229db49c885366e1eecac3f393fff88af08b"
+    },
+    {
+      "path": "references/cli-commands-misc-core.md",
+      "sha256": "1048948f2d351e890bbd527d7a6c847a1790771f4a5387f26fba70183ed93b7d",
+      "gitBlob": "8e3034a88faace1b2eec244878873b7f8437e171"
+    },
+    {
+      "path": "references/cli-commands-state.md",
+      "sha256": "111d4798e5078018c23f02c210dd0d6ac99b4228d5890a636a58f080ec78969c",
+      "gitBlob": "2289389b463089615c86c2d233fb68eba7aab4b0"
+    },
+    {
+      "path": "references/cli-commands-status.md",
+      "sha256": "bd4757ff51741b53ab89713cb513143ff0311584820a25186adcfe7edc62f401",
+      "gitBlob": "5cb7958ad41be434be9bdb601455d7eedcf40057"
+    },
+    {
+      "path": "references/cli-commands-update.md",
+      "sha256": "4707f5f3d3cf7c08e9688cb6a99ef1ed5bb28557ee8227cab0a83b626c5167b4",
+      "gitBlob": "9c1ccbd7ec93883581ebe2b021bcacd5d9f1ab66"
+    },
+    {
+      "path": "references/cli-commands-verify.md",
+      "sha256": "e68bb64f53954cec735333fe13ff9462b62a93cf7ae6a93af277d7ab5eecb414",
+      "gitBlob": "713b82ada9a37771da290694117365d1b7b8a8b5"
+    },
+    {
+      "path": "references/configuration-core.md",
+      "sha256": "593780fc0a2f05ba57641603f8d1a4e3914be69aff46f8854a0bb9709eec0435",
+      "gitBlob": "249064eb6c9be20d3fc9961c2d617e7332e68faa"
+    },
+    {
+      "path": "references/configuration-data.md",
+      "sha256": "5204d5ef3fa26d05e949d1fec503764d775a428ceaf4c5cbf6a851b297404065",
+      "gitBlob": "2c7fc31c7559023d81c9e433dd6d1ec8432e5b72"
+    },
+    {
+      "path": "references/configuration-git.md",
+      "sha256": "5b137816a3139c9b8f8433b0e6abd804d1108372fa60fa774b3225d265da57c2",
+      "gitBlob": "70c73ad84bb57e44e780a073488a55ab4a2fd6f4"
+    },
+    {
+      "path": "references/configuration-guide.md",
+      "sha256": "829edb611199cb17a129d944749ce778a1ec49a98f52d6bb10eeec3694a45537",
+      "gitBlob": "fb1f02659088a24680405d692d449836bd6351bb"
+    },
+    {
+      "path": "references/configuration-hooks.md",
+      "sha256": "7d228086e8bf7ba66ebabe286b4b0a9b5174e0f9ab48d0f1a1e8c1f3396e0af8",
+      "gitBlob": "1f7e1d7a250b1224b194a0c521b3d201fcbe68bd"
+    },
+    {
+      "path": "references/configuration-interpreters.md",
+      "sha256": "08cd62fa55655c47b7e8c067e10a8bb663272088bb30f404dbc67b82c95eaba3",
+      "gitBlob": "c0a44ef8d59984cbde5244de4b6b28c2d7245cfe"
+    },
+    {
+      "path": "references/configuration-pinentry-textconv-warnings.md",
+      "sha256": "9e47389a5d4a2555604a6ac5cd12b176886bb1d84b44db8fda594156e94f75d7",
+      "gitBlob": "cefdc7cbd641e3bcded2a8705f636730598e3bfd"
+    },
+    {
+      "path": "references/configuration-tools.md",
+      "sha256": "8779da90b39cadce98488012d640ee590eb2238cbd621253bacbc573ba21eeb5",
+      "gitBlob": "cbeb86b8476966073d0ecf38b638212138f433eb"
+    },
+    {
+      "path": "references/externals-declarations.md",
+      "sha256": "18cfbd554c976005440945b18770762147852156c590757066462dc908b2fc5f",
+      "gitBlob": "81730c698e1f0df69bd9b7a3cc36562f2c575c64"
+    },
+    {
+      "path": "references/externals-guide.md",
+      "sha256": "070c98e0597a880e1c04450cbee2c35715f9df643cbdc78b3b5706d51139ee1d",
+      "gitBlob": "eadbd5b958efd939fa716661747fd9ab3f28a83a"
+    },
+    {
+      "path": "references/file-attributes-attributes.md",
+      "sha256": "9ceb44422bd78aaf3c325213930e3172526fd93bf38326d9c4448712fe15d0db",
+      "gitBlob": "eaea5e0cfb10cbdc54d631f071fa4b4efca78366"
+    },
+    {
+      "path": "references/file-attributes-directives.md",
+      "sha256": "b661524034a0d8bdf3b19213a76e8aa07d5c3be792aa2db2a9d13d96e53ab1b4",
+      "gitBlob": "097bc98e6f71aa3151e4083b86b9031fc7919cbd"
+    },
+    {
+      "path": "references/file-attributes-guide.md",
+      "sha256": "49c790e0f012a671137384ae73712e1fa6823f5efedd659ae6f760edf585c403",
+      "gitBlob": "c33d9039ef9ca23f0e0147b2459f310d237b23a9"
+    },
+    {
+      "path": "references/init-commands.md",
+      "sha256": "c43629a588de2ad3e2cdcea58f1cd32e776db4b20ddb2259c647cea7d1d799ea",
+      "gitBlob": "37048b05f4e0b42af63c9b743a04492b9e02272a"
+    },
+    {
+      "path": "references/init-guide.md",
+      "sha256": "fb0911d99b1aefed475dcfc3ae6c81e40c885e41ea69d1a4384342ce5c8b9ea3",
+      "gitBlob": "27e25e4b2091a0d8559c1c878f35071636390ea3"
+    },
+    {
+      "path": "references/init-setup.md",
+      "sha256": "6bd3e768ea86e4eace8602f8925221b321c4465cd47bd0dc1ed5314de0b846af",
+      "gitBlob": "2aafddc9ddb31d7acb076f88c01dc95b74d0cbfc"
+    },
+    {
+      "path": "references/machine-config-conditional-ignore.md",
+      "sha256": "fd59e450a38ef00ff1afb50bd3300c2df1e13ece230688992fd3c9abdabace8a",
+      "gitBlob": "be992cabd072ffa5a0febcfa0b9cc2c7b6490bb3"
+    },
+    {
+      "path": "references/machine-config-guide.md",
+      "sha256": "7b72e0ff642cf44a5726d03b655808ae996bc6f7fed8584bb1c7ca39537a4e99",
+      "gitBlob": "e804d51342c558ab6514d5bc18ac06f2004be4c6"
+    },
+    {
+      "path": "references/machine-config-os-patterns.md",
+      "sha256": "df6c79f3bff543b5ea2823e18208b3d8dce1656a0aecbe4cfc1ecde8297f4fce",
+      "gitBlob": "a9503284e4a60863159deb6cb36a0bd1e281ba15"
+    },
+    {
+      "path": "references/machine-config-per-machine-data.md",
+      "sha256": "19ede3131a620b95047d21c5cb07d4c33827b2d53a71041a10fc7cbba537721a",
+      "gitBlob": "2e2845f19bcd1e754a2ffab39cd4647d261fb0ca"
+    },
+    {
+      "path": "references/safety-workflow.md",
+      "sha256": "b3b418f2ec649fd7ce89a1d33c20938b8055a6e38b6e62b1d9f87ef2eee6263b",
+      "gitBlob": "e14e1acce843b6726d77a611082290e1b22049b2"
+    },
+    {
+      "path": "references/scripts-guide.md",
+      "sha256": "c7fe0430e935d94278095194120bf704461463140a976b58cc6b4c58c5c8c43d",
+      "gitBlob": "58b6043f18585d307a9190554ccaa4998cddba7d"
+    },
+    {
+      "path": "references/scripts-script-execution.md",
+      "sha256": "885b94ea5dbe905fcde346643d5ef6269e54354a3f15f61578573971d8cd6ebd",
+      "gitBlob": "a0cc3eea155c4133b7f4e0139bda909252dafd8e"
+    },
+    {
+      "path": "references/scripts-state-management.md",
+      "sha256": "921b3df5c38d4cc3ce814f9cc10a589acb304b28eaf6989f4a4f8337d0ef486f",
+      "gitBlob": "78793168cd5725a5d9b789e41ba854fd0ea84c9f"
+    },
+    {
+      "path": "references/secrets-management-encryption.md",
+      "sha256": "35076140e29cf3894182e887bf1def74cd10820bf17afeb3aa9bedbbeffe6d43",
+      "gitBlob": "46d78e6c9a2bdd962de4be6a39f1389f2a6be155"
+    },
+    {
+      "path": "references/secrets-management-guide.md",
+      "sha256": "81299716389a9fdb05b5dcd1882dc54a077e2276c733d2ca3ab20bab52e3f2d0",
+      "gitBlob": "55e46145416fbadfd82f517f0327cf9708b37509"
+    },
+    {
+      "path": "references/secrets-management-password-managers.md",
+      "sha256": "11335235c49a81e76d9e6de801f850eb4dbb442bf2362a46bae82c4dfbfbb2b1",
+      "gitBlob": "421e6671548cd50e73bb7df3325d3b072a86c74f"
+    },
+    {
+      "path": "references/secrets-management-secret-providers.md",
+      "sha256": "4583ddf626a9d3ef83b231bd0c35adc3c4d8524aa57458aeb03f0f4f39524130",
+      "gitBlob": "dcc9387ab73cbd32a067840d14707d4fbd71616b"
+    },
+    {
+      "path": "references/templating-built-in-variables.md",
+      "sha256": "5bdc7470f2486f293c51abd86e7b81bbf1a570b9c3da6977d3731c22567dac85",
+      "gitBlob": "0bb1df9c661587eadcaabc44372b36ca1fd01423"
+    },
+    {
+      "path": "references/templating-guide.md",
+      "sha256": "54bda3f9fcf208018d6d6bbe805e18c840eced1e810337f278e2b0bb9c0bce41",
+      "gitBlob": "4460525a7221201122b56c47942875ee7763a91f"
+    },
+    {
+      "path": "references/templating-prompt-functions.md",
+      "sha256": "9a988d39fbb842a9429efa05d3a9f5d27d329d7616906a1632389ef53bcb993c",
+      "gitBlob": "8a374ffb7ec9e1d0b2ef29ad11d487e0d83c4bb0"
+    },
+    {
+      "path": "references/templating-shared-template-fragments.md",
+      "sha256": "1d1e18a70ede84b2b653640160b458cc9750c33286e34a77a36915d39ed7206a",
+      "gitBlob": "d98f2573a6bdd5cf6468ff3f938f256d6e8ff4de"
+    },
+    {
+      "path": "references/templating-sprig-functions.md",
+      "sha256": "85059d7b485f445916edd9bd0e795665f824b45cb77de5aaa05c9c24b3accf14",
+      "gitBlob": "2558ba1904ab2357065b3cb0f5fa294c16a16d07"
+    }
+  ]
+}

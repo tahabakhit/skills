@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-29 selectively installable skills for engineering, research, content, data and
+30 selectively installable skills for engineering, research, content, data and
 Linux operations. The source is public at https://github.com/tahabakhit/skills.
 The CLI helps you choose what belongs globally and what belongs in a repository.
 It uses Vercel's Skills CLI for the actual copying.
@@ -19,8 +19,8 @@ Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
 All seven packages are published at `0.2.0`, which contains the earlier 21-skill
-catalog. The eight additions and reference consolidations on GitHub are not yet
-published to npm. Use the GitHub source or a checkout for the 29-skill catalog.
+catalog. The specialist additions, chezmoi skill and reference consolidations on
+GitHub are not yet published to npm. Use GitHub or a checkout for all 30 skills.
 Public installation does not require npm login. Use `npx @tahabakhit/skills@0.2.0` to pin the verified release, or add
 `--list` to inspect its choices without installing skills. All seven published
 selectors passed registry version/list checks. Exact package identities are in
@@ -64,18 +64,18 @@ Restart the agent after installing. Start a fresh session when replacing workflo
 
 | Group | npm package | Count |
 | --- | --- | --- |
-| All groups | `@tahabakhit/skills` | 29 |
+| All groups | `@tahabakhit/skills` | 30 |
 | Core | `@tahabakhit/skills-core` | 5 |
 | Engineering | `@tahabakhit/skills-engineering` | 11 |
 | Content | `@tahabakhit/skills-content` | 2 |
 | Design review | `@tahabakhit/skills-design` | 1 |
 | Data | `@tahabakhit/skills-data` | 2 |
-| Linux operations | `@tahabakhit/skills-operations` | 8 |
+| Linux operations and dotfiles | `@tahabakhit/skills-operations` | 9 |
 
 These are source-checkout counts, not the immutable npm `0.2.0` contents.
 Core contains `discover-work`, `define-work`, `research-work`, `verify-and-stop`
 and `unslop`. Operations includes general operations plus the Arch, CachyOS,
-Fedora/RHEL, configuration-drift and workstation-health specialists.
+Fedora/RHEL, configuration-drift and workstation-health specialists, plus chezmoi.
 `safe-refactor` and `migration` use `change-safely`; `technical-writing` uses
 `create-content`. `herdr-core` and `ketch` stay CLI-managed outside this repo.
 See [the installed-skill migration guide](audits/installed-skill-import.md)
@@ -121,6 +121,26 @@ implementation, workers or tracker publication. Delivery continues within existi
 authority without a default plan-approval pause. Diagnosis, review and verification
 remain separately usable. Passing tests does not grant merge/deploy/publication
 authority. Required independent review cannot be replaced with a self-check.
+
+## Chezmoi
+
+`chezmoi` consolidates all nine topics from
+[mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills) into one standalone
+skill: commands, configuration, file attributes, initialization, machine-specific
+configuration, templates, scripts, externals and secrets. Detailed references load
+only when relevant. The adaptation adds source/target/state checks, scoped change
+boundaries and privacy guidance for previews, hooks and secret providers.
+
+```text
+/skill:chezmoi Diagnose why this managed file differs. Do not apply changes.
+/skill:chezmoi Add a machine-specific template for this authorized dotfile.
+```
+
+Original MIT notices, the pinned source revision, input hashes and local changes
+ship inside the selected folder. Structural and disposable CLI checks do not
+establish model effectiveness. Existing installed specialist skills remain intact.
+The [origin and missing-target report](audits/skill-origins-and-missing-targets.md)
+traces the older installed collection separately.
 
 ## Coverage and evidence
 

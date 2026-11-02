@@ -58,6 +58,16 @@ privacy, authority and routing changes. Neither upstream endorses this package.
 
 No `herdr-core` or `ketch` content/runtime is redistributed by this import.
 
+## Chezmoi skills
+
+Source: [mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc),
+MIT License, copyright (c) 2026 Mike Kobit. Nine skill entrypoints and 38 reference
+files are consolidated and adapted in `skills/chezmoi`. The complete source grant
+ships in that folder's `LICENSE`; local contributions retain their own notice.
+Its `PROVENANCE.json` records original input paths/hashes, resulting identities and
+changes. No upstream runtime, plugin or evaluation harness is bundled. Neither
+Mike Kobit nor the chezmoi project endorses this adaptation.
+
 ## Matt Pocock skills
 
 Source: https://github.com/mattpocock/skills

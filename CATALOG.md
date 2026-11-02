@@ -1,6 +1,6 @@
 # Workflow catalog
 
-The collection has 29 canonical workflow owners. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
+The collection has 30 canonical workflow owners. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records. `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
@@ -44,6 +44,7 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 | `managed-config-drift` | Live/source/default ownership and read-only comparison | Automatic reconciliation or a bounded/atomic tree snapshot |
 | `workstation-health-triage` | Broad Linux health evidence and correlation | Repair authority, universal package probes or redaction |
 | `unslop` | Requested final prose cleanup, distributed in core | Always-on personal style or unrelated rewrites |
+| `chezmoi` | Dotfile source/target/state diagnosis, templates, attributes, scripts, externals, configuration and secrets | Automatic apply/update, credential access or migration of existing skill installations |
 
 Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` owns technical-writing structure, sentence style and repository verification, including the three imported local references. `unslop` is a separately selectable core editing pass, not a hidden required dependency.
 
@@ -57,12 +58,13 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 | Technical writing, editing, marketing, reports, communications and file-production contracts | `create-content` modes/references |
 | Evidence investigation and participant-study planning/synthesis | `research-work` |
 | SQL, metrics, cohorts and numerical analysis | `analyze-data` |
+| Nine mkobit chezmoi topics, with detailed local references | `chezmoi` |
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
 ## Installed-skill replacement map
 
-No live skill, link, lockfile, host setting or chezmoi source is changed by this catalog. The [installed-skill audit](audits/installed-skills.md) remains the preservation baseline.
+The catalog itself does not change live skills, links, locks, host settings or chezmoi sources. Adding the new `chezmoi` skill does not replace any audited specialist installation. The [installed-skill audit](audits/installed-skills.md) remains the preservation baseline.
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |

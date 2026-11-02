@@ -237,10 +237,33 @@ for these later copied files; the new `imports` records are. `safe-refactor` and
 `migration` remain consolidated into `change-safely`. `herdr-core` and `ketch`
 are excluded as CLI-managed integrations at the user's request.
 
+## Chezmoi source import
+
+Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc).
+All nine skill entrypoints and 38 reference files were read for this adaptation.
+Their topics are consolidated into `skills/chezmoi`, with flattened local
+references, one activation description and no required sibling skills. The source
+MIT grant, copyright 2026 Mike Kobit, ships inside the selectable folder alongside
+the local contribution notice.
+
+The adaptation preserves topic detail while adding an entrypoint safety gate for
+source, destination, configuration and persistent-state identity. It distinguishes
+read-only diagnosis from authorized mutation and covers hooks, scripts, external
+fetches, secret-provider access and sensitive previews. It does not bundle or
+execute the upstream plugin, evaluation harness, installer or bootstrap commands.
+The folder-local `PROVENANCE.json` records source paths, reviewed input identities,
+local changes and resulting payload hashes. It is a maintained derivative, not
+original expression or an upstream-endorsed integration.
+
+The [installed-skill origin report](audits/skill-origins-and-missing-targets.md)
+separately recovers missing targets from the older Bolens-derived installation.
+Finding a source does not authorize installing every optional specialist, changing
+managed dotfiles or replacing existing live skills.
+
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions
-are attributed forks. The 16 new procedures are provisional original workflows.
+and consolidated chezmoi skill are attributed forks. The 16 new procedures are provisional original workflows.
 None is an endorsed integration. [The recorded pilot](evaluations/entrypoint-pilot/RESULTS.md)
 is entrypoint-only development evidence, not proof of whole-system effectiveness,
 routing, tools, stopping behavior or host compatibility. Package changes can alter
