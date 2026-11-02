@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { validateDistribution } from '../lib/selection.mjs';
+import { validateDistribution, skillPath } from '../lib/selection.mjs';
 import { tree } from '../lib/files.mjs';
 import { overlaps, safePath } from '../lib/plan.mjs';
 
@@ -34,9 +34,10 @@ export function buildPackages(out = path.join(root, 'dist', 'npm'), source = roo
     fs.mkdirSync(dir, { recursive: true });
     for (const part of ['bin', 'lib', 'LICENSE']) fs.cpSync(path.join(source, part), path.join(dir, part), { recursive: true });
     for (const name of group.skills) {
-      safePath(path.join(source, 'skills', name), source);
-      tree(path.join(source, 'skills', name), true); // Refuse unsupported/excluded inputs before copying.
-      fs.cpSync(path.join(source, 'skills', name), path.join(dir, 'skills', name), { recursive: true });
+      const folder = skillPath(source, distribution, name);
+      safePath(folder, source);
+      tree(folder, true); // Refuse unsupported/excluded inputs before copying.
+      fs.cpSync(folder, skillPath(dir, distribution, name), { recursive: true });
     }
     const manifest = {
       name: `@tahabakhit/skills-${group.name}`, version: pkg.version, description: group.description,
@@ -47,7 +48,7 @@ export function buildPackages(out = path.join(root, 'dist', 'npm'), source = roo
     };
     fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(manifest, null, 2) + '\n');
     fs.writeFileSync(path.join(dir, 'distribution.json'), JSON.stringify({ ...distribution, groups: [group] }, null, 2) + '\n');
-    fs.writeFileSync(path.join(dir, 'README.md'), `# ${manifest.name}\n\n${group.description}.\n\nContains: ${group.skills.join(', ')}. Every folder retains its notices, provenance and references.\n\nRun \`npx ${manifest.name}\` for the selector, or \`npx ${manifest.name} --help\` for explicit global/project options.\n\nNo automatic installation hook. The selector invokes Vercel ${distribution.installer} after confirmation. It copies skills, refuses existing symlinks, and requires explicit consent to replace existing selections. Do not install the same skill from this package and the umbrella package.\n\nWorkflow evidence and limits: https://github.com/tahabakhit/skills/blob/main/CATALOG.md\n\nThese are workflow procedures, not proof of improved model performance.\n`);
+    fs.writeFileSync(path.join(dir, 'README.md'), `# ${manifest.name}\n\n${group.description}.\n\nContains: ${group.skills.join(', ')}. Every folder retains its notices, provenance and references.\n\nNative group source: \`npx skills add https://github.com/tahabakhit/skills/tree/main/skills/${group.name} --skill "*" -a pi${group.name === 'core' ? ' --global' : ''}\`. The optional compatibility selector is \`npx ${manifest.name}\`, or \`npx ${manifest.name} --help\` for explicit global/project options.\n\nNo automatic installation hook. The selector invokes Vercel ${distribution.installer} after confirmation. It copies skills, refuses existing symlinks, and requires explicit consent to replace existing selections. Do not install the same skill from this package and the umbrella package.\n\nWorkflow evidence and limits: https://github.com/tahabakhit/skills/blob/main/CATALOG.md\n\nThese are workflow procedures, not proof of improved model performance.\n`);
     packages.push({ name: manifest.name, version: pkg.version, dir });
   }
   return [...packages, { name: pkg.name, version: pkg.version, dir: source }];

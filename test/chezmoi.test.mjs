@@ -7,7 +7,7 @@ import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-const folder = fileURLToPath(new URL('../skills/chezmoi/', import.meta.url));
+const folder = fileURLToPath(new URL('../skills/configuration/chezmoi/', import.meta.url));
 const read = relative => fs.readFileSync(path.join(folder, relative), 'utf8');
 const provenance = JSON.parse(read('PROVENANCE.json'));
 const topics = ['cli-commands', 'configuration', 'externals', 'file-attributes', 'init',

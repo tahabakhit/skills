@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { parseArgs, select, selectAgents, selections, validateDistribution } from '../lib/selection.mjs';
+import { parseArgs, select, selectAgents, selections, validateDistribution, skillPath } from '../lib/selection.mjs';
 import { createPlan, installerArgs } from '../lib/plan.mjs';
 import { checkReceipts, executePlan, verifyLock } from '../lib/install.mjs';
 import { buildPackages, outputDirectory } from '../scripts/build-packages.mjs';
@@ -14,7 +14,7 @@ import { registryResult } from '../scripts/release.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
 const hash = 'a'.repeat(64);
-const core = ['discover-work', 'define-work', 'research-work', 'verify-and-stop', 'unslop'];
+const core = ['discover-work', 'research-work', 'create-content', 'verify-and-stop'];
 const labels = { pi: 'Pi', codex: 'Codex', 'claude-code': 'Claude Code' };
 function fixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-test-'));
@@ -33,7 +33,7 @@ function receipts(p, job) {
 // Independent stand-in for the upstream contract documented in installer-contract.md.
 function upstream(p, job, corrupt = false) {
   for (const target of job.targets) {
-    fs.cpSync(path.join(p.source, 'skills', target.name), target.path, { recursive: true });
+    fs.cpSync(skillPath(p.source, distribution, target.name), target.path, { recursive: true });
     if (corrupt) fs.writeFileSync(path.join(target.path, 'SKILL.md'), 'wrong bytes');
   }
   const lock = fs.existsSync(job.lock) ? JSON.parse(fs.readFileSync(job.lock)) : { version: job.scope === 'global' ? 3 : 1, skills: {}, ...(job.scope === 'global' ? { dismissed: {} } : {}) };
@@ -51,18 +51,36 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('1,core,discover-work', distribution), core);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
-  assert.equal(select('all', distribution).length, 23);
-  assert.deepEqual(select('operations', distribution), ['managed-config-drift', 'chezmoi']);
+  assert.equal(select('all', distribution).length, 22);
+  assert.deepEqual(select('configuration', distribution), ['managed-config-drift', 'chezmoi']);
   assert.deepEqual(select('chezmoi', distribution), ['chezmoi']);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
   assert.throws(() => select('../core', distribution), /Unknown/);
+});
+test('catalog paths and provenance agree with the distribution owner, not workflow domain', () => {
+  const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
+  assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
+  assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
+    ['core', 4, 'global'], ['engineering', 12, 'project'], ['content', 1, 'project'],
+    ['interface-review', 1, 'project'], ['data', 2, 'project'], ['configuration', 2, 'project']
+  ]);
+  for (const skill of catalog.skills) {
+    const relative = path.relative(root, skillPath(root, distribution, skill.name));
+    assert.equal(skill.path, relative);
+    assert.equal(skill.provenance, `${relative}/PROVENANCE.json`);
+    assert.equal(fs.existsSync(path.join(root, 'skills', skill.name, 'SKILL.md')), false);
+  }
+  for (const alias of ['design', 'operations', 'unslop']) {
+    assert.throws(() => select(alias, distribution), /Unknown/);
+    assert.equal(fs.existsSync(path.join(root, 'skills', alias)), false);
+  }
 });
 test('argument parser fails closed on unknown, missing and repeated values', () => {
   assert.deepEqual(parseArgs(['--global', 'core', '--local', 'data', '--yes']), { global: 'core', local: 'data', yes: true });
   for (const args of [['--global'], ['--force'], ['--local', '--yes'], ['--local', 'data', '--local', 'core']]) assert.throws(() => parseArgs(args));
 });
 test('scope overlap and empty selection are rejected', () => {
-  assert.throws(() => selections({ global: 'core', local: 'define-work' }, distribution), /one scope/);
+  assert.throws(() => selections({ global: 'core', local: 'create-content' }, distribution), /one scope/);
   assert.throws(() => selections({}, distribution), /Nothing selected/);
 });
 test('agent IDs and numbers are explicit and deduplicated', () => {
@@ -104,7 +122,7 @@ test('dangling target and parent symlinks are never followed or replaced', t => 
 });
 test('source/destination overlaps are rejected before any upstream invocation', t => {
   const c = fixture(t);
-  assert.throws(() => createPlan({ local: 'discover-work', agents: 'pi', project: path.join(root, 'skills/discover-work') }, distribution, root, c), /overlap/);
+  assert.throws(() => createPlan({ local: 'discover-work', agents: 'pi', project: skillPath(root, distribution, 'discover-work') }, distribution, root, c), /overlap/);
 });
 test('malformed, future and extension-bearing project locks are preserved', t => {
   const c = fixture(t); const lock = path.join(c.project, 'skills-lock.json');
@@ -190,19 +208,22 @@ test('help/list/version and dry run are network-free and leave no installation f
   assert.deepEqual(fs.readdirSync(c.project), []);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
-test('six domain packages partition 23 complete standalone payloads', t => {
+test('six domain packages partition 22 complete nested standalone payloads', t => {
   const c = fixture(t); const rows = buildPackages(path.join(c.dir, 'built'));
-  assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-design', '@tahabakhit/skills-data', '@tahabakhit/skills-operations', '@tahabakhit/skills']);
-  assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 2]);
+  assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-interface-review', '@tahabakhit/skills-data', '@tahabakhit/skills-configuration', '@tahabakhit/skills']);
+  assert.deepEqual(rows.slice(0, 6).map((r, i) => fs.readdirSync(path.join(r.dir, 'skills', distribution.groups[i].name)).length), [4, 12, 1, 1, 2, 2]);
   for (const row of rows.slice(0, 6)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
     assert.equal(pkg.version, '0.3.0'); assert.equal(pkg.publishConfig.access, 'public');
     assert.equal(pkg.scripts, undefined); assert.equal(pkg.dependencies, undefined);
     const result = spawnSync(process.execPath, [path.join(row.dir, 'bin/skills.mjs'), '--list'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
-    for (const name of fs.readdirSync(path.join(row.dir, 'skills'))) {
-      const provenance = JSON.parse(fs.readFileSync(path.join(row.dir, 'skills', name, 'PROVENANCE.json')));
-      for (const notice of provenance.licenses) assert.ok(fs.existsSync(path.join(row.dir, 'skills', name, typeof notice === 'string' ? notice : notice.file)));
+    const bundled = JSON.parse(fs.readFileSync(path.join(row.dir, 'distribution.json')));
+    assert.deepEqual(fs.readdirSync(path.join(row.dir, 'skills')), [bundled.groups[0].name]);
+    for (const name of bundled.groups[0].skills) {
+      const folder = skillPath(row.dir, bundled, name);
+      const provenance = JSON.parse(fs.readFileSync(path.join(folder, 'PROVENANCE.json')));
+      for (const notice of provenance.licenses) assert.ok(fs.existsSync(path.join(folder, typeof notice === 'string' ? notice : notice.file)));
     }
   }
 });

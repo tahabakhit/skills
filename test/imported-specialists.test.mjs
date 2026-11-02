@@ -6,6 +6,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { skillPath } from '../lib/selection.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const json = p => JSON.parse(fs.readFileSync(path.join(root, p)));
@@ -16,30 +17,33 @@ function fixture(t) {
   return dir;
 }
 function compare(args) {
-  return spawnSync('python3', [path.join(root, 'skills/managed-config-drift/scripts/compare-trees.py'), ...args], { encoding: 'utf8', timeout: 5000, env: { PATH: process.env.PATH, PYTHONDONTWRITEBYTECODE: '1' } });
+  return spawnSync('python3', [path.join(root, 'skills/configuration/managed-config-drift/scripts/compare-trees.py'), ...args], { encoding: 'utf8', timeout: 5000, env: { PATH: process.env.PATH, PYTHONDONTWRITEBYTECODE: '1' } });
 }
 
 test('installed names have one distribution owner and no CLI-managed or legacy aliases', () => {
   const distribution = json('distribution.json');
   const groups = Object.fromEntries(distribution.groups.map(g => [g.name, g.skills]));
-  assert.ok(groups.core.includes('unslop'));
-  assert.deepEqual(groups.operations, ['managed-config-drift', 'chezmoi']);
+  assert.deepEqual(groups.core, ['discover-work', 'research-work', 'create-content', 'verify-and-stop']);
+  assert.deepEqual(groups.configuration, ['managed-config-drift', 'chezmoi']);
+  assert.equal(groups.operations, undefined);
+  assert.equal(groups.design, undefined);
   const names = distribution.groups.flatMap(g => g.skills);
-  assert.equal(new Set(names).size, 23);
-  for (const name of ['technical-writing', 'migration', 'safe-refactor', 'herdr-core', 'ketch', 'operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'workstation-health-triage']) {
+  assert.equal(new Set(names).size, 22);
+  for (const name of ['unslop', 'technical-writing', 'migration', 'safe-refactor', 'herdr-core', 'ketch', 'operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'workstation-health-triage']) {
     assert.ok(!names.includes(name));
     assert.ok(!fs.existsSync(path.join(root, 'skills', name)));
   }
-  for (const file of ['document-structure', 'sentence-style', 'repository-verification']) assert.ok(fs.existsSync(path.join(root, 'skills/create-content/references', `${file}.md`)));
-  assert.match(text('skills/change-safely/SKILL.md'), /Refactor branch/);
-  assert.match(text('skills/change-safely/SKILL.md'), /Migration branch/);
+  for (const file of ['document-structure', 'sentence-style', 'repository-verification']) assert.ok(fs.existsSync(path.join(root, 'skills/core/create-content/references', `${file}.md`)));
+  assert.match(text('skills/engineering/change-safely/SKILL.md'), /Refactor branch/);
+  assert.match(text('skills/engineering/change-safely/SKILL.md'), /Migration branch/);
 });
 
 test('preserved optional helper bytes match pinned audited inputs', () => {
   for (const name of ['managed-config-drift']) {
-    const record = json(`skills/${name}/PROVENANCE.json`);
+    const folder = skillPath(root, json('distribution.json'), name);
+    const record = JSON.parse(fs.readFileSync(path.join(folder, 'PROVENANCE.json')));
     for (const file of record.upstreamFiles.filter(f => f.path.startsWith('scripts/'))) {
-      const bytes = fs.readFileSync(path.join(root, 'skills', name, file.path));
+      const bytes = fs.readFileSync(path.join(folder, file.path));
       assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), file.sha256);
     }
   }

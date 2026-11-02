@@ -11,7 +11,7 @@ awk '
   /^```sh$/ { capture = 1; next }
   capture && /^```$/ { exit }
   capture { print }
-' "$root/skills/systematic-debugging/root-cause-tracing.md" > "$scratch/example.sh"
+' "$root/skills/engineering/systematic-debugging/root-cause-tracing.md" > "$scratch/example.sh"
 [ -s "$scratch/example.sh" ]
 cat > "$scratch/bin/npm" <<'FIXTURE'
 #!/bin/sh

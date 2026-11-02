@@ -46,18 +46,18 @@ check_folder() {
   done
 }
 for name in codebase-design systematic-debugging verify-and-stop; do
-  folder="$root/skills/$name"
+  folder="$root/$(jq -r --arg name "$name" '.skills[] | select(.name==$name) | .path' catalog.json)"
   check_folder "$folder" "$name"
   mkdir -p "$scratch/$name/skills"
   cp -R -- "$folder" "$scratch/$name/skills/"
   check_folder "$scratch/$name/skills/$name" "$name"
 done
-[ -x skills/systematic-debugging/find-polluter.sh ] || fail 'polluter shell entrypoint must be executable'
-[ -x skills/systematic-debugging/find-polluter.py ] || fail 'polluter Python executable mode was lost'
+[ -x skills/engineering/systematic-debugging/find-polluter.sh ] || fail 'polluter shell entrypoint must be executable'
+[ -x skills/engineering/systematic-debugging/find-polluter.py ] || fail 'polluter Python executable mode was lost'
 for file in find-polluter.py find-polluter.sh; do
-  [ "$(git hash-object "skills/systematic-debugging/$file")" = "$(jq -r --arg file "$file" '.upstreamFiles[] | select(.path==$file) | .gitBlob' skills/systematic-debugging/PROVENANCE.json)" ] || fail "polluter $file differs from reviewed source"
+  [ "$(git hash-object "skills/engineering/systematic-debugging/$file")" = "$(jq -r --arg file "$file" '.upstreamFiles[] | select(.path==$file) | .gitBlob' skills/engineering/systematic-debugging/PROVENANCE.json)" ] || fail "polluter $file differs from reviewed source"
 done
-if grep -Fq 'normalized.startsWith(tmpDir)' skills/systematic-debugging/defense-in-depth.md; then
+if grep -Fq 'normalized.startsWith(tmpDir)' skills/engineering/systematic-debugging/defense-in-depth.md; then
   fail 'unsafe prefix-only containment example remains'
 fi
 printf '3 imported skills passed isolated folder, notice, identity and link checks.\n'
