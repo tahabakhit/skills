@@ -3,9 +3,10 @@
 This document records the agreed direction and a proposed structure. It does not
 mean the full proposed system is implemented or grant permission to install,
 publish, migrate, or deploy.
-The source catalog now contains 30 canonical workflow owners: the original five,
-16 consolidated procedures, eight installed-specialist adaptations and a
-consolidated attributed chezmoi import. [The owner map](CATALOG.md) records
+The source catalog now contains 23 canonical workflow owners. Seven OS/platform/
+health skills have been removed; operations retains only `managed-config-drift`
+and `chezmoi` (2). Immutable published npm `0.3.0` retains the former 30-skill
+catalog and old installer behavior; source edits do not change registry artifacts. [The owner map](CATALOG.md) records
 consolidation, capability limits and installed-specialist dispositions. `deliver-work` owns the
 engineering endpoint and replaces the external delivery recommendation. This is
 not complete specialist coverage or proven model uplift. Installation, migration
@@ -19,7 +20,7 @@ and expanded host behavior remain separately unverified.
 | Sources | Learn from multiple collections. Adapt useful material with its required licenses, attribution, reviewed revisions, and local changes recorded. |
 | Audience | Primarily Taha's use, but shareable with others. Private preferences and personal permissions stay in global `AGENTS.md`, managed separately by dotfiles/chezmoi. |
 | Hosts | Support Pi, Claude Code, and Codex from the first expanded version. Verify each host rather than claiming compatibility from file placement alone. |
-| Distribution | Vercel's Skills CLI performs file installation. The requested Node selector adds group/skill, agent and global/project choices, preflight checks and verification without replacing that installer. |
+| Distribution | Primary clean Pi install: `npx skills@latest add tahabakhit/skills -a pi`. Vercel's Skills CLI performs file installation. The optional Node wrapper adds group/skill, agent and global/project choices, preflight checks and verification without replacing that installer. |
 | Coverage | Include coding and non-coding work. Research, analytical reports, document review, and content creation are in scope for optional bundles. |
 | Engineering | Provide a complete path through implementation, testing, independent review, and release preparation. Keep stages separately usable. |
 | Agents | Ordinary tasks work with one agent. Advanced workflows may require multiple agents where independent review matters. |
@@ -43,15 +44,15 @@ report that limitation instead of pretending a self-review is independent.
 These capability categories remain a working proposal, not a commitment to
 import every upstream capability. The requested installation packages now use
 six non-overlapping groups in `distribution.json`: core, engineering, content,
-design, data and operations. [INSTALL.md](INSTALL.md) records their current
-contents. Installation grouping does not transfer a workflow's responsibility.
+design, data and operations. [INSTALL.md](INSTALL.md) distinguishes their current source
+contents from immutable published package contents. Installation grouping does not transfer a workflow's responsibility.
 
 | Domain | Owns | Initial candidates |
 | --- | --- | --- |
 | Core | Shared writing, research, and skill maintenance practices | `unslop`, `technical-writing`, reviewed research and skill-maintenance procedures |
 | Engineering | Requirements, implementation, debugging, testing, review, refactoring, migrations, Git coordination, delivery coordination | `discover-work`, `define-work`, `git-hygiene`, `safe-refactor`, `migration` |
 | DevOps | CI, containers, deployment infrastructure, service operations, backups, networking, release packaging | `ci-maintenance`, selected operational workflows |
-| Systems | OS administration, workstation health, packages, update recovery, configuration drift | Existing Arch, CachyOS, Fedora/RHEL, health, and drift skills |
+| Systems | Current source: configuration drift and chezmoi dotfiles only | OS administration, Arch/CachyOS/Fedora recovery and workstation health are historical candidates, removed from current source |
 | App development | Framework, language, database, authentication, and mobile-platform knowledge | Add only for supported, recurring project needs |
 | Design | UX, visual design, accessibility, design systems, rendered interface verification | Evaluate a self-contained maintained approach before adopting runtime-dependent material |
 | Data | SQL/data modeling, pipelines, catalogs, data quality, analytical verification | Select against actual analytical and engineering work |
@@ -109,21 +110,26 @@ The requested npm distribution generates six domain packages from canonical
 skill folders and retains an umbrella package. A zero-runtime-library Node
 selector resolves groups/skills into an explicit Vercel 1.7.4 invocation. It adds
 scope/agent choices, collision and lock checks, stable-plan consent and copied
-artifact verification. It does not introduce plugins, installation hooks or a
+artifact verification. Current source removes the custom `.taha-install` guard;
+there is no replacement inter-process lock, so serialize installers. Snapshot
+checks do not guarantee concurrency safety. Published `0.3.0` retains the former
+guard. The wrapper does not introduce plugins, installation hooks or a
 host-settings writer. Package installation alone does not activate skills.
 
 ## Existing installation and ownership
 
-The read-only inventory found 14 skill directories in `~/.agents/skills` on this
-machine. The subsequent [installed-skill audit](audits/installed-skills.md)
+The historical read-only inventory found 14 skill directories in `~/.agents/skills`
+on the audited machine. The subsequent [installed-skill audit](audits/installed-skills.md)
 verified all 50 regular files across 12 folders against the pinned Bolens revision
 recorded in `SOURCES.md`. That establishes file-content equality, not original
 authorship or an active installation manager. Preserve the provenance chain
 instead of labeling those imports as authored here.
 
-Chezmoi currently tracks `herdr-core`, `rhel-fedora`, their supporting managed
-files, and Claude links. Their live skill contents match the inspected chezmoi
-sources. Other installed skills are not thereby proven to have no owner.
+At audit time, chezmoi tracked `herdr-core`, `rhel-fedora`, their supporting managed
+files, and Claude links; the inspected live contents matched the then-inspected
+sources. These historical observations do not establish current ownership.
+`herdr-core` was never included in this collection. Other installed skills are
+not thereby proven to have no owner.
 Moshi skills and Claude's separate `synced` directory need an ownership check
 before claiming a complete migration. Host-bundled skills need not be imported.
 
@@ -141,12 +147,12 @@ repository. File preservation alone does not establish that the host loads it.
 
 ## Current implementation and remaining verification
 
-1. The 30 source owners have one delivery coordinator, local required references
-   and per-folder notices/provenance. Eight installed specialists are adapted
-   in source, with writing/refactor/migration consolidation and CI/Git reference
-   preservation recorded in `audits/installed-skill-import.md`. The new chezmoi
-   owner consolidates nine upstream topics without replacing existing specialists.
-   No existing live folders are retired by these source imports.
+1. The 23 source owners have one delivery coordinator, local required references
+   and per-folder notices/provenance. The earlier eight-specialist import, writing/
+   refactor/migration consolidation and CI/Git reference preservation are recorded
+   historically in `audits/installed-skill-import.md`, not a current inventory.
+   Operations now retains only drift and chezmoi; chezmoi consolidates nine upstream
+   topics. Source cleanup does not retire live folders or alter published `0.3.0`.
 2. Verify selective global/project installs and supporting-file access in all
    three hosts before any authorized live ownership transfer.
 3. Compare fresh representative work against no skill and a short generic control.

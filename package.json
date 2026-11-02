@@ -1,7 +1,7 @@
 {
   "name": "@tahabakhit/skills",
   "version": "0.3.0",
-  "description": "Selectively installable workflows for engineering, research, content, data, and Linux operations.",
+  "description": "Selectively installable workflows for engineering, research, content, data, and configuration management.",
   "license": "MIT",
   "author": "Taha Bakhit",
   "publishConfig": {

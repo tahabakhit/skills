@@ -1,6 +1,6 @@
 # Workflow catalog
 
-The collection has 30 canonical workflow owners. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 23 canonical workflow owners. Immutable published npm `0.3.0` retains the former 30-skill catalog; source edits do not change registry artifacts. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records. `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
@@ -35,14 +35,7 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 | `interface-review` | Evidence-bounded usability/accessibility review | A new-UI design procedure, certification or a browser adapter |
 | `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
 | `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
-| `operate-systems` | Platform-aware Linux diagnosis and scoped change | Distribution-specific recovery expertise by itself |
-| `arch-linux` | Installed Arch configuration, packages and services | Package authoring or transaction/boot recovery |
-| `arch-package-maintenance` | PKGBUILD, patches, clean builds, metadata and pin retirement | Live installation or publication authority |
-| `arch-update-recovery` | Arch transactions, pacnew/pacsave, kernels and boot recovery | Generic desktop customization |
-| `cachyos` | Installed CachyOS repositories, kernels, hardware profiles and tuning | Assuming every Arch host is CachyOS |
-| `rhel-fedora` | Mutable RPM-host packages, SELinux, services, desktop and recovery | Image-mode DNF repair or unrestricted log collection |
 | `managed-config-drift` | Live/source/default ownership and read-only comparison | Automatic reconciliation or a bounded/atomic tree snapshot |
-| `workstation-health-triage` | Broad Linux health evidence and correlation | Repair authority, universal package probes or redaction |
 | `unslop` | Requested final prose cleanup, distributed in core | Always-on personal style or unrelated rewrites |
 | `chezmoi` | Dotfile source/target/state diagnosis, templates, attributes, scripts, externals, configuration and secrets | Automatic apply/update, credential access or migration of existing skill installations |
 
@@ -62,26 +55,27 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
-## Installed-skill replacement map
+The operations installation group contains only `managed-config-drift` and
+`chezmoi` (2). The seven OS/platform/health skills are no longer in source.
 
-The catalog itself does not change live skills, links, locks, host settings or chezmoi sources. Adding the new `chezmoi` skill does not replace any audited specialist installation. The [installed-skill audit](audits/installed-skills.md) remains the preservation baseline.
+## Historical installed-skill audit and current source disposition
+
+The catalog itself does not change live skills, links, locks, host settings or chezmoi sources. Adding the new `chezmoi` skill does not replace any audited specialist installation. The [installed-skill audit](audits/installed-skills.md) remains a historical preservation baseline, not current installation ownership evidence.
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
-| `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos` | Imported with local closure and complete notices in operations |
-| `rhel-fedora` | Attributed operations adaptation with diagnostic privacy and existing-authority rules |
+| `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Removed from current source; retained in immutable npm `0.3.0`. Historical imports and audits do not establish current live ownership |
 | `managed-config-drift` | Operations specialist with unchanged optional comparator and honest unbounded-traversal contract |
-| `workstation-health-triage` | Operations specialist with unchanged optional collectors, private-output contract and Arch-probe limitations |
 | `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
 | `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |
 | `technical-writing` | Consolidated into content's `create-content`, including all three useful reference files |
 | `unslop` | Added to core, bounded to requested prose rather than universal private policy |
-| `herdr-core`, `ketch` | Excluded at the user's request as CLI-managed integrations. Not required by this collection |
+| `herdr-core`, `ketch` | External CLI-managed integrations, not required by this collection. `herdr-core` was never an included skill; audit references are historical, not current ownership evidence |
 
 [The migration guide](audits/installed-skill-import.md) records retained and omitted material, installation choices, ownership checks and rollback. This source import does not remove live folders. Moshi and host-bundled skills retain their separately recorded ownership/license boundaries.
 
 ## Explicit coverage gaps
 
-New-interface design, advanced statistics/causal methods, infrastructure and database adapters, and incident/restore playbooks need substantive procedures and their own verification. Binary document creation, preservation, recalculation, redaction and accessibility need suitable engines and operation-specific fixtures. Legal, clinical, investment, credit, fraud and privacy-governance expertise are not supplied by a generic research or security label.
+OS administration, distribution-specific package/update recovery, workstation health triage, new-interface design, advanced statistics/causal methods, infrastructure and database adapters, and incident/restore playbooks need substantive procedures and their own verification. Binary document creation, preservation, recalculation, redaction and accessibility need suitable engines and operation-specific fixtures. Legal, clinical, investment, credit, fraud and privacy-governance expertise are not supplied by a generic research or security label.
 
 Taha Bakhit maintains the repository's source pins, notices, closure checks and evaluation record. The update process lives in [SOURCES.md](SOURCES.md) and [VERIFICATION.md](VERIFICATION.md), not another always-loaded skill. New recurring task classes can justify additional specialist material. An entrypoint count cannot justify retiring knowledge the collection does not contain.

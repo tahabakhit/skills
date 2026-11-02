@@ -21,11 +21,11 @@ pass 'selector bin has no runtime library dependencies, install hooks or extensi
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "operate-systems", "unslop", "arch-linux", "arch-package-maintenance", "arch-update-recovery", "cachyos", "rhel-fedora", "managed-config-drift", "workstation-health-triage", "chezmoi"] | sort)
-  and ([.skills[].name]|unique|length)==30
+  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "unslop", "managed-config-drift", "chezmoi"] | sort)
+  and ([.skills[].name]|unique|length)==23
   and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
     and .provenance == ("skills/"+.name+"/PROVENANCE.json"))
-  and ([.skills[]|select(.maturity=="experimental")]|length)==16' catalog.json >/dev/null
+  and ([.skills[]|select(.maturity=="experimental")]|length)==15' catalog.json >/dev/null
 [ "$count" = "$(jq '.skills | length' catalog.json)" ] || fail 'skill folders differ from the catalog'
 for skill in $(jq -r '.skills[].name' catalog.json); do
   file="skills/$skill/SKILL.md"
@@ -39,7 +39,7 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   ' "$file" || fail "invalid frontmatter in $file"
   [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass '30 cataloged, named, described and bounded skills'
+pass '23 cataloged, named, described and bounded skills'
 
 for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.

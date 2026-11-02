@@ -12,7 +12,7 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-real-install-'));
 const home = path.join(dir, 'home'); const project = path.join(dir, 'repo with spaces');
 fs.mkdirSync(home); fs.mkdirSync(project);
 const globalNames = ['discover-work', 'define-work', 'research-work', 'verify-and-stop', 'unslop'];
-const localNames = ['codebase-design', 'systematic-debugging', 'deliver-work', 'testing-work', 'code-review', 'change-safely', 'git-hygiene', 'ci-maintenance', 'triage-dependency-updates', 'release-packaging', 'security-review', 'create-content', 'document-review', 'interface-review', 'analyze-data', 'data-pipelines', 'operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'managed-config-drift', 'workstation-health-triage', 'chezmoi'];
+const localNames = ['codebase-design', 'systematic-debugging', 'deliver-work', 'testing-work', 'code-review', 'change-safely', 'git-hygiene', 'ci-maintenance', 'triage-dependency-updates', 'release-packaging', 'security-review', 'create-content', 'document-review', 'interface-review', 'analyze-data', 'data-pipelines', 'managed-config-drift', 'chezmoi'];
 try {
   const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,design,data,operations', '--agents', 'pi,claude-code,codex', '--yes'], {
     cwd: project, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024,
@@ -40,5 +40,5 @@ try {
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log('Real pinned installer passed: 30 skills, global+project scopes, Pi/Claude Code/Codex receipts, 60 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
+  console.log('Real pinned installer passed: 23 skills, global+project scopes, Pi/Claude Code/Codex receipts, 46 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
 } finally { fs.rmSync(dir, { recursive: true }); }

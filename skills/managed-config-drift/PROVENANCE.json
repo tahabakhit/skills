@@ -44,7 +44,8 @@
   "requiredSiblingSkills": [],
   "changes": [
     "Correct the unsupported bounded-comparison claim; document runtime, scope, privacy, exit status and snapshot limitations. Preserve comparator bytes.",
-    "Carry complete project/upstream notices and revision-bound input/output identities; repair provenance link."
+    "Carry complete project/upstream notices and revision-bound input/output identities; repair provenance link.",
+    "Remove the optional Arch recovery handoff when OS skills are excluded from this collection; keep recovery explicitly out of scope."
   ],
   "verification": {
     "scope": "Structural closure and isolated fixtures, not full system administration or host-model behavior."
@@ -62,8 +63,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "a68ff6fd52e8c17ef1c2727befff139ebae559ab175b2f7ec3cb0ea20ddd183d",
-      "gitBlob": "5b115de10ba290e9c8a2507944edd9ed462b1fe0"
+      "sha256": "b5dbcee4c2c6478e477170c3e00a1c30edb7af7c0e50ec9d1c0a9c36059389bc",
+      "gitBlob": "bc84a6230c2c5d74cba61145db26f78172ebc2e4"
     },
     {
       "path": "UPSTREAM.md",

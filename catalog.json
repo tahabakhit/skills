@@ -373,109 +373,11 @@
       "maturity": "source-import",
       "origin": "maintained-fork",
       "requiredSkills": [],
-      "optionalSkills": ["operate-systems"],
+      "optionalSkills": [],
       "provenance": "skills/chezmoi/PROVENANCE.json",
       "capabilities": "Installed chezmoi CLI and explicit source, destination, configuration and state paths. Secrets providers and network operations are optional and require task-specific access.",
       "activation": "selective",
       "behaviorEvidence": {"status": "not-evaluated"}
-    },
-    {
-      "name": "operate-systems",
-      "domain": "operations",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "systematic-debugging",
-        "arch-linux",
-        "arch-package-maintenance",
-        "arch-update-recovery",
-        "cachyos",
-        "managed-config-drift",
-        "workstation-health-triage",
-        "rhel-fedora"
-      ],
-      "provenance": "skills/operate-systems/PROVENANCE.json",
-      "capabilities": "Native installed tools and authoritative platform evidence. Distro recovery expertise and live access are separate capabilities.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "arch-linux",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "managed-config-drift",
-        "arch-package-maintenance",
-        "arch-update-recovery",
-        "cachyos",
-        "workstation-health-triage"
-      ],
-      "activation": "selective",
-      "provenance": "skills/arch-linux/PROVENANCE.json",
-      "capabilities": "Identified target platform, installed native tools and current official documentation. No live-change authority from activation.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "arch-package-maintenance",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "release-packaging",
-        "arch-update-recovery",
-        "deliver-work"
-      ],
-      "activation": "selective",
-      "provenance": "skills/arch-package-maintenance/PROVENANCE.json",
-      "capabilities": "Identified target platform, installed native tools and current official documentation. No live-change authority from activation.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "arch-update-recovery",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "cachyos",
-        "managed-config-drift",
-        "arch-package-maintenance",
-        "workstation-health-triage",
-        "arch-linux"
-      ],
-      "activation": "selective",
-      "provenance": "skills/arch-update-recovery/PROVENANCE.json",
-      "capabilities": "Identified target platform, installed native tools and current official documentation. No live-change authority from activation.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "cachyos",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "arch-linux",
-        "arch-update-recovery"
-      ],
-      "activation": "selective",
-      "provenance": "skills/cachyos/PROVENANCE.json",
-      "capabilities": "Identified target platform, installed native tools and current official documentation. No live-change authority from activation.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
     },
     {
       "name": "managed-config-drift",
@@ -483,33 +385,10 @@
       "maturity": "source-import",
       "origin": "source-adaptation",
       "requiredSkills": [],
-      "optionalSkills": [
-        "arch-update-recovery"
-      ],
+      "optionalSkills": [],
       "activation": "selective",
       "provenance": "skills/managed-config-drift/PROVENANCE.json",
       "capabilities": "Scoped native ownership inspection. Optional preserved comparator: Python 3.9+, trusted small local trees, no internal budget.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "workstation-health-triage",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "operate-systems",
-        "arch-linux",
-        "arch-update-recovery",
-        "cachyos",
-        "rhel-fedora",
-        "managed-config-drift"
-      ],
-      "activation": "selective",
-      "provenance": "skills/workstation-health-triage/PROVENANCE.json",
-      "capabilities": "Native Linux diagnostics. Optional preserved collector: Bash, Python 3.9+, POSIX groups, private output and trusted local redaction before agent access; package probes Arch-only.",
       "behaviorEvidence": {
         "status": "not-evaluated"
       }
@@ -524,23 +403,6 @@
       "activation": "selective",
       "provenance": "skills/unslop/PROVENANCE.json",
       "capabilities": "Supplied prose and text editing. User voice and project style control.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "rhel-fedora",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "operate-systems",
-        "workstation-health-triage"
-      ],
-      "activation": "selective",
-      "provenance": "skills/rhel-fedora/PROVENANCE.json",
-      "capabilities": "Identified target platform, installed native tools and current official documentation. No live-change authority from activation.",
       "behaviorEvidence": {
         "status": "not-evaluated"
       }
@@ -618,5 +480,5 @@
       "owner": "chezmoi"
     }
   ],
-  "coverageNote": "30 canonical owners, including nine upstream chezmoi topics consolidated into one standalone owner. Installed refactor/migration and technical-writing names consolidate into change-safely and create-content. CLI-managed herdr-core/ketch excluded. Existing specialists are not retired or replaced; only the new chezmoi skill was installed globally."
+  "coverageNote": "23 canonical owners, including nine upstream chezmoi topics consolidated into one standalone owner. OS administration and workstation-health skills are excluded. Refactor/migration and technical-writing names consolidate into change-safely and create-content. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations."
 }

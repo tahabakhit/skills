@@ -51,8 +51,8 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('1,core,discover-work', distribution), core);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
-  assert.equal(select('all', distribution).length, 30);
-  assert.deepEqual(select('operations', distribution), ['operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'managed-config-drift', 'workstation-health-triage', 'chezmoi']);
+  assert.equal(select('all', distribution).length, 23);
+  assert.deepEqual(select('operations', distribution), ['managed-config-drift', 'chezmoi']);
   assert.deepEqual(select('chezmoi', distribution), ['chezmoi']);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
   assert.throws(() => select('../core', distribution), /Unknown/);
@@ -134,7 +134,11 @@ test('JSON receipts must confirm every exact name, agent, source, scope and mode
 });
 test('successful copies and lock entries are independently checked', t => {
   const { context, plan: p } = plan(t);
-  executePlan(p, distribution, { runner: () => upstream(p, p.jobs[0]), log() {} });
+  executePlan(p, distribution, { runner: () => {
+    assert.equal(fs.existsSync(`${p.jobs[0].lock}.taha-install`), false);
+    assert.ok(!Object.hasOwn(p.jobs[0], 'guard'));
+    return upstream(p, p.jobs[0]);
+  }, log() {} });
   assert.ok(fs.existsSync(path.join(context.project, '.claude/skills/discover-work/LICENSE-MATT')));
   assert.equal(fs.existsSync(`${p.jobs[0].lock}.taha-install`), false);
 });
@@ -143,13 +147,13 @@ test('successful exit/receipts do not hide wrong destination bytes', t => {
   assert.throws(() => executePlan(p, distribution, { runner: () => upstream(p, p.jobs[0], true), log() {} }), /differ/);
   assert.equal(fs.existsSync(`${p.jobs[0].lock}.taha-install`), false);
 });
-test('stale guard prevents execution and is not silently removed', t => {
+test('legacy guard files neither block installs nor get changed', t => {
   const { plan: p } = plan(t);
-  fs.writeFileSync(`${p.jobs[0].lock}.taha-install`, 'another owner');
-  let called = false;
-  assert.throws(() => executePlan(p, distribution, { runner: () => { called = true; }, log() {} }), /guard|EEXIST/);
-  assert.equal(called, false);
-  assert.equal(fs.readFileSync(`${p.jobs[0].lock}.taha-install`, 'utf8'), 'another owner');
+  const legacy = `${p.jobs[0].lock}.taha-install`;
+  fs.writeFileSync(legacy, 'left by an older wrapper');
+  executePlan(p, distribution, { runner: () => upstream(p, p.jobs[0]), log() {} });
+  assert.equal(fs.readFileSync(legacy, 'utf8'), 'left by an older wrapper');
+  assert.ok(!Object.hasOwn(p.jobs[0], 'guard'));
 });
 test('later scope failure does not erase verified earlier work', t => {
   const { context, plan: p } = plan(t, { global: 'verify-and-stop' }); const messages = [];
@@ -186,10 +190,10 @@ test('help/list/version and dry run are network-free and leave no installation f
   assert.deepEqual(fs.readdirSync(c.project), []);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
-test('six domain packages partition 30 complete standalone payloads', t => {
+test('six domain packages partition 23 complete standalone payloads', t => {
   const c = fixture(t); const rows = buildPackages(path.join(c.dir, 'built'));
   assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-design', '@tahabakhit/skills-data', '@tahabakhit/skills-operations', '@tahabakhit/skills']);
-  assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 9]);
+  assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 2]);
   for (const row of rows.slice(0, 6)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
     assert.equal(pkg.version, '0.3.0'); assert.equal(pkg.publishConfig.access, 'public');

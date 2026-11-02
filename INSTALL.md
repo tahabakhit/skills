@@ -1,23 +1,37 @@
 # Install selected skills
 
-The public source is https://github.com/tahabakhit/skills. The npm selector lets you
-choose groups or individual skills, assign them to global or project scope, and
-choose Pi, Claude Code or Codex. It delegates copying to pinned Vercel Skills CLI
-1.7.4 rather than maintaining a second file installer.
+The public source is https://github.com/tahabakhit/skills. Current source contains
+23 skills; operations contains only `managed-config-drift` and `chezmoi`.
 
-Requires Node.js 22.20 or newer, npm, and access to the npm registry for the pinned
-installer. The wrapper has no runtime library dependencies. Its own installation
-checks currently target Linux. Do not infer Windows support from npm packaging.
+## Primary clean install: standard Skills CLI
 
-## Interactive installation
-
-From the repository that should receive project-local skills:
+From the project that should receive Pi skills:
 
 ```fish
-npx @tahabakhit/skills@latest
+npx skills@latest add tahabakhit/skills -a pi
 ```
 
-The wizard shows the groups and skill names, then asks:
+Use upstream selection and scope prompts to choose skills and destinations.
+Review existing ownership before accepting any replacement. This route reads
+GitHub source, not the npm wrapper's bundled catalog, and uses upstream behavior
+rather than the wrapper's additional checks. It requires Node.js/npm and registry
+and GitHub access; consult the selected upstream version's runtime requirements.
+
+## Optional interactive selector wrapper
+
+The wrapper adds group selection, global/project planning and verification. It
+supports Pi, Claude Code and Codex and delegates copying to pinned Vercel Skills
+CLI 1.7.4. It requires Node.js 22.20+, npm and registry access, has no runtime
+library dependencies, and its own installation checks currently target Linux.
+Do not infer Windows support from npm packaging.
+
+From the receiving project, to use the immutable published wrapper:
+
+```fish
+npx @tahabakhit/skills@0.3.0
+```
+
+The published wizard shows the groups and skill names, then asks:
 
 1. Which selections should be global?
 2. Which different selections belong in this project?
@@ -28,14 +42,16 @@ Enter group names, displayed group numbers, individual skill names, or `all`.
 Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
-All seven packages are public at `0.3.0`, including all 30 skills and the additional
-CI/Git/writing references. Registry identities and all public selectors were
+All seven packages are public at immutable `0.3.0`, including the former 30 skills
+and the additional CI/Git/writing references. They still include the seven removed
+OS skills and the old custom guard behavior; the current 23-skill source cleanup
+does not change those registry bytes. Registry identities and all public selectors were
 verified in [the release record](releases/0.3.0.json). The older `0.2.0` contains
 21 skills. Installing public packages does not require npm login. If npm returns
 E404 for a version, check that it was published or use the public source methods
 below. A GitHub push alone is not npm publication.
 
-## Explicit and non-interactive use
+## Explicit and non-interactive wrapper use
 
 Preview core globally and data in this repository for Pi and Codex:
 
@@ -66,17 +82,17 @@ Domain packages contain only their assigned skills, the selector, and their loca
 notices/provenance/references. They have no runtime dependency on the umbrella or
 other domain packages. Ownership is a partition, not duplicate source trees.
 
-| Package | Skills |
-| --- | --- |
-| `@tahabakhit/skills` | All 30, selected rather than automatically installed |
-| `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof, prose cleanup (5) |
-| `@tahabakhit/skills-engineering` | Design, debugging, delivery, tests, review, refactors/migrations, Git, CI, dependencies, packaging, security (11) |
-| `@tahabakhit/skills-content` | Writing/file production and document review (2) |
-| `@tahabakhit/skills-design` | Interface review (1) |
-| `@tahabakhit/skills-data` | Analysis and pipelines (2) |
-| `@tahabakhit/skills-operations` | Linux operations, Arch/CachyOS, Fedora/RHEL, config drift, workstation health and chezmoi (9) |
+| Package | Current source | Published 0.3.0 |
+| --- | --- | --- |
+| `@tahabakhit/skills` | All 23, selectively installed | All 30, selectively installed |
+| `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof, prose cleanup (5) | Same 5 |
+| `@tahabakhit/skills-engineering` | Design, debugging, delivery, tests, review, refactors/migrations, Git, CI, dependencies, packaging, security (11) | Same 11 |
+| `@tahabakhit/skills-content` | Writing/file production and document review (2) | Same 2 |
+| `@tahabakhit/skills-design` | Interface review (1) | Same 1 |
+| `@tahabakhit/skills-data` | Analysis and pipelines (2) | Same 2 |
+| `@tahabakhit/skills-operations` | `managed-config-drift` and `chezmoi` (2) | Former Linux/platform/health skills plus drift and chezmoi (9) |
 
-The table describes `0.3.0`, not the older immutable `0.2.0` artifacts.
+The source column is not a claim about the immutable `0.3.0` or `0.2.0` artifacts.
 For example, `npx @tahabakhit/skills-data@latest` offers only the data group. Do not
 install the same skill twice through both the umbrella and a domain package.
 These installation groups do not change the canonical responsibilities in
@@ -89,9 +105,12 @@ old-to-new names, retained references, CLI-managed exclusions and rollback.
 Do not delete the whole `~/.agents/skills` tree. Back up selected folders and
 inspect their managers before replacement. `safe-refactor`/`migration` become
 `change-safely`; `technical-writing` becomes `create-content`. The selector does
-not remove old-name folders or retire chezmoi sources.
+not remove old-name folders or retire chezmoi sources. The seven removed OS skills
+are absent from current source, not automatically uninstalled from live hosts.
+`herdr-core` was never included; historical audit observations do not establish
+current ownership of it or any other live installation.
 
-## Existing skills, managed files and updates
+## Wrapper behavior: existing skills, managed files and updates
 
 The plan lists exact skill destinations and the upstream lockfile. Existing
 selected folders or same-name lock entries stop non-interactive installation
@@ -123,10 +142,11 @@ local package source, so `skills update` does not update these copies. Re-run th
 selector from the desired npm version, inspect its plan, then use `--replace` for
 an intentional update. Pin `@0.3.0` rather than `@latest` for a repeatable release.
 
-Serialize other installers while this runs. The wrapper uses exclusive temporary
-`*.taha-install` guards beside upstream locks. A stale guard after a crash is not
-automatically removed. Inspect its owner/process before removing it. Direct
-upstream commands do not honor this guard.
+Serialize other installers while this runs. Current source no longer creates
+custom `*.taha-install` guards and does not provide a replacement inter-process
+lock. The snapshot and verification checks are not a concurrency guarantee.
+Immutable npm `0.3.0` still has the former guard implementation; if a legacy guard
+remains after a crash, inspect its owner/process before removing it.
 
 There is no automatic removal command in the wrapper. Upstream removal can delete
 the shared Pi/Codex canonical directory, so it is not a safe per-agent ownership
@@ -137,14 +157,14 @@ workflow instructions so old instructions do not remain in the session.
 
 ## GitHub and local-checkout alternatives
 
-Use Vercel directly without our selector:
+The primary direct route can also select named skills:
 
 ```fish
-npx skills@1.7.4 add tahabakhit/skills --skill discover-work --skill define-work
+npx skills@latest add tahabakhit/skills -a pi --skill discover-work --skill define-work
 ```
 
-This uses Vercel's own scope and agent questions. Unlike the wrapper, it does not
-apply our collision, symlink, lock-preservation or receipt guards.
+This uses upstream scope prompts and behavior, not the wrapper's additional
+collision, symlink, lock-preservation or receipt checks.
 
 To use the selector directly from a checkout, run it from the recipient project
 or specify that project with `--project`. Do not use the package's own source tree
@@ -172,7 +192,7 @@ npx github:tahabakhit/skills
 ## Maintainer release process
 
 The immutable `0.3.0` packages were published from `9886e55`; the older `0.2.0`
-packages came from `331fbaf`. Later documentation commits do not update those
+packages came from `331fbaf`. Later source or documentation commits do not update those
 artifacts. Before another release, choose an unused version and update the package
 metadata, lockfile and version check together.
 

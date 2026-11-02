@@ -1,25 +1,39 @@
 # @tahabakhit/skills
 
-30 selectively installable skills for engineering, research, content, data and
-Linux operations. The source is public at https://github.com/tahabakhit/skills.
+23 selectively installable source skills for engineering, research, content, data,
+configuration drift and dotfiles. The source is public at https://github.com/tahabakhit/skills.
 The CLI helps you choose what belongs globally and what belongs in a repository.
 It uses Vercel's Skills CLI for the actual copying.
 
 ## Install
 
-From the project that should receive repository-local skills:
+For a clean Pi install, run the standard Skills CLI from the receiving project:
 
 ```fish
-npx @tahabakhit/skills@latest
+npx skills@latest add tahabakhit/skills -a pi
 ```
 
-The wizard lists groups and individual skills, asks which belong globally and
+This installs from GitHub using upstream selection and scope prompts. Review the
+selected names and destinations before accepting; do not overwrite existing
+managed skills without checking ownership. Current source contains 23 skills,
+with only `managed-config-drift` and `chezmoi` in operations.
+
+### Optional selector wrapper
+
+For group selection, explicit global/project planning and additional checks:
+
+```fish
+npx @tahabakhit/skills@0.3.0
+```
+
+The published wizard lists groups and individual skills, asks which belong globally and
 locally, asks for target agents, then previews exact paths before confirmation.
 Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
-All seven packages are published at `0.3.0`, with all 30 skills, including the
-specialist additions, chezmoi and consolidated references. The earlier `0.2.0`
+All seven packages are published at immutable `0.3.0`, with the former 30-skill
+catalog, including the now-removed OS skills. These registry artifacts do not
+reflect the 23-skill source cleanup or removal of the custom install guard. The earlier `0.2.0`
 contains 21 skills. Public installation does not require npm login. Use
 `npx @tahabakhit/skills@0.3.0` to pin this release, or add `--list` to inspect its
 choices without installing skills. All seven public selectors passed version/list
@@ -67,24 +81,25 @@ own copy. The CLI verifies copied files, agent receipts and lock records. A fail
 can leave a completed scope or partial install; it does not claim atomic rollback.
 Restart the agent after installing. Start a fresh session when replacing workflows.
 
-### Packages and groups
+### Current source groups and published packages
 
-| Group | npm package | Count |
-| --- | --- | --- |
-| All groups | `@tahabakhit/skills` | 30 |
-| Core | `@tahabakhit/skills-core` | 5 |
-| Engineering | `@tahabakhit/skills-engineering` | 11 |
-| Content | `@tahabakhit/skills-content` | 2 |
-| Design review | `@tahabakhit/skills-design` | 1 |
-| Data | `@tahabakhit/skills-data` | 2 |
-| Linux operations and dotfiles | `@tahabakhit/skills-operations` | 9 |
+| Group | npm package | Source count | Published 0.3.0 count |
+| --- | --- | --- | --- |
+| All groups | `@tahabakhit/skills` | 23 | 30 |
+| Core | `@tahabakhit/skills-core` | 5 | 5 |
+| Engineering | `@tahabakhit/skills-engineering` | 11 | 11 |
+| Content | `@tahabakhit/skills-content` | 2 | 2 |
+| Design review | `@tahabakhit/skills-design` | 1 | 1 |
+| Data | `@tahabakhit/skills-data` | 2 | 2 |
+| Configuration drift and dotfiles | `@tahabakhit/skills-operations` | 2 | 9 |
 
-These are the `0.3.0` package counts, not the older immutable `0.2.0` contents.
+Source counts describe this checkout; published counts describe immutable npm
+`0.3.0`, not the older `0.2.0` contents. Source edits do not update the registry.
 Core contains `discover-work`, `define-work`, `research-work`, `verify-and-stop`
-and `unslop`. Operations includes general operations plus the Arch, CachyOS,
-Fedora/RHEL, configuration-drift and workstation-health specialists, plus chezmoi.
+and `unslop`. Current operations contains only `managed-config-drift` and `chezmoi`.
 `safe-refactor` and `migration` use `change-safely`; `technical-writing` uses
-`create-content`. `herdr-core` and `ketch` stay CLI-managed outside this repo.
+`create-content`. `herdr-core` was never included in this collection; it and `ketch` remain
+external CLI-managed integrations. Historical audits are not current ownership evidence.
 See [the installed-skill migration guide](audits/installed-skill-import.md)
 before replacing local copies.
 Each domain package offers the same selector restricted to its own group, for
@@ -96,12 +111,12 @@ Do not install the same skill through both the umbrella and a domain package.
 These are installation groups, not new owners for the responsibilities documented
 in [CATALOG.md](CATALOG.md).
 
-### Use Vercel directly instead
+### Select individual skills with the standard CLI
 
-The selector is optional. To use the original direct installation process:
+The wrapper is optional. For named selections on the primary source route:
 
 ```fish
-npx skills@1.7.4 add tahabakhit/skills --skill discover-work --skill define-work
+npx skills@latest add tahabakhit/skills -a pi --skill discover-work --skill define-work
 ```
 
 That command uses Vercel's own scope/agent questions, not the wrapper's additional
@@ -153,13 +168,15 @@ traces the older installed collection separately.
 
 [The catalog](CATALOG.md) records responsibilities and gaps. The collection does not
 provide every framework, OS recovery procedure, advanced statistical method or
-binary document engine. Generic operations routes to the included platform and
-health/drift specialists when appropriate. Adding their source does not migrate
-or retire any live installation.
+binary document engine. OS administration, distribution recovery and workstation health are no longer
+included source capabilities. Removing their source does not migrate or retire
+any live installation.
 
 Sixteen procedures began as provisional original workflows informed by research
 across 20 public repositories. Three now include attributed installed-reference
-imports. Eight added specialists have separate pinned adaptation records. Three older companions are attributed forks. The original
+imports. The retained `managed-config-drift` and `unslop` adaptations have separate pinned
+records; the earlier eight-specialist import remains historical evidence, not a
+current inventory. Three older companions are attributed forks. The original
 discovery pair retains its own ancestry records. Sources, notices and rejected
 procedures are in [SOURCES.md](SOURCES.md), [research/README.md](research/README.md)
 and each independently selectable folder.
@@ -197,7 +214,7 @@ marked generated output, not edited source copies. Maintainer publication requir
 npm authentication for the scope and 2FA where required. GitHub login is separate.
 See [the release process](INSTALL.md) before running `npm run publish:packages`.
 Published `0.3.0` artifacts come from `9886e55` and are immutable, as are the
-older `0.2.0` artifacts from `331fbaf`. Later documentation updates do not replace
+older `0.2.0` artifacts from `331fbaf`. Later source or documentation updates do not replace
 those bytes. Choose an unused version before preparing another npm release.
 
 [ARCHITECTURE.md](ARCHITECTURE.md) records the architecture and ownership boundaries.

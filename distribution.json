@@ -8,6 +8,6 @@
     {"name":"content","description":"Writing, file production and document review","skills":["create-content","document-review"]},
     {"name":"design","description":"Usability and accessibility review","skills":["interface-review"]},
     {"name":"data","description":"SQL, measurement, transformations and pipelines","skills":["analyze-data","data-pipelines"]},
-    {"name":"operations","description":"Linux specialists, configuration drift, workstation health and chezmoi dotfiles","skills":["operate-systems","arch-linux","arch-package-maintenance","arch-update-recovery","cachyos","rhel-fedora","managed-config-drift","workstation-health-triage","chezmoi"]}
+    {"name":"operations","description":"Configuration drift and chezmoi dotfiles","skills":["managed-config-drift","chezmoi"]}
   ]
 }

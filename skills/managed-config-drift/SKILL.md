@@ -25,4 +25,4 @@ Read repository guidance and generator commands before judging a difference. Nev
 
 For an identified Omarchy or NixOS installation, follow its supported configuration/declarative source rather than arbitrary Hyprland edits or replacement of store symlinks. If that expertise is absent, report the gap. Inspect previously untracked live configuration for secrets before adding it to Git.
 
-Arch-family transaction, `.pacnew`/`.pacsave`, snapshot and boot-chain recovery can use the optional `arch-update-recovery` specialist. A clean comparison does not prove recoverability: verify backup coverage and restoration separately when the task requires it.
+OS transaction and boot-chain recovery are outside this skill's scope. A clean comparison does not prove recoverability: verify backup coverage and restoration separately when the task requires it.

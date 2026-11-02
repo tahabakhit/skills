@@ -37,12 +37,10 @@ exclusive authorship here. These projects do not endorse this package.
 
 ## Installed-specialist adaptations and retained references
 
-Seven added folders (`arch-linux`, `arch-package-maintenance`,
-`arch-update-recovery`, `cachyos`, `managed-config-drift`,
-`workstation-health-triage`, `unslop`) adapt Bolens material at
+The retained `managed-config-drift` and `unslop` folders adapt Bolens material at
 `e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`. Each includes the complete MIT grant
 with copyright 2026 bolens in `LICENSE-BOLENS`, plus the project MIT notice.
-The unchanged optional comparator/collector scripts retain that attribution.
+The retained optional comparator script carries that attribution.
 
 `create-content` includes three Bolens technical-writing references;
 `git-hygiene` four Git references; `ci-maintenance` two setup/environment
@@ -50,13 +48,26 @@ references. Each affected folder also carries the complete `LICENSE-BOLENS`.
 Their earlier original/conceptual records do not claim these later imports as
 newly authored expression. Per-folder provenance records the exact inputs.
 
-`rhel-fedora` adapts `iuliandita/skills` at
-`496420bfb995892598e0eae18aff2a5be3d800b2`. Its complete MIT grant, copyright
-2025 Iulian Dita, is in [LICENSE-UPSTREAM](skills/rhel-fedora/LICENSE-UPSTREAM).
-Local modifications carry the project MIT notice. The import record describes
-privacy, authority and routing changes. Neither upstream endorses this package.
+### Historical imports removed from current source
 
-No `herdr-core` or `ketch` content/runtime is redistributed by this import.
+Current source contains 23 skills, and operations contains only
+`managed-config-drift` and `chezmoi`. `operate-systems`, `arch-linux`,
+`arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora` and
+`workstation-health-triage` are no longer included. Historical audit/import records
+remain evidence of earlier work, not current source contents or live ownership.
+
+Immutable npm `0.3.0` still contains the former 30 skills and their folder-local
+notices. The removed Arch/CachyOS/health adaptations carried the Bolens grant
+above. The former `rhel-fedora` adaptation used `iuliandita/skills` at
+`496420bfb995892598e0eae18aff2a5be3d800b2`, with its complete MIT grant, copyright
+2025 Iulian Dita, in that artifact's `LICENSE-UPSTREAM` and project notices for
+local changes. Those files are not linked as current source paths here. Source
+and documentation edits do not replace registry bytes or remove their notices.
+Neither upstream endorses this package.
+
+`herdr-core` was never an included skill. No `herdr-core` or `ketch` content/runtime
+is redistributed by these imports; historical audit references do not establish
+current installation ownership.
 
 ## Chezmoi skills
 

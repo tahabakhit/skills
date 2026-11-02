@@ -383,6 +383,35 @@ Exact source and registry identities are recorded in
 [releases/0.3.0.json](releases/0.3.0.json). Subsequent documentation commits do not
 change the published bytes.
 
+## Source cleanup after 0.3.0
+
+The current source removes the custom `.taha-install` guard mechanism without
+adding another process lock. Regression fixtures confirm installs do not create
+guards and that a legacy guard neither blocks installation nor gets modified.
+Upstream Skills lockfiles and copy/receipt verification remain separate features.
+
+Seven OS/platform/health owners were removed: `operate-systems`, `arch-linux`,
+`arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora` and
+`workstation-health-triage`. The source catalog now contains 23 skills; operations
+contains only `managed-config-drift` and `chezmoi`. `herdr-core` was never an
+included skill. Historical installed-skill audits are not current ownership checks.
+
+Checks passed on Fedora 45, login shell Fish, Node 24.22.2 and npm 11.19.1:
+
+- `npm run lint`.
+- `npm test`: 14 shell package checks and all 57 Node tests, with no skips.
+- `node test/install-smoke.mjs`: real pinned installer in disposable home/project
+  paths; 23 skills across global/project scopes, Pi/Claude Code/Codex receipts,
+  46 physical copies, file hashes and lock verification; unapproved reinstall
+  refused. Temporary install state was removed.
+- `npm run pack:packages`: seven local tarballs generated. These are test artifacts,
+  not published replacements for immutable npm `0.3.0`.
+- `git diff --check`.
+
+No live skill installations or chezmoi sources were modified. No npm publication
+was performed. The registry's existing `0.3.0` still contains 30 skills and the
+old guard implementation; source cleanup does not alter those artifacts.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
