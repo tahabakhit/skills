@@ -154,6 +154,13 @@ as the installation destination:
 node /path/to/skills-checkout/bin/skills.mjs
 ```
 
+If your current directory is this skills checkout, use `node bin/skills.mjs --list`
+to inspect choices or `node bin/skills.mjs` for the wizard. With npm 11, running
+`npx @tahabakhit/skills@0.3.0 --list` here can select the local same-name package
+rather than download the published one. Without a local self-bin link, npm then
+reports `taha-skills: command not found`. The published command works from another
+project or directory. A global `npm link` is not needed.
+
 The selector does not require `npm install` for runtime libraries. Development lint
 checks do require the repository's dev dependencies. To run the current GitHub
 source rather than the immutable npm release:

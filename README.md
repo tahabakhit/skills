@@ -38,6 +38,13 @@ Or run the selector directly from a checkout:
 node /path/to/skills-checkout/bin/skills.mjs
 ```
 
+Inside this package's own checkout, use `node bin/skills.mjs --list` or
+`node bin/skills.mjs` for the wizard. npm 11 can resolve `npx @tahabakhit/skills`
+to the local package instead of the registry, then fail with
+`taha-skills: command not found` because a source checkout has no self-bin link.
+Run the published `npx` command from another project or directory. Do not create
+a global link to work around this.
+
 Requires Node.js 22.20+, npm and access to the pinned downstream installer.
 [INSTALL.md](INSTALL.md) covers the wizard, explicit options, replacements,
 updates, package names, environment overrides and maintainer publication.
