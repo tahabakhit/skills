@@ -18,8 +18,8 @@ locally, asks for target agents, then previews exact paths before confirmation.
 Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
-The npm command requires a published package. Until registry publication is
-complete, use the public GitHub source:
+All seven packages are published at `0.2.0`. Public installation does not require
+npm login. To use the latest GitHub source instead:
 
 ```fish
 npx github:tahabakhit/skills
@@ -154,6 +154,9 @@ non-overlapping package groups. `dist/npm/` and `dist/tarballs/` are disposable,
 marked generated output, not edited source copies. Maintainer publication requires
 npm authentication for the scope and 2FA where required. GitHub login is separate.
 See [the release process](INSTALL.md) before running `npm run publish:packages`.
+Published `0.2.0` artifacts come from `331fbaf` and are immutable. Documentation
+updates after that commit do not replace those bytes. Choose an unused version
+before preparing another npm release.
 
 [ARCHITECTURE.md](ARCHITECTURE.md) records the architecture and ownership boundaries.
 The [historical installed-skill audit](audits/installed-skills.md) remains the

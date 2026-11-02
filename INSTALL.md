@@ -28,9 +28,9 @@ Enter group names, displayed group numbers, individual skill names, or `all`.
 Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
-Registry commands require that the package version has been published. If npm
-returns E404, use the public source or checkout methods below. A GitHub push alone
-is not npm publication.
+All seven packages are public at `0.2.0`. Installing them does not require npm
+login. If npm returns E404 for another version, check that it was published or use
+the public source methods below. A GitHub push alone is not npm publication.
 
 ## Explicit and non-interactive use
 
@@ -148,6 +148,16 @@ npx github:tahabakhit/skills
 ```
 
 ## Maintainer release process
+
+The immutable `0.2.0` packages were published from `331fbaf`. Later documentation
+commits do not update those artifacts. Before another release, choose an unused
+version and update the package metadata, lockfile and version check together.
+
+npm can accept a publication before its registry metadata becomes visible. After
+an accepted publish, wait for processing and compare the approved integrity before
+retrying. A transient 404 does not prove that the publish failed. Publishing
+approval can also expire during that wait. Independent packages can be submitted
+within one approval session, but every accepted artifact still needs verification.
 
 Use a publishing account with access to the `@tahabakhit` scope. npm login is
 separate from GitHub authentication. Do not paste tokens into chat or repository

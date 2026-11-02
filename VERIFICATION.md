@@ -178,11 +178,32 @@ not skill helpers or model sessions. Warm its cache with
 `npx --yes skills@1.7.4 --help` if necessary. The ordinary `npm test` suite does not
 make registry/model calls or install skills in live directories.
 
-The repository is public. npm publication remains blocked by missing registry
-authentication (`npm whoami` reports `ENEEDAUTH`). A public npm manifest, successful
-packing or a publication dry run does not establish ownership of the npm scope or
-prove publication. No live skill directory, lock, chezmoi source or host setting
-was migrated or installed into by this phase.
+The repository is public. At initial packaging, missing registry authentication
+blocked npm publication with `ENEEDAUTH`. That blocker was later resolved and the
+publication checks below completed. Packing and dry runs alone were not counted
+as publication. No live skill directory, lock, chezmoi source or host setting was
+migrated or installed into by this phase.
+
+## npm publication (0.2.0)
+
+All seven packages were published publicly on 2026-11-02 from source commit
+`331fbafa71047fa0a1bb0d97e92a8bb948dc9324`. Unauthenticated registry reads confirmed
+every `0.2.0` version, its `latest` tag and its exact approved SHA-512 integrity.
+The public identities and verification time are recorded in
+[the release record](https://github.com/tahabakhit/skills/blob/main/releases/0.2.0.json).
+
+Fourteen consumer checks passed against the real registry: `npx --version` and
+`npx --list` for each of the seven packages, run outside the source checkout.
+These downloaded and executed the published selectors without installing skills
+into live agent or project directories. Publication used the already reviewed,
+frozen tarball bytes without a version bump or repack.
+
+npm accepted publications before making their metadata visible. Core and
+engineering became visible after a processing delay and were checksum-verified
+before continuation. Publishing approval then expired. After fresh browser
+approval, the remaining five independent artifacts were submitted together and
+verified after processing. No accepted version was blindly republished. Later
+Git documentation updates do not alter the immutable published artifacts.
 
 ## Not established
 
@@ -194,6 +215,5 @@ are not established. A forced text-only comparison cannot establish those facts.
 The expanded installation check verifies temporary destination files, not that
 Claude Code, Codex or Pi actually consume every skill correctly. Native interactive
 Pi evaluation sessions were a runner, not client-TUI acceptance tests. Live global
-installation, ownership transfer, npm publication and authority over the
-`@tahabakhit` npm scope remain unverified. No package was published or registered
-in real projects.
+installation and ownership transfer remain unverified. Public npm publication is
+verified, but no skills were installed into real projects.

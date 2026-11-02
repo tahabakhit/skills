@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "sourceHead": "331fbafa71047fa0a1bb0d97e92a8bb948dc9324",
+  "verifiedAt": "2026-11-02T16:30:41.496Z",
+  "registry": "https://registry.npmjs.org",
+  "packages": [
+    {
+      "name": "@tahabakhit/skills-core",
+      "version": "0.2.0",
+      "integrity": "sha512-0TVPZR/D1Uym4SsgY01EGj2Dut5TairOV6LHOd0PWl8hQJMtsUV27j0SybbZmFzHWQOPFWPL0NDVwgtqoewjQQ==",
+      "shasum": "fec27af3730a38661af7143f9a98846044812a23",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-core/-/skills-core-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills-engineering",
+      "version": "0.2.0",
+      "integrity": "sha512-jc+jQGLMBY3ROuUTTcsdt4pNcpqXVT1NKIwKzypLLpSQLKGbTGVSc48qT7yW1sSN3ineu499obWMxKopB1tTLQ==",
+      "shasum": "54e55bc3a9f95e8023344ec6e9bbddcc9c5e4afd",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-engineering/-/skills-engineering-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills-content",
+      "version": "0.2.0",
+      "integrity": "sha512-rSxzo+i7HntqtfSpWPXsh0mqY7MvdxYmfUZD78BJQBN1TOGESo87zOsM80GV7kw1JFKaCuSOh7VOUcaHRssldw==",
+      "shasum": "1592aeb7c755abfd7d8119bbe08010c3c585781c",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-content/-/skills-content-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills-design",
+      "version": "0.2.0",
+      "integrity": "sha512-NXDygOPztULuhStDecBn8SInDoAx+VMulykWsOTgBrD3DS0r9p1xUaYUsbtaCcgNffE0kBzygj5lTmziGtkH6Q==",
+      "shasum": "88c34423151ec5a9ad0b4b717f4ac0b5e8242278",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-design/-/skills-design-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills-data",
+      "version": "0.2.0",
+      "integrity": "sha512-t35tCmblTDcpUsgGHYfv4xHPngQHWokpjMpf3s0ceA/KapnIYNy+2KQBHyrHiRB8GjXBBg0j+d2I8LBwG0NgZQ==",
+      "shasum": "1462b6a9a0659ec95ca686ef6b5c6b1365251d58",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-data/-/skills-data-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills-operations",
+      "version": "0.2.0",
+      "integrity": "sha512-uKf6P96LoWGuoZdYDKlyRFk3t2JFd8BEkd9AXC5o21oTqvboxfmNDcWOPyZYoaMpNHfygnlsSt2aakDf00teDA==",
+      "shasum": "6a051cf32776f5669fbc786380ac760ad8189b6e",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills-operations/-/skills-operations-0.2.0.tgz",
+      "latest": "0.2.0"
+    },
+    {
+      "name": "@tahabakhit/skills",
+      "version": "0.2.0",
+      "integrity": "sha512-MpBOuIMsnHGrPyI/8IUEE3+8eBhPO4MKkwU0ZNvjcfKivUyF5tO4+71+gSN298BaumQ1ZdsnbiP0doXFd8w/rg==",
+      "shasum": "d73af21f8963552ca885210f0a3f7e05173758db",
+      "tarball": "https://registry.npmjs.org/@tahabakhit/skills/-/skills-0.2.0.tgz",
+      "latest": "0.2.0"
+    }
+  ],
+  "registryCliChecks": 14
+}
