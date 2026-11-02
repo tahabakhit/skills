@@ -1,6 +1,6 @@
 # Workflow catalog
 
-The collection has 21 canonical workflow owners. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
+The collection has 29 canonical workflow owners. It is a broad workflow foundation, not a claim to contain every platform, scientific method or professional specialty. Install only the owners useful for the project. Availability does not mean loading every entrypoint and reference into every task.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records. `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
@@ -35,9 +35,17 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 | `interface-review` | Evidence-bounded usability/accessibility review | A new-UI design procedure, certification or a browser adapter |
 | `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
 | `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
-| `operate-systems` | Platform-aware Linux diagnosis and scoped change | The audited distribution-specific recovery procedures |
+| `operate-systems` | Platform-aware Linux diagnosis and scoped change | Distribution-specific recovery expertise by itself |
+| `arch-linux` | Installed Arch configuration, packages and services | Package authoring or transaction/boot recovery |
+| `arch-package-maintenance` | PKGBUILD, patches, clean builds, metadata and pin retirement | Live installation or publication authority |
+| `arch-update-recovery` | Arch transactions, pacnew/pacsave, kernels and boot recovery | Generic desktop customization |
+| `cachyos` | Installed CachyOS repositories, kernels, hardware profiles and tuning | Assuming every Arch host is CachyOS |
+| `rhel-fedora` | Mutable RPM-host packages, SELinux, services, desktop and recovery | Image-mode DNF repair or unrestricted log collection |
+| `managed-config-drift` | Live/source/default ownership and read-only comparison | Automatic reconciliation or a bounded/atomic tree snapshot |
+| `workstation-health-triage` | Broad Linux health evidence and correlation | Repair authority, universal package probes or redaction |
+| `unslop` | Requested final prose cleanup, distributed in core | Always-on personal style or unrelated rewrites |
 
-Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` also owns reusable editorial guidance. No public skill depends on a private `unslop` installation.
+Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` owns technical-writing structure, sentence style and repository verification, including the three imported local references. `unslop` is a separately selectable core editing pass, not a hidden required dependency.
 
 ## Consolidation map
 
@@ -52,26 +60,23 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
-## Audited installations remain separate
+## Installed-skill replacement map
 
 No live skill, link, lockfile, host setting or chezmoi source is changed by this catalog. The [installed-skill audit](audits/installed-skills.md) remains the preservation baseline.
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
-| `arch-linux` | Deferred specialist import. Existing installed procedure is not retired |
-| `arch-package-maintenance` | Deferred package-authoring specialist, not absorbed by dependency triage |
-| `arch-update-recovery` | Deferred transaction/boot-recovery specialist, not absorbed by generic operations |
-| `cachyos` | Deferred component-specific knowledge, not assumed on other Linux hosts |
-| `rhel-fedora` | Deferred attributed adaptation. Privacy, authority and ownership repairs remain required |
-| `managed-config-drift` | Deferred specialist. Fix claimed comparison bounds before importing its helper |
-| `workstation-health-triage` | Deferred collector. Preserve distro-specific probe applicability and output privacy |
-| `ci-maintenance`, `git-hygiene` | New original owners cover selected workflow methods. They are not byte-preserving replacements for every old reference |
-| `safe-refactor`, `migration` | Combined source-repository owner `change-safely`, with separate branches. No live replacement |
-| `technical-writing` | General expression work belongs to `create-content`. Do not assume every installed technical-writing procedure was imported |
-| `unslop` | Private active style remains external. No hidden required public dependency |
-| `herdr-core` | Optional host integration, not a required coordinator or migrated installation |
+| `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos` | Imported with local closure and complete notices in operations |
+| `rhel-fedora` | Attributed operations adaptation with diagnostic privacy and existing-authority rules |
+| `managed-config-drift` | Operations specialist with unchanged optional comparator and honest unbounded-traversal contract |
+| `workstation-health-triage` | Operations specialist with unchanged optional collectors, private-output contract and Arch-probe limitations |
+| `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
+| `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |
+| `technical-writing` | Consolidated into content's `create-content`, including all three useful reference files |
+| `unslop` | Added to core, bounded to requested prose rather than universal private policy |
+| `herdr-core`, `ketch` | Excluded at the user's request as CLI-managed integrations. Not required by this collection |
 
-Moshi and host-bundled skills retain their separately recorded ownership/license boundaries. This work does not reconcile or remove them.
+[The migration guide](audits/installed-skill-import.md) records retained and omitted material, installation choices, ownership checks and rollback. This source import does not remove live folders. Moshi and host-bundled skills retain their separately recorded ownership/license boundaries.
 
 ## Explicit coverage gaps
 

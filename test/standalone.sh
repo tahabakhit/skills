@@ -57,4 +57,4 @@ jq -r '.skills[].name' catalog.json | while IFS= read -r name; do
   cp -R -- "$folder" "$scratch/$name/skills/"
   check_folder "$scratch/$name/skills/$name" "$name"
 done
-printf '21 independently copied skill folders passed file, SHA-256/blob, notice and Markdown-closure checks.\n'
+printf '%s independently copied skill folders passed file, SHA-256/blob, notice and Markdown-closure checks.\n' "$(jq '.skills | length' catalog.json)"

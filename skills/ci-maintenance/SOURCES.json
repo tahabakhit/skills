@@ -4,7 +4,7 @@
   "kind": "original",
   "license": "MIT",
   "copyright": "Taha Bakhit",
-  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "authorship": "Original portable procedure, later supplemented with two attributed Bolens environment/setup references. PROVENANCE.json records those imports and LICENSE-BOLENS carries their grant. The comparison citations below remain conceptual research, not runtime dependencies.",
   "copiedAssets": [],
   "adaptedAssets": [],
   "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",

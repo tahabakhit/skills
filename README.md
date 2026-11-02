@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-21 selectively installable skills for engineering, research, content, data and
+29 selectively installable skills for engineering, research, content, data and
 Linux operations. The source is public at https://github.com/tahabakhit/skills.
 The CLI helps you choose what belongs globally and what belongs in a repository.
 It uses Vercel's Skills CLI for the actual copying.
@@ -18,8 +18,10 @@ locally, asks for target agents, then previews exact paths before confirmation.
 Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
-All seven packages are published at `0.2.0`. Public installation does not require
-npm login. Use `npx @tahabakhit/skills@0.2.0` to pin the verified release, or add
+All seven packages are published at `0.2.0`, which contains the earlier 21-skill
+catalog. The eight additions and reference consolidations on GitHub are not yet
+published to npm. Use the GitHub source or a checkout for the 29-skill catalog.
+Public installation does not require npm login. Use `npx @tahabakhit/skills@0.2.0` to pin the verified release, or add
 `--list` to inspect its choices without installing skills. All seven published
 selectors passed registry version/list checks. Exact package identities are in
 [the release record](https://github.com/tahabakhit/skills/blob/main/releases/0.2.0.json).
@@ -62,15 +64,22 @@ Restart the agent after installing. Start a fresh session when replacing workflo
 
 | Group | npm package | Count |
 | --- | --- | --- |
-| All groups | `@tahabakhit/skills` | 21 |
-| Core | `@tahabakhit/skills-core` | 4 |
+| All groups | `@tahabakhit/skills` | 29 |
+| Core | `@tahabakhit/skills-core` | 5 |
 | Engineering | `@tahabakhit/skills-engineering` | 11 |
 | Content | `@tahabakhit/skills-content` | 2 |
 | Design review | `@tahabakhit/skills-design` | 1 |
 | Data | `@tahabakhit/skills-data` | 2 |
-| Linux operations | `@tahabakhit/skills-operations` | 1 |
+| Linux operations | `@tahabakhit/skills-operations` | 8 |
 
-Core contains `discover-work`, `define-work`, `research-work` and `verify-and-stop`.
+These are source-checkout counts, not the immutable npm `0.2.0` contents.
+Core contains `discover-work`, `define-work`, `research-work`, `verify-and-stop`
+and `unslop`. Operations includes general operations plus the Arch, CachyOS,
+Fedora/RHEL, configuration-drift and workstation-health specialists.
+`safe-refactor` and `migration` use `change-safely`; `technical-writing` uses
+`create-content`. `herdr-core` and `ketch` stay CLI-managed outside this repo.
+See [the installed-skill migration guide](audits/installed-skill-import.md)
+before replacing local copies.
 Each domain package offers the same selector restricted to its own group, for
 example `npx @tahabakhit/skills-data@latest`. There is one canonical source per
 skill. Generated packages preserve complete supporting files, licenses and
@@ -117,12 +126,13 @@ authority. Required independent review cannot be replaced with a self-check.
 
 [The catalog](CATALOG.md) records responsibilities and gaps. The collection does not
 provide every framework, OS recovery procedure, advanced statistical method or
-binary document engine. Generic operations does not replace the audited Arch,
-CachyOS, Fedora/RHEL, workstation-health or configuration-drift specialists. Those
-installed skills are not automatically migrated or retired.
+binary document engine. Generic operations routes to the included platform and
+health/drift specialists when appropriate. Adding their source does not migrate
+or retire any live installation.
 
-Sixteen procedures are provisional original workflows informed by research across
-20 public repositories. Three older companions are attributed forks. The original
+Sixteen procedures began as provisional original workflows informed by research
+across 20 public repositories. Three now include attributed installed-reference
+imports. Eight added specialists have separate pinned adaptation records. Three older companions are attributed forks. The original
 discovery pair retains its own ancestry records. Sources, notices and rejected
 procedures are in [SOURCES.md](SOURCES.md), [research/README.md](research/README.md)
 and each independently selectable folder.

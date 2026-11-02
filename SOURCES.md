@@ -219,6 +219,24 @@ The 1aboveio domain/umbrella catalog informed packaging comparisons. Our generat
 copies only this repository's canonical skills and retained notices. It does not
 copy that bundle's selector, host-settings writes, hooks or runtime extensions.
 
+## Installed-specialist import
+
+[The import record](audits/installed-skill-import.md) documents eight added
+specialists and consolidated references under three existing owners. All inspected
+installed inputs still matched the pinned audit identities. Bolens material uses
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`; Fedora material uses
+`iuliandita/skills@496420bfb995892598e0eae18aff2a5be3d800b2`. Their complete MIT
+notices travel with every selectable folder. Local provenance records distinguish
+input hashes, unchanged helper scripts, adapted entrypoints and result hashes.
+The historical audit is preserved rather than relabeled as a live migration.
+
+`create-content` now includes three technical-writing references. `git-hygiene`
+retains four detailed Git references and `ci-maintenance` two environment/setup
+references. Their original conceptual-comparison records are not the provenance
+for these later copied files; the new `imports` records are. `safe-refactor` and
+`migration` remain consolidated into `change-safely`. `herdr-core` and `ketch`
+are excluded as CLI-managed integrations at the user's request.
+
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions

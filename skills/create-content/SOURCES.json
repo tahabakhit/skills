@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "name": "create-content",
-  "authorship": "Original prose authored in this scratch area. No verbatim upstream skill/script/asset import and no proprietary document-procedure port. Source links identify inspected concepts, not copied files or claimed historical import events.",
+  "authorship": "Original content procedure with a later attributed import of three technical-writing references from the audited Bolens snapshot. PROVENANCE.json records that import separately from the conceptual comparisons below. No proprietary document-procedure port.",
   "license": "MIT",
-  "copiedUpstreamFiles": [],
+  "copiedUpstreamFiles": ["references/document-structure.md", "references/sentence-style.md", "references/repository-verification.md"],
   "sources": [
     {
       "kind": "conceptual-comparison-not-copied",
@@ -489,5 +489,5 @@
       }
     }
   ],
-  "limits": "No third-party binary/font/image/schema assets included. No upstream text copied as a file. If integration retains substantial adapted upstream expression, conservatively carry the applicable full MIT/Apache license, relevant attribution and changed-file notices in the selectable folder; do not treat public availability or a root MIT label as per-file clearance."
+  "limits": "No third-party binary/font/image/schema assets included. Three Bolens technical-writing references are copied and carry LICENSE-BOLENS; see PROVENANCE.json. If integration retains substantial adapted upstream expression, conservatively carry the applicable full MIT/Apache license, relevant attribution and changed-file notices in the selectable folder; do not treat public availability or a root MIT label as per-file clearance."
 }

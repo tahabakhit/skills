@@ -8,13 +8,19 @@
       "file": "LICENSE",
       "copyright": "Copyright (c) Taha Bakhit",
       "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens"
     }
   ],
   "requiredSiblingSkills": [],
   "changes": [
     "Assign local editorial ownership without a private writing-skill dependency.",
     "Distinguish literal cells and text exports from formulas; CSV quoting alone does not prevent formula execution.",
-    "Use existing usable scanned-PDF text layers before prescribing OCR."
+    "Use existing usable scanned-PDF text layers before prescribing OCR.",
+    "Merge audited installed specialist references and carry Bolens MIT notice."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -27,9 +33,29 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "3275e974ba5271a6bd461cc35f5b31455a9b569ce4f2aad8d367c2304392ea67",
+      "gitBlob": "d03a402751a8404f005ee9b1bdbbde1d247b5a0a"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "7188a86da7970eb4415bbe71f37569d7ff9eacab6e34aaa7883bd417755ecbce",
+      "gitBlob": "6126a0f235387a1149fd51540f281c724a2c6f8c"
+    },
+    {
       "path": "references/analytical-reports.md",
       "sha256": "4ce0a0605c3d5b61dae88cc4b6798a14fef67f02079af4ec3268a49e25c220ae",
       "gitBlob": "db2c724317f0c58628c20017778e47213bfc2cb2"
+    },
+    {
+      "path": "references/document-structure.md",
+      "sha256": "0ee8dbcef49f6661eb2ad2a269bfcddb136c59e64230a6fdc5c0f0d4a9a526ec",
+      "gitBlob": "859b80993c229891264557a39e7e28d516009a84"
     },
     {
       "path": "references/file-production.md",
@@ -37,19 +63,48 @@
       "gitBlob": "7aa8be4c8b9c2b022531c2567a5e479f4b441f5d"
     },
     {
+      "path": "references/repository-verification.md",
+      "sha256": "4bcf491eacf5604fa5a5325b2f0f32cd488943c011523ea8a3a844cdc33dbc50",
+      "gitBlob": "7f2fd8b7b6a4b0f39e032aec5b02f2a5461d885d"
+    },
+    {
+      "path": "references/sentence-style.md",
+      "sha256": "6f8abcd097ec60ebaae71cd6e5b65a4670d485ecad2a66cf15b1dc6c264ca97e",
+      "gitBlob": "4417fd8cd1bb31e24dd86050dfa9dd0d6a0ff753"
+    },
+    {
       "path": "references/writing-modes.md",
       "sha256": "cfcb874ae1fd5bc0e1944621267a7d908b304c5356f9c89091cd238882600881",
       "gitBlob": "416bd112a3a4ca534f8faa4e8fce4a8831016f74"
-    },
+    }
+  ],
+  "imports": [
     {
-      "path": "SKILL.md",
-      "sha256": "718ba33d87bbce0dab31e0d85400f9732334e26bd6fe6ce1875fd0f2f30dad2f",
-      "gitBlob": "a2ef8bc04785bc8fb1bcc104fcefc2f34cfd3093"
-    },
-    {
-      "path": "SOURCES.json",
-      "sha256": "8e5ecf74e518b7ea01b097d3ac102b35416d94bdd80f4b2b9b9d80c8bc658fc2",
-      "gitBlob": "f4a6fa8c194e1dd9f88334970948a01b34ad1646"
+      "source": {
+        "repository": "https://github.com/bolens/agent-skills",
+        "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+        "path": "skills/technical-writing"
+      },
+      "upstreamFiles": [
+        {
+          "path": "references/document-structure.md",
+          "sha256": "0ee8dbcef49f6661eb2ad2a269bfcddb136c59e64230a6fdc5c0f0d4a9a526ec",
+          "gitBlob": "859b80993c229891264557a39e7e28d516009a84"
+        },
+        {
+          "path": "references/repository-verification.md",
+          "sha256": "4bcf491eacf5604fa5a5325b2f0f32cd488943c011523ea8a3a844cdc33dbc50",
+          "gitBlob": "7f2fd8b7b6a4b0f39e032aec5b02f2a5461d885d"
+        },
+        {
+          "path": "references/sentence-style.md",
+          "sha256": "6f8abcd097ec60ebaae71cd6e5b65a4670d485ecad2a66cf15b1dc6c264ca97e",
+          "gitBlob": "4417fd8cd1bb31e24dd86050dfa9dd0d6a0ff753"
+        }
+      ],
+      "changes": [
+        "Preserve useful detailed references under the existing owner, with standalone links and project-selected conventions. No duplicate legacy entrypoint."
+      ]
     }
   ]
 }

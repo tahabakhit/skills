@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "name": "managed-config-drift",
+  "kind": "source-adaptation",
+  "source": {
+    "repository": "https://github.com/bolens/agent-skills",
+    "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+    "path": "skills/managed-config-drift"
+  },
+  "upstreamFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a019961c254d7bdc7b8d436a17139218cf35b93c5f9cca39efa6f0b699435c7a",
+      "gitBlob": "101f95029ad8905d43a4190cccd800ff7159ff68"
+    },
+    {
+      "path": "scripts/compare-trees.py",
+      "sha256": "a40910ca89859174aa2a998aaaba0159bbaf9efb37fa926aa7bc5a26ec59f5bb",
+      "gitBlob": "246b8a9e09dad31045d4d1c739a63dea64847195"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "5ac738ddd1bec238b83d6ee9fcff9a0a62a6ffa41e578a45fbbf331877c95d96",
+      "gitBlob": "4875ed9372932ab19a9f3db0953ddc4becaeb202"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "112770f409514cca7b14bcda486986bebb23833e9c14776860b6907d97db0af3",
+      "gitBlob": "b199dd2d1817159bae6d4d8a92e142ba64afc57c"
+    }
+  ],
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) Taha Bakhit"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Correct the unsupported bounded-comparison claim; document runtime, scope, privacy, exit status and snapshot limitations. Preserve comparator bytes.",
+    "Carry complete project/upstream notices and revision-bound input/output identities; repair provenance link."
+  ],
+  "verification": {
+    "scope": "Structural closure and isolated fixtures, not full system administration or host-model behavior."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "a68ff6fd52e8c17ef1c2727befff139ebae559ab175b2f7ec3cb0ea20ddd183d",
+      "gitBlob": "5b115de10ba290e9c8a2507944edd9ed462b1fe0"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "f8662aa336e0e44a56fda7801266d3af0e17e3c183e167bcdd265e13a2556cfe",
+      "gitBlob": "1dac2f7caff728fc0067d6c0794b1d742d859bbe"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a019961c254d7bdc7b8d436a17139218cf35b93c5f9cca39efa6f0b699435c7a",
+      "gitBlob": "101f95029ad8905d43a4190cccd800ff7159ff68"
+    },
+    {
+      "path": "scripts/compare-trees.py",
+      "sha256": "a40910ca89859174aa2a998aaaba0159bbaf9efb37fa926aa7bc5a26ec59f5bb",
+      "gitBlob": "246b8a9e09dad31045d4d1c739a63dea64847195"
+    }
+  ]
+}

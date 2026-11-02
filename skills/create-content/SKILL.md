@@ -29,6 +29,20 @@ For analytical reports, distinguish observations, calculations, estimates, forec
 
 For marketing, communication, or collaborative authoring, read [writing-modes.md](references/writing-modes.md). Use the requested voice and headings instead of imposing a corporate template or simulated expert panel.
 
+For developer documentation, RFCs, READMEs, PR descriptions or commit messages,
+read [document structure](references/document-structure.md),
+[sentence style](references/sentence-style.md) and
+[repository verification](references/repository-verification.md) as relevant.
+Verify symbols, paths, flags, defaults and sample output against the actual
+repository. Choose tutorial, how-to, reference or explanation by the reader's
+need rather than forcing a template. Follow the repository's commit/PR naming
+policy and base titles on the final diff. A prose request does not authorize code
+changes to make a claim true.
+
+Use the optional `unslop` skill for a named anti-filler editing pass when available.
+It is not required: remove generic claims, filler and canned phrasing here while
+preserving author voice, evidence and necessary qualifiers.
+
 ## Select a supported output path
 
 Plain-text drafting and review need only the supplied material and the host's text tools. An actual DOCX, workbook, slide deck, PDF, image, or diagram requires an available engine that supports the specific operation. Creation, reading, editing, rendering, formula calculation, OCR, secure redaction, and accessible tagging are separate capabilities.

@@ -3,11 +3,11 @@
   "installer": "skills@1.7.4",
   "agents": ["pi", "claude-code", "codex"],
   "groups": [
-    {"name":"core","description":"Discovery, specifications, evidence research and acceptance proof","skills":["discover-work","define-work","research-work","verify-and-stop"]},
+    {"name":"core","description":"Discovery, specifications, evidence research, acceptance proof and prose cleanup","skills":["discover-work","define-work","research-work","verify-and-stop","unslop"]},
     {"name":"engineering","description":"Delivery, design, debugging, tests, review, Git, CI, dependencies and security","skills":["codebase-design","systematic-debugging","deliver-work","testing-work","code-review","change-safely","git-hygiene","ci-maintenance","triage-dependency-updates","release-packaging","security-review"]},
     {"name":"content","description":"Writing, file production and document review","skills":["create-content","document-review"]},
     {"name":"design","description":"Usability and accessibility review","skills":["interface-review"]},
     {"name":"data","description":"SQL, measurement, transformations and pipelines","skills":["analyze-data","data-pipelines"]},
-    {"name":"operations","description":"Platform-aware Linux diagnosis and scoped changes","skills":["operate-systems"]}
+    {"name":"operations","description":"Linux operations, Arch/CachyOS and RPM specialists, configuration drift and workstation health","skills":["operate-systems","arch-linux","arch-package-maintenance","arch-update-recovery","cachyos","rhel-fedora","managed-config-drift","workstation-health-triage"]}
   ]
 }

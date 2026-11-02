@@ -28,8 +28,10 @@ Enter group names, displayed group numbers, individual skill names, or `all`.
 Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
-All seven packages are public at `0.2.0`. Installing them does not require npm
-login. If npm returns E404 for another version, check that it was published or use
+All seven packages are public at `0.2.0`, with the earlier 21-skill catalog.
+The current GitHub source has 29 skills and additional CI/Git/writing references;
+those changes are not yet on npm. Use the GitHub or checkout alternative below
+for this expanded catalog. Installing public packages does not require npm login. If npm returns E404 for another version, check that it was published or use
 the public source methods below. A GitHub push alone is not npm publication.
 
 ## Explicit and non-interactive use
@@ -65,18 +67,28 @@ other domain packages. Ownership is a partition, not duplicate source trees.
 
 | Package | Skills |
 | --- | --- |
-| `@tahabakhit/skills` | All 21, selected rather than automatically installed |
-| `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof (4) |
+| `@tahabakhit/skills` | All 29, selected rather than automatically installed |
+| `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof, prose cleanup (5) |
 | `@tahabakhit/skills-engineering` | Design, debugging, delivery, tests, review, refactors/migrations, Git, CI, dependencies, packaging, security (11) |
 | `@tahabakhit/skills-content` | Writing/file production and document review (2) |
 | `@tahabakhit/skills-design` | Interface review (1) |
 | `@tahabakhit/skills-data` | Analysis and pipelines (2) |
-| `@tahabakhit/skills-operations` | Linux operations (1) |
+| `@tahabakhit/skills-operations` | Linux operations, four Arch/CachyOS specialists, Fedora/RHEL, config drift, workstation health (8) |
 
+The table describes current source builds, not the published `0.2.0` artifacts.
 For example, `npx @tahabakhit/skills-data@latest` offers only the data group. Do not
 install the same skill twice through both the umbrella and a domain package.
 These installation groups do not change the canonical responsibilities in
 [CATALOG.md](CATALOG.md), and package availability is not proof of better model work.
+
+## Replacing the previously installed collection
+
+See [the import and migration guide](audits/installed-skill-import.md) for exact
+old-to-new names, retained references, CLI-managed exclusions and rollback.
+Do not delete the whole `~/.agents/skills` tree. Back up selected folders and
+inspect their managers before replacement. `safe-refactor`/`migration` become
+`change-safely`; `technical-writing` becomes `create-content`. The selector does
+not remove old-name folders or retire chezmoi sources.
 
 ## Existing skills, managed files and updates
 

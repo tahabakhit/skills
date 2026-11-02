@@ -25,6 +25,13 @@ Read [trust and coverage](references/trust-and-coverage.md) before workflow chan
 
 Preserve original command failure through formatters, log collectors and reports. Treat skipped, cancelled, unavailable and timed-out required evidence explicitly. Do not remove a check, reduce its scope or broaden privileges to get green without the relevant policy change being authorized.
 
+For portable tools, devcontainers or environment schemas, read
+[development environments](references/development-environments.md). For repeatable
+bootstrap, precedence, concurrent services, secret contracts or browser capacity,
+read [setup contracts](references/setup-contracts.md). Preserve working project
+choices rather than introducing mise, Nix, a new schema filename or a supervisor
+just because an example uses it.
+
 ## Validate and hand back
 
 Use syntax/policy tooling plus controlled branch or runner tests suited to the change. Do not dispatch privileged production jobs merely to test a workflow. For unavailable event behavior, state the remaining validation step.

@@ -3,9 +3,9 @@
 This document records the agreed direction and a proposed structure. It does not
 mean the full proposed system is implemented or grant permission to install,
 publish, migrate, or deploy.
-The source catalog now contains 21 canonical workflow owners: the original five
-and 16 new original procedures. [The owner map](CATALOG.md) records consolidation,
-capability limits and deferred specialist dispositions. `deliver-work` owns the
+The source catalog now contains 29 canonical workflow owners: the original five,
+16 consolidated procedures and eight installed-specialist adaptations. [The owner map](CATALOG.md) records consolidation,
+capability limits and installed-specialist dispositions. `deliver-work` owns the
 engineering endpoint and replaces the external delivery recommendation. This is
 not complete specialist coverage or proven model uplift. Installation, migration
 and expanded host behavior remain separately unverified.
@@ -93,7 +93,7 @@ files and licenses. Retain the existing skill paths while establishing the
 catalog. Record category and installation selections separately rather than
 maintaining edited copies of the same skill in several packages.
 
-A future catalog should record source revision, license and notices, local
+The catalog and per-folder records track source revision, license and notices, local
 modifications, domain, maturity, host/tool requirements, required dependencies,
 optional handoffs, network or external effects, and verification evidence.
 If bundles or reusable profiles become useful, their definitions should reference
@@ -140,9 +140,11 @@ repository. File preservation alone does not establish that the host loads it.
 
 ## Current implementation and remaining verification
 
-1. The 21 source owners have one delivery coordinator, local required references
-   and per-folder notices/provenance. Deferred installed specialists are not
-   retired or assumed equivalent to these procedures.
+1. The 29 source owners have one delivery coordinator, local required references
+   and per-folder notices/provenance. Eight installed specialists are now adapted
+   in source, with writing/refactor/migration consolidation and CI/Git reference
+   preservation recorded in `audits/installed-skill-import.md`. No live folders
+   are retired by the source import.
 2. Verify selective global/project installs and supporting-file access in all
    three hosts before any authorized live ownership transfer.
 3. Compare fresh representative work against no skill and a short generic control.

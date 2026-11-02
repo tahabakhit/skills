@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "name": "arch-update-recovery",
+  "kind": "source-adaptation",
+  "source": {
+    "repository": "https://github.com/bolens/agent-skills",
+    "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+    "path": "skills/arch-update-recovery"
+  },
+  "upstreamFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a26d8ece7f694ad5be66028e8dc109cb4d03b138a10d6a36bb1306cd8b1f2227",
+      "gitBlob": "e32a4d73cee23c3019e45a82f991e9d806fdab33"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "00a34aef49b9fce389d0cf768247646806d1cf0aee45757ef572d3b0c08e10dd",
+      "gitBlob": "97e0cbb833c30178ec30f0ac34df068fe7ed45ec"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "54c02dcba9f14ba977ae017155e8687a50b02e983890578abaef0235e24e77d7",
+      "gitBlob": "e4c2a7f4d0703dc1258b02961e84407296af34bd"
+    }
+  ],
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) Taha Bakhit"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Inline backup, privacy and crash evidence boundaries instead of requiring absent specialists.",
+    "Carry complete project/upstream notices and revision-bound input/output identities; repair provenance link."
+  ],
+  "verification": {
+    "scope": "Structural closure and isolated fixtures, not full system administration or host-model behavior."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "a3c9bba119e0cb4df11f22bb85514b06361df03a8ad935d18a2e672ae70dc9b6",
+      "gitBlob": "0555805cedca295516003c2e56303211a7818044"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "2020183fca83192e8076e8e56180427d58cbd9cb7696a13d86bc8d74d5d5faff",
+      "gitBlob": "f0f49433002154e4ffe2950311300542aac312c0"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "a26d8ece7f694ad5be66028e8dc109cb4d03b138a10d6a36bb1306cd8b1f2227",
+      "gitBlob": "e32a4d73cee23c3019e45a82f991e9d806fdab33"
+    }
+  ]
+}

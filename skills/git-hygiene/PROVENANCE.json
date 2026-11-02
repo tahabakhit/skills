@@ -8,11 +8,17 @@
       "file": "LICENSE",
       "copyright": "Copyright (c) Taha Bakhit",
       "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens"
     }
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Assemble original procedure and local references with the project notice and source comparison record."
+    "Assemble original procedure and local references with the project notice and source comparison record.",
+    "Merge audited installed specialist references and carry Bolens MIT notice."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -25,19 +31,78 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "e5039d65c1ab57994885d8d4afa9dd2e3384662e9c2103c2ef57ef3b45177ad5",
+      "gitBlob": "12e73abf8aa9b5b272c6926960bb4775792cd5f8"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "02396a3aa395ff6a11be87915633225d2f9ad20534e2cdc75098c14d55d7888e",
+      "gitBlob": "6dc05eb9eddc367b5bca4f600c16239983e77dc8"
+    },
+    {
+      "path": "references/branch-cleanup.md",
+      "sha256": "a9a129ba26e42a381ec593a9d05f424f410af3b158dcc914b1e40e6232f307c8",
+      "gitBlob": "7211cf3928db5fffe795fe7f5ab0b20994c48e32"
+    },
+    {
+      "path": "references/evidence-cleanup.md",
+      "sha256": "1be99e53002f057e646893eee08df20f8b363e05bb26408103a322d3ae5608d7",
+      "gitBlob": "4b3f44c581b7cfb49f0371caece584b4623f8bab"
+    },
+    {
+      "path": "references/freshness.md",
+      "sha256": "e0c240d13fd260c5bf28404bd3230bc0a9cead73bf13c226c960b66f561b1625",
+      "gitBlob": "903a941349d92a68a050385a4f21c7db06a12717"
+    },
+    {
       "path": "references/ownership.md",
       "sha256": "7752636f67756b8378603b60095a27f9f07421301a17b8895b49e3271a622d50",
       "gitBlob": "cf8e142c6c6227d49054210f438bf06f7640f7c4"
     },
     {
-      "path": "SKILL.md",
-      "sha256": "4528c88c25c3fb2df19d7c411a3d7f33ddeb48e942254f8de84ce190436c97fe",
-      "gitBlob": "efe8d167e2ceaf243b3fdbaf44fcd07c83177bc9"
-    },
+      "path": "references/semantic-conventions.md",
+      "sha256": "f4ac846d43771c424512f5b80938fb4dfe945456a4c32823c6b54ff07fc304d9",
+      "gitBlob": "b30f081c759700ca1fd3ef16edf470265d6f78a6"
+    }
+  ],
+  "imports": [
     {
-      "path": "SOURCES.json",
-      "sha256": "f00855863844bfc5f57dd4154e6bbcf7f4b85fb6bd20a47b3f4a3ab9c512ed95",
-      "gitBlob": "de367c45bc90043f817303a41b462d40a7fa7efa"
+      "source": {
+        "repository": "https://github.com/bolens/agent-skills",
+        "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+        "path": "skills/git-hygiene"
+      },
+      "upstreamFiles": [
+        {
+          "path": "references/branch-cleanup.md",
+          "sha256": "a9a129ba26e42a381ec593a9d05f424f410af3b158dcc914b1e40e6232f307c8",
+          "gitBlob": "7211cf3928db5fffe795fe7f5ab0b20994c48e32"
+        },
+        {
+          "path": "references/evidence-cleanup.md",
+          "sha256": "1be99e53002f057e646893eee08df20f8b363e05bb26408103a322d3ae5608d7",
+          "gitBlob": "4b3f44c581b7cfb49f0371caece584b4623f8bab"
+        },
+        {
+          "path": "references/freshness.md",
+          "sha256": "606f4820966f9ad5c11fb3857c83717519818b6a0769aa3ddec66ebc43378c5e",
+          "gitBlob": "e3877aff9152143b0fb59cb4004f61bc8249dcd9"
+        },
+        {
+          "path": "references/semantic-conventions.md",
+          "sha256": "77829f65b17ebe3fcbb9085fc53409629b8d03d34df985a9cbfe104c51350937",
+          "gitBlob": "636827c0f172e5b506d090c955f81b7282a20101"
+        }
+      ],
+      "changes": [
+        "Preserve useful detailed references under the existing owner, with standalone links and project-selected conventions. No duplicate legacy entrypoint."
+      ]
     }
   ]
 }

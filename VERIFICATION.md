@@ -219,6 +219,47 @@ and approved-release manifest were byte-identical to the earlier preserved
 installation or source writes. The capture freeze was released after verification.
 This checkpoint covers `6fbe1ae`, not later documentation commits.
 
+## Installed-specialist source import
+
+The source catalog now contains 29 skills. Eight new folders retain pinned
+Bolens/Fedora ancestry, complete selectable-folder notices and input/output
+identities. Three existing owners incorporate attributed references rather than
+adding duplicate technical-writing, Git or CI entrypoints. The disposition and
+live-switch precautions are in [the import guide](audits/installed-skill-import.md).
+
+Executed for this change:
+
+- Pre-edit baseline: package checks and all 44 Node tests passed.
+- `npm run lint`: passed.
+- `npm test`: package checks, all 29 isolated-folder closure/notice/digest checks,
+  validator mutation fixtures and all 50 Node tests passed.
+- New synthetic fixtures cover owner selection/exclusions, unchanged helper
+  identities, drift content/link/exclusion results and exit states, collector
+  exclusive private output, existing-file/symlink refusal, output limit, total
+  timeout and reaping of the owned synthetic child. No live health probes ran.
+- `node test/install-smoke.mjs`: real pinned Vercel 1.7.4 installation passed in
+  disposable HOME/project directories: 5 global core and 24 project-local skills,
+  Pi/Claude Code/Codex receipts, 58 physical copies, payload hashes/locks and
+  refusal of an unapproved reinstall. This is installer evidence, not live host
+  discovery or duplicate-precedence evidence.
+- `npm run pack:packages`: seven source-build tarballs generated. Extraction checks
+  verified exact assigned skill folders, recorded payload hashes and executable
+  helper modes in every tarball. These source builds retain development version
+  `0.2.0` but are not the immutable published artifacts and were not published.
+- Gitleaks scanned all seven frozen source-build archives at archive depth 2 and
+  reported no leaks. `git diff --check` passed.
+
+The optional Python helper implementations are preserved byte-for-byte. Tests
+exercise synthetic local files and mocked commands, not broad host logs, system
+repair, hostile filesystem traversal, every cancellation case or Fedora package
+probe coverage. The collector still has Arch-specific package probes; the drift
+comparator still has no internal traversal/hash budget. Those limits are explicit
+in their entrypoints, not represented as fixed code.
+
+No live skills, locks, host settings, dotfile/chezmoi sources or private instructions
+were replaced. npm `0.2.0` continues to contain the earlier 21-skill catalog. The
+GitHub source/checkout is required for these additions until a new release.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
