@@ -18,7 +18,7 @@ and expanded host behavior remain separately unverified.
 | Sources | Learn from multiple collections. Adapt useful material with its required licenses, attribution, reviewed revisions, and local changes recorded. |
 | Audience | Primarily Taha's use, but shareable with others. Private preferences and personal permissions stay in global `AGENTS.md`, managed separately by dotfiles/chezmoi. |
 | Hosts | Support Pi, Claude Code, and Codex from the first expanded version. Verify each host rather than claiming compatibility from file placement alone. |
-| Distribution | Use Vercel's Skills CLI for selective global or project installation. Do not build a competing installer without a demonstrated need. |
+| Distribution | Vercel's Skills CLI performs file installation. The requested Node selector adds group/skill, agent and global/project choices, preflight checks and verification without replacing that installer. |
 | Coverage | Include coding and non-coding work. Research, analytical reports, document review, and content creation are in scope for optional bundles. |
 | Engineering | Provide a complete path through implementation, testing, independent review, and release preparation. Keep stages separately usable. |
 | Agents | Ordinary tasks work with one agent. Advanced workflows may require multiple agents where independent review matters. |
@@ -39,8 +39,11 @@ report that limitation instead of pretending a self-review is independent.
 
 ## Proposed domain boundaries
 
-These categories are a working proposal, not an agreed list of npm packages or
-a commitment to import every upstream capability.
+These capability categories remain a working proposal, not a commitment to
+import every upstream capability. The requested installation packages now use
+six non-overlapping groups in `distribution.json`: core, engineering, content,
+design, data and operations. [INSTALL.md](INSTALL.md) records their current
+contents. Installation grouping does not transfer a workflow's responsibility.
 
 | Domain | Owns | Initial candidates |
 | --- | --- | --- |
@@ -101,11 +104,12 @@ skill selection is not a general dependency resolver. Required files must ship
 with the selected skill, or required sibling skills must be included explicitly
 and validated. Audit cross-skill paths before promising selective installation.
 
-Generate npm domain packages and an umbrella package only when their contents
-and boundaries are useful and verified. Do not introduce a separate selector,
-plugin surface, hook, or settings writer merely to resemble another bundle.
-Choose such integrations only after a concrete workflow establishes the need.
-Installation must not be treated as permission to enable those integrations.
+The requested npm distribution generates six domain packages from canonical
+skill folders and retains an umbrella package. A zero-runtime-library Node
+selector resolves groups/skills into an explicit Vercel 1.7.4 invocation. It adds
+scope/agent choices, collision and lock checks, stable-plan consent and copied
+artifact verification. It does not introduce plugins, installation hooks or a
+host-settings writer. Package installation alone does not activate skills.
 
 ## Existing installation and ownership
 
@@ -145,8 +149,9 @@ repository. File preservation alone does not establish that the host loads it.
    The entrypoint development pilot does not establish full-skill effectiveness.
 4. Expand substantive gaps against recurring tasks, including platform recovery,
    statistical methods and format-specific engines. Do not fill them with labels.
-5. Verify direct distribution. Generate packages or profiles only when needed.
-   Publication remains separately authorized, not a consequence of source setup.
+5. The user requested public GitHub and npm distribution with a scope selector.
+   Verify actual generated tarballs and registry identities, not just manifests.
+   This publication authority is task-specific, not permission for later releases.
 
 Use structural checks for metadata, links, licenses, package contents, and
 required dependencies. Test install collisions, duplicate discovery, updates,

@@ -206,6 +206,19 @@ payloads new recorded identities. Run offline checks, inspect the actual tarball
 and use fresh tasks after development exposure. Source maintenance belongs to this
 repository's maintainer, not an upstream auto-updater or a hidden private skill.
 
+## Distribution adapter
+
+The requested 0.2.0 selector is original Node code around the pinned Vercel Skills
+CLI 1.7.4 interface. Local inspection established its agent paths, copy exclusions,
+JSON receipts and project/global lock formats. Disposable integration checks cover
+all 21 skills across both scopes and all three supported agent targets. The adapter
+does not vendor Vercel's implementation. npm downloads the separately distributed
+installer when it is not cached. These mechanics do not establish skill effectiveness.
+
+The 1aboveio domain/umbrella catalog informed packaging comparisons. Our generator
+copies only this repository's canonical skills and retained notices. It does not
+copy that bundle's selector, host-settings writes, hooks or runtime extensions.
+
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions

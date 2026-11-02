@@ -1,16 +1,67 @@
 {
   "name": "@tahabakhit/skills",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Selectively installable workflows for engineering, research, content, data, and Linux operations.",
   "license": "MIT",
   "author": "Taha Bakhit",
-  "publishConfig": { "access": "public" },
-  "keywords": ["pi-package", "agent-skills", "discovery", "specification"],
-  "files": ["skills", "test", "audits", "research", "evaluations", "catalog.json", "CATALOG.md", "README.md", "ARCHITECTURE.md", "SOURCES.md", "VERIFICATION.md", "LICENSE", "THIRD-PARTY-NOTICES.md"],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">=22.20.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tahabakhit/skills.git"
+  },
+  "homepage": "https://github.com/tahabakhit/skills#readme",
+  "bin": {
+    "taha-skills": "bin/skills.mjs"
+  },
+  "keywords": [
+    "pi-package",
+    "agent-skills",
+    "discovery",
+    "specification"
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "scripts",
+    "distribution.json",
+    "INSTALL.md",
+    "skills",
+    "test",
+    "audits",
+    "research",
+    "evaluations",
+    "catalog.json",
+    "CATALOG.md",
+    "README.md",
+    "ARCHITECTURE.md",
+    "SOURCES.md",
+    "VERIFICATION.md",
+    "LICENSE",
+    "THIRD-PARTY-NOTICES.md"
+  ],
   "scripts": {
-    "test": "sh test/package.sh"
+    "test": "sh test/package.sh && node --test test/*.test.mjs",
+    "lint": "eslint bin lib scripts",
+    "build:packages": "node scripts/build-packages.mjs",
+    "pack:packages": "node scripts/release.mjs --pack",
+    "publish:dry-run": "node scripts/release.mjs --dry-run",
+    "publish:packages": "node scripts/release.mjs --publish"
   },
   "pi": {
-    "skills": ["./skills"]
+    "skills": [
+      "./skills"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "10.14.0"
+  },
+  "overrides": {
+    "minimatch": "11.0.1"
   }
 }

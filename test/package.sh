@@ -7,16 +7,16 @@ checks=0
 pass() { checks=$((checks + 1)); printf 'ok %s - %s\n' "$checks" "$1"; }
 fail() { printf 'FAIL: %s\n' "$1" >&2; exit 1; }
 
-jq -e '.name == "@tahabakhit/skills" and .version == "0.1.0"
+jq -e '.name == "@tahabakhit/skills" and .version == "0.2.0"
   and .private != true and .publishConfig.access == "public"
   and .pi.skills == ["./skills"]' package.json >/dev/null
 pass 'npm identity and optional Pi manifest'
 
 jq -e '(.dependencies // {} | length) == 0
-  and (.scripts | keys) == ["test"]
-  and (has("bin") | not)
+  and (.scripts | keys) == ["build:packages", "lint", "pack:packages", "publish:dry-run", "publish:packages", "test"]
+  and .bin == {"taha-skills":"bin/skills.mjs"}
   and (.pi | keys) == ["skills"]' package.json >/dev/null
-pass 'no runtime dependencies, install hooks or extensions'
+pass 'selector bin has no runtime library dependencies, install hooks or extensions'
 
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
@@ -41,7 +41,7 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
 done
 pass '21 cataloged, named, described and bounded skills'
 
-for file in README.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/define-work/SKILL.md; do
+for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do

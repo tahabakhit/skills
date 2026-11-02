@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "installer": "skills@1.7.4",
+  "agents": ["pi", "claude-code", "codex"],
+  "groups": [
+    {"name":"core","description":"Discovery, specifications, evidence research and acceptance proof","skills":["discover-work","define-work","research-work","verify-and-stop"]},
+    {"name":"engineering","description":"Delivery, design, debugging, tests, review, Git, CI, dependencies and security","skills":["codebase-design","systematic-debugging","deliver-work","testing-work","code-review","change-safely","git-hygiene","ci-maintenance","triage-dependency-updates","release-packaging","security-review"]},
+    {"name":"content","description":"Writing, file production and document review","skills":["create-content","document-review"]},
+    {"name":"design","description":"Usability and accessibility review","skills":["interface-review"]},
+    {"name":"data","description":"SQL, measurement, transformations and pipelines","skills":["analyze-data","data-pipelines"]},
+    {"name":"operations","description":"Platform-aware Linux diagnosis and scoped changes","skills":["operate-systems"]}
+  ]
+}

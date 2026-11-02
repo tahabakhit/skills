@@ -154,6 +154,36 @@ All 67 historical live shared-skill files still matched the audit snapshot after
 source integration. No installed folder, live lock, chezmoi source or host setting
 was migrated by this task. The source tarball is not an installation test.
 
+## Public distribution and selector checks (0.2.0)
+
+Environment: Fedora 45 Linux, Node 24.22.2, npm 11.19.1; login shell fish.
+The public repository and npm package changes were explicitly requested. This
+phase changes distribution code, not the 21 skill payloads or frozen pilot scores.
+
+| Check | Observed result |
+| --- | --- |
+| Source package checks | All 14 existing offline checks pass |
+| Node selector/release tests | 44 tests pass, including literal selection, scope/agent validation, collision/lock preservation, malformed receipts, partial scope failure, source/target aliases, stale consent, hard-linked locks, file modes/directories, builder sentinels and immutable approved artifacts |
+| Release secret-scan regression | A synthetic token inside a `.tgz` payload is detected after freezing exact bytes under Gitleaks-recognized `.tar.gz` names. Original artifact changes cannot alter those publication copies |
+| Static checks | ESLint passes with a maximum function complexity of 14 |
+| Real Skills CLI 1.7.4 integration | All 21 skills split between temporary global (4) and project (17) scopes; Pi, Claude Code and Codex receipts verified, with 42 physical copies because Pi/Codex share canonical storage; destination hashes and both locks checked |
+| Collision retry | Reinstall without replacement consent refused; existing bytes preserved |
+| Native terminal wizard | Selected global core, project data, a repository path and Pi by number. Dry run printed the expected plan and left temporary HOME/project empty |
+| Packed distribution | Seven 0.2.0 tarballs, including the 202-entry umbrella. Actual archive entry, payload identity, notice and CLI checks pass. The extracted umbrella passes all 14 package checks and 44 Node tests without runtime-library installation |
+| Public-release source review | Independent reviews found and drove corrections to ancestor-alias output deletion, source/destination overlap, stale replacement consent, copy verification and hard-linked lock handling |
+
+`node test/install-smoke.mjs` repeats the real installer check with disposable
+HOME/project/config paths and a cached pinned installer. It executes the installer,
+not skill helpers or model sessions. Warm its cache with
+`npx --yes skills@1.7.4 --help` if necessary. The ordinary `npm test` suite does not
+make registry/model calls or install skills in live directories.
+
+The repository is public. npm publication remains blocked by missing registry
+authentication (`npm whoami` reports `ENEEDAUTH`). A public npm manifest, successful
+packing or a publication dry run does not establish ownership of the npm scope or
+prove publication. No live skill directory, lock, chezmoi source or host setting
+was migrated or installed into by this phase.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
@@ -161,8 +191,9 @@ results. Question quality for the original pair, real authority/stopping behavio
 automatic routing, full engineering success and source-specialist equivalence
 are not established. A forced text-only comparison cannot establish those facts.
 
-Earlier two-skill loader/directory installation smoke tests do not verify the
-expanded catalog in Claude Code or Codex. The native interactive Pi sessions were
-used as a runner, not a client-TUI acceptance test. Global installation, ownership
-transfer, npm publication and authority over the `@tahabakhit` scope remain
-unverified. No package was published or registered in real projects.
+The expanded installation check verifies temporary destination files, not that
+Claude Code, Codex or Pi actually consume every skill correctly. Native interactive
+Pi evaluation sessions were a runner, not client-TUI acceptance tests. Live global
+installation, ownership transfer, npm publication and authority over the
+`@tahabakhit` npm scope remain unverified. No package was published or registered
+in real projects.
