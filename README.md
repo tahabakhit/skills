@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-22 standalone workflow skills in six disjoint bundles. Install **core once globally**,
+21 standalone workflow skills in six disjoint bundles. Install **core once globally**,
 then add **whole local bundles** to the projects that need them. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
@@ -36,7 +36,7 @@ and host-loader versions, checks and remaining limits.
 | [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
-| [configuration](skills/configuration) | Local | `managed-config-drift`, `chezmoi` (2) |
+| [configuration](skills/configuration) | Local | `managed-config-drift` (1) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
@@ -62,9 +62,8 @@ not replace required independent review.
 
 `create-content` owns writing and prose cleanup in core. The redundant `unslop`
 entrypoint is removed, with no alias. `define-work` belongs to engineering.
-`chezmoi` consolidates nine upstream topics with detailed local references and
-source/target/state checks; diagnosis is read-only unless scoped mutation is
-requested. See [the catalog](CATALOG.md) for exact responsibilities and gaps.
+The `chezmoi` skill is now managed by the owner's dotfiles repository, not
+installed from this collection. See [the catalog](CATALOG.md) for exact responsibilities and gaps.
 
 ## Optional checkout wrapper and npm status
 

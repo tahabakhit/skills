@@ -24,11 +24,11 @@ test('installed names have one distribution owner and no CLI-managed or legacy a
   const distribution = json('distribution.json');
   const groups = Object.fromEntries(distribution.groups.map(g => [g.name, g.skills]));
   assert.deepEqual(groups.core, ['discover-work', 'research-work', 'create-content', 'verify-and-stop']);
-  assert.deepEqual(groups.configuration, ['managed-config-drift', 'chezmoi']);
+  assert.deepEqual(groups.configuration, ['managed-config-drift']);
   assert.equal(groups.operations, undefined);
   assert.equal(groups.design, undefined);
   const names = distribution.groups.flatMap(g => g.skills);
-  assert.equal(new Set(names).size, 22);
+  assert.equal(new Set(names).size, 21);
   for (const name of ['unslop', 'technical-writing', 'migration', 'safe-refactor', 'herdr-core', 'ketch', 'operate-systems', 'arch-linux', 'arch-package-maintenance', 'arch-update-recovery', 'cachyos', 'rhel-fedora', 'workstation-health-triage']) {
     assert.ok(!names.includes(name));
     assert.ok(!fs.existsSync(path.join(root, 'skills', name)));

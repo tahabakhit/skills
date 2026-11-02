@@ -476,6 +476,28 @@ its former core membership/API; its compatibility needs a separately scoped upda
 before a regrouped npm release. No bootstrap was run or modified by this task.
 Live skills, host settings, chezmoi sources and removed OS skills were not changed.
 
+## Chezmoi skill ownership transfer
+
+Moved the complete 52-file `chezmoi` payload from
+`skills/configuration/chezmoi/` to the owner's dotfiles repository at
+`private_dot_agents/private_skills/chezmoi/`. References, notices and provenance
+are byte-preserved. Its tests moved to `tests/chezmoi-skill.test.mjs` there.
+Current source now has 21 skills; configuration contains only `managed-config-drift`.
+Historical evidence above retains its original counts and paths.
+
+Environment: Fedora 45 Linux, Node 24.22.2, npm 11.19.1, Git 2.56.0;
+login shell `/usr/bin/fish`. Checks passed:
+
+- Skills repository: 14 package checks, 52 Node tests, ESLint and diff whitespace.
+- Dotfiles repository: 11 skill tests, including all payload identities and a
+  byte-identical inert chezmoi archive at `.agents/skills/chezmoi/`.
+- Dotfiles configuration selection on simulated Linux and macOS, plus documentation
+  links. The skill is selected on all platforms, without a new Claude-specific copy.
+
+No live apply, live copy/link replacement, installer-lock cleanup, bootstrap
+execution or npm publication was performed. Existing live copies remain unchanged;
+this proves source deployment mapping, not running-agent discovery or live migration.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing

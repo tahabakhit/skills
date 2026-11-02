@@ -42,5 +42,5 @@ try {
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log('Real pinned installer passed: 22 skills, global+project scopes, Pi/Claude Code/Codex receipts, 44 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
+  console.log('Real pinned installer passed: 21 skills, global+project scopes, Pi/Claude Code/Codex receipts, 42 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
 } finally { fs.rmSync(dir, { recursive: true }); }

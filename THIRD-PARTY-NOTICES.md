@@ -51,8 +51,8 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 22 skills under `skills/<group>/<name>/`; configuration
-contains only `managed-config-drift` and `chezmoi`. The redundant `unslop` folder
+Current source contains 21 skills under `skills/<group>/<name>/`; configuration
+contains only `managed-config-drift`. The redundant `unslop` folder
 is removed with no alias; prose cleanup belongs to core's `create-content`.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-linux`,
@@ -81,8 +81,10 @@ current installation ownership.
 
 Source: [mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc),
 MIT License, copyright (c) 2026 Mike Kobit. Nine skill entrypoints and 38 reference
-files are consolidated and adapted in `skills/configuration/chezmoi`. The complete source grant
-ships in that folder's `LICENSE`; local contributions retain their own notice.
+files were consolidated and adapted into the `chezmoi` skill, now moved to
+`private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository
+and no longer distributed here. The complete source grant and local contribution
+notice moved with the skill.
 Its `PROVENANCE.json` records original input paths/hashes, resulting identities and
 changes. No upstream runtime, plugin or evaluation harness is bundled. Neither
 Mike Kobit nor the chezmoi project endorses this adaptation.

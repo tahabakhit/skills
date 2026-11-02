@@ -2,9 +2,9 @@
 
 ## Current source and historical records
 
-Current source contains 22 skills at `skills/<group>/<name>/`: core (4, global),
+Current source contains 21 skills at `skills/<group>/<name>/`: core (4, global),
 engineering (12, local), content (1, local), interface-review (1, local), data
-(2, local) and configuration (2, local). `create-content` is in core and owns
+(2, local) and configuration (1, local). `create-content` is in core and owns
 prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
 is removed with no alias. OS skills remain external in the owner's chezmoi
 source; `herdr-core` and `ketch` are excluded CLI integrations.
@@ -266,10 +266,10 @@ are excluded as CLI-managed integrations at the user's request.
 
 Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc).
 All nine skill entrypoints and 38 reference files were read for this adaptation.
-Their topics are consolidated into `skills/configuration/chezmoi`, with flattened local
-references, one activation description and no required sibling skills. The source
-MIT grant, copyright 2026 Mike Kobit, ships inside the selectable folder alongside
-the local contribution notice.
+Their topics were consolidated into one skill, now moved with all 52 files to
+`private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository.
+It is no longer distributed here. The source MIT grant, copyright 2026 Mike Kobit,
+and local contribution notice travel with that source.
 
 The adaptation preserves topic detail while adding an entrypoint safety gate for
 source, destination, configuration and persistent-state identity. It distinguishes
@@ -288,7 +288,7 @@ managed dotfiles or replacing existing live skills.
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions
-and consolidated chezmoi skill are attributed forks. The 16 new procedures are provisional original workflows.
+are attributed forks; the consolidated chezmoi fork is now maintained in dotfiles. The 16 new procedures are provisional original workflows.
 None is an endorsed integration. [The recorded pilot](evaluations/entrypoint-pilot/RESULTS.md)
 is entrypoint-only development evidence, not proof of whole-system effectiveness,
 routing, tools, stopping behavior or host compatibility. Package changes can alter

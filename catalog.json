@@ -387,19 +387,6 @@
       }
     },
     {
-      "name": "chezmoi",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "maintained-fork",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "path": "skills/configuration/chezmoi",
-      "provenance": "skills/configuration/chezmoi/PROVENANCE.json",
-      "capabilities": "Installed chezmoi CLI and explicit source, destination, configuration and state paths. Secrets providers and network operations are optional and require task-specific access.",
-      "activation": "selective",
-      "behaviorEvidence": {"status": "not-evaluated"}
-    },
-    {
       "name": "managed-config-drift",
       "domain": "operations",
       "maturity": "source-import",
@@ -471,21 +458,7 @@
         "numerical-analysis"
       ],
       "owner": "analyze-data"
-    },
-    {
-      "components": [
-        "chezmoi-cli-commands",
-        "chezmoi-configuration",
-        "chezmoi-externals",
-        "chezmoi-file-attributes",
-        "chezmoi-init",
-        "chezmoi-machine-config",
-        "chezmoi-scripts",
-        "chezmoi-secrets-management",
-        "chezmoi-templating"
-      ],
-      "owner": "chezmoi"
     }
   ],
-  "coverageNote": "22 canonical owners in six disjoint installation groups. Core is the recommended global base; domain bundles are normally project-local, with selective activation rather than mandatory stages. General prose cleanup belongs to create-content; the redundant unslop skill is removed without an alias. OS administration and workstation-health skills are managed separately by chezmoi. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations or immutable npm releases."
+  "coverageNote": "21 canonical owners in six disjoint installation groups. Core is the recommended global base; domain bundles are normally project-local, with selective activation rather than mandatory stages. General prose cleanup belongs to create-content; the redundant unslop skill is removed without an alias. The chezmoi, OS administration and workstation-health skills are managed separately by the owner's dotfiles repository. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations or immutable npm releases."
 }

@@ -35,9 +35,9 @@
     },
     {
       "name": "configuration",
-      "description": "Configuration ownership, drift and scoped chezmoi workflows",
+      "description": "Configuration ownership and drift workflows",
       "recommendedScope": "project",
-      "skills": ["managed-config-drift", "chezmoi"]
+      "skills": ["managed-config-drift"]
     }
   ]
 }

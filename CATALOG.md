@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Current source has 22 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 21 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
@@ -9,7 +9,7 @@ Current source has 22 canonical workflow owners under `skills/<group>/<name>/`. 
 | [content](skills/content) | Local | 1 |
 | [interface-review](skills/interface-review) | Local | 1 |
 | [data](skills/data) | Local | 2 |
-| [configuration](skills/configuration) | Local | 2 |
+| [configuration](skills/configuration) | Local | 1 |
 
 The six bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review/configuration package identities are locally generated, not published.
 
@@ -47,7 +47,7 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 
 Content contains only `document-review`; interface-review contains only
 `interface-review`; data contains `analyze-data` and `data-pipelines`;
-configuration contains `managed-config-drift` and `chezmoi`.
+configuration contains only `managed-config-drift`.
 
 | Owner | Responsibility | Does not supply |
 | --- | --- | --- |
@@ -56,7 +56,6 @@ configuration contains `managed-config-drift` and `chezmoi`.
 | `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
 | `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
 | `managed-config-drift` | Live/source/default ownership and read-only comparison | Automatic reconciliation or a bounded/atomic tree snapshot |
-| `chezmoi` | Dotfile source/target/state diagnosis, templates, attributes, scripts, externals, configuration and secrets | Automatic apply/update, credential access or migration of existing skill installations |
 
 Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` owns technical-writing structure, sentence style and repository verification, including the three imported local references. Prose cleanup belongs to `create-content`; the redundant `unslop` entrypoint is removed with no alias.
 
@@ -70,20 +69,21 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 | Technical writing, prose cleanup, editing, marketing, reports, communications and file-production contracts | Core's `create-content` modes/references |
 | Evidence investigation and participant-study planning/synthesis | `research-work` |
 | SQL, metrics, cohorts and numerical analysis | `analyze-data` |
-| Nine mkobit chezmoi topics, with detailed local references | `chezmoi` |
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
-The configuration bundle contains only `managed-config-drift` and `chezmoi` (2).
-The seven OS/platform/health skills remain external in the owner's chezmoi source.
+The configuration bundle contains only `managed-config-drift` (1).
+The `chezmoi` skill and seven OS/platform/health skills are managed separately
+in the owner's dotfiles source.
 
 ## Historical installed-skill audit and current source disposition
 
-The catalog itself does not change live skills, links, locks, host settings or chezmoi sources. Adding the new `chezmoi` skill does not replace any audited specialist installation. The [installed-skill audit](audits/installed-skills.md) remains a historical preservation baseline, not current installation ownership evidence.
+The catalog itself does not change live skills, links, locks, host settings or chezmoi sources. The [installed-skill audit](audits/installed-skills.md) remains a historical preservation baseline, not current installation ownership evidence.
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
 | `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Moved to the owner's chezmoi dotfiles source for Linux-only management, not distributed here. Immutable npm `0.3.0` retains the old copies. Source transfer does not apply changes to live installations |
+| `chezmoi` | Moved with all references, licenses, provenance and tests to the owner's dotfiles repository; deployed by chezmoi, not distributed here |
 | `managed-config-drift` | Configuration specialist with unchanged optional comparator and honest unbounded-traversal contract |
 | `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
 | `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |

@@ -9,13 +9,13 @@ const distribution = {
   schemaVersion: 1, installer: 'skills@1.7.4',
   groups: [
     { name: 'core', skills: ['discover-work'], recommendedScope: 'global' },
-    { name: 'configuration', skills: ['chezmoi'], recommendedScope: 'project' }
+    { name: 'configuration', skills: ['managed-config-drift'], recommendedScope: 'project' }
   ]
 };
 
 test('skillPath derives only the owning group, without filesystem or flat fallback', () => {
   assert.equal(skillPath('/source', distribution, 'discover-work'), path.join('/source', 'skills/core/discover-work'));
-  assert.equal(skillPath('/source', distribution, 'chezmoi'), path.join('/source', 'skills/configuration/chezmoi'));
+  assert.equal(skillPath('/source', distribution, 'managed-config-drift'), path.join('/source', 'skills/configuration/managed-config-drift'));
   for (const name of ['unknown', '../discover-work', '/discover-work', 'a/b', '', null, 'a'.repeat(256)]) {
     assert.throws(() => skillPath('/source', distribution, name));
   }
@@ -46,6 +46,6 @@ test('distribution validation requires nested entrypoints even when flat files e
 
 test('recommended scope is guidance, not enforcement', () => {
   assert.deepEqual(selections({ global: 'configuration', local: 'core' }, distribution), {
-    global: ['chezmoi'], local: ['discover-work']
+    global: ['managed-config-drift'], local: ['discover-work']
   });
 });

@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **22 canonical workflow owners** in six disjoint
+The approved source layout has **21 canonical workflow owners** in six disjoint
 bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -34,13 +34,13 @@ standalone does not mean tool-free.
 | content | Local | `document-review` (1) |
 | interface-review | Local | `interface-review` (1) |
 | data | Local | `analyze-data`, `data-pipelines` (2) |
-| configuration | Local | `managed-config-drift`, `chezmoi` (2) |
+| configuration | Local | `managed-config-drift` (1) |
 
 `create-content` owns shared writing and prose cleanup. The redundant `unslop`
 entrypoint is removed with no alias. `define-work` is a project engineering skill,
 not global core. Bundle names describe installation sources, not competing workflow
-owners or a new profile framework. OS skills remain external in the owner's
-chezmoi source; `herdr-core` and `ketch` remain excluded CLI integrations.
+owners or a new profile framework. The chezmoi and OS skills remain external
+in the owner's dotfiles source; `herdr-core` and `ketch` remain excluded CLI integrations.
 
 ## Native distribution and optional adapter
 
