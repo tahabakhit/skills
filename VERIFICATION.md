@@ -447,14 +447,27 @@ Observed on Fedora 45, login Fish, Node 24.22.2 and npm 11.19.1:
   directly installed six local subtree sources and the umbrella, without our
   wrapper. Exact names, scopes, full bytes/modes, Pi/Claude Code/Codex receipts,
   unrelated-file preservation and normal-journey absence of local core copies
-  passed. No live HOME or project received skills. Supplying a published commit
-  as the next argument enables the separate real-GitHub tree-source check.
+  passed. No live HOME or project received skills.
+- Repeated that native smoke with published GitHub commit
+  `d1fe9aa5fc905dde0d705af236dc9e4220997647`: all six real GitHub subtree URLs and
+  the umbrella URL passed the same installation/copy/scope/receipt assertions.
+  These checks used explicit copy mode and fresh disposable targets, not the
+  upstream default-link update/removal lifecycle or old-installation migration.
 - `node test/pi-discovery.mjs <installed-pi-loader>`: Pi 1.5.0's installed loader
   discovered the umbrella and every group with no diagnostics. This does not
   establish runtime routing or agent task performance.
 - `npm run pack:packages`: all seven local packages generated successfully with
   grouped payloads. New interface-review/configuration package names are local
   output only. No registry publication was performed.
+
+Two independent read-only final reviews compared candidate
+`d1fe9aa5fc905dde0d705af236dc9e4220997647` with base
+`6ec82322433acbe2272ca310e8a3d514e1d8c272`. Neither found material defects or merge
+blockers. The code reviewer independently reran all 62 Node tests and 14 shell
+package checks. The contract reviewer read all 22 entrypoints and checked all 176
+recorded payload SHA-256/Git identities and 32 declared license files. Neither
+review establishes behavioral efficacy, remote-update correctness or legal
+clearance. The later evidence update changes documentation only.
 
 The source package version remains 0.3.0; its immutable registry release is still
 the old 30-skill bundle, not these source bytes. Do not republish that version.
