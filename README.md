@@ -18,13 +18,13 @@ locally, asks for target agents, then previews exact paths before confirmation.
 Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
-All seven packages are published at `0.2.0`, which contains the earlier 21-skill
-catalog. The specialist additions, chezmoi skill and reference consolidations on
-GitHub are not yet published to npm. Use GitHub or a checkout for all 30 skills.
-Public installation does not require npm login. Use `npx @tahabakhit/skills@0.2.0` to pin the verified release, or add
-`--list` to inspect its choices without installing skills. All seven published
-selectors passed registry version/list checks. Exact package identities are in
-[the release record](https://github.com/tahabakhit/skills/blob/main/releases/0.2.0.json).
+Version `0.3.0` contains all 30 skills, including the specialist additions,
+chezmoi and consolidated references. The earlier `0.2.0` contains 21 skills.
+Public installation does not require npm login. Use
+`npx @tahabakhit/skills@0.3.0` to pin this version, or add `--list` to inspect its
+choices without installing skills. Check registry availability with
+`npm view @tahabakhit/skills version`. Verified package identities are kept in
+[the release records](https://github.com/tahabakhit/skills/tree/main/releases).
 
 To use the latest GitHub source instead:
 
@@ -72,7 +72,7 @@ Restart the agent after installing. Start a fresh session when replacing workflo
 | Data | `@tahabakhit/skills-data` | 2 |
 | Linux operations and dotfiles | `@tahabakhit/skills-operations` | 9 |
 
-These are source-checkout counts, not the immutable npm `0.2.0` contents.
+These are the `0.3.0` package counts, not the older immutable `0.2.0` contents.
 Core contains `discover-work`, `define-work`, `research-work`, `verify-and-stop`
 and `unslop`. Operations includes general operations plus the Arch, CachyOS,
 Fedora/RHEL, configuration-drift and workstation-health specialists, plus chezmoi.

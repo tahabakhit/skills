@@ -7,7 +7,7 @@ checks=0
 pass() { checks=$((checks + 1)); printf 'ok %s - %s\n' "$checks" "$1"; }
 fail() { printf 'FAIL: %s\n' "$1" >&2; exit 1; }
 
-jq -e '.name == "@tahabakhit/skills" and .version == "0.2.0"
+jq -e '.name == "@tahabakhit/skills" and .version == "0.3.0"
   and .private != true and .publishConfig.access == "public"
   and .pi.skills == ["./skills"]' package.json >/dev/null
 pass 'npm identity and optional Pi manifest'

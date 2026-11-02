@@ -192,7 +192,7 @@ test('six domain packages partition 30 complete standalone payloads', t => {
   assert.deepEqual(rows.slice(0, 6).map(r => fs.readdirSync(path.join(r.dir, 'skills')).length), [5, 11, 2, 1, 2, 9]);
   for (const row of rows.slice(0, 6)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
-    assert.equal(pkg.version, '0.2.0'); assert.equal(pkg.publishConfig.access, 'public');
+    assert.equal(pkg.version, '0.3.0'); assert.equal(pkg.publishConfig.access, 'public');
     assert.equal(pkg.scripts, undefined); assert.equal(pkg.dependencies, undefined);
     const result = spawnSync(process.execPath, [path.join(row.dir, 'bin/skills.mjs'), '--list'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);

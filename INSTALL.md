@@ -28,10 +28,10 @@ Enter group names, displayed group numbers, individual skill names, or `all`.
 Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
 selections in both scopes cancel. No skill is installed globally by default.
 
-All seven packages are public at `0.2.0`, with the earlier 21-skill catalog.
-The current GitHub source has 30 skills and additional CI/Git/writing references;
-those changes are not yet on npm. Use the GitHub or checkout alternative below
-for this expanded catalog. Installing public packages does not require npm login. If npm returns E404 for another version, check that it was published or use
+Version `0.3.0` includes all 30 skills and the additional CI/Git/writing references.
+The older `0.2.0` contains 21 skills. Check registry availability with
+`npm view @tahabakhit/skills version`. Installing public packages does not require
+npm login. If npm returns E404 for a version, check that it was published or use
 the public source methods below. A GitHub push alone is not npm publication.
 
 ## Explicit and non-interactive use
@@ -75,7 +75,7 @@ other domain packages. Ownership is a partition, not duplicate source trees.
 | `@tahabakhit/skills-data` | Analysis and pipelines (2) |
 | `@tahabakhit/skills-operations` | Linux operations, Arch/CachyOS, Fedora/RHEL, config drift, workstation health and chezmoi (9) |
 
-The table describes current source builds, not the published `0.2.0` artifacts.
+The table describes `0.3.0`, not the older immutable `0.2.0` artifacts.
 For example, `npx @tahabakhit/skills-data@latest` offers only the data group. Do not
 install the same skill twice through both the umbrella and a domain package.
 These installation groups do not change the canonical responsibilities in
@@ -120,7 +120,7 @@ The final plan is authoritative for the current environment.
 Copies do not depend on the npx cache staying present. The upstream lock records a
 local package source, so `skills update` does not update these copies. Re-run the
 selector from the desired npm version, inspect its plan, then use `--replace` for
-an intentional update. Pin `@0.2.0` rather than `@latest` for a repeatable release.
+an intentional update. Pin `@0.3.0` rather than `@latest` for a repeatable release.
 
 Serialize other installers while this runs. The wrapper uses exclusive temporary
 `*.taha-install` guards beside upstream locks. A stale guard after a crash is not

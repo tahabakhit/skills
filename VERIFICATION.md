@@ -328,6 +328,34 @@ installer verified five global and 25 project-local skills in disposable state,
 All seven combined source-build archives passed an archive-depth-2 Gitleaks scan.
 No combined specialist installation was performed on the live machine.
 
+## npm 0.3.0 release preparation
+
+Environment: Fedora 45 Linux, Node 24.22.2, npm 11.19.1, Git 2.56.0 and fish
+login shell. The `main` and `skills-spec` worktrees started clean at `65dd9f9`,
+also observed on remote `main`. There was no outstanding merge. The owner
+explicitly requested integration, remote push and npm publication.
+
+The release changes package metadata, root lock versions and current-version
+assertions to `0.3.0`. Canonical skill payloads, catalog membership and the six
+groups are unchanged. All seven `0.3.0` versions returned registry 404 before
+publication. The authenticated npm identity was `tahabakhit`.
+
+Preparation checks passed:
+
+- `npm ci --ignore-scripts`: no reported vulnerabilities.
+- ESLint, 14 package checks and 60 Node tests: passed without skips.
+- Real pinned installer: five global and 25 project skills across Pi, Claude Code
+  and Codex in disposable state, 60 physical copies, receipts, hashes, locks and
+  refusal of an unapproved reinstall. No live skill installation ran.
+- Seven packed archives: skill sets matched the six groups and umbrella, and
+  every selected skill file and directory matched source bytes and modes.
+  Extracted selectors passed version/list checks for all seven packages.
+- Independent read-only review of the six metadata/test/documentation paths:
+  no material findings. This was not independent execution of the checks.
+
+These are preparation results, not a claim that publication has completed.
+Registry publication and consumer checks require a separate verified record.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
