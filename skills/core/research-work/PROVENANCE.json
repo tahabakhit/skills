@@ -12,7 +12,8 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Assemble original procedure and local references with the project notice and source comparison record."
+    "Assemble original procedure and local references with the project notice and source comparison record.",
+    "Move the complete standalone folder to skills/core/research-work; preserve all payload bytes, notices and source records."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",

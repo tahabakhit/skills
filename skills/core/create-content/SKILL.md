@@ -39,9 +39,20 @@ need rather than forcing a template. Follow the repository's commit/PR naming
 policy and base titles on the final diff. A prose request does not authorize code
 changes to make a claim true.
 
-Use the optional `unslop` skill for a named anti-filler editing pass when available.
-It is not required: remove generic claims, filler and canned phrasing here while
-preserving author voice, evidence and necessary qualifiers.
+For a requested prose cleanup, remove filler, ceremony, repetition, canned
+transitions, vague attribution and conclusions that only repeat the answer.
+Replace generic praise or promotional claims with a concrete fact, mechanism,
+named source or honest uncertainty. Prefer plain verbs and consistent names to
+synonym cycling. Break sentences that make the reader backtrack; keep conditions
+and limiting words next to the action or claim they govern.
+
+Apply these defaults only within the requested edit and defer to the author's
+voice or required style. Preserve exact code, identifiers, commands, error text,
+quotations, citations, legal language and necessary qualifiers. Do not impose
+punctuation bans, manufacture personality, or rewrite untouched files for
+consistency. Before returning the text, ask whether a paragraph could appear
+unchanged in an unrelated answer; make it specific or cut it. Return the cleaned
+writing without announcing an editorial ritual.
 
 ## Select a supported output path
 
