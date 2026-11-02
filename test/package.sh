@@ -21,14 +21,16 @@ pass 'selector bin has no runtime library dependencies, install hooks or extensi
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "unslop", "managed-config-drift", "chezmoi"] | sort)
-  and ([.skills[].name]|unique|length)==23
+  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "managed-config-drift", "chezmoi"] | sort)
+  and ([.skills[].name]|unique|length)==22
   and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
-    and .provenance == ("skills/"+.name+"/PROVENANCE.json"))
+    and (.path | test("^skills/[a-z][a-z0-9-]*/[a-z0-9-]+$"))
+    and (.path | split("/") | last) == .name
+    and .provenance == (.path+"/PROVENANCE.json"))
   and ([.skills[]|select(.maturity=="experimental")]|length)==15' catalog.json >/dev/null
 [ "$count" = "$(jq '.skills | length' catalog.json)" ] || fail 'skill folders differ from the catalog'
 for skill in $(jq -r '.skills[].name' catalog.json); do
-  file="skills/$skill/SKILL.md"
+  file="$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .path' catalog.json)/SKILL.md"
   [ -f "$file" ] || fail "missing $file"
   awk -v expected="$skill" '
     NR == 1 && $0 != "---" { exit 1 }
@@ -39,9 +41,9 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   ' "$file" || fail "invalid frontmatter in $file"
   [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass '23 cataloged, named, described and bounded skills'
+pass '22 cataloged, named, described and bounded skills'
 
-for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/define-work/SKILL.md; do
+for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -52,19 +54,19 @@ done
 pass 'local Markdown reference targets exist'
 
 for skill in discover-work define-work; do
-  file="skills/$skill/SKILL.md"
+  file="$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .path' catalog.json)/SKILL.md"
   grep -Fq 'Treat' "$file" || fail "missing evidence boundary: $skill"
   grep -Fq 'Do not launch workers unless authorized' "$file" || fail "missing worker boundary: $skill"
   grep -Fq 'existing' "$file" || fail "missing existing-work guidance: $skill"
 done
-grep -Fq 'Spec approval is not implementation' skills/define-work/SKILL.md
-grep -Fq 'Do not invoke it here.' skills/define-work/SKILL.md
+grep -Fq 'Spec approval is not implementation' skills/engineering/define-work/SKILL.md
+grep -Fq 'Do not invoke it here.' skills/engineering/define-work/SKILL.md
 pass 'written authority and handoff boundaries remain present'
 
-grep -Fq 'Readiness: draft' skills/define-work/SKILL.md
-grep -Fq 'later material change returns' skills/define-work/SKILL.md
-grep -Fq 'Do not turn proposed answers into confirmed requirements.' skills/define-work/SKILL.md
-grep -Fq 'Do not demand tracker publishing' skills/define-work/SKILL.md
+grep -Fq 'Readiness: draft' skills/engineering/define-work/SKILL.md
+grep -Fq 'later material change returns' skills/engineering/define-work/SKILL.md
+grep -Fq 'Do not turn proposed answers into confirmed requirements.' skills/engineering/define-work/SKILL.md
+grep -Fq 'Do not demand tracker publishing' skills/engineering/define-work/SKILL.md
 pass 'draft, correction and local-spec contracts remain present'
 
 jq -r '.files[]' package.json | while IFS= read -r path; do

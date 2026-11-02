@@ -2,7 +2,7 @@
 # Exercise the imported helper only against an owned fixture and fake npm.
 set -eu
 root=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
-helper="$root/skills/systematic-debugging/find-polluter.sh"
+helper="$root/skills/engineering/systematic-debugging/find-polluter.sh"
 command -v python3 >/dev/null || { printf 'Python 3.9+ is required for helper fixtures\n' >&2; exit 1; }
 scratch=$(mktemp -d)
 trap 'rm -r -- "$scratch"' 0

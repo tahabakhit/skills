@@ -6,15 +6,17 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { skillPath } from '../lib/selection.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-real-install-'));
 const home = path.join(dir, 'home'); const project = path.join(dir, 'repo with spaces');
 fs.mkdirSync(home); fs.mkdirSync(project);
-const globalNames = ['discover-work', 'define-work', 'research-work', 'verify-and-stop', 'unslop'];
-const localNames = ['codebase-design', 'systematic-debugging', 'deliver-work', 'testing-work', 'code-review', 'change-safely', 'git-hygiene', 'ci-maintenance', 'triage-dependency-updates', 'release-packaging', 'security-review', 'create-content', 'document-review', 'interface-review', 'analyze-data', 'data-pipelines', 'managed-config-drift', 'chezmoi'];
+const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
+const globalNames = distribution.groups.find(g => g.name === 'core').skills;
+const localNames = distribution.groups.filter(g => g.name !== 'core').flatMap(g => g.skills);
 try {
-  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,design,data,operations', '--agents', 'pi,claude-code,codex', '--yes'], {
+  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,interface-review,data,configuration', '--agents', 'pi,claude-code,codex', '--yes'], {
     cwd: project, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024,
     env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state'), NPM_CONFIG_CACHE: process.env.npm_config_cache || process.env.NPM_CONFIG_CACHE || path.join(os.homedir(), '.npm'), NPM_CONFIG_OFFLINE: 'true' }
   });
@@ -24,7 +26,7 @@ try {
   for (const [base, names] of [[home, globalNames], [project, localNames]]) {
     for (const agentDir of ['.agents/skills', '.claude/skills']) for (const name of names) {
       const target = path.join(base, agentDir, name);
-      const provenance = JSON.parse(fs.readFileSync(path.join(root, 'skills', name, 'PROVENANCE.json')));
+      const provenance = JSON.parse(fs.readFileSync(path.join(skillPath(root, distribution, name), 'PROVENANCE.json')));
       assert.ok(fs.existsSync(path.join(target, 'PROVENANCE.json')));
       for (const file of provenance.files) {
         assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(target, file.path))).digest('hex'), file.sha256);
@@ -40,5 +42,5 @@ try {
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log('Real pinned installer passed: 23 skills, global+project scopes, Pi/Claude Code/Codex receipts, 46 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
+  console.log('Real pinned installer passed: 22 skills, global+project scopes, Pi/Claude Code/Codex receipts, 44 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
 } finally { fs.rmSync(dir, { recursive: true }); }

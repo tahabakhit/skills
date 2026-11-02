@@ -51,7 +51,7 @@ check_folder() {
 }
 
 jq -r '.skills[].name' catalog.json | while IFS= read -r name; do
-  folder="$root/skills/$name"
+  folder="$root/$(jq -r --arg name "$name" '.skills[] | select(.name==$name) | .path' catalog.json)"
   check_folder "$folder" "$name"
   mkdir -p "$scratch/$name/skills"
   cp -R -- "$folder" "$scratch/$name/skills/"

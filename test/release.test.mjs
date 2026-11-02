@@ -7,6 +7,20 @@ import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { validateArtifacts, withArtifacts } from '../scripts/release.mjs';
 
+test('released 0.3.0 record remains immutable and is not the current source group manifest', () => {
+  const bytes = fs.readFileSync(new URL('../releases/0.3.0.json', import.meta.url));
+  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), 'e93cc21563f8fbd4f9a9f0656aa77fb819c81955f25f30f22a63f47eedd20bfd');
+  const released = JSON.parse(bytes);
+  assert.deepEqual(released.packages.map(p => p.name), [
+    '@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content',
+    '@tahabakhit/skills-design', '@tahabakhit/skills-data', '@tahabakhit/skills-operations', '@tahabakhit/skills'
+  ]);
+  assert.ok(released.packages.every(p => p.version === '0.3.0'));
+  // Source is also 0.3.0 deliberately: this refactor does not publish or rewrite released bytes.
+  const current = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url)));
+  assert.equal(current.version, '0.3.0');
+});
+
 // Published SHA-512 test vector for the exact three-byte input "abc".
 const abc = 'sha512-' + Buffer.from('ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f', 'hex').toString('base64');
 function fixture(t) {

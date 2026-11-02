@@ -64,20 +64,20 @@ test('package root, not just its skill folders, is protected', t => {
 });
 test('source directory symlink aliases are refused before global or local writes', t => {
   const c = fixture(t); const source = sourceFixture(c);
-  const real = path.join(c.dir, 'actual'); fs.renameSync(path.join(source, 'skills/discover-work'), real);
-  fs.symlinkSync(real, path.join(source, 'skills/discover-work'));
+  const real = path.join(c.dir, 'actual'); fs.renameSync(path.join(source, 'skills/core/discover-work'), real);
+  fs.symlinkSync(real, path.join(source, 'skills/core/discover-work'));
   assert.throws(() => createPlan({ global: 'verify-and-stop', local: 'discover-work', agents: 'pi' }, distribution, source, c), /symlink/);
   assert.deepEqual(fs.readdirSync(c.home), []); assert.deepEqual(fs.readdirSync(c.project), []);
 });
 test('upstream-excluded source entries fail before any scope writes', t => {
   const c = fixture(t); const source = sourceFixture(c);
-  fs.writeFileSync(path.join(source, 'skills/discover-work/metadata.json'), '{}');
+  fs.writeFileSync(path.join(source, 'skills/core/discover-work/metadata.json'), '{}');
   assert.throws(() => createPlan({ global: 'verify-and-stop', local: 'discover-work', agents: 'pi' }, distribution, source, c), /excludes/);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
 test('changed package bytes invalidate a confirmed plan', t => {
   const c = fixture(t); const source = sourceFixture(c); const p = createPlan(opts, distribution, source, c);
-  fs.appendFileSync(path.join(source, 'skills/discover-work/SKILL.md'), '\nchanged\n');
+  fs.appendFileSync(path.join(source, 'skills/core/discover-work/SKILL.md'), '\nchanged\n');
   assert.throws(() => executePlan(p, distribution, { runner: () => assert.fail('not allowed') }), /source changed/);
 });
 test('source snapshots include executable bits and empty directories', t => {
@@ -112,12 +112,12 @@ test('build output cannot follow symlink ancestors outside source', t => {
   assert.deepEqual(fs.readdirSync(outside), []);
 });
 test('marked canonical content behind an alias is not deleted by the builder', t => {
-  const c = fixture(t); const source = path.join(c.dir, 'source'); const skill = path.join(source, 'skills/valuable');
+  const c = fixture(t); const source = path.join(c.dir, 'source'); const skill = path.join(source, 'skills/core/valuable');
   fs.mkdirSync(skill, { recursive: true });
   fs.writeFileSync(path.join(skill, '.skills-generated.json'), '{"owner":"@tahabakhit/skills"}');
   fs.writeFileSync(path.join(skill, 'sentinel'), 'retain original');
   fs.symlinkSync(path.join(source, 'skills'), path.join(c.dir, 'alias'));
-  assert.throws(() => outputDirectory(path.join(c.dir, 'alias/valuable'), source), /symlink/);
+  assert.throws(() => outputDirectory(path.join(c.dir, 'alias/core/valuable'), source), /symlink/);
   assert.equal(fs.readFileSync(path.join(skill, 'sentinel'), 'utf8'), 'retain original');
 });
 test('package group traversal and upstream name truncation are rejected', () => {
