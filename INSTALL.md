@@ -48,12 +48,12 @@ npx skills@latest add tahabakhit/skills -a pi
 ```
 
 These routes read GitHub source rather than the npm wrapper's bundled catalog.
-The example `main` URLs require the grouped source to have landed there. They
-require Node.js/npm and GitHub/registry access; use the selected upstream CLI's
-runtime requirements. Native tree-source discovery, scope and install behavior
-are integration-test obligations, not checks claimed by this documentation change.
-Restart the agent after installation, and use a fresh conversation after replacing
-workflow instructions.
+The example `main` URLs track the current source; substitute a commit for `main`
+when reproducibility is required. They require Node.js/npm and GitHub/registry
+access; use the selected upstream CLI's runtime requirements. See
+[VERIFICATION.md](VERIFICATION.md) for tested native installation and discovery
+versions and limits. Restart the agent after installation, and use a fresh
+conversation after replacing workflow instructions.
 
 ## Optional fallback: wrapper from the current checkout
 

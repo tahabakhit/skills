@@ -412,6 +412,57 @@ No live skill installations or chezmoi sources were modified. No npm publication
 was performed. The registry's existing `0.3.0` still contains 30 skills and the
 old guard implementation; source cleanup does not alter those artifacts.
 
+## Native bundle regrouping
+
+The authorized regrouping was implemented by six independent group workers in
+six long-lived worktrees, then merged on the main integration branch. Separate
+worktrees supplied shared tooling/tests and documentation. Current canonical
+source is `skills/<group>/<name>/`, partitioned into 22 standalone owners:
+
+| Bundle | Recommended scope | Count |
+| --- | --- | --- |
+| core | Global | 4 |
+| engineering | Project | 12 |
+| content | Project | 1 |
+| interface-review | Project | 1 |
+| data | Project | 2 |
+| configuration | Project | 2 |
+
+Core contains discovery, research, content creation and bounded verification.
+Engineering gains `define-work`. The redundant `unslop` skill is removed without
+an alias; useful scoped cleanup guidance and applicable attribution remain in
+`create-content`. Discovery and verification now make software-specific checks
+conditional and include non-code examples. These edits have structural checks,
+not new model-effectiveness measurements. Frozen pilot/audit records retain their
+original bytes and are not evidence for changed entrypoints.
+
+Observed on Fedora 45, login Fish, Node 24.22.2 and npm 11.19.1:
+
+- `npm run lint` and `npm test`: all 14 shell package checks and 62 Node tests
+  passed, including catalog paths, independent-folder closure/digests, immutable
+  release records, selection and safety fixtures.
+- `node test/install-smoke.mjs`: the optional checkout wrapper passed its pinned
+  Skills 1.7.4 installation in disposable home/project paths with all 22 skills.
+- `node test/native-install-smoke.mjs <skills-1.7.5-cli>`: upstream Skills 1.7.5
+  directly installed six local subtree sources and the umbrella, without our
+  wrapper. Exact names, scopes, full bytes/modes, Pi/Claude Code/Codex receipts,
+  unrelated-file preservation and normal-journey absence of local core copies
+  passed. No live HOME or project received skills. Supplying a published commit
+  as the next argument enables the separate real-GitHub tree-source check.
+- `node test/pi-discovery.mjs <installed-pi-loader>`: Pi 1.5.0's installed loader
+  discovered the umbrella and every group with no diagnostics. This does not
+  establish runtime routing or agent task performance.
+- `npm run pack:packages`: all seven local packages generated successfully with
+  grouped payloads. New interface-review/configuration package names are local
+  output only. No registry publication was performed.
+
+The source package version remains 0.3.0; its immutable registry release is still
+the old 30-skill bundle, not these source bytes. Do not republish that version.
+The separate machine bootstrap still consumes the older npm wrapper and asserts
+its former core membership/API; its compatibility needs a separately scoped update
+before a regrouped npm release. No bootstrap was run or modified by this task.
+Live skills, host settings, chezmoi sources and removed OS skills were not changed.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing

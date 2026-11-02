@@ -24,10 +24,10 @@ Omit `--global` for project bundles. Add `--copy` only if you explicitly want pl
 copies instead of the upstream default installation mode. Review destinations and
 existing ownership before accepting replacements.
 
-These URLs describe the grouped source once committed to `main`; an older branch
-or npm release will not acquire this layout from documentation changes. Native
-bundle discovery and installation need integration verification; this documentation
-change does not claim those checks passed.
+These URLs follow the grouped source on `main`; use a commit in place of `main`
+when a fixed source revision is needed. Older npm releases keep their original
+layout and contents. [VERIFICATION.md](VERIFICATION.md) records tested installer
+and host-loader versions, checks and remaining limits.
 
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |

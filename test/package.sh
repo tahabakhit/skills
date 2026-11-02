@@ -48,7 +48,8 @@ for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICAT
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
     case "$link" in http:*|https:*|'#'*) continue ;; esac
-    [ -f "$(dirname "$file")/$link" ] || fail "broken link in $file: $link"
+    link=${link%%#*}
+    [ -e "$(dirname "$file")/$link" ] || fail "broken link in $file: $link"
   done
 done
 pass 'local Markdown reference targets exist'
