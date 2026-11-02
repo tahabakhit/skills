@@ -1,5 +1,29 @@
 # Research and design basis
 
+## Current source and historical records
+
+Current source contains 22 skills at `skills/<group>/<name>/`: core (4, global),
+engineering (12, local), content (1, local), interface-review (1, local), data
+(2, local) and configuration (2, local). `create-content` is in core and owns
+prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
+is removed with no alias. OS skills remain external in the owner's chezmoi
+source; `herdr-core` and `ketch` are excluded CLI integrations.
+
+The sections below preserve research, origin pins and earlier import/adapter
+results. Counts and upstream paths in historical records describe the inspected
+revisions, not today's source inventory or live ownership. Frozen audits and
+evaluations are not rewritten to match the new layout. Current folder-local
+provenance travels with each canonical skill. See [CATALOG.md](CATALOG.md) for
+current ownership and [INSTALL.md](INSTALL.md) for whole-bundle tree-URL installs.
+No profile framework or native group flag is required.
+
+This is source-only at package version `0.3.0`. Published npm `0.3.0` remains the
+immutable 30-skill release, including old groups, `unslop` and custom guards.
+New `skills-interface-review` and `skills-configuration` package identities are
+locally generated, not published; existing design/operations releases are
+unchanged. Historical adapter checks below do not establish native grouped-source
+installation or recursive Pi discovery; those require separate integration checks.
+
 ## Evidence inspected
 
 Research used the published npm artifacts and GitHub file contents, not only
@@ -178,8 +202,9 @@ behavior. Those consumers and the other audited skills remain future work.
 
 [The expansion research](research/README.md) and [pinned source register](research/collections.json)
 cover 20 public repositories plus two cached npm artifacts. Inventoried entrypoints
-are not all deep-read or behaviorally tested. The [21-owner map](CATALOG.md)
-distinguishes selected workflows, merged modes and substantive coverage gaps.
+are not all deep-read or behaviorally tested. The [current owner map](CATALOG.md)
+distinguishes selected workflows, merged modes and substantive coverage gaps;
+the original expansion comprised 21 owners.
 
 Sixteen new procedures record original expression and conceptual comparisons,
 not copied upstream runtime, scripts or assets. Their local source records and
@@ -241,7 +266,7 @@ are excluded as CLI-managed integrations at the user's request.
 
 Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc).
 All nine skill entrypoints and 38 reference files were read for this adaptation.
-Their topics are consolidated into `skills/chezmoi`, with flattened local
+Their topics are consolidated into `skills/configuration/chezmoi`, with flattened local
 references, one activation description and no required sibling skills. The source
 MIT grant, copyright 2026 Mike Kobit, ships inside the selectable folder alongside
 the local contribution notice.

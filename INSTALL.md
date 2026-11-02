@@ -1,211 +1,149 @@
-# Install selected skills
+# Install workflow bundles
 
-The public source is https://github.com/tahabakhit/skills. Current source contains
-23 skills; operations contains only `managed-config-drift` and `chezmoi`.
+Current source has 22 skills in six disjoint bundles under `skills/<group>/<name>/`.
+Use the standard Skills CLI: install core once globally, then whole domain bundles
+locally in the receiving project. No custom installer is required.
 
-## Primary clean install: standard Skills CLI
+## One-time global core
 
-From the project that should receive Pi skills:
+```fish
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
+```
+
+Core contains `discover-work`, `research-work`, `create-content` and
+`verify-and-stop` (4). Writing and prose cleanup live in `create-content`; there is
+no `unslop` skill or alias. Specification authoring (`define-work`) is engineering.
+
+## Local project bundles
+
+Run the relevant commands from the receiving project. Each selects the entire
+bundle; choose bundles, not a hand-maintained list of individual skills.
+
+```fish
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/content --skill "*" -a pi
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/interface-review --skill "*" -a pi
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data --skill "*" -a pi
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/configuration --skill "*" -a pi
+```
+
+| Bundle | Count | Contents |
+| --- | --- | --- |
+| engineering | 12 | `define-work` plus design, debugging, delivery, testing, review, safe changes, Git, CI, dependencies, packaging and security |
+| content | 1 | `document-review` |
+| interface-review | 1 | `interface-review` |
+| data | 2 | `analyze-data`, `data-pipelines` |
+| configuration | 2 | `managed-config-drift`, `chezmoi` |
+
+The tree URL selects a group directory and `--skill "*"` selects all its skills.
+There is no native `--group` flag in this recipe. Only core normally uses
+`--global`. Add `--copy` to a command only when plain copies are explicitly wanted;
+otherwise leave upstream installation mode unchanged. Inspect the upstream plan,
+destinations and existing owners before accepting any replacement.
+
+The repository-root command remains an **all-skill picker**, not a bundle selector:
 
 ```fish
 npx skills@latest add tahabakhit/skills -a pi
 ```
 
-Use upstream selection and scope prompts to choose skills and destinations.
-Review existing ownership before accepting any replacement. This route reads
-GitHub source, not the npm wrapper's bundled catalog, and uses upstream behavior
-rather than the wrapper's additional checks. It requires Node.js/npm and registry
-and GitHub access; consult the selected upstream version's runtime requirements.
+These routes read GitHub source rather than the npm wrapper's bundled catalog.
+The example `main` URLs require the grouped source to have landed there. They
+require Node.js/npm and GitHub/registry access; use the selected upstream CLI's
+runtime requirements. Native tree-source discovery, scope and install behavior
+are integration-test obligations, not checks claimed by this documentation change.
+Restart the agent after installation, and use a fresh conversation after replacing
+workflow instructions.
 
-## Optional interactive selector wrapper
+## Optional fallback: wrapper from the current checkout
 
-The wrapper adds group selection, global/project planning and verification. It
-supports Pi, Claude Code and Codex and delegates copying to pinned Vercel Skills
-CLI 1.7.4. It requires Node.js 22.20+, npm and registry access, has no runtime
-library dependencies, and its own installation checks currently target Linux.
-Do not infer Windows support from npm packaging.
-
-From the receiving project, to use the immutable published wrapper:
+For an explicit plan with the checkout's additional checks, run:
 
 ```fish
-npx @tahabakhit/skills@0.3.0
+node /path/to/skills-checkout/bin/skills.mjs --global core --local engineering --agents pi --project /path/to/project --dry-run
 ```
 
-The published wizard shows the groups and skill names, then asks:
+Inspect the plan, then replace `--dry-run` with `--yes` to execute. For an interactive
+selector, run `node /path/to/skills-checkout/bin/skills.mjs` from the recipient
+project. In the source checkout, `node bin/skills.mjs --list` inspects choices
+without installing. Do not use that source tree as the install destination.
 
-1. Which selections should be global?
-2. Which different selections belong in this project?
-3. Which project directory and target agents should be used?
-4. Whether to execute the displayed plan. Replacements require separate consent.
+The wrapper requires Node.js 22.20+ and npm and delegates to pinned Vercel Skills
+CLI 1.7.4. It has no runtime library dependencies or install hooks. Its installation
+checks target Linux; npm packaging does not establish Windows or host compatibility.
+`--list`, `--help` and `--dry-run` do not invoke the downstream installer.
 
-Enter group names, displayed group numbers, individual skill names, or `all`.
-Comma-separate multiple selections. Enter nothing for a scope to skip it. Empty
-selections in both scopes cancel. No skill is installed globally by default.
+Existing selected folders or same-name lock entries require deliberate replacement:
+non-interactive use needs `--replace`; the wizard asks for replacement consent.
+Replacement is not a merge or an ownership migration. Inspect the manager first,
+especially for chezmoi-owned files. Unsafe links, source/destination overlaps and
+unsupported locks are refused even with replacement consent. The wrapper binds
+confirmation to the observed destinations and locks and verifies copied artifacts,
+receipts and lock records. A failure may leave a completed scope or a partial
+install; there is no atomic rollback. Inspect reported paths before retrying.
 
-All seven packages are public at immutable `0.3.0`, including the former 30 skills
-and the additional CI/Git/writing references. They still include the seven removed
-OS skills and the old custom guard behavior; the current 23-skill source cleanup
-does not change those registry bytes. Registry identities and all public selectors were
-verified in [the release record](releases/0.3.0.json). The older `0.2.0` contains
-21 skills. Installing public packages does not require npm login. If npm returns
-E404 for a version, check that it was published or use the public source methods
-below. A GitHub push alone is not npm publication.
+Pi and Codex share `.agents/skills` under this installer; Claude Code has a separate
+`.claude/skills` target. Global `CLAUDE_CONFIG_DIR` and `XDG_STATE_HOME` overrides
+must be absolute; the latter relocates the global lock, not skill folders.
+`CODEX_HOME` does not relocate installer targets. Review the exact plan for the
+current environment. Removing a shared Pi/Codex skill is not a per-agent operation.
 
-## Explicit and non-interactive wrapper use
+Serialize installers: current source has no custom `*.taha-install` guards and no
+replacement inter-process lock. Snapshot checks are not concurrency protection.
+Do not introduce guard/profile frameworks or assume automatic migration. The
+wrapper has no automatic removal command. For wrapper-created copies, re-run the
+checkout selector at the desired revision and intentionally replace after review;
+its local-source lock is not a promise that `skills update` can update those copies.
 
-Preview core globally and data in this repository for Pi and Codex:
+## Source versus published npm artifacts
 
-```fish
-npx @tahabakhit/skills@latest --global core --local data --agents pi,codex --dry-run
-```
+The current package version remains **0.3.0**, with source-only changes. Generated
+packages follow the six-group partition; generating them locally does not publish
+them or alter a registry release.
 
-Execute that plan:
-
-```fish
-npx @tahabakhit/skills@latest --global core --local data --agents pi,codex --yes
-```
-
-Install only two engineering skills for Claude Code in a particular repository:
-
-```fish
-npx @tahabakhit/skills@latest --local testing-work,code-review --agents claude-code --project /path/to/project --yes
-```
-
-Use `--list` for the available selections and `--help` for options. Non-interactive
-input requires explicit selections and agents. `--dry-run`, `--list` and `--help`
-do not invoke the downstream installer. npx itself may still download this package.
-
-## npm packages
-
-All packages use the same release version. The umbrella includes every group.
-Domain packages contain only their assigned skills, the selector, and their local
-notices/provenance/references. They have no runtime dependency on the umbrella or
-other domain packages. Ownership is a partition, not duplicate source trees.
-
-| Package | Current source | Published 0.3.0 |
+| Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | All 23, selectively installed | All 30, selectively installed |
-| `@tahabakhit/skills-core` | Discovery, specification, evidence research, acceptance proof, prose cleanup (5) | Same 5 |
-| `@tahabakhit/skills-engineering` | Design, debugging, delivery, tests, review, refactors/migrations, Git, CI, dependencies, packaging, security (11) | Same 11 |
-| `@tahabakhit/skills-content` | Writing/file production and document review (2) | Same 2 |
-| `@tahabakhit/skills-design` | Interface review (1) | Same 1 |
-| `@tahabakhit/skills-data` | Analysis and pipelines (2) | Same 2 |
-| `@tahabakhit/skills-operations` | `managed-config-drift` and `chezmoi` (2) | Former Linux/platform/health skills plus drift and chezmoi (9) |
+| `@tahabakhit/skills` | 22 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
+| `@tahabakhit/skills-engineering` | 12 | Published 0.3.0 has the former 11 |
+| `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
+| `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
+| `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
+| `@tahabakhit/skills-configuration` | 2 | New locally generated identity; not published |
 
-The source column is not a claim about the immutable `0.3.0` or `0.2.0` artifacts.
-For example, `npx @tahabakhit/skills-data@latest` offers only the data group. Do not
-install the same skill twice through both the umbrella and a domain package.
-These installation groups do not change the canonical responsibilities in
-[CATALOG.md](CATALOG.md), and package availability is not proof of better model work.
+Existing `@tahabakhit/skills-design@0.3.0` (1) and
+`@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package
+historical `0.3.0` release retains the old group names, `unslop`, removed OS skills
+and custom guards. Neither `@latest` nor `@0.3.0` on those packages means this grouped source.
+The [release record](releases/0.3.0.json) describes those immutable artifacts, not
+a new release. Public installs need no npm login; a GitHub push is not publication.
 
-## Replacing the previously installed collection
+With npm 11, invoking the same-name npm package inside its own checkout may resolve
+to the local package and fail with `taha-skills: command not found`. Use
+`node bin/skills.mjs` for current source, not a global `npm link` workaround.
 
-See [the import and migration guide](audits/installed-skill-import.md) for exact
-old-to-new names, retained references, CLI-managed exclusions and rollback.
+## Existing installations and external skills
+
 Do not delete the whole `~/.agents/skills` tree. Back up selected folders and
-inspect their managers before replacement. `safe-refactor`/`migration` become
-`change-safely`; `technical-writing` becomes `create-content`. The selector does
-not remove old-name folders or retire chezmoi sources. The seven removed OS skills
-are absent from current source, not automatically uninstalled from live hosts.
-`herdr-core` was never included; historical audit observations do not establish
-current ownership of it or any other live installation.
+inspect current managers, links and local edits before an authorized replacement.
+The [historical import guide](audits/installed-skill-import.md) preserves earlier
+migration evidence and rollback guidance, not current installation ownership.
+`safe-refactor`/`migration` are covered by `change-safely`; `technical-writing` and
+prose cleanup belong to core's `create-content`. No legacy-name aliases are needed.
 
-## Wrapper behavior: existing skills, managed files and updates
-
-The plan lists exact skill destinations and the upstream lockfile. Existing
-selected folders or same-name lock entries stop non-interactive installation
-unless `--replace` is supplied. In the wizard, inspect their owner and type
-`replace` only when replacement is intended. Replacement removes the old selected
-folder contents. This is not a merge or an automatic ownership migration.
-
-Symlinks, dangling links, hard-linked locks, source/destination overlaps,
-malformed/future locks and project lock extension fields are refused even with
-`--replace`. Reconcile the
-existing manager first, especially for dotfiles/chezmoi-managed installations.
-Unselected entries must remain unchanged. Confirmation is tied to a snapshot of
-selected destinations and locks. Changed or newly appearing entries require a
-fresh plan even with `--replace`. The package's source tree cannot be an install
-destination. Source snapshots reject entries that the downstream copier excludes.
-The wrapper verifies file bytes, file permission bits, directory presence,
-complete skill/agent receipts and lock records after each scope. Failures can
-leave partial installs. The wrapper does not roll back files or discard somebody else's
-work. Inspect the reported paths before retrying.
-
-Pi and Codex share `.agents/skills` in Vercel's installer. Claude Code gets a
-separate `.claude/skills` copy. Global Claude configuration can use the absolute
-`CLAUDE_CONFIG_DIR` override. Absolute `XDG_STATE_HOME` relocates the global Skills
-lock, not the skill folders. `CODEX_HOME` does not relocate this installer's targets.
-The final plan is authoritative for the current environment.
-
-Copies do not depend on the npx cache staying present. The upstream lock records a
-local package source, so `skills update` does not update these copies. Re-run the
-selector from the desired npm version, inspect its plan, then use `--replace` for
-an intentional update. Pin `@0.3.0` rather than `@latest` for a repeatable release.
-
-Serialize other installers while this runs. Current source no longer creates
-custom `*.taha-install` guards and does not provide a replacement inter-process
-lock. The snapshot and verification checks are not a concurrency guarantee.
-Immutable npm `0.3.0` still has the former guard implementation; if a legacy guard
-remains after a crash, inspect its owner/process before removing it.
-
-There is no automatic removal command in the wrapper. Upstream removal can delete
-the shared Pi/Codex canonical directory, so it is not a safe per-agent ownership
-operation. Review that shared use before removing installed skills.
-
-Restart the agent after changing skills. Start a fresh conversation when replacing
-workflow instructions so old instructions do not remain in the session.
-
-## GitHub and local-checkout alternatives
-
-The primary direct route can also select named skills:
-
-```fish
-npx skills@latest add tahabakhit/skills -a pi --skill discover-work --skill define-work
-```
-
-This uses upstream scope prompts and behavior, not the wrapper's additional
-collision, symlink, lock-preservation or receipt checks.
-
-To use the selector directly from a checkout, run it from the recipient project
-or specify that project with `--project`. Do not use the package's own source tree
-as the installation destination:
-
-```fish
-node /path/to/skills-checkout/bin/skills.mjs
-```
-
-If your current directory is this skills checkout, use `node bin/skills.mjs --list`
-to inspect choices or `node bin/skills.mjs` for the wizard. With npm 11, running
-`npx @tahabakhit/skills@0.3.0 --list` here can select the local same-name package
-rather than download the published one. Without a local self-bin link, npm then
-reports `taha-skills: command not found`. The published command works from another
-project or directory. A global `npm link` is not needed.
-
-The selector does not require `npm install` for runtime libraries. Development lint
-checks do require the repository's dev dependencies. To run the current GitHub
-source rather than the immutable npm release:
-
-```fish
-npx github:tahabakhit/skills
-```
+The seven OS/platform/health workflows remain external in the owner's chezmoi
+source. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
+catalog does not uninstall old names, retire chezmoi sources, alter host settings
+or apply changes to live installations. Those actions need their own authorization
+and verification. Do not activate duplicate copies via native package loading and
+Skills CLI installation.
 
 ## Maintainer release process
 
-The immutable `0.3.0` packages were published from `9886e55`; the older `0.2.0`
-packages came from `331fbaf`. Later source or documentation commits do not update those
-artifacts. Before another release, choose an unused version and update the package
-metadata, lockfile and version check together.
-
-npm can accept a publication before its registry metadata becomes visible. After
-an accepted publish, wait for processing and compare the approved integrity before
-retrying. A transient 404 does not prove that the publish failed. Publishing
-approval can also expire during that wait. Independent packages can be submitted
-within one approval session, but every accepted artifact still needs verification.
-
-Use a publishing account with access to the `@tahabakhit` scope. npm login is
-separate from GitHub authentication. Do not paste tokens into chat or repository
-files. Direct public publishing requires account 2FA or an appropriately scoped
-publishing credential. Complete interactive authentication yourself.
+Published `0.3.0` came from `9886e55`; older `0.2.0` came from `331fbaf`. Both are
+immutable. Choose an unused version before preparing a new release, updating
+package metadata, lockfile and version checks together. Do not publish the new
+identities as if they were already released or overwrite historical records.
 
 ```fish
 npm ci --ignore-scripts
@@ -215,13 +153,16 @@ npm run pack:packages
 npm run publish:dry-run
 ```
 
-Inspect all seven actual tarballs under `dist/tarballs/`. Generated domain sources
-are under `dist/npm/`. They are not edited or committed copies of canonical skills.
-Only directories with this builder's marker can be regenerated. Runtime packages
-have no install hooks. ESLint is dev-only. The patched minimatch override is checked
-by lint/tests and is not a runtime dependency.
+Inspect all seven actual tarballs in `dist/tarballs/` and generated sources in
+`dist/npm/`, including complete support files, provenance and licenses. These are
+marked disposable output, not edited or committed canonical copies. Only directories
+with the builder's marker may be regenerated. Runtime packages have no install
+hooks; ESLint and the patched minimatch override are development-only.
 
-After verifying and committing the exact source, authenticate and publish:
+Publish only with explicit release authority, a clean verified commit, access to
+the npm scope, and required 2FA or appropriately scoped publishing credentials.
+GitHub login is separate. Never put tokens in chat or repository files. Complete
+interactive authentication yourself.
 
 ```fish
 npm login --registry=https://registry.npmjs.org
@@ -229,17 +170,20 @@ npm run publish:dry-run
 npm run publish:packages
 ```
 
-The release command requires a clean checkout, checks npm identity, scans history
-and tarballs with Gitleaks, and publishes the six domains before the umbrella.
-`dist/release.json` records local artifact identities. Run `publish:dry-run` again
-after the final commit: it approves exact tarballs for that clean commit in
-`dist/approved-release.json`. Publishing verifies and freezes those bytes in
-private temporary copies, scans those copies under recognized `.tar.gz` names,
-and publishes the same copies without rebuilding. It rejects changed artifacts
-or a different/dirty commit. Publication is not atomic. Reruns skip versions only
-when registry integrity matches the exact local tarball. Conflicting immutable
-versions stop the release. Do not blindly bump or
-unpublish to hide a partial failure. Verify registry identities after publishing.
+Run the dry run again after the final commit: `dist/approved-release.json` approves
+exact tarballs for that clean commit. `dist/release.json` records local artifact
+identities. The release command checks npm identity and scans history and tarballs
+with Gitleaks. It freezes approved bytes in private temporary copies, scans those
+copies as recognized `.tar.gz` archives, and publishes those same bytes without
+rebuilding. Changed artifacts or a dirty/different commit are rejected. Domains
+publish before the umbrella; publication is not atomic.
+
+npm may accept publication before metadata becomes visible. A transient 404 is
+not proof of failure: wait for processing and compare registry integrity before
+retrying. Approval may expire while waiting. Every accepted artifact needs registry
+verification. Reruns skip existing versions only when integrity matches the exact
+local tarball; conflicts stop the release. Do not blindly bump or unpublish to
+hide a partial failure.
 
 Relevant npm contracts: [scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)
 and [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish).
