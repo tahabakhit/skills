@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "name": "verify-and-stop",
+  "kind": "maintained-fork",
+  "source": {
+    "repository": "https://github.com/bolens/agent-skills",
+    "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+    "directory": "skills/verify-and-stop"
+  },
+  "historicalImportRevision": null,
+  "ancestors": [
+    {
+      "repository": "https://github.com/JuliusBrussee/caveman",
+      "revision": "3b74643f4d910f496babd4e634b1ba7168816f14",
+      "revisionKind": "source-recorded-audited-revision",
+      "directory": "skills/verify-and-stop",
+      "license": "MIT",
+      "evidence": "The immediate source records this audited Caveman revision. Only the MIT skill payload is included, not Engine-linked BSL code. The original LICENSE, including its split-license scope note, is unchanged."
+    }
+  ],
+  "licenses": [
+    {
+      "file": "LICENSE-BOLENS",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens",
+      "scope": "Maintained-source additions, support references and modifications."
+    },
+    {
+      "file": "LICENSE",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 Julius Brussee",
+      "scope": "Original skill payload only; retain split-license scope note. No Engine-linked runtime included."
+    }
+  ],
+  "changes": [
+    "Make delivery follow-through optional without changing validation-only scope.",
+    "Preserve candidate-bound proof, non-vacuous checks, and existing action authority.",
+    "Replace root-only provenance pointers with this self-contained record and retain complete author notices."
+  ],
+  "upstreamFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sourcePath": "skills/verify-and-stop/agents/openai.yaml",
+      "gitBlob": "bf3a9261d09db5a01157643537519347dbf0f4ce",
+      "sha256": "9efaaae6ffe812827c1c70af326ebc58b75455f99512f11dc3afccd0298cb45d"
+    },
+    {
+      "path": "LICENSE",
+      "sourcePath": "skills/verify-and-stop/LICENSE",
+      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259",
+      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b"
+    },
+    {
+      "path": "SKILL.md",
+      "sourcePath": "skills/verify-and-stop/SKILL.md",
+      "gitBlob": "797107f7fcf99af99a3cab74ccf1696eafd24052",
+      "sha256": "6836047722802609fb64e4cf6079d1507cbdc5e49eb8dcbd1353b1f2b1e74eb0"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sourcePath": "skills/verify-and-stop/UPSTREAM.md",
+      "gitBlob": "f77cb4d8219e3bc53a35d59e76dbccd8a1be7173",
+      "sha256": "dde40f5c139df1d1b2a41c650bdaf4903a0c7b629d1146c2402c84fc9afbeaf9"
+    }
+  ],
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "gitBlob": "bf3a9261d09db5a01157643537519347dbf0f4ce",
+      "sha256": "9efaaae6ffe812827c1c70af326ebc58b75455f99512f11dc3afccd0298cb45d"
+    },
+    {
+      "path": "LICENSE",
+      "gitBlob": "97ba9dac421b56b8403488acbd39383ce710f259",
+      "sha256": "94fe75d355887f84ee7eefca68e06d8d082a23dad47a8e1f58a94d98900edf5b"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071"
+    },
+    {
+      "path": "SKILL.md",
+      "gitBlob": "80a5d738bdb19d6272077a8e5f7c3116ac344601",
+      "sha256": "1b9149ed40b0eba788ab3b5516621d0e8ba3328c148282505f9bb2a3764c080f"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "gitBlob": "46c87fa6ecfd22c0f6baa8ff07af014f410947c8",
+      "sha256": "abf8a4c05fe313e29d03d122c677ebdc5b1ff51f65ffdc5eb1d7f546f1aba0f1"
+    }
+  ],
+  "verification": {
+    "scope": "File identities, isolated supporting-file closure, metadata and disposable helper fixtures. No model-driven evaluation or live installation.",
+    "note": "upstreamFiles identifies original inputs at source.revision. files records this fork's resulting bytes and excludes this provenance file to avoid a self-reference."
+  }
+}

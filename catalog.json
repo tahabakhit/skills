@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "skills": [
+    {
+      "name": "discover-work",
+      "domain": "engineering",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "define-work"
+      ]
+    },
+    {
+      "name": "define-work",
+      "domain": "engineering",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "discover-work",
+        "resolve-issues"
+      ]
+    },
+    {
+      "name": "codebase-design",
+      "domain": "engineering",
+      "maturity": "source-import",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "improve-codebase-architecture",
+        "accessibility"
+      ],
+      "provenance": "skills/codebase-design/PROVENANCE.json",
+      "capabilities": "Repository/source inspection. Delegation is optional and requires existing authority."
+    },
+    {
+      "name": "systematic-debugging",
+      "domain": "engineering",
+      "maturity": "source-import",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "tdd",
+        "babysit",
+        "audit-repo-fleet",
+        "sensitive-info-audit",
+        "nixos",
+        "git-hygiene"
+      ],
+      "provenance": "skills/systematic-debugging/PROVENANCE.json",
+      "capabilities": "Use existing repository diagnostics. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox."
+    },
+    {
+      "name": "verify-and-stop",
+      "domain": "engineering",
+      "maturity": "source-import",
+      "requiredSkills": [],
+      "optionalSkills": [
+        "babysit"
+      ],
+      "provenance": "skills/verify-and-stop/PROVENANCE.json",
+      "capabilities": "Existing repository checks and explicit acceptance conditions. No delivery runtime required."
+    }
+  ]
+}

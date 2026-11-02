@@ -5,7 +5,9 @@ Snapshot: 2026-11-02. Repository baseline:
 
 This is an audit of candidate material, not an import or a passing behavioral
 evaluation. Live skill directories, links, agent settings, locks, and chezmoi
-sources were not changed. The repository still ships two skills.
+sources were not changed. At this audit snapshot the repository shipped two
+skills. Subsequent companion source imports are recorded in
+[SOURCES.md](../SOURCES.md); this inventory remains historical evidence.
 
 ## Scope and method
 

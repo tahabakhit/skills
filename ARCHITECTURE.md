@@ -1,8 +1,12 @@
 # Standalone skill system
 
-This document records the agreed direction and a proposed structure. It is not
-an implemented catalog or permission to install, publish, migrate, or deploy.
-Only `discover-work` and `define-work` currently ship. Their existing external
+This document records the agreed direction and a proposed structure. It does not
+mean the full proposed system is implemented or grant permission to install,
+publish, migrate, or deploy.
+Five skills currently ship: the original discovery/specification pair and three
+companion imports for concrete design, debugging, and acceptance proof. The
+[small catalog](catalog.json) records their boundaries. This is not the full
+expanded collection or a delivery coordinator. The specification skill's external
 delivery handoff remains transitional and has not yet been replaced.
 
 ## Agreed decisions

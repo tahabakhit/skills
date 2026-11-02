@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "name": "codebase-design",
+  "kind": "maintained-fork",
+  "source": {
+    "repository": "https://github.com/bolens/agent-skills",
+    "revision": "e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d",
+    "directory": "skills/codebase-design"
+  },
+  "historicalImportRevision": null,
+  "ancestors": [
+    {
+      "repository": "https://github.com/mattpocock/skills",
+      "revision": "c0d69015e0cc8b66715beb3f93f9e53256e20f30",
+      "revisionKind": "audited-content-comparison",
+      "directory": "skills/engineering/codebase-design",
+      "license": "MIT",
+      "evidence": "The source's local-original label does not describe all authorship. DESIGN-IT-TWICE matched the comparison revision exactly before adaptation. DEEPENING derives from the same source and carries later safety edits. The historical import revision is unknown."
+    }
+  ],
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 bolens",
+      "scope": "Maintained-source additions, support references and modifications."
+    },
+    {
+      "file": "LICENSE-MATT",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 Matt Pocock",
+      "scope": "Copied and derived ancestor material; does not license additional upstream runtimes."
+    }
+  ],
+  "changes": [
+    "Serial alternatives by default; authorized delegation remains optional.",
+    "Do not require CONTEXT.md or the broad architecture-audit specialist.",
+    "Qualify merging boundaries and test-retirement guidance.",
+    "Preserve Matt Pocock attribution rather than the source's whole-folder local-original label.",
+    "Replace root-only provenance pointers with this self-contained record and retain complete author notices."
+  ],
+  "upstreamFiles": [
+    {
+      "path": "agents/openai.yaml",
+      "sourcePath": "skills/codebase-design/agents/openai.yaml",
+      "gitBlob": "02e68acd155c3b8e21bf775f6f5d238b5be26c92",
+      "sha256": "d2088b72eef53cd43ff6c63a937342a79ae464dd8e8382ea8bb7ee39f0cc4d45"
+    },
+    {
+      "path": "DEEPENING.md",
+      "sourcePath": "skills/codebase-design/DEEPENING.md",
+      "gitBlob": "b79117607440db77b957cbc8583ea8ba6c1df6d5",
+      "sha256": "0b6f18da545ca823dfb4eadbd5a2301255daad7871bf9fb29b162e6b3e8c0b10"
+    },
+    {
+      "path": "DESIGN-IT-TWICE.md",
+      "sourcePath": "skills/codebase-design/DESIGN-IT-TWICE.md",
+      "gitBlob": "8419ad6fa966be2e9e435c932b3584df56cb1af6",
+      "sha256": "09f9948ea7636a4d3704c5ab909762e876c0b39849eefb14d2e03a398cc9c7e7"
+    },
+    {
+      "path": "references/experience-and-interfaces.md",
+      "sourcePath": "skills/codebase-design/references/experience-and-interfaces.md",
+      "gitBlob": "20061a532e574d1f620337f8d30892f32c783abe",
+      "sha256": "252b461682233a87036b2bd62e1ea621d09107590d408c870a8301e76e7d2c9b"
+    },
+    {
+      "path": "SKILL.md",
+      "sourcePath": "skills/codebase-design/SKILL.md",
+      "gitBlob": "622a939da49baebd5b45c2b003d0f2279507fef0",
+      "sha256": "3ce774285a4a2428599c1a55c28cada9eab5b8ed5a6390714ebe4431b0090706"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sourcePath": "skills/codebase-design/UPSTREAM.md",
+      "gitBlob": "2e9fa5dd886f5b0559d905f0674df3a3e1e4e798",
+      "sha256": "4b4ac6e154b620e3f4e7beb36379cf0e7f862fb7ecd2e609bceea067eb1a6a14"
+    }
+  ],
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "gitBlob": "02e68acd155c3b8e21bf775f6f5d238b5be26c92",
+      "sha256": "d2088b72eef53cd43ff6c63a937342a79ae464dd8e8382ea8bb7ee39f0cc4d45"
+    },
+    {
+      "path": "DEEPENING.md",
+      "gitBlob": "bccc1e7a8747f9d282cf9cdefae36c6a70d1efef",
+      "sha256": "36eaeb8285e7c08fb6524e6a66e34371e2ea944df45952c937282233b725a99b"
+    },
+    {
+      "path": "DESIGN-IT-TWICE.md",
+      "gitBlob": "ba2f4b13d639b0e93148936aa13d5a4b501ae049",
+      "sha256": "fc19b27c3595d6fed3e247cf1c26d76b164c7f44f221ec2df9388f38d3061ad4"
+    },
+    {
+      "path": "LICENSE",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071"
+    },
+    {
+      "path": "LICENSE-MATT",
+      "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "path": "references/experience-and-interfaces.md",
+      "gitBlob": "12f1caae9934b4379be24ba026b6c43218fb1bf9",
+      "sha256": "a63b86bb40043fd34bf21621c0553ed5e4c0597cd8658fb52f01ff4104132179"
+    },
+    {
+      "path": "SKILL.md",
+      "gitBlob": "3aae5f23d2a88de138b35a6fe3e5e6df76a0ddda",
+      "sha256": "a518993855939875a9109221bce20ce98cd0bd0d40b26bcb8607b3d4cdd0692c"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "gitBlob": "ac81b74f436e105783af354db1e5b80278ad2c90",
+      "sha256": "a084107f8c85dba97dddfc48804fcf9d5eb193985161f6620743f38bce0301e8"
+    }
+  ],
+  "verification": {
+    "scope": "File identities, isolated supporting-file closure, metadata and disposable helper fixtures. No model-driven evaluation or live installation.",
+    "note": "upstreamFiles identifies original inputs at source.revision. files records this fork's resulting bytes and excludes this provenance file to avoid a self-reference."
+  }
+}

@@ -131,9 +131,53 @@ notice work before redistribution. Moshi's separate unresolved grants do not
 block other candidates. No installed skill, lock, agent setting, or chezmoi
 source was changed by this audit.
 
+## Companion source imports
+
+The first repo-only companion tranche imports `codebase-design`,
+`systematic-debugging`, and `verify-and-stop` from the complete Bolens snapshot
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`. All 29 input files, including three
+vendored CI references, were checked against the pinned recursive tree before
+adaptation. Each imported folder has a self-contained `PROVENANCE.json` with
+original paths and hashes, resulting file identities, notices, and local changes.
+No live skill tree, lock, agent setting, or chezmoi source was changed.
+
+A second independent provenance review found copied material beneath two
+incomplete `local-original` labels. Those labels are not treated as authorship:
+
+| Import | Immediate source and ancestor evidence | Notices carried in the selectable folder |
+| --- | --- | --- |
+| `codebase-design` | Bolens snapshot above; Matt Pocock comparison `c0d69015e0cc8b66715beb3f93f9e53256e20f30`, directory `skills/engineering/codebase-design`. DESIGN-IT-TWICE matched exactly; DEEPENING derives from the same material with later edits. Historical import revision unknown. | Full Bolens MIT and Matt Pocock MIT |
+| `systematic-debugging` | Bolens snapshot above; Superpowers comparison `f2cbfbefebbfef77321e4c9abc9e949826bea9d7`, directory `skills/systematic-debugging`. Eight original files match exactly and tracing is derived. Historical import revision unknown. | Full Bolens MIT and Jesse Vincent MIT |
+| `verify-and-stop` | Bolens snapshot above; source-recorded Caveman audit `3b74643f4d910f496babd4e634b1ba7168816f14`, directory `skills/verify-and-stop`. | Original Julius Brussee MIT, with its unchanged split-license scope note, plus Bolens MIT. No Engine-linked runtime included. |
+
+The integration agent checked the comparison trees and complete license texts.
+Comparison revisions prove content matches and applicable published grants, not
+an invented historical import event. Resulting file hashes record this fork's
+adaptations, not an assertion that edited files still equal upstream.
+
+Design now works serially by default and does not require a CONTEXT.md or a broad
+audit specialist. Debugging vendors `development-environments.md`,
+`setup-contracts.md`, and `command-evidence.md` from the same pinned CI skill;
+per-file provenance preserves their original paths. This avoids importing CI,
+Git, and their recursive handoffs merely to read required guidance. Optional
+PR, release, fleet, browser, OS, TDD, and security specialists remain unavailable
+unless separately installed. Existing task permissions and capability checks
+still apply; no missing specialist is silently installed.
+
+The unsafe path-prefix guard was removed from the debugging example rather than
+presented as protection. Diagnostic producer status and privacy guidance were
+clarified. Polluter runner bytes remain unchanged; its shell entrypoint is now
+executable as documented. Historical pressure prompts and outcome claims remain
+source artifacts, not live instructions or results reproduced by this fork.
+
+These three companions close design/diagnosis/proof gaps. They do not establish
+dependency closure for unchanged CI or Git workflows, full delivery, or host
+behavior. Those consumers and the other audited skills remain future work.
+
 ## Limits
 
-These are authored instructions informed by source inspection, not upstream
-skills, an endorsed integration or measured proof of better delivery. Model
-behavior needs evaluation. Package changes can alter the handoff requirements.
-There is no automatic source download or update hook in this package.
+The original discovery pair is authored from the design sources above. The
+three companions are attributed, adapted forks. Neither is an endorsed
+integration or measured proof of better delivery. Model behavior needs evaluation.
+Package changes can alter handoff requirements. There is no automatic source
+download or update hook in this package.

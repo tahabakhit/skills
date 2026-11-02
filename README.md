@@ -8,20 +8,34 @@ categories, and migration boundaries. The
 [installed-skill audit and import map](audits/installed-skills.md) records the
 current candidates, dependencies, and ownership findings.
 
-The current package contains only the two skills below. Its external engineering
-handoff is transitional. Standalone delivery, the expanded catalog, and global
-installation verification are not implemented yet.
+The package now contains five skills. Three companion imports cover concrete
+design, diagnosis, and acceptance proof. They do not supply full delivery or close
+all dependencies of the audited CI/Git collection. Global installation and expanded
+cross-host behavior remain unverified. The original specification skill's external
+engineering handoff is still transitional.
 
 | Skill | Use it for | Output |
 | --- | --- | --- |
 | `discover-work` | An idea, unclear requirement, or choice between approaches | A short agreed brief |
 | `define-work` | Turning that brief or existing requirements into actionable work | A specification with observable acceptance criteria and proposed proof |
+| `codebase-design` | Comparing concrete interfaces or module boundaries | Design options, tradeoffs, and a recommendation |
+| `systematic-debugging` | Diagnosing a failure and making an authorized correction | Evidence-supported cause, scoped fix, and verification gaps |
+| `verify-and-stop` | Checking existing work against acceptance conditions | Candidate-bound proof and an explicit pass, fail, or gap |
 
-The skills use the portable `SKILL.md` format. No Pi runtime, Herdr, Matt skill
-installation, subagent extension or network access is required to use them.
-Research uses tools the host already provides. They add no execution integration,
-installation hook or automatic update process. The optional `pi.skills` manifest
-lets Pi load the same files directly.
+[The catalog](catalog.json) records domains, optional handoffs, and capability
+requirements. It is metadata, not an installer or dependency resolver. Each new
+companion includes its required references, full license notices, and provenance
+inside its own folder; no sibling skill is required.
+The skills use the portable `SKILL.md` format. Ordinary local use requires no
+particular agent runtime, worker launcher, external skills bundle, or network
+service. Use tools the host already provides. There is no installation hook,
+automatic update process, or bundled delivery runtime. The optional `pi.skills`
+manifest lets Pi load the same files directly.
+
+The debugging skill's optional polluter helper runs inspected repository tests;
+it is not read-only or a sandbox. It requires Bash, Python 3.9+, POSIX process
+groups, and the repository's npm test contract. Its TypeScript waiting example
+requires application-specific types and is not a standalone library.
 
 ## Current installation: selected repositories
 
@@ -50,6 +64,16 @@ For a non-npm project, or before this package is published, use the checkout:
 ```fish
 npx skills@1.7.4 add /home/taha/dev/projects/tahabakhit/skills --skill discover-work --skill define-work
 ```
+
+To select only the self-contained debugging companion instead:
+
+```fish
+npx skills@1.7.4 add /home/taha/dev/projects/tahabakhit/skills --skill systematic-debugging
+```
+
+Use the corresponding names for design or verification. The companion checks
+copy each folder alone and verify its supporting-file closure. They do not yet
+establish installation or model-driven behavior in every host.
 
 The CLI may download its own code and changes the chosen project's skill files
 and lockfile. It is optional, not a runtime dependency of this bundle. These
@@ -89,8 +113,17 @@ For example, in Pi:
 /skill:define-work Turn the agreed brief into a spec. Save it using this repo's convention.
 ```
 
-Skip discovery for clear work. Neither skill files issues, creates tickets,
-starts workers or invokes delivery. They save documents only when requested.
+Skip discovery for clear work. The discovery and specification pair never files
+issues, creates tickets, starts workers, or invokes delivery. They save documents
+only when requested. The new companions preserve the requested endpoint: design
+analysis does not authorize implementation, diagnosis does not authorize a fix,
+and successful verification does not authorize publication. Continue work that
+is already authorized without a default plan-approval pause.
+
+An optional specialist mentioned by a companion may be absent. Use the project's
+existing authorized procedure when it supplies sufficient proof; otherwise report
+the specific missing capability. Do not install specialists or claim equivalent
+coverage automatically.
 
 The current optional external handoff, pending replacement by this repository's
 own delivery workflow, is described below. After approval, a spec can be handed to
@@ -105,7 +138,7 @@ That path is an example. Use the actual saved path. Choose supervised,
 merge-ready hand-back in delivery preflight initially. Spec approval does not
 itself authorize implementation, publication, merging or releasing.
 
-## Why these two
+## Original discovery pair
 
 The [1aboveio bundle](https://www.npmjs.com/package/@1aboveio/skills) explicitly
 lists Matt Pocock as an optional third-party source, including grilling, domain
@@ -131,15 +164,17 @@ npm test
 npm pack --dry-run --ignore-scripts
 ```
 
-Structural checks need POSIX utilities and jq, with no npm dependencies. They
-check the manifest, frontmatter, reference links and written safety contracts.
-They do not prove model behavior. [test/scenarios.md](test/scenarios.md) contains
+Package checks need POSIX utilities, jq, Git, Bash, and Python 3.9+, with no npm
+dependencies. They check metadata, links, notices, source identities, independently
+copied folders, and the optional helper against disposable fixtures with fake npm.
+They do not run a real project's tests or prove model behavior. [test/scenarios.md](test/scenarios.md) contains
 model-driven evaluation cases. Results and limits are in [VERIFICATION.md](VERIFICATION.md).
 
 Keep source changes in this Git repository. The npm `files` allowlist includes
-only skills, documentation and licenses. Add future skills under
-`skills/<name>/SKILL.md`. Keep names distinct from upstream skills and avoid
-bundling unrelated runtime extensions. Recheck tests and the tarball before each
+skill folders, the catalog, tests, documentation, and licenses. Add future skills under
+`skills/<name>/SKILL.md`. Keep stable names and explicit ancestry for maintained
+forks; inspect name collisions before activation. Do not bundle unrelated runtime
+extensions. Recheck tests and the tarball before each
 release. Publishing requires an npm identity authorized for `@tahabakhit` and
 explicit approval. No registry access or GitHub repository has been configured.
 

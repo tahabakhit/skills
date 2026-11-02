@@ -1,5 +1,5 @@
 #!/bin/sh
-# Structural checks only. Model behavior is evaluated using scenarios.md.
+# Structural checks and disposable helper fixtures; no model-driven evaluation.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -20,8 +20,11 @@ pass 'no runtime dependencies, install hooks or extensions'
 
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
-[ "$count" = 2 ] || fail 'expected exactly two skills'
-for skill in discover-work define-work; do
+jq -e '.schemaVersion == 1 and
+  ([.skills[].name] | sort) == ["codebase-design", "define-work", "discover-work", "systematic-debugging", "verify-and-stop"]
+  and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array")' catalog.json >/dev/null
+[ "$count" = "$(jq '.skills | length' catalog.json)" ] || fail 'skill folders differ from the catalog'
+for skill in $(jq -r '.skills[].name' catalog.json); do
   file="skills/$skill/SKILL.md"
   [ -f "$file" ] || fail "missing $file"
   awk -v expected="$skill" '
@@ -33,9 +36,9 @@ for skill in discover-work define-work; do
   ' "$file" || fail "invalid frontmatter in $file"
   [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass 'two named, described and bounded skills'
+pass 'five cataloged, named, described and bounded skills'
 
-for file in README.md SOURCES.md ARCHITECTURE.md VERIFICATION.md audits/installed-skills.md skills/define-work/SKILL.md; do
+for file in README.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md audits/installed-skills.md skills/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -83,4 +86,11 @@ jq -e '.schemaVersion == 1
   audits/shared-inventory.json >/dev/null || fail 'invalid historical audit snapshot'
 pass 'historical audit snapshot retains recorded counts and digests'
 
-printf '%s structural checks passed; model behavior not evaluated.\n' "$checks"
+sh test/imports.sh
+pass 'imported folders have local dependency closure, notices and recorded identities'
+sh test/polluter.sh
+pass 'optional diagnostic helper passes isolated executable fixtures'
+sh test/command-status.sh
+pass 'documented command-status example propagates producer and renderer failures'
+
+printf '%s package checks passed; model behavior not evaluated.\n' "$checks"

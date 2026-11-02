@@ -67,6 +67,41 @@ behavioral suitability. No imports, live installation changes, chezmoi retiremen
 host-discovery runs, or bundled diagnostic helpers were executed. Existing skill
 contents and model-driven evaluation cases remain unchanged.
 
+## Companion import checks
+
+The first companion tranche adds codebase design, systematic debugging, and
+acceptance verification. It does not import the remaining audited collection or
+close unchanged CI/Git workflows. Two read-only reviewers independently checked
+scope/safety and layered provenance/licenses, then reviewed the adaptations.
+
+| Check | Observed result |
+| --- | --- |
+| Pinned Bolens input comparison | All 29 original/vendored files match the complete tree at `e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` before adaptation |
+| Ancestor notices and file identities | Six full license texts match reviewed source evidence; the original Caveman license/scope note is unchanged. Reviewers separately rehashed all 34 resulting payload files and all 29 source inputs |
+| `npm test` | `11 package checks passed; model behavior not evaluated.` |
+| Self-contained selection | `3 imported skills passed isolated folder, notice, identity and link checks.` No sibling skills or repository-root notices are present in those copies |
+| Optional polluter helper | `7 helper fixture cases passed; real project tests and network were not used.` Cases cover sorted selection/exclusions, target creation, failed tests, discovery limit, no matches, direct-child timeout cleanup, and an existing target |
+| Documented status example | `5 command-status fixture cases passed; the documented outer status is preserved.` Cases cover success, producer failure, renderer failure, both failing, and grep's no-match status |
+| Intentionally invalid import copies | Missing notice, missing support reference, changed content, and a hidden sibling dependency were all rejected; the unmodified copy passed |
+| Actual npm tarball | `@tahabakhit/skills@0.1.0`; 56 entries. Extracted with no install hooks and all 11 package checks passed from its package directory |
+| Packaged helper modes | Both shell and Python entrypoints retain mode `755`; the shell wrapper is exercised through a symlink |
+| `git diff --check` | Exit 0, no output |
+
+The automated import checks verify current Git blob identities, declared file
+sets, license markers, and local reference closure. They do not independently
+retrieve upstream sources, verify every SHA-256 field, or prove legal clearance.
+Pinned-source/license comparisons and SHA-256 rechecks were separate audit work.
+The Python and Bash helper contents match the reviewed source; only the shell
+entrypoint's mode changed to match its documented executable invocation.
+
+The timeout fixture checks the direct child. Descendant-group cleanup, INT/TERM
+cancellation, escaped sessions, backpressure, macOS behavior, and the Python 3.9
+minimum were not exercised. The TypeScript example was not compiled or run.
+Tests used Linux with Python 3.15.1. There were no real diagnostic runs, target
+project test executions, live installations, global selections, host-model
+sessions, remote writes, or ownership transfers. New model-driven cases in
+[test/scenarios.md](test/scenarios.md) remain proposed checks, not passing results.
+
 ## Not established
 
 No model-driven acceptance scenarios have been run. There is no evidence yet for

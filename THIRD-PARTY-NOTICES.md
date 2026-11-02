@@ -5,6 +5,23 @@ skills. Their sources and the changes made here are described in SOURCES.md.
 This package is not affiliated with or endorsed by Matt Pocock or 1aboveio.
 No 1aboveio package implementation or bundled scripts are redistributed.
 
+## Imported companion skills
+
+The three companion folders are maintained forks of Bolens' agent skills at
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`. Their complete applicable grants ship
+inside each folder so selective copying retains them:
+
+| Material | Copyright and complete notices |
+| --- | --- |
+| Codebase design | Copyright (c) 2026 bolens: [MIT](skills/codebase-design/LICENSE). Copyright (c) 2026 Matt Pocock: [MIT](skills/codebase-design/LICENSE-MATT). |
+| Systematic debugging and its vendored CI references | Copyright (c) 2026 bolens: [MIT](skills/systematic-debugging/LICENSE). Copied and derived Superpowers material, copyright (c) 2025 Jesse Vincent: [MIT](skills/systematic-debugging/LICENSE-SUPERPOWERS). The retained Lace example does not include the Lace runtime. |
+| Acceptance verification | Copyright (c) 2026 Julius Brussee: [MIT](skills/verify-and-stop/LICENSE), including the skill-only split-license scope note. Copyright (c) 2026 bolens: [MIT](skills/verify-and-stop/LICENSE-BOLENS). No Caveman Engine-linked runtime is bundled. |
+
+Their local `PROVENANCE.json` and `UPSTREAM.md` files record reviewed source
+revisions, ancestry limitations, input/result hashes, and adaptations. The
+incomplete local-original labels in the immediate source are not claims of
+exclusive authorship here. These projects do not endorse this package.
+
 ## Matt Pocock skills
 
 Source: https://github.com/mattpocock/skills
