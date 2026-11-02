@@ -19,7 +19,12 @@ Nothing is globally installed by default. Existing selections require explicit
 replacement consent. Managed symlinks and unsafe lockfiles are refused.
 
 All seven packages are published at `0.2.0`. Public installation does not require
-npm login. To use the latest GitHub source instead:
+npm login. Use `npx @tahabakhit/skills@0.2.0` to pin the verified release, or add
+`--list` to inspect its choices without installing skills. All seven published
+selectors passed registry version/list checks. Exact package identities are in
+[the release record](https://github.com/tahabakhit/skills/blob/main/releases/0.2.0.json).
+
+To use the latest GitHub source instead:
 
 ```fish
 npx github:tahabakhit/skills

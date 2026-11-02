@@ -122,7 +122,7 @@ operation. Review that shared use before removing installed skills.
 Restart the agent after changing skills. Start a fresh conversation when replacing
 workflow instructions so old instructions do not remain in the session.
 
-## Public source and unpublished-checkout alternatives
+## GitHub and local-checkout alternatives
 
 Use Vercel directly without our selector:
 
@@ -133,15 +133,17 @@ npx skills@1.7.4 add tahabakhit/skills --skill discover-work --skill define-work
 This uses Vercel's own scope and agent questions. Unlike the wrapper, it does not
 apply our collision, symlink, lock-preservation or receipt guards.
 
-To use the selector from a checkout before registry publication:
+To use the selector directly from a checkout, run it from the recipient project
+or specify that project with `--project`. Do not use the package's own source tree
+as the installation destination:
 
 ```fish
 node /path/to/skills-checkout/bin/skills.mjs
 ```
 
 The selector does not require `npm install` for runtime libraries. Development lint
-checks do require the repository's dev dependencies. You can also run the published
-source through npx once the CLI commit is on GitHub:
+checks do require the repository's dev dependencies. To run the current GitHub
+source rather than the immutable npm release:
 
 ```fish
 npx github:tahabakhit/skills
@@ -193,9 +195,9 @@ after the final commit: it approves exact tarballs for that clean commit in
 `dist/approved-release.json`. Publishing verifies and freezes those bytes in
 private temporary copies, scans those copies under recognized `.tar.gz` names,
 and publishes the same copies without rebuilding. It rejects changed artifacts
-or a different/dirty commit. Publication is not
-atomic: reruns skip versions only when registry integrity matches the exact local
-tarball. Conflicting immutable versions stop the release. Do not blindly bump or
+or a different/dirty commit. Publication is not atomic. Reruns skip versions only
+when registry integrity matches the exact local tarball. Conflicting immutable
+versions stop the release. Do not blindly bump or
 unpublish to hide a partial failure. Verify registry identities after publishing.
 
 Relevant npm contracts: [scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)

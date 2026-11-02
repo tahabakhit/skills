@@ -205,6 +205,20 @@ approval, the remaining five independent artifacts were submitted together and
 verified after processing. No accepted version was blindly republished. Later
 Git documentation updates do not alter the immutable published artifacts.
 
+## Preservation checkpoint
+
+After publication, the preservation agent reported a verified private copy of
+Git commit `6fbe1ae51bf77bd6a42366f5e448366985568d93`, the complete repository,
+ignored distribution output and both approved/published release manifests. The
+tracked `releases/0.2.0.json` record was included.
+
+Reported checks passed for source/copy scans, Git history scans, two checksum
+comparisons, copied-repository `git fsck` and stable Git state. The seven tarballs
+and approved-release manifest were byte-identical to the earlier preserved
+`331fbaf` release artifacts. Capture performed no builds, packing, publication,
+installation or source writes. The capture freeze was released after verification.
+This checkpoint covers `6fbe1ae`, not later documentation commits.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing
