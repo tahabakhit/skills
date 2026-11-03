@@ -7,7 +7,6 @@
     { "name": "engineering", "source": "./skills/engineering", "skills": ["./"], "description": "Specification, design, debugging, delivery, tests, review, Git, CI, security" },
     { "name": "content", "source": "./skills/content", "skills": ["./"], "description": "document-review" },
     { "name": "interface-review", "source": "./skills/interface-review", "skills": ["./"], "description": "interface-review" },
-    { "name": "data", "source": "./skills/data", "skills": ["./"], "description": "analyze-data, data-pipelines" },
-    { "name": "configuration", "source": "./skills/configuration", "skills": ["./"], "description": "managed-config-drift" }
+    { "name": "data", "source": "./skills/data", "skills": ["./"], "description": "analyze-data, data-pipelines" }
   ]
 }

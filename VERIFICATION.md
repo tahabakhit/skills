@@ -498,6 +498,30 @@ No live apply, live copy/link replacement, installer-lock cleanup, bootstrap
 execution or npm publication was performed. Existing live copies remain unchanged;
 this proves source deployment mapping, not running-agent discovery or live migration.
 
+## Managed-config-drift ownership transfer
+
+Moved the complete 7-file `managed-config-drift` payload from
+`skills/configuration/managed-config-drift/` to the owner's dotfiles repository at
+`private_dot_agents/private_skills/managed-config-drift/`, byte-identical; the
+comparator uses chezmoi's `executable_` source attribute. It joins the Linux-only
+OS skills there. Its helper tests moved to `tests/config-drift-skill.sh`. The
+`configuration` bundle, its Claude Code plugin entry and its locally generated
+package identity are removed. Current source now has 20 skills in five bundles.
+Historical evidence above retains its original counts and paths.
+
+Environment: macOS 27.2, Node 26.12.0, npm 11.20.0, Git 2.56.0; login shell
+`/bin/zsh`. Node tests ran with `TMPDIR` under the home directory because macOS
+`/var` is a symlink the installer safety checks refuse. Checks passed:
+
+- Skills repository: package checks, 50 Node tests and diff whitespace. ESLint was
+  not run: it is not installed in this checkout.
+- Dotfiles repository: payload digests, provenance and inert archive for all eight
+  Linux skills (`os-skills.sh` with Homebrew's `chezmoi` on its restricted PATH),
+  drift helper behavior, simulated Linux/macOS selection and documentation links.
+
+No live apply, installer-lock cleanup or npm publication was performed. Existing
+live copies remain unchanged.
+
 ## Not established
 
 The tool-enabled cases in `test/scenarios.md` remain proposals, not passing

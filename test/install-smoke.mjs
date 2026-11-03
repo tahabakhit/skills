@@ -16,7 +16,7 @@ const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.js
 const globalNames = distribution.groups.find(g => g.name === 'core').skills;
 const localNames = distribution.groups.filter(g => g.name !== 'core').flatMap(g => g.skills);
 try {
-  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,interface-review,data,configuration', '--agents', 'pi,claude-code,codex', '--yes'], {
+  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,interface-review,data', '--agents', 'pi,claude-code,codex', '--yes'], {
     cwd: project, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024,
     env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state'), NPM_CONFIG_CACHE: process.env.npm_config_cache || process.env.NPM_CONFIG_CACHE || path.join(os.homedir(), '.npm'), NPM_CONFIG_OFFLINE: 'true' }
   });
@@ -42,5 +42,5 @@ try {
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log('Real pinned installer passed: 21 skills, global+project scopes, Pi/Claude Code/Codex receipts, 42 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
+  console.log('Real pinned installer passed: 20 skills, global+project scopes, Pi/Claude Code/Codex receipts, 40 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
 } finally { fs.rmSync(dir, { recursive: true }); }

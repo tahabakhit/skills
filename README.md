@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-21 standalone workflow skills in six disjoint bundles. Install **core once globally**,
+20 standalone workflow skills in five disjoint bundles. Install **core once globally**,
 then add **whole local bundles** to the projects that need them. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
@@ -36,7 +36,6 @@ and host-loader versions, checks and remaining limits.
 | [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
-| [configuration](skills/configuration) | Local | `managed-config-drift` (1) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
@@ -83,8 +82,8 @@ not replace required independent review.
 
 `create-content` owns writing and prose cleanup in core. The redundant `unslop`
 entrypoint is removed, with no alias. `define-work` belongs to engineering.
-The `chezmoi` skill is now managed by the owner's dotfiles repository, not
-installed from this collection. See [the catalog](CATALOG.md) for exact responsibilities and gaps.
+The `chezmoi` and `managed-config-drift` skills are now managed by the owner's
+dotfiles repository, not installed from this collection. See [the catalog](CATALOG.md) for exact responsibilities and gaps.
 
 ## Optional checkout wrapper and npm status
 
@@ -102,8 +101,8 @@ for replacement, shared-agent paths and failure limits.
 This is a source-only change; the package version remains `0.3.0`. Published npm
 `0.3.0` is immutable: it still has 30 skills, old group names, `unslop`, and the old
 custom install guards. It is **not** the grouped source shown above.
-`@tahabakhit/skills-interface-review` and `@tahabakhit/skills-configuration` are new
-locally generated identities, **not published packages**. Existing `skills-design`
+`@tahabakhit/skills-interface-review` is a new locally generated identity,
+**not a published package**. Existing `skills-design`
 and `skills-operations` releases are unchanged. [Release details](INSTALL.md#maintainer-release-process)
 cover preparing a future version, not overwriting `0.3.0`.
 

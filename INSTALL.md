@@ -1,6 +1,6 @@
 # Install workflow bundles
 
-Current source has 21 skills in six disjoint bundles under `skills/<group>/<name>/`.
+Current source has 20 skills in five disjoint bundles under `skills/<group>/<name>/`.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
 
@@ -24,7 +24,6 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/content --skill "*" -a pi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/interface-review --skill "*" -a pi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data --skill "*" -a pi
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/configuration --skill "*" -a pi
 ```
 
 | Bundle | Count | Contents |
@@ -33,7 +32,6 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/conf
 | content | 1 | `document-review` |
 | interface-review | 1 | `interface-review` |
 | data | 2 | `analyze-data`, `data-pipelines` |
-| configuration | 1 | `managed-config-drift` |
 
 The tree URL selects a group directory and `--skill "*"` selects all its skills.
 There is no native `--group` flag in this recipe. Only core normally uses
@@ -98,18 +96,17 @@ its local-source lock is not a promise that `skills update` can update those cop
 ## Source versus published npm artifacts
 
 The current package version remains **0.3.0**, with source-only changes. Generated
-packages follow the six-group partition; generating them locally does not publish
+packages follow the five-group partition; generating them locally does not publish
 them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 21 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 20 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
 | `@tahabakhit/skills-engineering` | 12 | Published 0.3.0 has the former 11 |
 | `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
 | `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
 | `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
-| `@tahabakhit/skills-configuration` | 1 | New locally generated identity; not published |
 
 Existing `@tahabakhit/skills-design@0.3.0` (1) and
 `@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package

@@ -17,4 +17,4 @@ function check(dir, names) {
 }
 check(path.join(root, 'skills'), distribution.groups.flatMap(group => group.skills));
 for (const group of distribution.groups) check(path.join(root, 'skills', group.name), group.skills);
-console.log('Installed Pi loader discovers the umbrella and each of six native bundle directories without diagnostics. No agent session or live settings changed.');
+console.log('Installed Pi loader discovers the umbrella and each of five native bundle directories without diagnostics. No agent session or live settings changed.');

@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Current source has 21 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 20 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
@@ -9,9 +9,8 @@ Current source has 21 canonical workflow owners under `skills/<group>/<name>/`. 
 | [content](skills/content) | Local | 1 |
 | [interface-review](skills/interface-review) | Local | 1 |
 | [data](skills/data) | Local | 2 |
-| [configuration](skills/configuration) | Local | 1 |
 
-The six bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review/configuration package identities are locally generated, not published.
+The five bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records. `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
@@ -46,8 +45,7 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 ## Other local bundles
 
 Content contains only `document-review`; interface-review contains only
-`interface-review`; data contains `analyze-data` and `data-pipelines`;
-configuration contains only `managed-config-drift`.
+`interface-review`; and data contains `analyze-data` and `data-pipelines`.
 
 | Owner | Responsibility | Does not supply |
 | --- | --- | --- |
@@ -55,7 +53,6 @@ configuration contains only `managed-config-drift`.
 | `interface-review` | Evidence-bounded usability/accessibility review | A new-UI design procedure, certification or a browser adapter |
 | `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
 | `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
-| `managed-config-drift` | Live/source/default ownership and read-only comparison | Automatic reconciliation or a bounded/atomic tree snapshot |
 
 Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` owns technical-writing structure, sentence style and repository verification, including the three imported local references. Prose cleanup belongs to `create-content`; the redundant `unslop` entrypoint is removed with no alias.
 
@@ -72,9 +69,8 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
-The configuration bundle contains only `managed-config-drift` (1).
-The `chezmoi` skill and seven OS/platform/health skills are managed separately
-in the owner's dotfiles source.
+The `chezmoi` skill, `managed-config-drift` and seven OS/platform/health skills
+are managed separately in the owner's dotfiles source.
 
 ## Historical installed-skill audit and current source disposition
 
@@ -84,7 +80,7 @@ The catalog itself does not change live skills, links, locks, host settings or c
 | --- | --- |
 | `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Moved to the owner's chezmoi dotfiles source for Linux-only management, not distributed here. Immutable npm `0.3.0` retains the old copies. Source transfer does not apply changes to live installations |
 | `chezmoi` | Moved with all references, licenses, provenance and tests to the owner's dotfiles repository; deployed by chezmoi, not distributed here |
-| `managed-config-drift` | Configuration specialist with unchanged optional comparator and honest unbounded-traversal contract |
+| `managed-config-drift` | Moved byte-for-byte with its comparator, licenses and provenance to the owner's dotfiles repository; deployed by chezmoi on Linux only, not distributed here. Its helper tests moved with it |
 | `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
 | `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |
 | `technical-writing` | Consolidated into core's `create-content`, including all three useful reference files |

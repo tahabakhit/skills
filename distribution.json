@@ -32,12 +32,6 @@
       "description": "Measurement, SQL analysis and stateful data pipelines",
       "recommendedScope": "project",
       "skills": ["analyze-data", "data-pipelines"]
-    },
-    {
-      "name": "configuration",
-      "description": "Configuration ownership and drift workflows",
-      "recommendedScope": "project",
-      "skills": ["managed-config-drift"]
     }
   ]
 }

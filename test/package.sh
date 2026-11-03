@@ -21,8 +21,8 @@ pass 'selector bin has no runtime library dependencies, install hooks or extensi
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines", "managed-config-drift"] | sort)
-  and ([.skills[].name]|unique|length)==21
+  ([.skills[].name] | sort) == (["discover-work", "define-work", "codebase-design", "systematic-debugging", "verify-and-stop", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "research-work", "create-content", "document-review", "interface-review", "analyze-data", "data-pipelines"] | sort)
+  and ([.skills[].name]|unique|length)==20
   and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
     and (.path | test("^skills/[a-z][a-z0-9-]*/[a-z0-9-]+$"))
     and (.path | split("/") | last) == .name
@@ -41,7 +41,7 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   ' "$file" || fail "invalid frontmatter in $file"
   [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass '21 cataloged, named, described and bounded skills'
+pass '20 cataloged, named, described and bounded skills'
 
 for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.

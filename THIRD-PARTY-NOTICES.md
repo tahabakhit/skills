@@ -37,10 +37,11 @@ exclusive authorship here. These projects do not endorse this package.
 
 ## Installed-specialist adaptations and retained references
 
-The retained `skills/configuration/managed-config-drift` folder adapts Bolens
-material at `e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d`. It includes the complete
-MIT grant with copyright 2026 bolens in `LICENSE-BOLENS`, plus the project MIT
-notice. The retained optional comparator script carries that attribution.
+The `managed-config-drift` adaptation of Bolens material at
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` moved to the owner's dotfiles
+repository at `private_dot_agents/private_skills/managed-config-drift`. Its
+complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MIT
+notice and provenance moved with it unchanged; it is no longer distributed here.
 
 `skills/core/create-content` includes three Bolens technical-writing references;
 `skills/engineering/git-hygiene` four Git references;
@@ -51,8 +52,8 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 21 skills under `skills/<group>/<name>/`; configuration
-contains only `managed-config-drift`. The redundant `unslop` folder
+Current source contains 20 skills under `skills/<group>/<name>/`; the former
+configuration bundle is removed. The redundant `unslop` folder
 is removed with no alias; prose cleanup belongs to core's `create-content`.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-linux`,
@@ -68,8 +69,8 @@ above. The former `rhel-fedora` adaptation used `iuliandita/skills` at
 2025 Iulian Dita, in that artifact's `LICENSE-UPSTREAM` and project notices for
 local changes. Those files are not linked as current source paths here. Source
 and documentation edits do not replace registry bytes or remove their notices.
-The package version remains `0.3.0`; new interface-review/configuration package
-identities are generated locally, not published. Existing design/operations
+The package version remains `0.3.0`; new interface-review package
+identity is generated locally, not published. Existing design/operations
 releases retain their original names and contents. Neither upstream endorses
 this package.
 

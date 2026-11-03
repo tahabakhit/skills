@@ -385,21 +385,6 @@
       "behaviorEvidence": {
         "status": "not-evaluated"
       }
-    },
-    {
-      "name": "managed-config-drift",
-      "domain": "operations",
-      "maturity": "source-import",
-      "origin": "source-adaptation",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "path": "skills/configuration/managed-config-drift",
-      "provenance": "skills/configuration/managed-config-drift/PROVENANCE.json",
-      "capabilities": "Scoped native ownership inspection. Optional preserved comparator: Python 3.9+, trusted small local trees, no internal budget.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
     }
   ],
   "consolidations": [
@@ -460,5 +445,5 @@
       "owner": "analyze-data"
     }
   ],
-  "coverageNote": "21 canonical owners in six disjoint installation groups. Core is the recommended global base; domain bundles are normally project-local, with selective activation rather than mandatory stages. General prose cleanup belongs to create-content; the redundant unslop skill is removed without an alias. The chezmoi, OS administration and workstation-health skills are managed separately by the owner's dotfiles repository. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations or immutable npm releases."
+  "coverageNote": "20 canonical owners in five disjoint installation groups. Core is the recommended global base; domain bundles are normally project-local, with selective activation rather than mandatory stages. General prose cleanup belongs to create-content; the redundant unslop skill is removed without an alias. The chezmoi, managed-config-drift, OS administration and workstation-health skills are managed separately by the owner's dotfiles repository. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations or immutable npm releases."
 }

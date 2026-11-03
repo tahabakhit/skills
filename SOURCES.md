@@ -2,12 +2,12 @@
 
 ## Current source and historical records
 
-Current source contains 21 skills at `skills/<group>/<name>/`: core (4, global),
-engineering (12, local), content (1, local), interface-review (1, local), data
-(2, local) and configuration (1, local). `create-content` is in core and owns
+Current source contains 20 skills at `skills/<group>/<name>/`: core (4, global),
+engineering (12, local), content (1, local), interface-review (1, local) and data
+(2, local). `create-content` is in core and owns
 prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
-is removed with no alias. OS skills remain external in the owner's chezmoi
-source; `herdr-core` and `ketch` are excluded CLI integrations.
+is removed with no alias. OS skills and `managed-config-drift` remain external
+in the owner's dotfiles source; `herdr-core` and `ketch` are excluded CLI integrations.
 
 The sections below preserve research, origin pins and earlier import/adapter
 results. Counts and upstream paths in historical records describe the inspected
@@ -19,8 +19,8 @@ No profile framework or native group flag is required.
 
 This is source-only at package version `0.3.0`. Published npm `0.3.0` remains the
 immutable 30-skill release, including old groups, `unslop` and custom guards.
-New `skills-interface-review` and `skills-configuration` package identities are
-locally generated, not published; existing design/operations releases are
+The new `skills-interface-review` package identity is locally generated, not
+published; existing design/operations releases are
 unchanged. Historical adapter checks below do not establish native grouped-source
 installation or recursive Pi discovery; those require separate integration checks.
 

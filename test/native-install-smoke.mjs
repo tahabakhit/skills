@@ -74,5 +74,5 @@ try {
   for (const group of distribution.groups) checkCopies(umbrella, group);
   assert.equal(fs.existsSync(path.join(umbrella, '.agents/skills/unslop')), false);
   assert.equal(fs.existsSync(path.join(project, 'skills-lock.json.taha-install')), false);
-  console.log(`Native upstream passed (${githubRef ? `GitHub ${githubRef}` : 'local sources'}): six subtree sources + umbrella, ${allNames.length} skills, full bytes/modes/references, Pi/Claude/Codex receipts, no local base copies. Disposable targets only.`);
+  console.log(`Native upstream passed (${githubRef ? `GitHub ${githubRef}` : 'local sources'}): five subtree sources + umbrella, ${allNames.length} skills, full bytes/modes/references, Pi/Claude/Codex receipts, no local base copies. Disposable targets only.`);
 } finally { fs.rmSync(scratch, { recursive: true, force: true }); }
