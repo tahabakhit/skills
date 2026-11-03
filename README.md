@@ -42,6 +42,27 @@ Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
 all-skill picker, not a group install. A custom installer is not required.
 
+## Install for Claude Code
+
+Each bundle is also a Claude Code plugin, listed in
+[.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). Add the
+marketplace once, then install core for your user and other bundles per project:
+
+```text
+/plugin marketplace add tahabakhit/skills
+/plugin install core@tahabakhit-skills
+```
+
+From a project, install a bundle into that project's `.claude/settings.json`:
+
+```sh
+claude plugin marketplace add tahabakhit/skills --scope project
+claude plugin install engineering@tahabakhit-skills --scope project
+```
+
+Plugin skills are namespaced, for example `/core:verify-and-stop`. Update them
+through `/plugin`. Do not also install the same bundle with `npx skills -a claude-code`.
+
 ## Use the workflows
 
 Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
