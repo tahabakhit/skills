@@ -34,6 +34,10 @@ standalone does not mean tool-free.
 | content | Local | `document-review` (1) |
 | interface-review | Local | `interface-review` (1) |
 | data | Local | `analyze-data`, `data-pipelines` (2) |
+| workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
+| linux | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| macos | Global, macOS | `macos` (1) |
+| agents | Global | Instructions, skills, harnesses, sessions and agent engineering judgment (13) |
 
 `create-content` owns shared writing and prose cleanup. The redundant `unslop`
 entrypoint is removed with no alias. `define-work` is a project engineering skill,
@@ -54,12 +58,13 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engi
 ```
 
 The tree URL narrows the source to one bundle; the quoted wildcard selects all
-skills in it. Other domain bundles follow the same pattern without `--global`.
+skills in it. Project-domain bundles omit `--global`; workstation, linux, macos
+and agents use global scope. [INSTALL.md](INSTALL.md) lists all bundle commands.
 Add `--copy` only for explicitly desired plain copies, not as a hidden default.
 The root repository remains an all-skill picker. No native group flag, dependency
-resolver, custom profile framework or auto-migration is implied. These future
-committed `main` URLs depend on the grouped source landing there; install support
-and scope behavior remain subject to integration checks.
+resolver, custom profile framework or auto-migration is implied. The `main` URLs
+track the grouped source; use a commit for a fixed revision. Install support and
+scope behavior remain subject to integration checks.
 
 The `pi.skills` manifest remains `["./skills"]`; recursive Pi package discovery
 must be verified separately. Do not load the same skill through both package

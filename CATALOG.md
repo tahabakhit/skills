@@ -9,6 +9,10 @@ Current source has 43 canonical workflow owners under `skills/<group>/<name>/`. 
 | [content](skills/content) | Local | 1 |
 | [interface-review](skills/interface-review) | Local | 1 |
 | [data](skills/data) | Local | 2 |
+| [workstation](skills/workstation) | Global | 4 |
+| [linux](skills/linux) | Global, Linux | 5 |
+| [macos](skills/macos) | Global, macOS | 1 |
+| [agents](skills/agents) | Global | 13 |
 
 The nine bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
 
@@ -29,11 +33,11 @@ The machine-readable [catalog](catalog.json) records capability boundaries and s
 | --- | --- | --- |
 | `define-work` | Observable requirements and proposed proof | Implementation, scheduling or tracker publication |
 | `codebase-design` | Compare concrete module/interface alternatives | Broad architecture audits or new-screen visual design |
-| `systematic-debugging` | Evidence-supported cause and an authorized correction | Automatic repair during diagnosis or a second delivery loop |
+| `systematic-debugging` | Evidence-supported diagnosis, performance profiling and authorized correction | Automatic repair during diagnosis or a second delivery loop |
 | `deliver-work` | Plan, implement and follow through to the requested endpoint | Replacing domain expertise or granting outward-action permission |
 | `testing-work` | Test authoring, TDD, adequacy, properties and mutations | Product changes during test-only work or a mandatory mutation campaign |
 | `code-review` | Review the exact requested candidate and reconcile findings | Unrequested fixes, remote review posts or speculative requirements |
-| `change-safely` | Behavior-preserving refactors and staged compatible migrations | Treating intentional behavior changes as cleanup |
+| `change-safely` | Behavior-preserving refactors and staged migrations, including relational database guidance | Treating intentional behavior changes as cleanup |
 | `git-hygiene` | Writer ownership, candidate capture and integration freshness | A second work graph or unconditional cleanup |
 | `ci-maintenance` | Event, trust, revision, setup and required-check contracts | PR waiting or application acceptance from YAML syntax |
 | `triage-dependency-updates` | Declared/resolved/installed/shipped versions and compatible candidates | Unscoped upgrades or unrestricted execution of candidate code |
@@ -93,6 +97,9 @@ The catalog itself does not change live skills, links, locks, host settings or c
 
 ## Explicit coverage gaps
 
-OS administration, distribution-specific package/update recovery, workstation health triage, new-interface design, advanced statistics/causal methods, infrastructure and database adapters, and incident/restore playbooks need substantive procedures and their own verification. Binary document creation, preservation, recalculation, redaction and accessibility need suitable engines and operation-specific fixtures. Legal, clinical, investment, credit, fraud and privacy-governance expertise are not supplied by a generic research or security label.
+The imported workstation and OS bundles supply administration and recovery guidance,
+but their presence does not establish platform recovery effectiveness. New-interface
+design, advanced statistics/causal methods, infrastructure and database adapters,
+and incident/restore integrations still need substantive procedures and verification. Binary document creation, preservation, recalculation, redaction and accessibility need suitable engines and operation-specific fixtures. Legal, clinical, investment, credit, fraud and privacy-governance expertise are not supplied by a generic research or security label.
 
 Taha Bakhit maintains the repository's source pins, notices, closure checks and evaluation record. The update process lives in [SOURCES.md](SOURCES.md) and [VERIFICATION.md](VERIFICATION.md), not another always-loaded skill. New recurring task classes can justify additional specialist material. An entrypoint count cannot justify retiring knowledge the collection does not contain.

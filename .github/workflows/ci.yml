@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Check (Node ${{ matrix.node }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['22.20.0', '24.x']
+    steps:
+      - name: Check out candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Check system prerequisites
+        shell: bash
+        run: |
+          set -euo pipefail
+          git --version
+          jq --version
+          bash --version
+          tar --version
+          python3 -c 'import sys; assert sys.version_info >= (3, 9), "Python 3.9+ required"'
+          node --version
+          npm --version
+      - name: Install locked development dependencies
+        run: npm ci --ignore-scripts
+      - name: Lint, test and pack
+        run: npm run check
+      - name: Check tracked files stayed unchanged
+        run: git diff --exit-code

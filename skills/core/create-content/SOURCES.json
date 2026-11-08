@@ -489,5 +489,6 @@
       }
     }
   ],
+  "localChanges": ["Tighten entrypoint wording while preserving evidence, author voice, format and action boundaries; lead with the artifact and explain only material decisions or limits."],
   "limits": "No third-party binary/font/image/schema assets included. Three Bolens technical-writing references are copied and carry LICENSE-BOLENS; see PROVENANCE.json. If integration retains substantial adapted upstream expression, conservatively carry the applicable full MIT/Apache license, relevant attribution and changed-file notices in the selectable folder; do not treat public availability or a root MIT label as per-file clearance."
 }

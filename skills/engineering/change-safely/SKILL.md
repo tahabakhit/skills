@@ -28,7 +28,7 @@ Read [refactor procedure](references/refactor.md).
 
 ## Migration branch
 
-Read [migration procedure](references/migration.md).
+Read [migration procedure](references/migration.md). For relational schema or data changes, also read [database migrations](references/database-migrations.md) for lock, backfill, constraint and recovery decisions.
 
 1. Specify old/new reader and writer behavior for each permitted stage.
 2. Expand compatibility before migrating data or switching traffic. Preserve enough source information to reconcile the transition.

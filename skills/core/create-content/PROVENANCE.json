@@ -22,7 +22,8 @@
     "Use existing usable scanned-PDF text layers before prescribing OCR.",
     "Merge audited installed specialist references and carry Bolens MIT notice.",
     "Move the complete standalone folder to skills/core/create-content without changing licenses or existing pinned source inputs.",
-    "Absorb useful scope-bound prose-cleanup guidance from the local unslop adaptation; remove its optional handoff without an alias, retaining the existing Bolens notice."
+    "Absorb useful scope-bound prose-cleanup guidance from the local unslop adaptation; remove its optional handoff without an alias, retaining the existing Bolens notice.",
+    "Tighten drafting and cleanup prose, retain evidence/voice/format boundaries, and return the artifact first with only material explanatory notes."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -71,13 +72,13 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "0cd59475ad8eba8f176089018d04342c2031e872fa3cac4225fc3a10e2ac0f1f",
-      "gitBlob": "d5f4b2c92e49db1536ea5b9ce1cf3379831deeab"
+      "sha256": "0e3cc0c97c20f3cc81ab3aae7795cb6d8e49a2d7c1f32c1a6bfb81ad544c26f4",
+      "gitBlob": "3689a618209201768cdd9008d68c0edf058887d8"
     },
     {
       "path": "SOURCES.json",
-      "sha256": "7188a86da7970eb4415bbe71f37569d7ff9eacab6e34aaa7883bd417755ecbce",
-      "gitBlob": "6126a0f235387a1149fd51540f281c724a2c6f8c"
+      "sha256": "0fc813b3e213851965e3842351c951c2a0a82e36fd7ed089d0270b106ff77f8e",
+      "gitBlob": "a4655f15f7f60da5230af89e08fd6cc2adf51dad"
     }
   ],
   "imports": [

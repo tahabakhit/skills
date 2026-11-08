@@ -7,9 +7,10 @@ No 1aboveio package implementation or bundled scripts are redistributed.
 
 ## Original procedures and selectable notices
 
-The 16 new consolidated procedures record original expression and conceptual
-source comparisons in their local source records. No upstream engine, document
-implementation, runtime, script or asset is bundled in those additions. Their
+The original consolidated procedures record their expression and conceptual
+source comparisons in local source records. Later reference adaptations are
+attributed below and in folder-local provenance. No upstream engine, document
+implementation or runtime is bundled. Their
 project MIT notice travels in each selected folder. This is not a legal opinion
 that conceptual-source review clears every possible derivative.
 
@@ -35,13 +36,31 @@ revisions, ancestry limitations, input/result hashes, and adaptations. The
 incomplete local-original labels in the immediate source are not claims of
 exclusive authorship here. These projects do not endorse this package.
 
+## DROO specialist references
+
+Source: [DROOdotFOO/agent-skills](https://github.com/DROOdotFOO/agent-skills/tree/252cabcc930274ae32e131d67c354091c6ec651c),
+commit `252cabcc930274ae32e131d67c354091c6ec651c`, MIT, copyright (c) 2026 DROO.
+
+- `performance-profiler` guidance is adapted into
+  [performance profiling](skills/engineering/systematic-debugging/references/performance-profiling.md).
+  The full grant is [LICENSE-DROO](skills/engineering/systematic-debugging/LICENSE-DROO);
+  local additions carry the [project notice](skills/engineering/systematic-debugging/LICENSE.local).
+- `database-designer/migration-safety.md` is adapted into
+  [database migrations](skills/engineering/change-safely/references/database-migrations.md).
+  The full grant is [LICENSE-DROO](skills/engineering/change-safely/LICENSE-DROO);
+  the existing project notice covers local additions.
+
+Per-folder provenance records input hashes and revisions. No upstream scripts,
+agent runtimes or new skill entrypoints are included. This project is not
+endorsed by DROO.
+
 ## Installed-specialist adaptations and retained references
 
 The `managed-config-drift` adaptation of Bolens material at
-`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` moved to the owner's dotfiles
-repository at `private_dot_agents/private_skills/managed-config-drift`. Its
+`e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` previously moved to the owner's dotfiles
+repository and has returned as `skills/workstation/managed-config-drift`. Its
 complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MIT
-notice and provenance moved with it unchanged; it is no longer distributed here.
+notice and provenance travel with it.
 
 `skills/core/create-content` includes three Bolens technical-writing references;
 `skills/engineering/git-hygiene` four Git references;
@@ -52,15 +71,16 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 20 skills under `skills/<group>/<name>/`; the former
-configuration bundle is removed. The redundant `unslop` folder
+Current source contains 43 skills under `skills/<group>/<name>/` in nine bundles;
+the former configuration bundle name is removed. The redundant `unslop` folder
 is removed with no alias; prose cleanup belongs to core's `create-content`.
 Its historical adaptation used the pinned Bolens grant above, retained in the
-immutable releases that include it. `operate-systems`, `arch-linux`,
-`arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora` and
-`workstation-health-triage` are no longer included. Historical audit/import records
-remain evidence of earlier work, not current source contents or live ownership.
-The OS workflows remain external in the owner's chezmoi source.
+immutable releases that include it. `operate-systems`, `arch-package-maintenance`,
+`arch-update-recovery`, `rhel-fedora` and `workstation-health-triage` are no longer
+included under those names. Current `arch-linux` and `cachyos` folders returned
+from dotfiles in the linux bundle; their local notices and provenance describe
+the current payloads. Historical audit/import records remain evidence of earlier
+work, not current source contents or live ownership.
 
 Immutable npm `0.3.0` still contains the former 30 skills and their folder-local
 notices. The removed Arch/CachyOS/health adaptations carried the Bolens grant
@@ -82,10 +102,10 @@ current installation ownership.
 
 Source: [mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc),
 MIT License, copyright (c) 2026 Mike Kobit. Nine skill entrypoints and 38 reference
-files were consolidated and adapted into the `chezmoi` skill, now moved to
-`private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository
-and no longer distributed here. The complete source grant and local contribution
-notice moved with the skill.
+files were consolidated and adapted into the `chezmoi` skill, previously moved to
+`private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
+and now returned as `skills/workstation/chezmoi`. The complete source grant and
+local contribution notice travel with the skill.
 Its `PROVENANCE.json` records original input paths/hashes, resulting identities and
 changes. No upstream runtime, plugin or evaluation harness is bundled. Neither
 Mike Kobit nor the chezmoi project endorses this adaptation.

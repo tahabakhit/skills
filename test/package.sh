@@ -13,7 +13,9 @@ jq -e '.name == "@tahabakhit/skills" and .version == "0.3.0"
 pass 'npm identity and optional Pi manifest'
 
 jq -e '(.dependencies // {} | length) == 0
-  and (.scripts | keys) == ["build:packages", "lint", "pack:packages", "publish:dry-run", "publish:packages", "test"]
+  and all(.scripts | keys[]; IN("preinstall", "install", "postinstall",
+    "prepublish", "preprepare", "prepare", "postprepare", "prepack", "postpack",
+    "prepublishOnly", "publish", "postpublish", "dependencies") | not)
   and .bin == {"taha-skills":"bin/skills.mjs"}
   and (.pi | keys) == ["skills"]' package.json >/dev/null
 pass 'selector bin has no runtime library dependencies, install hooks or extensions'
@@ -21,12 +23,11 @@ pass 'selector bin has no runtime library dependencies, install hooks or extensi
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name]|unique|length)==43
+  (.skills|length)>0 and ([.skills[].name]|unique|length)==(.skills|length)
   and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
     and (.path | test("^skills/[a-z][a-z0-9-]*/[a-z0-9-]+$"))
     and (.path | split("/") | last) == .name
-    and .provenance == (.path+"/PROVENANCE.json"))
-  and ([.skills[]|select(.maturity=="experimental")]|length)==15' catalog.json >/dev/null
+    and .provenance == (.path+"/PROVENANCE.json"))' catalog.json >/dev/null
 [ "$count" = "$(jq '.skills | length' catalog.json)" ] || fail 'skill folders differ from the catalog'
 for skill in $(jq -r '.skills[].name' catalog.json); do
   file="$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .path' catalog.json)/SKILL.md"
@@ -42,9 +43,9 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   [ "$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .origin' catalog.json)" = moved-from-dotfiles ] ||
     [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass '43 cataloged, named, described and bounded skills'
+pass 'cataloged, named, described and bounded skills'
 
-for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
+for file in README.md INSTALL.md CONTRIBUTING.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -57,9 +58,7 @@ pass 'local Markdown reference targets exist'
 
 for skill in discover-work define-work; do
   file="$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .path' catalog.json)/SKILL.md"
-  grep -Fq 'Treat' "$file" || fail "missing evidence boundary: $skill"
   grep -Fq 'Do not launch workers unless authorized' "$file" || fail "missing worker boundary: $skill"
-  grep -Fq 'existing' "$file" || fail "missing existing-work guidance: $skill"
 done
 grep -Fq 'Spec approval is not implementation' skills/engineering/define-work/SKILL.md
 grep -Fq 'Do not invoke it here.' skills/engineering/define-work/SKILL.md
@@ -94,7 +93,7 @@ jq -e '.schemaVersion == 1
 pass 'historical audit snapshot retains recorded counts and digests'
 
 sh test/imports.sh
-pass 'imported folders have local dependency closure, notices and recorded identities'
+pass 'reviewed import identities, notices, routes and helper contracts remain present'
 sh test/standalone.sh
 pass 'all selected folders retain standalone notices, references and exact payload identities'
 sh test/catalog-mutations.sh

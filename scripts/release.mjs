@@ -25,14 +25,21 @@ export function registryResult(result, integrity) {
   if (data?.error?.code === 'E404') return 'missing';
   throw new Error(`Registry check failed: ${data?.error?.code ?? result.status}`);
 }
+export function packedResult(output, pkg) {
+  const data = JSON.parse(output);
+  let rows = [];
+  if (Array.isArray(data)) rows = data;
+  else if (data && Object.keys(data).length === 1 && Object.hasOwn(data, pkg.name)) rows = [data[pkg.name]];
+  const row = rows[0];
+  if (rows.length !== 1 || row?.name !== pkg.name || row.version !== pkg.version) throw new Error('Unexpected packed package identity');
+  return row;
+}
 export function packAll(source = root) {
   const packages = buildPackages(path.join(source, 'dist', 'npm'), source);
   const destination = path.join(source, 'dist', 'tarballs');
   outputDirectory(destination, source);
   return packages.map(pkg => {
-    const rows = JSON.parse(run('npm', ['pack', '--ignore-scripts', '--pack-destination', destination, '--json'], pkg.dir, true));
-    const row = rows[0];
-    if (rows.length !== 1 || row.name !== pkg.name || row.version !== pkg.version) throw new Error('Unexpected packed package identity');
+    const row = packedResult(run('npm', ['pack', '--ignore-scripts', '--pack-destination', destination, '--json'], pkg.dir, true), pkg);
     return { name: pkg.name, version: pkg.version, file: path.join(destination, row.filename), integrity: row.integrity, shasum: row.shasum, entries: row.entryCount };
   });
 }

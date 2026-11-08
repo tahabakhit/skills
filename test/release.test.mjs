@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { validateArtifacts, withArtifacts } from '../scripts/release.mjs';
+import { packedResult, validateArtifacts, withArtifacts } from '../scripts/release.mjs';
 
 test('released 0.3.0 record remains immutable and is not the current source group manifest', () => {
   const bytes = fs.readFileSync(new URL('../releases/0.3.0.json', import.meta.url));
@@ -19,6 +19,20 @@ test('released 0.3.0 record remains immutable and is not the current source grou
   // Source is also 0.3.0 deliberately: this refactor does not publish or rewrite released bytes.
   const current = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url)));
   assert.equal(current.version, '0.3.0');
+});
+
+test('packing accepts npm array and keyed responses without relaxing package identity', () => {
+  const pkg = { name: '@tahabakhit/skills-core', version: '0.3.0' };
+  const row = { ...pkg, filename: 'tahabakhit-skills-core-0.3.0.tgz' };
+  for (const data of [[row], { [pkg.name]: row }]) {
+    assert.deepEqual(packedResult(JSON.stringify(data), pkg), row);
+  }
+  for (const data of [
+    [], [row, row], null, { wrong: row }, { [pkg.name]: row, extra: row },
+    [{ ...row, name: 'wrong' }], [{ ...row, version: '0.0.0' }],
+    { [pkg.name]: { ...row, name: 'wrong' } }, { [pkg.name]: null },
+  ]) assert.throws(() => packedResult(JSON.stringify(data), pkg), /Unexpected packed package identity/);
+  assert.throws(() => packedResult('not JSON', pkg), SyntaxError);
 });
 
 // Published SHA-512 test vector for the exact three-byte input "abc".

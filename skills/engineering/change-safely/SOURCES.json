@@ -1,14 +1,23 @@
 {
   "schemaVersion": 1,
   "name": "change-safely",
-  "kind": "original",
+  "kind": "original-with-adapted-reference",
   "license": "MIT",
   "copyright": "Taha Bakhit",
-  "authorship": "New draft written for the requested portable skill consolidation. No upstream prose, code, scripts or supporting assets copied or adapted. Comparison citations document research, not runtime dependencies.",
+  "authorship": "Original consolidated procedure and existing references, with a later adapted database-migrations reference from DROOdotFOO/agent-skills. Exact inputs, changes and full MIT notices are recorded in PROVENANCE.json. Earlier comparison citations are not runtime dependencies.",
   "copiedAssets": [],
-  "adaptedAssets": [],
+  "adaptedAssets": ["references/database-migrations.md"],
   "projectLicenseNotice": "LICENSE repeats the existing project MIT notice. This is not an imported upstream skill asset.",
   "sources": [
+    {
+      "kind": "adapted-reference",
+      "repository": "DROOdotFOO/agent-skills",
+      "revision": "252cabcc930274ae32e131d67c354091c6ec651c",
+      "path": "skills/database-designer/migration-safety.md",
+      "url": "https://github.com/DROOdotFOO/agent-skills/blob/252cabcc930274ae32e131d67c354091c6ec651c/skills/database-designer/migration-safety.md",
+      "upstreamLicense": "MIT",
+      "upstreamLicenseNotes": "Complete Copyright (c) 2026 DROO grant retained as LICENSE-DROO; PROVENANCE.json records exact inputs and changes."
+    },
     {
       "kind": "conceptual-comparison-not-copied",
       "repository": "bolens/agent-skills",
@@ -56,6 +65,16 @@
   ],
   "files": [
     {
+      "path": "LICENSE-DROO",
+      "kind": "upstream-license-notice",
+      "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b"
+    },
+    {
+      "path": "references/database-migrations.md",
+      "kind": "adapted",
+      "sha256": "7fe15a546280d3c0a3a3c6676fd8eed6976c483ba335d3cb12ff047d2378d0da"
+    },
+    {
       "path": "LICENSE",
       "kind": "project-license-notice",
       "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613"
@@ -63,7 +82,7 @@
     {
       "path": "SKILL.md",
       "kind": "original",
-      "sha256": "7ddbf551d9f0fed187ec6c68bdfcf3a7baeef996d9af4291c850b4da673f238e"
+      "sha256": "545365474f8021884c23342acf0542494c2ce1063e8777cb7b63d7a1fb1e899d"
     },
     {
       "path": "references/migration.md",

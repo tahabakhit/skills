@@ -30,6 +30,18 @@
       "spdx": "MIT",
       "copyright": "Copyright (c) 2025 Jesse Vincent",
       "scope": "Copied and derived ancestor material; does not license additional upstream runtimes."
+    },
+    {
+      "file": "LICENSE-DROO",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 DROO",
+      "scope": "Adapted performance-profiling reference."
+    },
+    {
+      "file": "LICENSE.local",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "scope": "Local profiling and editorial additions."
     }
   ],
   "changes": [
@@ -41,7 +53,8 @@
     "Preserve wrapper/Python bytes; make the documented shell entrypoint executable.",
     "Mark TDD and sensitive-info-audit handoffs explicitly optional.",
     "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
-    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records."
+    "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records.",
+    "Add an optional performance-profiling reference adapted from pinned DROO inputs with complete upstream and local notices. Tighten delivery/fleet handback prose without changing authority boundaries."
   ],
   "upstreamFiles": [
     {
@@ -161,6 +174,21 @@
   ],
   "files": [
     {
+      "path": "LICENSE-DROO",
+      "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b",
+      "gitBlob": "5ac57bf0ddbc7d3ab073b5eff52bb7e1a1a6b835"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/performance-profiling.md",
+      "sha256": "e6b313483308214e57915ec6ff2f7df3034e96f44b3411b98ef448c3366ef86b",
+      "gitBlob": "2d5f64000b897cfeb2527f305f78ef4ace58b06f"
+    },
+    {
       "path": "agents/openai.yaml",
       "gitBlob": "765401f199342260ee35594e648148838b40f7bf",
       "sha256": "f6ca2199e6bd93c02ec9ca787456a0a0d0bf7d6c480eac679c7295003c2ecf0b"
@@ -237,8 +265,8 @@
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "0e605c536f55342b03996ae7e8ad4253ea59745b",
-      "sha256": "cff74fea244b095555a168c0fea307705910ae9f295f7ea5e42212e6b6096c35"
+      "gitBlob": "a95dc50517e68e540812be9253b0c12a01299e54",
+      "sha256": "8726451ad0f413ca565449ba992b0d926f3edb7966a9388d80a5b511a157dc89"
     },
     {
       "path": "test-academic.md",
@@ -264,6 +292,41 @@
       "path": "UPSTREAM.md",
       "gitBlob": "34453886d93cf1d08f19c1bf8c9b2fe1ccd2276c",
       "sha256": "00bdeac70edf827d39b67d2a10fcc518dbd5fbedca40a3f01425afb6131701e9"
+    }
+  ],
+  "imports": [
+    {
+      "source": {
+        "repository": "https://github.com/DROOdotFOO/agent-skills",
+        "revision": "252cabcc930274ae32e131d67c354091c6ec651c",
+        "directory": "skills/performance-profiler"
+      },
+      "upstreamFiles": [
+        {
+          "path": "LICENSE",
+          "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b",
+          "gitBlob": "5ac57bf0ddbc7d3ab073b5eff52bb7e1a1a6b835"
+        },
+        {
+          "path": "skills/performance-profiler/SKILL.md",
+          "sha256": "f9dc47606ca037ec53814862b8261fb3dd2a1965420da855dc3c1dbb6361c4da",
+          "gitBlob": "f49cf8c99b2204002ce3852a6cab99cb034fce37"
+        },
+        {
+          "path": "skills/performance-profiler/profiling-tools.md",
+          "sha256": "6941c34c8014723ad024d4c946383d8259b09b940e7ad7bd38c288f874da7312",
+          "gitBlob": "4fddb135d279775acf649249ab3f7170dec5a6ef"
+        },
+        {
+          "path": "skills/performance-profiler/optimization-checklist.md",
+          "sha256": "e57d1aac3e321e9b132622ca413f5a99fb2d58605001c4ddeada692ad782809d",
+          "gitBlob": "537dcd2b1671514d5e9c9fc6e1495fcfbcd868fd"
+        }
+      ],
+      "changes": [
+        "Adapt profiling and measurement guidance into one optional reference under systematic-debugging; no new entrypoint, runtime or sibling dependency.",
+        "Prefer existing built-in tools; remove automatic npx installations, public profiler endpoints, zero-overhead claims and fixed optimization thresholds. Add workload bounds, noise, error-rate, waiting-time and profile-privacy distinctions."
+      ]
     }
   ],
   "verification": {

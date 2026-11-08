@@ -38,7 +38,8 @@ reject tampered-content 'SHA-256 mismatch'
 copy_case hidden-sibling
 printf '\nRead [required sibling](../../engineering/define-work/SKILL.md).\n' >> "$case_root/skills/core/discover-work/SKILL.md"
 refresh_file SKILL.md
-reject hidden-sibling 'Markdown target escapes folder'
+# The isolated copy has no sibling tree to satisfy this hidden dependency.
+reject hidden-sibling 'missing isolated Markdown target'
 copy_case symlink
 ln -s ../../engineering/define-work/SKILL.md "$case_root/skills/core/discover-work/escape.md"
 reject symlink 'symlink in selectable folder'

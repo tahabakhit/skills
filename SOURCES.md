@@ -2,12 +2,14 @@
 
 ## Current source and historical records
 
-Current source contains 20 skills at `skills/<group>/<name>/`: core (4, global),
-engineering (12, local), content (1, local), interface-review (1, local) and data
-(2, local). `create-content` is in core and owns
+Current source contains 43 skills at `skills/<group>/<name>/`: core (4, global),
+engineering (12, local), content (1, local), interface-review (1, local), data
+(2, local), workstation (4, global), linux (5, global), macos (1, global) and
+agents (13, global). `create-content` is in core and owns
 prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
-is removed with no alias. OS skills and `managed-config-drift` remain external
-in the owner's dotfiles source; `herdr-core` and `ketch` are excluded CLI integrations.
+is removed with no alias. The workstation, linux, macos and agents bundles returned
+from the owner's dotfiles at commit `8eb84ae`; their folder-local provenance
+records that move. `herdr-core` and `ketch` are excluded CLI integrations.
 
 The sections below preserve research, origin pins and earlier import/adapter
 results. Counts and upstream paths in historical records describe the inspected
@@ -23,6 +25,22 @@ The new `skills-interface-review` package identity is locally generated, not
 published; existing design/operations releases are
 unchanged. Historical adapter checks below do not establish native grouped-source
 installation or recursive Pi discovery; those require separate integration checks.
+
+## Focused specialist additions
+
+Two optional references adapt [DROOdotFOO/agent-skills](https://github.com/DROOdotFOO/agent-skills/tree/252cabcc930274ae32e131d67c354091c6ec651c)
+at `252cabcc930274ae32e131d67c354091c6ec651c`: performance profiling under
+`systematic-debugging`, and relational database migrations under `change-safely`.
+The existing owners remain; no additional entrypoints, agent CLIs or mandatory
+sibling skills are introduced. Each folder carries the complete DROO MIT notice
+and exact input hashes in `PROVENANCE.json`.
+
+Adaptations prefer existing profilers and bounded workloads, distinguish measured
+cost from waiting and noise, and qualify migration locking, retries and recovery
+of post-cutover writes. Database guidance is PostgreSQL-focused, not a general
+DBA capability. The references link the Node/Python/Go and PostgreSQL contracts
+used to check technical details. Executable example and package checks are not
+model-behavior or production-migration acceptance.
 
 ## Evidence inspected
 
@@ -266,9 +284,9 @@ are excluded as CLI-managed integrations at the user's request.
 
 Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkobit/chezmoi-skills/tree/093b6c4ee156d53f6d74257f39b76d22cf9180fc).
 All nine skill entrypoints and 38 reference files were read for this adaptation.
-Their topics were consolidated into one skill, now moved with all 52 files to
-`private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository.
-It is no longer distributed here. The source MIT grant, copyright 2026 Mike Kobit,
+Their topics were consolidated into one skill, subsequently moved with all 52 files
+to `private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
+and later returned here as `skills/workstation/chezmoi`. The source MIT grant, copyright 2026 Mike Kobit,
 and local contribution notice travel with that source.
 
 The adaptation preserves topic detail while adding an entrypoint safety gate for
@@ -288,7 +306,7 @@ managed dotfiles or replacing existing live skills.
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions
-are attributed forks; the consolidated chezmoi fork is now maintained in dotfiles. The 16 new procedures are provisional original workflows.
+are attributed forks; the consolidated chezmoi fork is distributed in workstation. The 16 new procedures are provisional original workflows.
 None is an endorsed integration. [The recorded pilot](evaluations/entrypoint-pilot/RESULTS.md)
 is entrypoint-only development evidence, not proof of whole-system effectiveness,
 routing, tools, stopping behavior or host compatibility. Package changes can alter

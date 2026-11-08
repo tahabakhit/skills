@@ -69,7 +69,7 @@
       ],
       "path": "skills/engineering/systematic-debugging",
       "provenance": "skills/engineering/systematic-debugging/PROVENANCE.json",
-      "capabilities": "Use existing repository diagnostics. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox.",
+      "capabilities": "Existing repository diagnostics and optional performance-profiling guidance; use installed profilers and bounded local workloads. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox.",
       "unbundledSpecialists": [
         "audit-repo-fleet",
         "nixos"
@@ -171,7 +171,7 @@
       ],
       "path": "skills/engineering/change-safely",
       "provenance": "skills/engineering/change-safely/PROVENANCE.json",
-      "capabilities": "Existing consumers, baseline checks and recovery evidence. Actual database/runtime needed for transition claims.",
+      "capabilities": "Existing consumers, baseline checks and recovery evidence; optional PostgreSQL-focused lock, backfill and constraint guidance. Actual database/runtime needed for transition claims.",
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"

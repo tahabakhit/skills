@@ -10,6 +10,7 @@ import { createPlan, installerArgs } from '../lib/plan.mjs';
 import { checkReceipts, executePlan, verifyLock } from '../lib/install.mjs';
 import { buildPackages, outputDirectory } from '../scripts/build-packages.mjs';
 import { registryResult } from '../scripts/release.mjs';
+import { tree } from '../lib/files.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
@@ -51,7 +52,7 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('1,core,discover-work', distribution), core);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
-  assert.equal(select('all', distribution).length, 43);
+  assert.deepEqual(select('all', distribution), distribution.groups.flatMap(g => g.skills));
   assert.deepEqual(select('macos', distribution), ['macos']);
   assert.throws(() => select('configuration', distribution), /Unknown/);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
@@ -71,7 +72,7 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
     assert.equal(skill.provenance, `${relative}/PROVENANCE.json`);
     assert.equal(fs.existsSync(path.join(root, 'skills', skill.name, 'SKILL.md')), false);
   }
-  for (const alias of ['design', 'operations', 'unslop']) {
+  for (const alias of ['configuration', 'design', 'operations', 'unslop', 'technical-writing', 'migration', 'safe-refactor', 'herdr-core', 'ketch', 'operate-systems', 'arch-package-maintenance', 'arch-update-recovery', 'rhel-fedora', 'workstation-health-triage']) {
     assert.throws(() => select(alias, distribution), /Unknown/);
     assert.equal(fs.existsSync(path.join(root, 'skills', alias)), false);
   }
@@ -209,23 +210,24 @@ test('help/list/version and dry run are network-free and leave no installation f
   assert.deepEqual(fs.readdirSync(c.project), []);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
-test('nine domain packages partition 43 complete nested standalone payloads', t => {
+test('domain packages preserve the complete canonical skill trees and install scope', t => {
   const c = fixture(t); const rows = buildPackages(path.join(c.dir, 'built'));
-  assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-interface-review', '@tahabakhit/skills-data', '@tahabakhit/skills-workstation', '@tahabakhit/skills-linux', '@tahabakhit/skills-macos', '@tahabakhit/skills-agents', '@tahabakhit/skills']);
-  assert.deepEqual(rows.slice(0, 9).map((r, i) => fs.readdirSync(path.join(r.dir, 'skills', distribution.groups[i].name)).length), [4, 12, 1, 1, 2, 4, 5, 1, 13]);
-  for (const row of rows.slice(0, 9)) {
+  const source = JSON.parse(fs.readFileSync(path.join(root, 'package.json')));
+  assert.deepEqual(rows.map(r => r.name), [...distribution.groups.map(g => `@tahabakhit/skills-${g.name}`), source.name]);
+  for (const row of rows.slice(0, -1)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
-    assert.equal(pkg.version, '0.3.0'); assert.equal(pkg.publishConfig.access, 'public');
+    const group = distribution.groups.find(g => pkg.name === `@tahabakhit/skills-${g.name}`);
+    assert.equal(pkg.version, source.version); assert.equal(pkg.publishConfig.access, 'public');
     assert.equal(pkg.scripts, undefined); assert.equal(pkg.dependencies, undefined);
+    const readme = fs.readFileSync(path.join(row.dir, 'README.md'), 'utf8');
+    const nativeCommand = readme.match(/Native group source: `([^`]+)`/)[1];
+    assert.equal(nativeCommand.endsWith(' --global'), group.recommendedScope === 'global');
     const result = spawnSync(process.execPath, [path.join(row.dir, 'bin/skills.mjs'), '--list'], { encoding: 'utf8' });
     assert.equal(result.status, 0, result.stderr);
     const bundled = JSON.parse(fs.readFileSync(path.join(row.dir, 'distribution.json')));
-    assert.deepEqual(fs.readdirSync(path.join(row.dir, 'skills')), [bundled.groups[0].name]);
-    for (const name of bundled.groups[0].skills) {
-      const folder = skillPath(row.dir, bundled, name);
-      const provenance = JSON.parse(fs.readFileSync(path.join(folder, 'PROVENANCE.json')));
-      for (const notice of provenance.licenses) assert.ok(fs.existsSync(path.join(folder, typeof notice === 'string' ? notice : notice.file)));
-    }
+    assert.deepEqual(bundled.groups, [group]);
+    assert.deepEqual(fs.readdirSync(path.join(row.dir, 'skills')), [group.name]);
+    assert.deepEqual(tree(path.join(row.dir, 'skills', group.name)), tree(path.join(root, 'skills', group.name)));
   }
 });
 test('builder refuses unowned or symlinked output without deleting evidence', t => {

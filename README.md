@@ -141,11 +141,12 @@ npm test contract. Its TypeScript waiting example needs project-specific types.
 
 ```fish
 npm ci --ignore-scripts
-npm run lint
-npm test
-npm run pack:packages
-npm run publish:dry-run
+npm run check
 ```
+
+`npm run check` runs lint, offline tests and local package packing; it does not
+install skills or publish. See [CONTRIBUTING.md](CONTRIBUTING.md) for prerequisites,
+focused checks and CI coverage. Release dry runs are separate maintainer actions.
 
 The checkout wrapper requires Node.js 22.20+ and npm; it uses Node built-ins and
 invokes pinned Vercel `skills@1.7.4` only after confirmation. The primary native

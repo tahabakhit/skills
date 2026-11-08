@@ -34,8 +34,10 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data
 | data | 2 | `analyze-data`, `data-pipelines` |
 
 The tree URL selects a group directory and `--skill "*"` selects all its skills.
-There is no native `--group` flag in this recipe. Only core normally uses
-`--global`. Add `--copy` to a command only when plain copies are explicitly wanted;
+There is no native `--group` flag in this recipe. Core uses global scope; the
+project bundles above omit `--global`. The workstation, linux, macos and agents
+bundles also use global scope; see below. Add `--copy` only when plain copies are
+explicitly wanted;
 otherwise leave upstream installation mode unchanged. Inspect the upstream plan,
 destinations and existing owners before accepting any replacement.
 
@@ -52,6 +54,18 @@ access; use the selected upstream CLI's runtime requirements. See
 [VERIFICATION.md](VERIFICATION.md) for tested native installation and discovery
 versions and limits. Restart the agent after installation, and use a fresh
 conversation after replacing workflow instructions.
+
+## Other global bundles
+
+Install only the bundles relevant to the workstation; Linux and macOS bundles are
+platform-specific. These use the same tree-source recipe with global scope:
+
+```sh
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/linux --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/macos --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/agents --skill "*" -a pi --global
+```
 
 ## Optional fallback: wrapper from the current checkout
 
@@ -96,17 +110,21 @@ its local-source lock is not a promise that `skills update` can update those cop
 ## Source versus published npm artifacts
 
 The current package version remains **0.3.0**, with source-only changes. Generated
-packages follow the five-group partition; generating them locally does not publish
+packages follow the nine-group partition; generating them locally does not publish
 them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 20 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 43 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
 | `@tahabakhit/skills-engineering` | 12 | Published 0.3.0 has the former 11 |
 | `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
 | `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
 | `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
+| `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-agents` | 13 | Locally generated identity; not published by this source change |
 
 Existing `@tahabakhit/skills-design@0.3.0` (1) and
 `@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package
@@ -144,13 +162,13 @@ identities as if they were already released or overwrite historical records.
 
 ```fish
 npm ci --ignore-scripts
-npm run lint
-npm test
-npm run pack:packages
-npm run publish:dry-run
+npm run check
 ```
 
-Inspect all seven actual tarballs in `dist/tarballs/` and generated sources in
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development setup. Packing is local;
+`publish:dry-run` is a separate release operation, not an onboarding requirement.
+
+Inspect all ten actual tarballs in `dist/tarballs/` and generated sources in
 `dist/npm/`, including complete support files, provenance and licenses. These are
 marked disposable output, not edited or committed canonical copies. Only directories
 with the builder's marker may be regenerated. Runtime packages have no install

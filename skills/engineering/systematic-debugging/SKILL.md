@@ -24,7 +24,7 @@ the project's environment manager.
 4. Trace the bad state backward to its source. At component boundaries, verify what entered, what left, and which configuration crossed the boundary.
 5. State one falsifiable hypothesis and the evidence supporting it.
 
-Read [root-cause-tracing.md](root-cause-tracing.md) when the symptom appears far from its source. Read [condition-based-waiting.md](condition-based-waiting.md) for timing failures. Read [defense-in-depth.md](defense-in-depth.md) only after finding the root cause and deciding where validation belongs.
+Read [root-cause-tracing.md](root-cause-tracing.md) when the symptom appears far from its source, [condition-based-waiting.md](condition-based-waiting.md) for timing failures, and [performance profiling](references/performance-profiling.md) for slow paths, memory growth or optimization. Read [defense-in-depth.md](defense-in-depth.md) only after finding the cause and deciding where validation belongs.
 
 ## Test the hypothesis
 
@@ -63,9 +63,7 @@ When test-first work is requested, use this collection's optional `testing-work`
 
 Carry forward authorization already given in the conversation. Ask only when the next action needs authority that has not been granted, missing access, or a consequential product decision that cannot be inferred. Prepare a concrete proposed change and complete independent diagnostics before requesting approval for a production mutation or destructive recovery. If the issue remains unresolved, report what is known, what was ruled out, and the next discriminating probe.
 
-When a requested endpoint includes PR or release delivery, return the cause, fix, and proof to its active coordinator. This collection's optional `deliver-work` can own follow-through when available and within scope. Otherwise follow the project's authorized delivery procedure. A diagnosis, status lookup, or local fix alone does not start follow-through. Report any missing required capability rather than starting a second delivery loop or installing a specialist.
-
-For an already-authorized fleet task, return the confirmed cause and applicability conditions to its current coordinator. The optional `audit-repo-fleet` specialist is not bundled. Continue confirmed peer fixes only within the existing fleet scope and documented procedure; report a missing procedure when it blocks safe work. A single-repository fix does not authorize a fleet sweep.
+Return the cause, fix and proof to the active delivery or fleet coordinator when that endpoint is already requested. Optional `deliver-work` can own delivery; `audit-repo-fleet` is not bundled. Otherwise use the project's authorized procedure and report missing capabilities. A local diagnosis or fix does not start PR/release follow-through or a fleet sweep. Peer fixes require existing fleet scope and confirmed applicability; do not start a second coordinator or install a specialist.
 
 ## Supporting material
 

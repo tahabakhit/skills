@@ -1,24 +1,66 @@
 {
   "schemaVersion": 1,
   "name": "change-safely",
-  "kind": "original-procedure",
+  "kind": "original-with-adapted-reference",
   "sourceRecord": "SOURCES.json",
   "licenses": [
     {
       "file": "LICENSE",
       "copyright": "Copyright (c) Taha Bakhit",
       "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-DROO",
+      "spdx": "MIT",
+      "copyright": "Copyright (c) 2026 DROO",
+      "scope": "Adapted database-migrations reference."
     }
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Assemble original procedure and local references with the project notice and source comparison record."
+    "Assemble original procedure and local references with the project notice and source comparison record.",
+    "Add an optional PostgreSQL-focused migration reference adapted from pinned DROO inputs, with full notice and revised lock, backfill, constraint and recovery guidance."
+  ],
+  "imports": [
+    {
+      "source": {
+        "repository": "https://github.com/DROOdotFOO/agent-skills",
+        "revision": "252cabcc930274ae32e131d67c354091c6ec651c",
+        "directory": "skills/database-designer"
+      },
+      "upstreamFiles": [
+        {
+          "path": "LICENSE",
+          "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b",
+          "gitBlob": "5ac57bf0ddbc7d3ab073b5eff52bb7e1a1a6b835"
+        },
+        {
+          "path": "skills/database-designer/migration-safety.md",
+          "sha256": "20de4ebac731b975133afea1d2f0fcbed1aead328fd9edefe07cfd068a56b568",
+          "gitBlob": "d0f7ccc48fdaa5da99f7ffcbc2ace778d9474f0e"
+        }
+      ],
+      "changes": [
+        "Adapt database migration topics into an optional PostgreSQL-focused reference under change-safely; retain the existing generic migration owner.",
+        "Replace blanket zero-downtime and data-free rollback claims with engine/version, lock, transaction-wrapper and post-cutover-write checks. Replace generic batch SQL with stable traversal, concurrency and recovery decisions. Check technical distinctions against PostgreSQL 18 documentation."
+      ]
+    }
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
     "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
   },
   "files": [
+    {
+      "path": "LICENSE-DROO",
+      "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b",
+      "gitBlob": "5ac57bf0ddbc7d3ab073b5eff52bb7e1a1a6b835"
+    },
+    {
+      "path": "references/database-migrations.md",
+      "sha256": "7fe15a546280d3c0a3a3c6676fd8eed6976c483ba335d3cb12ff047d2378d0da",
+      "gitBlob": "2fb6629839acfa0aa99548b488a594393c54b7df"
+    },
     {
       "path": "LICENSE",
       "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
@@ -36,13 +78,13 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "7ddbf551d9f0fed187ec6c68bdfcf3a7baeef996d9af4291c850b4da673f238e",
-      "gitBlob": "e6281e21e601b2ee4ce23f48985318935d2299f6"
+      "sha256": "545365474f8021884c23342acf0542494c2ce1063e8777cb7b63d7a1fb1e899d",
+      "gitBlob": "57b41765557a300401ba491eedad504ea091fb17"
     },
     {
       "path": "SOURCES.json",
-      "sha256": "c011940cc487051ea8a6ceca08bdee56952cfc91460f59697ced409fdbf4856e",
-      "gitBlob": "9e152dfcbd97dea07a25e33e4924bc2404671a56"
+      "sha256": "2d9ac8f5e7912a736f81b05c4760245658d90b183f02ce8cd3045d6d8ffa6ee7",
+      "gitBlob": "50aca268c621562212163f8c103ea34ab79b641a"
     }
   ]
 }

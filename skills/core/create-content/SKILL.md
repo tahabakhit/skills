@@ -9,7 +9,7 @@ Produce the requested content, not a larger publishing workflow. Reading these i
 
 ## Establish the job
 
-Identify audience, purpose, output, supplied material, factual constraints, and the requested endpoint. Read existing drafts, templates, and project conventions before asking questions. Reuse settled context. Ask only about choices that materially change the result.
+Identify audience, purpose, format, supplied evidence and endpoint from the request and existing drafts, templates and conventions. Ask only about unresolved choices that materially change the result.
 
 Choose the editing scope:
 
@@ -29,30 +29,23 @@ For analytical reports, distinguish observations, calculations, estimates, forec
 
 For marketing, communication, or collaborative authoring, read [writing-modes.md](references/writing-modes.md). Use the requested voice and headings instead of imposing a corporate template or simulated expert panel.
 
-For developer documentation, RFCs, READMEs, PR descriptions or commit messages,
-read [document structure](references/document-structure.md),
-[sentence style](references/sentence-style.md) and
-[repository verification](references/repository-verification.md) as relevant.
-Verify symbols, paths, flags, defaults and sample output against the actual
-repository. Choose tutorial, how-to, reference or explanation by the reader's
-need rather than forcing a template. Follow the repository's commit/PR naming
-policy and base titles on the final diff. A prose request does not authorize code
-changes to make a claim true.
+For developer documents, read [document structure](references/document-structure.md),
+[sentence style](references/sentence-style.md) or
+[repository verification](references/repository-verification.md) as needed.
+Choose tutorial, how-to, reference or explanation by the reader's need. Verify
+symbols, paths, flags, defaults and examples against the repository; do not change
+code to make prose true. Base PR/commit titles on the final diff and project policy.
 
-For a requested prose cleanup, remove filler, ceremony, repetition, canned
-transitions, vague attribution and conclusions that only repeat the answer.
-Replace generic praise or promotional claims with a concrete fact, mechanism,
-named source or honest uncertainty. Prefer plain verbs and consistent names to
-synonym cycling. Break sentences that make the reader backtrack; keep conditions
-and limiting words next to the action or claim they govern.
+For prose cleanup, fix the point and structure before polishing words. Cut filler,
+repetition, canned transitions and generic praise; use supported facts or honest
+uncertainty instead. Prefer plain verbs, consistent names and conditions beside
+the claims they limit. Keep deliberate voice and useful detail; brevity is not
+permission to flatten an argument.
 
-Apply these defaults only within the requested edit and defer to the author's
-voice or required style. Preserve exact code, identifiers, commands, error text,
-quotations, citations, legal language and necessary qualifiers. Do not impose
-punctuation bans, manufacture personality, or rewrite untouched files for
-consistency. Before returning the text, ask whether a paragraph could appear
-unchanged in an unrelated answer; make it specific or cut it. Return the cleaned
-writing without announcing an editorial ritual.
+Stay within the requested edit. Preserve exact code, identifiers, commands, error
+text, quotations, citations, legal language and necessary qualifiers. Do not impose
+punctuation bans, manufacture personality or rewrite untouched files. Make generic
+paragraphs specific or cut them.
 
 ## Select a supported output path
 
@@ -66,4 +59,4 @@ Use existing approved engines. Do not install tools, download a runtime, enable 
 
 Check the artifact against its purpose, requested scope, factual record, and format. Remove accidental churn and unsupported claims. Inspect rendered output when the claim depends on appearance and a renderer is available. Text extraction and package validity do not prove visual fidelity. A rendered spreadsheet does not prove the formulas calculate correctly.
 
-One agent can draft, revise, and self-check. Fresh-reader or specialist review is optional and must be described honestly. Return the artifact, material decisions, checks actually performed, and remaining limits. Stop before delivery or publication unless already authorized.
+Lead with the finished artifact. Add explanation only for material choices, checks or limits the reader needs; a point edit does not need an editorial report. Describe self-checks and optional independent review honestly. Stop before sending or publishing unless authorized.
