@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "name": "chezmoi",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Mike Kobit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/chezmoi/ into skills/workstation/chezmoi."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "d35abd1fb6a99ae97122b1304e69dd20b62c88e2c60333ca28973b5fc4aec15f",
+      "gitBlob": "840bb03cc726f3c3a4a2531c09a97885790c4d59"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "0de161962f2e345dfe824372da7764257c7ec79d60ffbb834d58ecebb5b912e4",
+      "gitBlob": "51f328a3fd7ce72a0ca4e8bf86e2efc78467690c"
+    },
+    {
+      "path": "references/cli-commands-add.md",
+      "sha256": "23512c24cff5069dbd2e1f226d32db2ba531fb6e70faae6766588536a238d774",
+      "gitBlob": "fb5b31b51f7f4adfbb4a15c077bc0e48b946e704"
+    },
+    {
+      "path": "references/cli-commands-apply.md",
+      "sha256": "1155e71a4acd602ce1058e26a5bfae87ac844b25f0faf409a0ce5bebc3328cfe",
+      "gitBlob": "84b8e59b9c2d515d4cda99a8f76ea4e7af2df195"
+    },
+    {
+      "path": "references/cli-commands-chattr.md",
+      "sha256": "0b6db19a66c38097eb6570ace300673528f0f382a29f582e9d57c4f91452aa80",
+      "gitBlob": "106f53c2662b0c55c16374f11eb01e093b71f8c7"
+    },
+    {
+      "path": "references/cli-commands-diff.md",
+      "sha256": "2261af2fac1f5f0c314f4b56eab9f64c9b80eaec9d8fb159f2ac1234efc1fd36",
+      "gitBlob": "b76b89a48eb77e0b08ee1d89d815638b9c744541"
+    },
+    {
+      "path": "references/cli-commands-dump.md",
+      "sha256": "bfe57d6ed90986fe376429e939946758f9f83aeaf2c7605ba24cd76eb618726e",
+      "gitBlob": "a5954ee52e963e036380417c077f88f673d77f35"
+    },
+    {
+      "path": "references/cli-commands-edit.md",
+      "sha256": "0e18831bd3569c520693f30214ea8f6afa6d4211780d4012515a4371510fb683",
+      "gitBlob": "ff2ea6462a122aca804d84c0def87b63a9dd3ce9"
+    },
+    {
+      "path": "references/cli-commands-guide.md",
+      "sha256": "9e76ef9b87ce856b516c6155d4e3e918f78a39de3f061ea2d782302407fa3ba6",
+      "gitBlob": "110532c39857036c259ec2b2bdc206bcfe8eb9f0"
+    },
+    {
+      "path": "references/cli-commands-import.md",
+      "sha256": "4496478d21887ec1b62cb00fb413e3ce4ef23fadc555950410121c5a00b07c5a",
+      "gitBlob": "eb59e532dd135ee741a3ddcfefff6ea1a3b66f83"
+    },
+    {
+      "path": "references/cli-commands-inspection.md",
+      "sha256": "4276731ee6bb78f957fe752ec82ec8362b332ed2664c5e236d2461afca250a53",
+      "gitBlob": "94c985341a1d8046b2e63fd3690b3ff7250f133d"
+    },
+    {
+      "path": "references/cli-commands-merging.md",
+      "sha256": "58756abc3ea3d9376cebccf1f9c094ba65a888d6cd74fbe3fa7dff9ad25a4da4",
+      "gitBlob": "69c5229db49c885366e1eecac3f393fff88af08b"
+    },
+    {
+      "path": "references/cli-commands-misc-core.md",
+      "sha256": "1048948f2d351e890bbd527d7a6c847a1790771f4a5387f26fba70183ed93b7d",
+      "gitBlob": "8e3034a88faace1b2eec244878873b7f8437e171"
+    },
+    {
+      "path": "references/cli-commands-state.md",
+      "sha256": "111d4798e5078018c23f02c210dd0d6ac99b4228d5890a636a58f080ec78969c",
+      "gitBlob": "2289389b463089615c86c2d233fb68eba7aab4b0"
+    },
+    {
+      "path": "references/cli-commands-status.md",
+      "sha256": "bd4757ff51741b53ab89713cb513143ff0311584820a25186adcfe7edc62f401",
+      "gitBlob": "5cb7958ad41be434be9bdb601455d7eedcf40057"
+    },
+    {
+      "path": "references/cli-commands-update.md",
+      "sha256": "4707f5f3d3cf7c08e9688cb6a99ef1ed5bb28557ee8227cab0a83b626c5167b4",
+      "gitBlob": "9c1ccbd7ec93883581ebe2b021bcacd5d9f1ab66"
+    },
+    {
+      "path": "references/cli-commands-verify.md",
+      "sha256": "e68bb64f53954cec735333fe13ff9462b62a93cf7ae6a93af277d7ab5eecb414",
+      "gitBlob": "713b82ada9a37771da290694117365d1b7b8a8b5"
+    },
+    {
+      "path": "references/configuration-core.md",
+      "sha256": "593780fc0a2f05ba57641603f8d1a4e3914be69aff46f8854a0bb9709eec0435",
+      "gitBlob": "249064eb6c9be20d3fc9961c2d617e7332e68faa"
+    },
+    {
+      "path": "references/configuration-data.md",
+      "sha256": "5204d5ef3fa26d05e949d1fec503764d775a428ceaf4c5cbf6a851b297404065",
+      "gitBlob": "2c7fc31c7559023d81c9e433dd6d1ec8432e5b72"
+    },
+    {
+      "path": "references/configuration-git.md",
+      "sha256": "5b137816a3139c9b8f8433b0e6abd804d1108372fa60fa774b3225d265da57c2",
+      "gitBlob": "70c73ad84bb57e44e780a073488a55ab4a2fd6f4"
+    },
+    {
+      "path": "references/configuration-guide.md",
+      "sha256": "829edb611199cb17a129d944749ce778a1ec49a98f52d6bb10eeec3694a45537",
+      "gitBlob": "fb1f02659088a24680405d692d449836bd6351bb"
+    },
+    {
+      "path": "references/configuration-hooks.md",
+      "sha256": "7d228086e8bf7ba66ebabe286b4b0a9b5174e0f9ab48d0f1a1e8c1f3396e0af8",
+      "gitBlob": "1f7e1d7a250b1224b194a0c521b3d201fcbe68bd"
+    },
+    {
+      "path": "references/configuration-interpreters.md",
+      "sha256": "08cd62fa55655c47b7e8c067e10a8bb663272088bb30f404dbc67b82c95eaba3",
+      "gitBlob": "c0a44ef8d59984cbde5244de4b6b28c2d7245cfe"
+    },
+    {
+      "path": "references/configuration-pinentry-textconv-warnings.md",
+      "sha256": "9e47389a5d4a2555604a6ac5cd12b176886bb1d84b44db8fda594156e94f75d7",
+      "gitBlob": "cefdc7cbd641e3bcded2a8705f636730598e3bfd"
+    },
+    {
+      "path": "references/configuration-tools.md",
+      "sha256": "8779da90b39cadce98488012d640ee590eb2238cbd621253bacbc573ba21eeb5",
+      "gitBlob": "cbeb86b8476966073d0ecf38b638212138f433eb"
+    },
+    {
+      "path": "references/externals-declarations.md",
+      "sha256": "18cfbd554c976005440945b18770762147852156c590757066462dc908b2fc5f",
+      "gitBlob": "81730c698e1f0df69bd9b7a3cc36562f2c575c64"
+    },
+    {
+      "path": "references/externals-guide.md",
+      "sha256": "070c98e0597a880e1c04450cbee2c35715f9df643cbdc78b3b5706d51139ee1d",
+      "gitBlob": "eadbd5b958efd939fa716661747fd9ab3f28a83a"
+    },
+    {
+      "path": "references/file-attributes-attributes.md",
+      "sha256": "9ceb44422bd78aaf3c325213930e3172526fd93bf38326d9c4448712fe15d0db",
+      "gitBlob": "eaea5e0cfb10cbdc54d631f071fa4b4efca78366"
+    },
+    {
+      "path": "references/file-attributes-directives.md",
+      "sha256": "b661524034a0d8bdf3b19213a76e8aa07d5c3be792aa2db2a9d13d96e53ab1b4",
+      "gitBlob": "097bc98e6f71aa3151e4083b86b9031fc7919cbd"
+    },
+    {
+      "path": "references/file-attributes-guide.md",
+      "sha256": "49c790e0f012a671137384ae73712e1fa6823f5efedd659ae6f760edf585c403",
+      "gitBlob": "c33d9039ef9ca23f0e0147b2459f310d237b23a9"
+    },
+    {
+      "path": "references/init-commands.md",
+      "sha256": "c43629a588de2ad3e2cdcea58f1cd32e776db4b20ddb2259c647cea7d1d799ea",
+      "gitBlob": "37048b05f4e0b42af63c9b743a04492b9e02272a"
+    },
+    {
+      "path": "references/init-guide.md",
+      "sha256": "fb0911d99b1aefed475dcfc3ae6c81e40c885e41ea69d1a4384342ce5c8b9ea3",
+      "gitBlob": "27e25e4b2091a0d8559c1c878f35071636390ea3"
+    },
+    {
+      "path": "references/init-setup.md",
+      "sha256": "6bd3e768ea86e4eace8602f8925221b321c4465cd47bd0dc1ed5314de0b846af",
+      "gitBlob": "2aafddc9ddb31d7acb076f88c01dc95b74d0cbfc"
+    },
+    {
+      "path": "references/machine-config-conditional-ignore.md",
+      "sha256": "fd59e450a38ef00ff1afb50bd3300c2df1e13ece230688992fd3c9abdabace8a",
+      "gitBlob": "be992cabd072ffa5a0febcfa0b9cc2c7b6490bb3"
+    },
+    {
+      "path": "references/machine-config-guide.md",
+      "sha256": "7b72e0ff642cf44a5726d03b655808ae996bc6f7fed8584bb1c7ca39537a4e99",
+      "gitBlob": "e804d51342c558ab6514d5bc18ac06f2004be4c6"
+    },
+    {
+      "path": "references/machine-config-os-patterns.md",
+      "sha256": "df6c79f3bff543b5ea2823e18208b3d8dce1656a0aecbe4cfc1ecde8297f4fce",
+      "gitBlob": "a9503284e4a60863159deb6cb36a0bd1e281ba15"
+    },
+    {
+      "path": "references/machine-config-per-machine-data.md",
+      "sha256": "19ede3131a620b95047d21c5cb07d4c33827b2d53a71041a10fc7cbba537721a",
+      "gitBlob": "2e2845f19bcd1e754a2ffab39cd4647d261fb0ca"
+    },
+    {
+      "path": "references/safety-workflow.md",
+      "sha256": "b3b418f2ec649fd7ce89a1d33c20938b8055a6e38b6e62b1d9f87ef2eee6263b",
+      "gitBlob": "e14e1acce843b6726d77a611082290e1b22049b2"
+    },
+    {
+      "path": "references/scripts-guide.md",
+      "sha256": "c7fe0430e935d94278095194120bf704461463140a976b58cc6b4c58c5c8c43d",
+      "gitBlob": "58b6043f18585d307a9190554ccaa4998cddba7d"
+    },
+    {
+      "path": "references/scripts-script-execution.md",
+      "sha256": "885b94ea5dbe905fcde346643d5ef6269e54354a3f15f61578573971d8cd6ebd",
+      "gitBlob": "a0cc3eea155c4133b7f4e0139bda909252dafd8e"
+    },
+    {
+      "path": "references/scripts-state-management.md",
+      "sha256": "921b3df5c38d4cc3ce814f9cc10a589acb304b28eaf6989f4a4f8337d0ef486f",
+      "gitBlob": "78793168cd5725a5d9b789e41ba854fd0ea84c9f"
+    },
+    {
+      "path": "references/secrets-management-encryption.md",
+      "sha256": "35076140e29cf3894182e887bf1def74cd10820bf17afeb3aa9bedbbeffe6d43",
+      "gitBlob": "46d78e6c9a2bdd962de4be6a39f1389f2a6be155"
+    },
+    {
+      "path": "references/secrets-management-guide.md",
+      "sha256": "81299716389a9fdb05b5dcd1882dc54a077e2276c733d2ca3ab20bab52e3f2d0",
+      "gitBlob": "55e46145416fbadfd82f517f0327cf9708b37509"
+    },
+    {
+      "path": "references/secrets-management-password-managers.md",
+      "sha256": "11335235c49a81e76d9e6de801f850eb4dbb442bf2362a46bae82c4dfbfbb2b1",
+      "gitBlob": "421e6671548cd50e73bb7df3325d3b072a86c74f"
+    },
+    {
+      "path": "references/secrets-management-secret-providers.md",
+      "sha256": "4583ddf626a9d3ef83b231bd0c35adc3c4d8524aa57458aeb03f0f4f39524130",
+      "gitBlob": "dcc9387ab73cbd32a067840d14707d4fbd71616b"
+    },
+    {
+      "path": "references/templating-built-in-variables.md",
+      "sha256": "5bdc7470f2486f293c51abd86e7b81bbf1a570b9c3da6977d3731c22567dac85",
+      "gitBlob": "0bb1df9c661587eadcaabc44372b36ca1fd01423"
+    },
+    {
+      "path": "references/templating-guide.md",
+      "sha256": "54bda3f9fcf208018d6d6bbe805e18c840eced1e810337f278e2b0bb9c0bce41",
+      "gitBlob": "4460525a7221201122b56c47942875ee7763a91f"
+    },
+    {
+      "path": "references/templating-prompt-functions.md",
+      "sha256": "9a988d39fbb842a9429efa05d3a9f5d27d329d7616906a1632389ef53bcb993c",
+      "gitBlob": "8a374ffb7ec9e1d0b2ef29ad11d487e0d83c4bb0"
+    },
+    {
+      "path": "references/templating-shared-template-fragments.md",
+      "sha256": "1d1e18a70ede84b2b653640160b458cc9750c33286e34a77a36915d39ed7206a",
+      "gitBlob": "d98f2573a6bdd5cf6468ff3f938f256d6e8ff4de"
+    },
+    {
+      "path": "references/templating-sprig-functions.md",
+      "sha256": "85059d7b485f445916edd9bd0e795665f824b45cb77de5aaa05c9c24b3accf14",
+      "gitBlob": "2558ba1904ab2357065b3cb0f5fa294c16a16d07"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "agents-md",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/agents-md/ into skills/agents/agents-md."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "234c8355b258a09ed94342caa5a3d31cd633e455d2cc8cdaae2ff4e5c08e26ad",
+      "gitBlob": "969a5f691ecc4d0dff27ab267fe3ff4abc7fb875"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "4f59b1c68d6d55a69fd9a0981cbab67a7313d8e7af4b4acda505922c2bc42202",
+      "gitBlob": "f40cc472d3ef60b88131462a3553fb01eb1e901c"
+    }
+  ]
+}

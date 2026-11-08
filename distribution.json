@@ -1,37 +1,118 @@
 {
   "schemaVersion": 1,
   "installer": "skills@1.7.4",
-  "agents": ["pi", "claude-code", "codex"],
+  "agents": [
+    "pi",
+    "claude-code",
+    "codex"
+  ],
   "groups": [
     {
       "name": "core",
       "description": "Cross-project discovery, evidence research, writing and bounded verification",
       "recommendedScope": "global",
-      "skills": ["discover-work", "research-work", "create-content", "verify-and-stop"]
+      "skills": [
+        "discover-work",
+        "research-work",
+        "create-content",
+        "verify-and-stop"
+      ]
     },
     {
       "name": "engineering",
       "description": "Specifications, delivery, design, debugging, tests, review, Git, CI, dependencies, packaging and security",
       "recommendedScope": "project",
-      "skills": ["codebase-design", "systematic-debugging", "deliver-work", "testing-work", "code-review", "change-safely", "git-hygiene", "ci-maintenance", "triage-dependency-updates", "release-packaging", "security-review", "define-work"]
+      "skills": [
+        "codebase-design",
+        "systematic-debugging",
+        "deliver-work",
+        "testing-work",
+        "code-review",
+        "change-safely",
+        "git-hygiene",
+        "ci-maintenance",
+        "triage-dependency-updates",
+        "release-packaging",
+        "security-review",
+        "define-work"
+      ]
     },
     {
       "name": "content",
       "description": "Factual, numerical and inferential review of supplied documents",
       "recommendedScope": "project",
-      "skills": ["document-review"]
+      "skills": [
+        "document-review"
+      ]
     },
     {
       "name": "interface-review",
       "description": "Evidence-bounded usability and accessibility review, not new-interface design",
       "recommendedScope": "project",
-      "skills": ["interface-review"]
+      "skills": [
+        "interface-review"
+      ]
     },
     {
       "name": "data",
       "description": "Measurement, SQL analysis and stateful data pipelines",
       "recommendedScope": "project",
-      "skills": ["analyze-data", "data-pipelines"]
+      "skills": [
+        "analyze-data",
+        "data-pipelines"
+      ]
+    },
+    {
+      "name": "workstation",
+      "description": "Chezmoi dotfiles, configuration drift, shell scripting and backup/restore",
+      "recommendedScope": "global",
+      "skills": [
+        "chezmoi",
+        "managed-config-drift",
+        "shell-scripting",
+        "backup-restore"
+      ]
+    },
+    {
+      "name": "linux",
+      "description": "Linux diagnostics, desktops, Arch, Fedora and CachyOS administration",
+      "recommendedScope": "global",
+      "skills": [
+        "linux",
+        "linux-desktop",
+        "arch-linux",
+        "fedora",
+        "cachyos"
+      ]
+    },
+    {
+      "name": "macos",
+      "description": "Apple silicon macOS administration",
+      "recommendedScope": "global",
+      "skills": [
+        "macos"
+      ]
+    },
+    {
+      "name": "agents",
+      "description": "Agent instructions, skills, harness design, session diagnostics, kro workflows and engineering judgment",
+      "recommendedScope": "global",
+      "skills": [
+        "agents-md",
+        "skill-authoring",
+        "agent-engineering",
+        "agent-session-diagnostics",
+        "harness-checklist",
+        "prompt-caching",
+        "chrome-cdp",
+        "typesafe-ai",
+        "kro",
+        "analyze-sessions",
+        "codebase-hygiene",
+        "review-judgment",
+        "repository-delivery",
+        "communication"
+      ]
     }
   ]
 }

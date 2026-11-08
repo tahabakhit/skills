@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "harness-checklist",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/harness-checklist/ into skills/agents/harness-checklist."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "4b4760a4df94de5e671b192878f451500fe6fadaf6509856feb17d18ccaf2d0f",
+      "gitBlob": "49494bd56ec8058c35961307c00b048716c7818f"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "8e94841d0376970df8a54375131c84aa1cad2850d4b496c82a5cf9544cc93830",
+      "gitBlob": "3999ff58344cae9d83805245233444a6007fb2d0"
+    }
+  ]
+}

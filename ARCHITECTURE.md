@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **20 canonical workflow owners** in five disjoint
+The approved source layout has **44 canonical workflow owners** in nine disjoint
 bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -38,8 +38,11 @@ standalone does not mean tool-free.
 `create-content` owns shared writing and prose cleanup. The redundant `unslop`
 entrypoint is removed with no alias. `define-work` is a project engineering skill,
 not global core. Bundle names describe installation sources, not competing workflow
-owners or a new profile framework. The chezmoi, managed-config-drift and OS skills
-remain external in the owner's dotfiles source; `herdr-core` and `ketch` remain excluded CLI integrations.
+owners or a new profile framework. The `workstation`, `linux`, `macos` and `agents` bundles moved here unchanged
+from the owner's dotfiles (commit `8eb84ae`); each `PROVENANCE.json` says so. They
+are exempt from the entrypoint word limit and still overlap some engineering/core
+owners (`codebase-hygiene`, `review-judgment`, `repository-delivery`,
+`communication`) until reviewed. `herdr-core` and `ketch` remain excluded CLI integrations.
 
 ## Native distribution and optional adapter
 
@@ -62,7 +65,7 @@ The `pi.skills` manifest remains `["./skills"]`; recursive Pi package discovery
 must be verified separately. Do not load the same skill through both package
 registration and a Skills CLI installation.
 
-`distribution.json` partitions the same canonical folders into five generated domain
+`distribution.json` partitions the same canonical folders into nine generated domain
 packages and an umbrella. `dist/npm/` and `dist/tarballs/` are disposable generated
 output, not edited source copies. Required files must travel with their owner;
 optional sibling handoffs do not become mandatory bundle dependencies. Audit local

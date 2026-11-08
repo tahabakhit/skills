@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Current source has 20 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 44 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
@@ -10,7 +10,7 @@ Current source has 20 canonical workflow owners under `skills/<group>/<name>/`. 
 | [interface-review](skills/interface-review) | Local | 1 |
 | [data](skills/data) | Local | 2 |
 
-The five bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
+The nine bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records. `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
@@ -69,8 +69,11 @@ Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, e
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
-The `chezmoi` skill, `managed-config-drift` and seven OS/platform/health skills
-are managed separately in the owner's dotfiles source.
+The `workstation`, `linux`, `macos` and `agents` bundles moved here unchanged
+from the owner's dotfiles (commit `8eb84ae`); each `PROVENANCE.json` says so. They
+are exempt from the entrypoint word limit and still overlap some engineering/core
+owners (`codebase-hygiene`, `review-judgment`, `repository-delivery`,
+`communication`) until reviewed.
 
 ## Historical installed-skill audit and current source disposition
 
@@ -78,9 +81,8 @@ The catalog itself does not change live skills, links, locks, host settings or c
 
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
-| `operate-systems`, `arch-linux`, `arch-package-maintenance`, `arch-update-recovery`, `cachyos`, `rhel-fedora`, `workstation-health-triage` | Moved to the owner's chezmoi dotfiles source for Linux-only management, not distributed here. Immutable npm `0.3.0` retains the old copies. Source transfer does not apply changes to live installations |
-| `chezmoi` | Moved with all references, licenses, provenance and tests to the owner's dotfiles repository; deployed by chezmoi, not distributed here |
-| `managed-config-drift` | Moved byte-for-byte with its comparator, licenses and provenance to the owner's dotfiles repository; deployed by chezmoi on Linux only, not distributed here. Its helper tests moved with it |
+| `operate-systems`, `arch-package-maintenance`, `arch-update-recovery`, `rhel-fedora`, `workstation-health-triage` | Replaced by the dotfiles-era `linux`, `arch-linux`, `cachyos` and `fedora` skills, now back here in the `linux` bundle. Immutable npm `0.3.0` retains the old copies |
+| `chezmoi`, `managed-config-drift` | Returned from the owner's dotfiles into the `workstation` bundle |
 | `ci-maintenance`, `git-hygiene` | Existing engineering owners retain detailed setup/environment and Git freshness/cleanup references. No duplicate entrypoints |
 | `safe-refactor`, `migration` | Already covered by the separate branches and references in engineering's `change-safely` |
 | `technical-writing` | Consolidated into core's `create-content`, including all three useful reference files |

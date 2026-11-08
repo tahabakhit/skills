@@ -385,6 +385,342 @@
       "behaviorEvidence": {
         "status": "not-evaluated"
       }
+    },
+    {
+      "name": "chezmoi",
+      "domain": "workstation",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/workstation/chezmoi",
+      "provenance": "skills/workstation/chezmoi/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "managed-config-drift",
+      "domain": "workstation",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/workstation/managed-config-drift",
+      "provenance": "skills/workstation/managed-config-drift/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "shell-scripting",
+      "domain": "workstation",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/workstation/shell-scripting",
+      "provenance": "skills/workstation/shell-scripting/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "backup-restore",
+      "domain": "workstation",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/workstation/backup-restore",
+      "provenance": "skills/workstation/backup-restore/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "linux",
+      "domain": "linux",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/linux/linux",
+      "provenance": "skills/linux/linux/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "linux-desktop",
+      "domain": "linux",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/linux/linux-desktop",
+      "provenance": "skills/linux/linux-desktop/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "arch-linux",
+      "domain": "linux",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/linux/arch-linux",
+      "provenance": "skills/linux/arch-linux/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "fedora",
+      "domain": "linux",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/linux/fedora",
+      "provenance": "skills/linux/fedora/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "cachyos",
+      "domain": "linux",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/linux/cachyos",
+      "provenance": "skills/linux/cachyos/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "macos",
+      "domain": "macos",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/macos/macos",
+      "provenance": "skills/macos/macos/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "agents-md",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/agents-md",
+      "provenance": "skills/agents/agents-md/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "skill-authoring",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/skill-authoring",
+      "provenance": "skills/agents/skill-authoring/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "agent-engineering",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/agent-engineering",
+      "provenance": "skills/agents/agent-engineering/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "agent-session-diagnostics",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/agent-session-diagnostics",
+      "provenance": "skills/agents/agent-session-diagnostics/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "harness-checklist",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/harness-checklist",
+      "provenance": "skills/agents/harness-checklist/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "prompt-caching",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/prompt-caching",
+      "provenance": "skills/agents/prompt-caching/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "chrome-cdp",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/chrome-cdp",
+      "provenance": "skills/agents/chrome-cdp/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "typesafe-ai",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/typesafe-ai",
+      "provenance": "skills/agents/typesafe-ai/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "kro",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/kro",
+      "provenance": "skills/agents/kro/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "analyze-sessions",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/analyze-sessions",
+      "provenance": "skills/agents/analyze-sessions/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "codebase-hygiene",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/codebase-hygiene",
+      "provenance": "skills/agents/codebase-hygiene/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "review-judgment",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/review-judgment",
+      "provenance": "skills/agents/review-judgment/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "repository-delivery",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/repository-delivery",
+      "provenance": "skills/agents/repository-delivery/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
+    },
+    {
+      "name": "communication",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "moved-from-dotfiles",
+      "path": "skills/agents/communication",
+      "provenance": "skills/agents/communication/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
     }
   ],
   "consolidations": [

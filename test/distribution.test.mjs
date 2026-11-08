@@ -51,8 +51,8 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('1,core,discover-work', distribution), core);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
-  assert.equal(select('all', distribution).length, 20);
-  assert.throws(() => select('chezmoi', distribution), /Unknown/);
+  assert.equal(select('all', distribution).length, 44);
+  assert.deepEqual(select('macos', distribution), ['macos']);
   assert.throws(() => select('configuration', distribution), /Unknown/);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
   assert.throws(() => select('../core', distribution), /Unknown/);
@@ -62,7 +62,8 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
     ['core', 4, 'global'], ['engineering', 12, 'project'], ['content', 1, 'project'],
-    ['interface-review', 1, 'project'], ['data', 2, 'project']
+    ['interface-review', 1, 'project'], ['data', 2, 'project'],
+    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 14, 'global']
   ]);
   for (const skill of catalog.skills) {
     const relative = path.relative(root, skillPath(root, distribution, skill.name));
@@ -208,11 +209,11 @@ test('help/list/version and dry run are network-free and leave no installation f
   assert.deepEqual(fs.readdirSync(c.project), []);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
-test('five domain packages partition 20 complete nested standalone payloads', t => {
+test('nine domain packages partition 44 complete nested standalone payloads', t => {
   const c = fixture(t); const rows = buildPackages(path.join(c.dir, 'built'));
-  assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-interface-review', '@tahabakhit/skills-data', '@tahabakhit/skills']);
-  assert.deepEqual(rows.slice(0, 5).map((r, i) => fs.readdirSync(path.join(r.dir, 'skills', distribution.groups[i].name)).length), [4, 12, 1, 1, 2]);
-  for (const row of rows.slice(0, 5)) {
+  assert.deepEqual(rows.map(r => r.name), ['@tahabakhit/skills-core', '@tahabakhit/skills-engineering', '@tahabakhit/skills-content', '@tahabakhit/skills-interface-review', '@tahabakhit/skills-data', '@tahabakhit/skills-workstation', '@tahabakhit/skills-linux', '@tahabakhit/skills-macos', '@tahabakhit/skills-agents', '@tahabakhit/skills']);
+  assert.deepEqual(rows.slice(0, 9).map((r, i) => fs.readdirSync(path.join(r.dir, 'skills', distribution.groups[i].name)).length), [4, 12, 1, 1, 2, 4, 5, 1, 14]);
+  for (const row of rows.slice(0, 9)) {
     const pkg = JSON.parse(fs.readFileSync(path.join(row.dir, 'package.json')));
     assert.equal(pkg.version, '0.3.0'); assert.equal(pkg.publishConfig.access, 'public');
     assert.equal(pkg.scripts, undefined); assert.equal(pkg.dependencies, undefined);

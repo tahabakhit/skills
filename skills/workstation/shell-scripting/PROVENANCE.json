@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "name": "shell-scripting",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/shell-scripting/ into skills/workstation/shell-scripting."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "55bbe383d98ee1b122cc9fdac09c386741270ee92a0b13bbef377e6b69d8f488",
+      "gitBlob": "ab908c46eb6c1f522fe757656b555a9d549a20e7"
+    },
+    {
+      "path": "references/portability.md",
+      "sha256": "d20b3f383a663688257ff07896424ee46ae430a2d1eafa267ef4f03525ed71f2",
+      "gitBlob": "2acbca628b3a702a46748801a699ca6adf76133b"
+    }
+  ]
+}

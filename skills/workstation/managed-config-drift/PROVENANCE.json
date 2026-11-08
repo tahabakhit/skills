@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "name": "managed-config-drift",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "copyright": "Copyright (c) 2026 bolens",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/managed-config-drift/ into skills/workstation/managed-config-drift.",
+    "Drop chezmoi executable_ prefixes from script names; files keep their executable mode."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "71b0d54b61b32cce2f4891af8a0e4f31942ab496724addfdc3942580ecf4ef49",
+      "gitBlob": "20184affd183c67ad16f07b6ac9f5e0143c9cf57"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "dfdd5b523bb77fd14c60a2566a23bb0206ad7ae676437fce2de2410a6fd05119",
+      "gitBlob": "d82cd20ada04451581e9b46c951b026055f98992"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "e57351ac161fac57c6b75d5b6dc138f9ed0e9ca9b217fdcdb9cda8edece0886f",
+      "gitBlob": "d67e4eb3fdbb81766506617e342e0a4e3c8fa17b"
+    },
+    {
+      "path": "scripts/compare-trees.py",
+      "sha256": "a40910ca89859174aa2a998aaaba0159bbaf9efb37fa926aa7bc5a26ec59f5bb",
+      "gitBlob": "246b8a9e09dad31045d4d1c739a63dea64847195"
+    }
+  ]
+}

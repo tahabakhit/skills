@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "name": "linux-desktop",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/linux-desktop/ into skills/linux/linux-desktop."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "445fdf498231f0804c596e3ef9a9efc4679e8d4fd0eb996f22e54f242a3aa2e5",
+      "gitBlob": "af7d8aa119151e1bb7a32bcbe66b9699b26f3b68"
+    },
+    {
+      "path": "references/documentation-sources.md",
+      "sha256": "1af6237febcacd4f61aab4d6bc7b580b2b5a67c03dab272f604332fbb17abdd8",
+      "gitBlob": "7f19f855134e3e72068758c2b3c420863150f1a5"
+    }
+  ]
+}

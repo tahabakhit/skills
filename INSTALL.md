@@ -1,6 +1,6 @@
 # Install workflow bundles
 
-Current source has 20 skills in five disjoint bundles under `skills/<group>/<name>/`.
+Current source has 44 skills in nine disjoint bundles under `skills/<group>/<name>/`.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
 
@@ -128,8 +128,8 @@ migration evidence and rollback guidance, not current installation ownership.
 `safe-refactor`/`migration` are covered by `change-safely`; `technical-writing` and
 prose cleanup belong to core's `create-content`. No legacy-name aliases are needed.
 
-The seven OS/platform/health workflows remain external in the owner's chezmoi
-source. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
+The workstation, linux, macos and agents bundles came from the owner's dotfiles
+and install globally like core. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
 catalog does not uninstall old names, retire chezmoi sources, alter host settings
 or apply changes to live installations. Those actions need their own authorization
 and verification. Do not activate duplicate copies via native package loading and

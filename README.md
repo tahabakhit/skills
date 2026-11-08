@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-20 standalone workflow skills in five disjoint bundles. Install **core once globally**,
+44 standalone workflow skills in nine disjoint bundles. Install **core once globally**,
 then add **whole local bundles** to the projects that need them. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
@@ -36,6 +36,10 @@ and host-loader versions, checks and remaining limits.
 | [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
+| [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
+| [linux](skills/linux) | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| [macos](skills/macos) | Global, macOS | `macos` (1) |
+| [agents](skills/agents) | Global | Agent instructions, skills, harnesses, sessions, `kro` workflows, Chrome CDP, TypeSafe, code/review/delivery judgment, communication (14) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
@@ -82,8 +86,7 @@ not replace required independent review.
 
 `create-content` owns writing and prose cleanup in core. The redundant `unslop`
 entrypoint is removed, with no alias. `define-work` belongs to engineering.
-The `chezmoi` and `managed-config-drift` skills are now managed by the owner's
-dotfiles repository, not installed from this collection. See [the catalog](CATALOG.md) for exact responsibilities and gaps.
+See [the catalog](CATALOG.md) for exact responsibilities and gaps.
 
 ## Optional checkout wrapper and npm status
 
@@ -108,8 +111,12 @@ cover preparing a future version, not overwriting `0.3.0`.
 
 ## Coverage, provenance and safety
 
-OS administration, distribution recovery and workstation health remain external
-in the owner's chezmoi source, not in these bundles. `herdr-core` and `ketch` are
+The `workstation`, `linux`, `macos` and `agents` bundles moved here unchanged
+from the owner's dotfiles (commit `8eb84ae`); each `PROVENANCE.json` says so. They
+are exempt from the entrypoint word limit and still overlap some engineering/core
+owners (`codebase-hygiene`, `review-judgment`, `repository-delivery`,
+`communication`) until reviewed.
+`herdr-core` and `ketch` are
 excluded external CLI integrations. Source changes do not migrate or uninstall
 live skills. Check current managers before replacing any installed folder; the
 [historical migration guide](audits/installed-skill-import.md) is evidence of past

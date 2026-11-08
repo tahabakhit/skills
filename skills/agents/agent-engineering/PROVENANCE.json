@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "name": "agent-engineering",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/agent-engineering/ into skills/agents/agent-engineering."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "504525eeabf782041eac7cce4dcc9ed693eac4d9680948ee2653c1746d7585e8",
+      "gitBlob": "e034f38b982b8ff09d3f8196d070c72b14bd181b"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "7e68d2b0f8c0ed895d08038b9918eb7fa8f3cccec22b0df0c46d0e94c13db5fc",
+      "gitBlob": "02e8196b746766984cdb2496bb12b91839710127"
+    },
+    {
+      "path": "references/extension-design.md",
+      "sha256": "13a2a563c5053555793e5aee4edb0e09f1247ef4680a4560fa0c1afc77969829",
+      "gitBlob": "2b9b88dbcb4423eed30c081a4f59e58e2e0defe5"
+    },
+    {
+      "path": "references/pi.md",
+      "sha256": "9f1089102c39d521ab61abd93986ebd9901a1cd5e80f55355fe2359fffc11d4a",
+      "gitBlob": "c1b97e3e210352fcf9d5f7d7e8788b8c109d42b9"
+    },
+    {
+      "path": "references/tool-design.md",
+      "sha256": "badedce2eddd657bdcef8f9ca657495d62b85936107da3ee490774cf90964f8a",
+      "gitBlob": "73cd3518236a21d3792f693beb8cec4e06e7eda9"
+    }
+  ]
+}

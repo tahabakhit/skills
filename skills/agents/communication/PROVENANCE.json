@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "name": "communication",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/communication/ into skills/agents/communication."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "aa2d1c8652da2583b6d90d0d5d5853baaa8858ec6cd99e961475204e614e3f5a",
+      "gitBlob": "4a75d9581c17306fe5243ad7e991370fac966d80"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "5ec261ac1dea8907e2d2eda898b7157a555cafbff92d7c81f3f445ec91404d2c",
+      "gitBlob": "5ed875acac3f8696be980193ec920d982130ccb9"
+    },
+    {
+      "path": "references/explain-and-teach.md",
+      "sha256": "a0f0c669f593bb61f8aff1df53873c6a90126b8b2018685e16941eb614553d71",
+      "gitBlob": "ca4af53e303c80b6f2565f6f9fe704a61bd89876"
+    },
+    {
+      "path": "references/exploration.md",
+      "sha256": "6d4fe263c6d09974df673e41accf56a19edc2853ab57ab9c2ea9df39c921b827",
+      "gitBlob": "8da6c6954562ca9c3ad6608f3e3bc5054eb24a60"
+    },
+    {
+      "path": "references/non-code-review.md",
+      "sha256": "023da053b60b33a03199f85f24c83cb90a502f9dba970006e73121a48dfa9f5c",
+      "gitBlob": "53a9a1bb6eca7aef9a7cd2489aecc145f2b95e8b"
+    },
+    {
+      "path": "references/technical-writing.md",
+      "sha256": "903b8b6c330da7af55ab66f05fef4c205a7ad85a3c4a28850e4663cb57ababd9",
+      "gitBlob": "fd80b3fbfbe47f03b5cffecd774b7fee32c62198"
+    },
+    {
+      "path": "references/writing.md",
+      "sha256": "92774fb6a2a10c29c46ec72fd7958c9945f69d311ece6d2afd10b39dcc7234a8",
+      "gitBlob": "ea7f4076dad5c088f5ca7dbcd00eb4991c32e914"
+    }
+  ]
+}

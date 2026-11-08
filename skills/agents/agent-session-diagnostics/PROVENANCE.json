@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "agent-session-diagnostics",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/agent-session-diagnostics/ into skills/agents/agent-session-diagnostics."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "a9fd1608c382ff4f962aeacf67132419f6e519a536c55014cb0619c2e6fd6e01",
+      "gitBlob": "630c6e2588b1f6a504384d250bb02fe5f815606d"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "9f47fad58ea37a8b07bdd5458ef75c0a12c5a8a16636db64f94e589d61ed24cc",
+      "gitBlob": "3e88742fb3f1029b2167c385d01bca2500b9a6ce"
+    }
+  ]
+}

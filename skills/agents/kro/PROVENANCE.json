@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "name": "kro",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/kro/ into skills/agents/kro."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "659c6c411e2f29c291e8a8ecacf75726bcb713dfbe0a1d9c37b3c66ee37e1d4b",
+      "gitBlob": "dfc7f647b9812570a1ab901ec3603448b4af7092"
+    },
+    {
+      "path": "references/consolidate.md",
+      "sha256": "9112c2dcdf0ae3ccf6d83c77fcbadb85438f06580454267cd65651bb6b03537c",
+      "gitBlob": "e66d51290f72386cc13c338c99252c605b4febe8"
+    },
+    {
+      "path": "references/handoff.md",
+      "sha256": "e59e6e22d1e58ae57c8523976254fdc268928a73e8f0c410f08935bfed0197f7",
+      "gitBlob": "6f1666bff60065538a5033907131639c932e0a96"
+    },
+    {
+      "path": "references/herdr.md",
+      "sha256": "2ad7421a6db468fedc9b138ffcb9ae239caf3e32fb9e89fb04135f2b2d201135",
+      "gitBlob": "6ad976ceffa694eae8c4c36940976269c7cb3fee"
+    },
+    {
+      "path": "references/news.md",
+      "sha256": "26142f79e97a01bf28f46774ff454e09c4943442e56c02611b499b70e68ea1b9",
+      "gitBlob": "c22649d4893acbaf7734a7131e96ab4b7e4770e7"
+    },
+    {
+      "path": "references/plan.md",
+      "sha256": "d9f01825f367c764317679a237cae0a870c4c5d341a8c04aac4a9e3b7b35505c",
+      "gitBlob": "eb7baf5de6ab30ce8b98f6722b03005c3272fab7"
+    },
+    {
+      "path": "references/review.md",
+      "sha256": "76d1abcddb0258a79ab56a2a03597276faf942f3f7f805145b0c0594171e60e5",
+      "gitBlob": "576858c7333502b5865dcdc6e4314529e7e5c096"
+    }
+  ]
+}

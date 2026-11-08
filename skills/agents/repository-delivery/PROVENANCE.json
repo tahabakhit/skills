@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "name": "repository-delivery",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/repository-delivery/ into skills/agents/repository-delivery."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "bb77bca78670c0d12d5ae68ef7d8f0fc3e5d2995e54cd7b8c7ef89b6a21d99f8",
+      "gitBlob": "1cee1ffa8e414f68c714252bd67d32f34de5e32d"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "97ec8c9ce12dc436cf906af2f3d24e4ad9fce622fa647d815c034019c9784585",
+      "gitBlob": "0f20d4be54df83cc187882c8cb7c88cf069da7c7"
+    },
+    {
+      "path": "references/issues.md",
+      "sha256": "6c146d569d945c221fcaa558cfb0bab2b1d9ba2afecd60bf01c1d130350425b2",
+      "gitBlob": "4cf3a62059f6151d5234b86706f2b3ebb6928ea0"
+    },
+    {
+      "path": "references/pull-requests.md",
+      "sha256": "5a2a7b1134d3f82122fc086d41d5ea0716fe5da1cb06074753f80e6961be8773",
+      "gitBlob": "159e938a52eeca070c86b8fc4409e4da100c5611"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "typesafe-ai",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 TypeSafe AI",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/typesafe-ai/ into skills/agents/typesafe-ai."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "835f233f1d6ed84a9b9a351aba0689b47644a4137d6316911fc7957bde523b02",
+      "gitBlob": "8c73b41b89d9a76ddf0fdb0edfaafdda800d36e8"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "9f43ab2a5892f9fde96fa3a1989bacdc3c2a62fa4208011dc28c697a5ffe9379",
+      "gitBlob": "11827c086151d53263cfbecf85ab78ef263c9514"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "9704acdaba2d808e402009c6fcf25c1922e9906a50ef7a1ff9e454f490e285c7",
+      "gitBlob": "156036ac407f7b301b3277c0f35029bfce203204"
+    }
+  ]
+}

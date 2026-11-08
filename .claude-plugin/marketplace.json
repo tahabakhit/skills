@@ -1,12 +1,81 @@
 {
   "name": "tahabakhit-skills",
-  "owner": { "name": "Taha Bakhit" },
+  "owner": {
+    "name": "Taha Bakhit"
+  },
   "description": "Selectively installable workflow skills.",
   "plugins": [
-    { "name": "core", "source": "./skills/core", "skills": ["./"], "description": "discover-work, research-work, create-content, verify-and-stop" },
-    { "name": "engineering", "source": "./skills/engineering", "skills": ["./"], "description": "Specification, design, debugging, delivery, tests, review, Git, CI, security" },
-    { "name": "content", "source": "./skills/content", "skills": ["./"], "description": "document-review" },
-    { "name": "interface-review", "source": "./skills/interface-review", "skills": ["./"], "description": "interface-review" },
-    { "name": "data", "source": "./skills/data", "skills": ["./"], "description": "analyze-data, data-pipelines" }
+    {
+      "name": "core",
+      "source": "./skills/core",
+      "skills": [
+        "./"
+      ],
+      "description": "discover-work, research-work, create-content, verify-and-stop"
+    },
+    {
+      "name": "engineering",
+      "source": "./skills/engineering",
+      "skills": [
+        "./"
+      ],
+      "description": "Specification, design, debugging, delivery, tests, review, Git, CI, security"
+    },
+    {
+      "name": "content",
+      "source": "./skills/content",
+      "skills": [
+        "./"
+      ],
+      "description": "document-review"
+    },
+    {
+      "name": "interface-review",
+      "source": "./skills/interface-review",
+      "skills": [
+        "./"
+      ],
+      "description": "interface-review"
+    },
+    {
+      "name": "data",
+      "source": "./skills/data",
+      "skills": [
+        "./"
+      ],
+      "description": "analyze-data, data-pipelines"
+    },
+    {
+      "name": "workstation",
+      "source": "./skills/workstation",
+      "skills": [
+        "./"
+      ],
+      "description": "chezmoi, managed-config-drift, shell-scripting, backup-restore"
+    },
+    {
+      "name": "linux",
+      "source": "./skills/linux",
+      "skills": [
+        "./"
+      ],
+      "description": "linux, linux-desktop, arch-linux, fedora, cachyos"
+    },
+    {
+      "name": "macos",
+      "source": "./skills/macos",
+      "skills": [
+        "./"
+      ],
+      "description": "macos"
+    },
+    {
+      "name": "agents",
+      "source": "./skills/agents",
+      "skills": [
+        "./"
+      ],
+      "description": "agents-md, skill-authoring, agent-engineering, agent-session-diagnostics, harness-checklist, prompt-caching, chrome-cdp, typesafe-ai, kro, analyze-sessions, codebase-hygiene, review-judgment, repository-delivery, communication"
+    }
   ]
 }

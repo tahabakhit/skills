@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "name": "arch-linux",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "copyright": "Copyright (c) 2026 bolens",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/arch-linux/ into skills/linux/arch-linux."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "d5fba51b32177c809de039f8f5c7ac5b1cd87a438ff33b845ac4c57b7057cb61",
+      "gitBlob": "2efc18e5a2c9804dd34b5aaa87b0750b74c280c1"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "d5d06e1afc682aa8bca244970853420f9d52660897d145e5fdeb6b5718bd7f86",
+      "gitBlob": "c9a431ecda627151dc73f26fb74d669fe5744cca"
+    },
+    {
+      "path": "references/package-maintenance.md",
+      "sha256": "4d88ab89e28ea0aca15f82630a4165dfac2f77a088811365a8c64c59bc44ab93",
+      "gitBlob": "69c5caa487d51c78fa1ee0cea9cdaa4564001d19"
+    },
+    {
+      "path": "references/patches-and-builds.md",
+      "sha256": "65d4f427bd33ef2339caa650ade5f6280afeb7ddc7b2e932d69a6bc5327a8601",
+      "gitBlob": "5eb2cb861f63934521c6dbd16919ba81af48bea9"
+    },
+    {
+      "path": "references/update-recovery.md",
+      "sha256": "7512cd660bc047efbc566470e07686abf150044319d110238cbb76f6035877c5",
+      "gitBlob": "566c6862fc840757109754b28b8a30b9402d524e"
+    }
+  ]
+}
