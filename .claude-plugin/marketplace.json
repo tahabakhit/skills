@@ -75,7 +75,7 @@
       "skills": [
         "./"
       ],
-      "description": "agents-md, skill-authoring, agent-engineering, agent-session-diagnostics, harness-checklist, prompt-caching, chrome-cdp, typesafe-ai, kro, analyze-sessions, codebase-hygiene, review-judgment, repository-delivery, communication"
+      "description": "agents-md, skill-authoring, agent-engineering, agent-session-diagnostics, harness-checklist, prompt-caching, chrome-cdp, typesafe-ai, analyze-sessions, codebase-hygiene, review-judgment, repository-delivery, communication"
     }
   ]
 }

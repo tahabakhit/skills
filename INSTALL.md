@@ -1,6 +1,6 @@
 # Install workflow bundles
 
-Current source has 44 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+Current source has 43 skills in nine disjoint bundles under `skills/<group>/<name>/`.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
 

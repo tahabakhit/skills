@@ -21,7 +21,7 @@ pass 'selector bin has no runtime library dependencies, install hooks or extensi
 names=$(find skills -name SKILL.md -type f | sort)
 count=$(printf '%s\n' "$names" | wc -l | tr -d ' ')
 jq -e '.schemaVersion == 1 and
-  ([.skills[].name]|unique|length)==44
+  ([.skills[].name]|unique|length)==43
   and all(.skills[]; .requiredSkills == [] and (.optionalSkills | type) == "array"
     and (.path | test("^skills/[a-z][a-z0-9-]*/[a-z0-9-]+$"))
     and (.path | split("/") | last) == .name
@@ -42,7 +42,7 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
   [ "$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .origin' catalog.json)" = moved-from-dotfiles ] ||
     [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
-pass '44 cataloged, named, described and bounded skills'
+pass '43 cataloged, named, described and bounded skills'
 
 for file in README.md INSTALL.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
   # Links in these authored documents have simple relative targets, no spaces.

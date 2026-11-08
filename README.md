@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-44 standalone workflow skills in nine disjoint bundles. Install **core once globally**,
+43 standalone workflow skills in nine disjoint bundles. Install **core once globally**,
 then add **whole local bundles** to the projects that need them. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
@@ -39,7 +39,7 @@ and host-loader versions, checks and remaining limits.
 | [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
 | [linux](skills/linux) | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | [macos](skills/macos) | Global, macOS | `macos` (1) |
-| [agents](skills/agents) | Global | Agent instructions, skills, harnesses, sessions, `kro` workflows, Chrome CDP, TypeSafe, code/review/delivery judgment, communication (14) |
+| [agents](skills/agents) | Global | Agent instructions, skills, harnesses, sessions, Chrome CDP, TypeSafe, code/review/delivery judgment, communication (13) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide

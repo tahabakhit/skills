@@ -95,7 +95,7 @@
     },
     {
       "name": "agents",
-      "description": "Agent instructions, skills, harness design, session diagnostics, kro workflows and engineering judgment",
+      "description": "Agent instructions, skills, harness design, session diagnostics and engineering judgment",
       "recommendedScope": "global",
       "skills": [
         "agents-md",
@@ -106,7 +106,6 @@
         "prompt-caching",
         "chrome-cdp",
         "typesafe-ai",
-        "kro",
         "analyze-sessions",
         "codebase-hygiene",
         "review-judgment",

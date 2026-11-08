@@ -639,20 +639,6 @@
       }
     },
     {
-      "name": "kro",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/kro",
-      "provenance": "skills/agents/kro/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
       "name": "analyze-sessions",
       "domain": "agents",
       "maturity": "authored",

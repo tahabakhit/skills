@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **44 canonical workflow owners** in nine disjoint
+The approved source layout has **43 canonical workflow owners** in nine disjoint
 bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
