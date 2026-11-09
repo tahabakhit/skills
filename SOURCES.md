@@ -2,10 +2,10 @@
 
 ## Current source and historical records
 
-Current source contains 43 skills at `skills/<group>/<name>/`: core (4, global),
+Current source contains 44 skills at `skills/<group>/<name>/`: core (4, global),
 engineering (12, local), content (1, local), interface-review (1, local), data
 (2, local), workstation (4, global), linux (5, global), macos (1, global) and
-agents (13, global). `create-content` is in core and owns
+agents (14, global). `create-content` is in core and owns
 prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
 is removed with no alias. The workstation, linux, macos and agents bundles returned
 from the owner's dotfiles at commit `8eb84ae`; their folder-local provenance

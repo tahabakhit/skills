@@ -707,6 +707,20 @@
       "behaviorEvidence": {
         "status": "not-evaluated"
       }
+    },
+    {
+      "name": "agent-delegation",
+      "domain": "agents",
+      "maturity": "authored",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "activation": "selective",
+      "origin": "authored",
+      "path": "skills/agents/agent-delegation",
+      "provenance": "skills/agents/agent-delegation/PROVENANCE.json",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      }
     }
   ],
   "consolidations": [

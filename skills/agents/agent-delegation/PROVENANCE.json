@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "name": "agent-delegation",
+  "kind": "authored",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Authored for orchestrating Pi and Codex children through herdr-core hc."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "f9eede9e2543c8ec78d23de9ca13757f08d049e1e37fd4e14c2a80325ddf0c64",
+      "gitBlob": "3d61b3faa9dff3fddcee31fbadc6c90f5cc2526c"
+    }
+  ]
+}

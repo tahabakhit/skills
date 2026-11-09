@@ -64,7 +64,7 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
     ['core', 4, 'global'], ['engineering', 12, 'project'], ['content', 1, 'project'],
     ['interface-review', 1, 'project'], ['data', 2, 'project'],
-    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 13, 'global']
+    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 14, 'global']
   ]);
   for (const skill of catalog.skills) {
     const relative = path.relative(root, skillPath(root, distribution, skill.name));

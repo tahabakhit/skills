@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Current source has 43 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 44 canonical workflow owners under `skills/<group>/<name>/`. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
@@ -12,7 +12,7 @@ Current source has 43 canonical workflow owners under `skills/<group>/<name>/`. 
 | [workstation](skills/workstation) | Global | 4 |
 | [linux](skills/linux) | Global, Linux | 5 |
 | [macos](skills/macos) | Global, macOS | 1 |
-| [agents](skills/agents) | Global | 13 |
+| [agents](skills/agents) | Global | 14 |
 
 The nine bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
 

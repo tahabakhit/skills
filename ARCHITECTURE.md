@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **43 canonical workflow owners** in nine disjoint
+The approved source layout has **44 canonical workflow owners** in nine disjoint
 bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -37,7 +37,7 @@ standalone does not mean tool-free.
 | workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
 | linux | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | macos | Global, macOS | `macos` (1) |
-| agents | Global | Instructions, skills, harnesses, sessions and agent engineering judgment (13) |
+| agents | Global | Instructions, skills, harnesses, sessions and agent engineering judgment (14) |
 
 `create-content` owns shared writing and prose cleanup. The redundant `unslop`
 entrypoint is removed with no alias. `define-work` is a project engineering skill,

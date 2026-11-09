@@ -1,6 +1,6 @@
 # Install workflow bundles
 
-Current source has 43 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+Current source has 44 skills in nine disjoint bundles under `skills/<group>/<name>/`.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
 
@@ -115,7 +115,7 @@ them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 43 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 44 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
 | `@tahabakhit/skills-engineering` | 12 | Published 0.3.0 has the former 11 |
 | `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
@@ -124,7 +124,7 @@ them or alter a registry release.
 | `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
-| `@tahabakhit/skills-agents` | 13 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-agents` | 14 | Locally generated identity; not published by this source change |
 
 Existing `@tahabakhit/skills-design@0.3.0` (1) and
 `@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package

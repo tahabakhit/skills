@@ -71,7 +71,7 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 43 skills under `skills/<group>/<name>/` in nine bundles;
+Current source contains 44 skills under `skills/<group>/<name>/` in nine bundles;
 the former configuration bundle name is removed. The redundant `unslop` folder
 is removed with no alias; prose cleanup belongs to core's `create-content`.
 Its historical adaptation used the pinned Bolens grant above, retained in the
