@@ -25,7 +25,12 @@ skill only adds the policy and lifecycle around it.
 | Implementer / researcher | `hc templates` first. Without a template: `pi` (default model `openai/gpt-6-luna`) | One writer per worktree; give an exact file scope |
 | Adversarial reviewer | `codex --no-daemon -m gpt-6-astra`, read-only sandbox | Never edits. Review the diff, not the intent. Report findings with file and line |
 
-Codex needs `--no-daemon`, or its commands run outside `hc`.
+Codex needs `--no-daemon`, or its commands run outside `hc`. In a read-only
+sandbox its `hc send` is blocked until the user approves it (observed with
+`-s read-only`), so tell the reviewer to write findings to a file (for example
+`notes/<task>-review.md`) and rely on `hc wait` for completion; read the file
+rather than waiting for a message. Dismiss Codex's update dialog only by
+choosing Skip; any permission prompt is for the user.
 
 ## Launch
 
