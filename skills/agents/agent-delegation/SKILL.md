@@ -26,11 +26,11 @@ skill only adds the policy and lifecycle around it.
 | Adversarial reviewer | `codex --no-daemon -m gpt-6-astra`, read-only sandbox | Never edits. Review the diff, not the intent. Report findings with file and line |
 
 Codex needs `--no-daemon`, or its commands run outside `hc`. In a read-only
-sandbox its `hc send` is blocked until the user approves it (observed with
-`-s read-only`), so tell the reviewer to write findings to a file (for example
-`notes/<task>-review.md`) and rely on `hc wait` for completion; read the file
-rather than waiting for a message. Dismiss Codex's update dialog only by
-choosing Skip; any permission prompt is for the user.
+sandbox it can neither write a findings file nor `hc send` without the user's
+approval (both observed). The `reviewer` template therefore has it print the
+findings on screen and end with `REVIEW COMPLETE`; wait with `hc wait <t>`, then
+read them with `hc read <t> --lines 200`. Do not approve its prompts yourself.
+Codex's first start may show an update dialog; choosing Skip is fine.
 
 ## Launch
 
