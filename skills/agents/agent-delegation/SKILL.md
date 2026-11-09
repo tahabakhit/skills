@@ -23,7 +23,7 @@ skill only adds the policy and lifecycle around it.
 | Role | Launch | Rules |
 | --- | --- | --- |
 | Implementer / researcher | `hc templates` first. Without a template: `pi` (default model `openai/gpt-6-luna`) | One writer per worktree; give an exact file scope |
-| Adversarial reviewer | `codex --no-daemon -m gpt-6-astra`, read-only sandbox | Never edits. Review the diff, not the intent. Report findings with file and line |
+| Adversarial reviewer | `codex --no-daemon -m gpt-6-astra -s read-only` | Never edits. Review the diff, not the intent. Report findings with file and line |
 
 Codex needs `--no-daemon`, or its commands run outside `hc`. In a read-only
 sandbox it can neither write a findings file nor `hc send` without the user's
