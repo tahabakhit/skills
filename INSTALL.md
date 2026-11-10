@@ -1,6 +1,8 @@
 # Install workflow bundles
 
-Current source has 42 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+Current source has 28 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+They assume pstack as the engineering workflow; overlapping skills are
+[archived](archive/README.md) and never installed.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
 
@@ -48,9 +50,8 @@ names is not assumed. None of these commands was applied to live settings by thi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
 ```
 
-Core contains `discover-work`, `research-work`, `create-content` and
-`verify-and-stop` (4). Writing and prose cleanup live in `create-content`; there is
-no `unslop` skill or alias. Specification authoring (`define-work`) is engineering.
+Core contains `research-work` and `create-content` (2). `create-content` covers general
+writing and prose cleanup; there is no `unslop` skill or alias here (pstack ships one).
 
 ## Local project bundles
 
@@ -66,7 +67,7 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data
 
 | Bundle | Count | Contents |
 | --- | --- | --- |
-| engineering | 14 | Repository onboarding, code quality, `define-work`, design, debugging, delivery, testing, review, safe changes, Git, CI, dependencies, packaging and security |
+| engineering | 3 | `ci-maintenance`, `dependency-updates`, `release-packaging` |
 | content | 1 | `document-review` |
 | interface-review | 1 | `interface-review` |
 | data | 2 | `analyze-data`, `data-pipelines` |
@@ -157,16 +158,16 @@ them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 42 | Published 0.3.0 still contains 30 |
-| `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
-| `@tahabakhit/skills-engineering` | 14 | Published 0.3.0 has the former 11 |
+| `@tahabakhit/skills` | 28 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills-core` | 2 | Published 0.3.0 has the former 5 |
+| `@tahabakhit/skills-engineering` | 3 | Published 0.3.0 has the former 11 |
 | `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
 | `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
 | `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
 | `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
-| `@tahabakhit/skills-agents` | 10 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-agents` | 9 | Locally generated identity; not published by this source change |
 
 Existing `@tahabakhit/skills-design@0.3.0` (1) and
 `@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package
@@ -185,11 +186,12 @@ Do not delete the whole `~/.agents/skills` tree. Back up selected folders and
 inspect current managers, links and local edits before an authorized replacement.
 The [historical import guide](audits/installed-skill-import.md) preserves earlier
 migration evidence and rollback guidance, not current installation ownership.
-`safe-refactor`/`migration` are covered by `change-safely`; `technical-writing` and
-prose cleanup belong to core's `create-content`. No legacy-name aliases are needed.
+`safe-refactor`/`migration`, `technical-writing` and prose cleanup are covered by
+pstack. No legacy-name aliases are needed. Installed copies of archived skills are
+not removed by this source change; uninstall them separately if present.
 
 The workstation, linux, macos and agents bundles came from the owner's dotfiles
-and normally install globally like core. The new purpose names are hc-delegation,
+and normally install globally like core. The new purpose names are
 analyze-pi-sessions, agent-tooling-design and dependency-updates; see the
 [catalog name map](CATALOG.md#setup-cleanup-and-name-map). Resolve resources from
 the host's actual installed skill/plugin path, not a fixed home directory. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this

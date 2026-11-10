@@ -12,7 +12,7 @@ const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
 const read = file => fs.readFileSync(file, 'utf8');
 
 // Preserve origin identities/notices while allowing declared, root-hashed adaptations.
-for (const [owner, former, subdir] of [['code-review', 'review-judgment', 'review-judgment'], ['git-hygiene', 'repository-delivery', 'submission'], ['create-content', 'communication', 'communication']]) {
+for (const [owner, former, subdir] of [['create-content', 'communication', 'communication']]) {
   test(`${former} has a traceable adapted reference under ${owner}, not another skill`, () => {
     const folder = skillPath(root, distribution, owner);
     const reference = path.join(folder, 'references', subdir);
@@ -39,13 +39,17 @@ for (const [owner, former, subdir] of [['code-review', 'review-judgment', 'revie
 test('repository and agent owners have disjoint purposes and scope', () => {
   const engineering = select('engineering', distribution);
   const agents = select('agents', distribution);
-  for (const name of ['repository-onboarding', 'code-quality', 'deliver-work', 'code-review']) {
+  for (const name of ['ci-maintenance', 'dependency-updates', 'release-packaging']) {
     assert.ok(engineering.includes(name));
     assert.equal(agents.includes(name), false);
   }
-  for (const name of ['harness-audit', 'skill-authoring', 'agent-session-diagnostics', 'hc-delegation', 'analyze-pi-sessions', 'agent-tooling-design']) assert.ok(agents.includes(name));
+  for (const name of ['harness-audit', 'skill-authoring', 'agent-session-diagnostics', 'analyze-pi-sessions', 'agent-tooling-design']) assert.ok(agents.includes(name));
   for (const [group, name] of [['linux', 'linux-administration'], ['macos', 'macos-administration']]) assert.ok(select(group, distribution).includes(name));
   for (const former of ['codebase-hygiene', 'harness-checklist', 'agent-delegation', 'analyze-sessions', 'agent-engineering', 'triage-dependency-updates']) assert.throws(() => select(former, distribution), /Unknown/);
+  // Skills archived for overlapping pstack are no longer selectable.
+  for (const archived of fs.readdirSync(path.join(root, 'archive/skills')).flatMap(b => fs.readdirSync(path.join(root, 'archive/skills', b)))) {
+    assert.throws(() => select(archived, distribution), /Unknown/, archived);
+  }
 });
 
 test('active OS handoffs use discoverable administration names', () => {

@@ -2,221 +2,12 @@
   "schemaVersion": 1,
   "skills": [
     {
-      "name": "discover-work",
-      "domain": "cross-domain",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "define-work"
-      ],
-      "activation": "selective",
-      "origin": "authored-adaptation",
-      "path": "skills/core/discover-work",
-      "provenance": "skills/core/discover-work/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "core"
-    },
-    {
-      "name": "define-work",
-      "domain": "engineering",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "deliver-work",
-        "discover-work"
-      ],
-      "activation": "selective",
-      "origin": "authored-adaptation",
-      "path": "skills/engineering/define-work",
-      "provenance": "skills/engineering/define-work/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "codebase-design",
-      "domain": "engineering",
-      "maturity": "source-import",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "change-safely",
-        "interface-review"
-      ],
-      "path": "skills/engineering/codebase-design",
-      "provenance": "skills/engineering/codebase-design/PROVENANCE.json",
-      "capabilities": "Repository/source inspection. Delegation is optional and requires existing authority.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "unbundledSpecialists": [
-        "improve-codebase-architecture"
-      ],
-      "bundle": "engineering"
-    },
-    {
-      "name": "systematic-debugging",
-      "domain": "engineering",
-      "maturity": "source-import",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "deliver-work",
-        "git-hygiene",
-        "security-review",
-        "testing-work"
-      ],
-      "path": "skills/engineering/systematic-debugging",
-      "provenance": "skills/engineering/systematic-debugging/PROVENANCE.json",
-      "capabilities": "Existing repository diagnostics and optional performance-profiling guidance; use installed profilers and bounded local workloads. Optional polluter: Bash, Python 3.9+, POSIX process groups, npm test contract; executes tests and is not a sandbox.",
-      "unbundledSpecialists": [
-        "audit-repo-fleet",
-        "nixos"
-      ],
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "verify-and-stop",
-      "domain": "cross-domain",
-      "maturity": "source-import",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "deliver-work"
-      ],
-      "path": "skills/core/verify-and-stop",
-      "provenance": "skills/core/verify-and-stop/PROVENANCE.json",
-      "capabilities": "Existing repository checks and explicit acceptance conditions. No delivery runtime required.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "core"
-    },
-    {
-      "name": "deliver-work",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "code-review",
-        "define-work",
-        "git-hygiene",
-        "release-packaging",
-        "testing-work",
-        "verify-and-stop"
-      ],
-      "path": "skills/engineering/deliver-work",
-      "provenance": "skills/engineering/deliver-work/PROVENANCE.json",
-      "capabilities": "Repository and existing build/test tools. Workers, trackers and provider access are optional and endpoint-dependent.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "testing-work",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "systematic-debugging",
-        "verify-and-stop"
-      ],
-      "path": "skills/engineering/testing-work",
-      "provenance": "skills/engineering/testing-work/PROVENANCE.json",
-      "capabilities": "Existing test runner and suitable fixtures. Actual boundary/runtime required for integration claims.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "code-review",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "code-quality",
-        "git-hygiene",
-        "security-review",
-        "testing-work"
-      ],
-      "path": "skills/engineering/code-review",
-      "provenance": "skills/engineering/code-review/PROVENANCE.json",
-      "capabilities": "Read the exact requested candidate. Safe isolated execution is optional; unavailable checks stay unexecuted.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "change-safely",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "data-pipelines",
-        "testing-work",
-        "verify-and-stop"
-      ],
-      "path": "skills/engineering/change-safely",
-      "provenance": "skills/engineering/change-safely/PROVENANCE.json",
-      "capabilities": "Existing consumers, baseline checks and recovery evidence; optional PostgreSQL-focused lock, backfill and constraint guidance. Actual database/runtime needed for transition claims.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "git-hygiene",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "code-review",
-        "create-content",
-        "deliver-work"
-      ],
-      "path": "skills/engineering/git-hygiene",
-      "provenance": "skills/engineering/git-hygiene/PROVENANCE.json",
-      "capabilities": "Git and owned repository state. Remote freshness and integration require authorized provider access.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
       "name": "ci-maintenance",
       "domain": "engineering",
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "security-review",
-        "testing-work"
-      ],
+      "optionalSkills": [],
       "path": "skills/engineering/ci-maintenance",
       "provenance": "skills/engineering/ci-maintenance/PROVENANCE.json",
       "capabilities": "Workflow/source inspection. Provider-event claims require controlled provider/runner evidence.",
@@ -232,10 +23,7 @@
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "security-review",
-        "testing-work"
-      ],
+      "optionalSkills": [],
       "path": "skills/engineering/dependency-updates",
       "provenance": "skills/engineering/dependency-updates/PROVENANCE.json",
       "capabilities": "Existing package manager, manifests and lockfiles. Registry freshness and candidate execution require suitable access and isolation.",
@@ -251,33 +39,10 @@
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "deliver-work",
-        "testing-work"
-      ],
+      "optionalSkills": [],
       "path": "skills/engineering/release-packaging",
       "provenance": "skills/engineering/release-packaging/PROVENANCE.json",
       "capabilities": "Existing builder and disposable extraction/target environments. Publication is not this skill's endpoint.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "security-review",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "ci-maintenance",
-        "code-review",
-        "testing-work"
-      ],
-      "path": "skills/engineering/security-review",
-      "provenance": "skills/engineering/security-review/PROVENANCE.json",
-      "capabilities": "Scoped source and trust assumptions. Reproduction uses synthetic values and authorized disposable targets.",
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
@@ -353,7 +118,6 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "codebase-design",
         "create-content"
       ],
       "path": "skills/interface-review/interface-review",
@@ -394,11 +158,7 @@
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "change-safely",
-        "systematic-debugging",
-        "testing-work"
-      ],
+      "optionalSkills": [],
       "path": "skills/data/data-pipelines",
       "provenance": "skills/data/data-pipelines/PROVENANCE.json",
       "capabilities": "Existing transformation/orchestration stack and authorized disposable target. Platform-specific commands are not bundled.",
@@ -740,86 +500,9 @@
         "status": "not-evaluated"
       },
       "bundle": "agents"
-    },
-    {
-      "name": "code-quality",
-      "domain": "engineering",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "change-safely",
-        "dependency-updates",
-        "testing-work"
-      ],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/engineering/code-quality",
-      "provenance": "skills/engineering/code-quality/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
-    },
-    {
-      "name": "hc-delegation",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "authored",
-      "path": "skills/agents/hc-delegation",
-      "provenance": "skills/agents/hc-delegation/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "agents"
-    },
-    {
-      "name": "repository-onboarding",
-      "domain": "engineering",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "path": "skills/engineering/repository-onboarding",
-      "provenance": "skills/engineering/repository-onboarding/PROVENANCE.json",
-      "activation": "selective",
-      "capabilities": "Read-only repository exploration and authorized safe baseline checks; no installer or architecture audit.",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "engineering"
     }
   ],
   "consolidations": [
-    {
-      "components": [
-        "planning",
-        "implementation",
-        "issue-delivery",
-        "PR-follow-through",
-        "release-follow-through"
-      ],
-      "owner": "deliver-work"
-    },
-    {
-      "components": [
-        "test-authoring",
-        "TDD",
-        "test-adequacy",
-        "property-testing",
-        "mutation-testing"
-      ],
-      "owner": "testing-work"
-    },
-    {
-      "components": [
-        "safe-refactor",
-        "migration"
-      ],
-      "owner": "change-safely"
-    },
     {
       "components": [
         "writing",
@@ -851,24 +534,12 @@
     },
     {
       "components": [
-        "review-judgment"
-      ],
-      "owner": "code-review"
-    },
-    {
-      "components": [
-        "repository-delivery"
-      ],
-      "owner": "git-hygiene"
-    },
-    {
-      "components": [
         "communication"
       ],
       "owner": "create-content"
     }
   ],
-  "coverageNote": "42 purpose-scoped owners in nine disjoint installation bundles. Core is the global base; repository workflows and content, interface-review and data domains are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. Code quality and repository onboarding belong to engineering; duplicate review, delivery and communication entrypoints are local references of canonical owners. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
+  "coverageNote": "28 purpose-scoped owners in nine disjoint installation bundles. pstack (cursor/plugins/pstack) is the assumed engineering workflow, so skills that overlapped it (discovery, verification, design, delivery, review, debugging, testing, refactoring, Git submission, onboarding, security review, hc delegation) are archived under archive/skills/. Core is the global base for research and writing; the remaining engineering, content, interface-review and data skills are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
   "taxonomy": {
     "bundle": "Installation/package owner, matching distribution.json and source path; not a semantic discipline or permission boundary.",
     "domain": "Primary subject area, independent of bundle. cross-domain owners are useful outside engineering.",

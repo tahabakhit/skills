@@ -11,7 +11,7 @@
       "skills": [
         "./"
       ],
-      "description": "discover-work, research-work, create-content, verify-and-stop"
+      "description": "research-work, create-content"
     },
     {
       "name": "engineering",
@@ -19,7 +19,7 @@
       "skills": [
         "./"
       ],
-      "description": "codebase-design, systematic-debugging, deliver-work, testing-work, code-review, change-safely, git-hygiene, ci-maintenance, dependency-updates, release-packaging, security-review, define-work, code-quality, repository-onboarding"
+      "description": "ci-maintenance, dependency-updates, release-packaging"
     },
     {
       "name": "content",
@@ -75,7 +75,7 @@
       "skills": [
         "./"
       ],
-      "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching, chrome-cdp, typesafe-ai, analyze-pi-sessions, hc-delegation"
+      "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching, chrome-cdp, typesafe-ai, analyze-pi-sessions"
     }
   ]
 }

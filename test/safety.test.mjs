@@ -24,7 +24,7 @@ function sourceFixture(c) {
   fs.cpSync(path.join(root, 'skills'), path.join(source, 'skills'), { recursive: true });
   return source;
 }
-const opts = { local: 'discover-work', agents: 'pi' };
+const opts = { local: 'research-work', agents: 'pi' };
 
 for (const scope of ['project', 'global']) test(`${scope} hard-linked locks are refused without touching the other name`, t => {
   const c = fixture(t); const other = path.join(c.dir, 'outside.json');
@@ -43,7 +43,7 @@ test('a newly added hard link invalidates previously confirmed lock identity', t
 });
 test('new targets after confirmation are refused even with replace', t => {
   const c = fixture(t); const p = createPlan(opts, distribution, root, c);
-  const target = path.join(c.project, '.agents/skills/discover-work');
+  const target = path.join(c.project, '.agents/skills/research-work');
   fs.mkdirSync(target, { recursive: true }); fs.writeFileSync(path.join(target, 'owner.txt'), 'new owner data');
   let called = false;
   assert.throws(() => executePlan(p, distribution, { replace: true, runner: () => { called = true; } }), /changed after planning/);
@@ -64,20 +64,20 @@ test('package root, not just its skill folders, is protected', t => {
 });
 test('source directory symlink aliases are refused before global or local writes', t => {
   const c = fixture(t); const source = sourceFixture(c);
-  const real = path.join(c.dir, 'actual'); fs.renameSync(path.join(source, 'skills/core/discover-work'), real);
-  fs.symlinkSync(real, path.join(source, 'skills/core/discover-work'));
-  assert.throws(() => createPlan({ global: 'verify-and-stop', local: 'discover-work', agents: 'pi' }, distribution, source, c), /symlink/);
+  const real = path.join(c.dir, 'actual'); fs.renameSync(path.join(source, 'skills/core/research-work'), real);
+  fs.symlinkSync(real, path.join(source, 'skills/core/research-work'));
+  assert.throws(() => createPlan({ global: 'create-content', local: 'research-work', agents: 'pi' }, distribution, source, c), /symlink/);
   assert.deepEqual(fs.readdirSync(c.home), []); assert.deepEqual(fs.readdirSync(c.project), []);
 });
 test('upstream-excluded source entries fail before any scope writes', t => {
   const c = fixture(t); const source = sourceFixture(c);
-  fs.writeFileSync(path.join(source, 'skills/core/discover-work/metadata.json'), '{}');
-  assert.throws(() => createPlan({ global: 'verify-and-stop', local: 'discover-work', agents: 'pi' }, distribution, source, c), /excludes/);
+  fs.writeFileSync(path.join(source, 'skills/core/research-work/metadata.json'), '{}');
+  assert.throws(() => createPlan({ global: 'create-content', local: 'research-work', agents: 'pi' }, distribution, source, c), /excludes/);
   assert.deepEqual(fs.readdirSync(c.home), []);
 });
 test('changed package bytes invalidate a confirmed plan', t => {
   const c = fixture(t); const source = sourceFixture(c); const p = createPlan(opts, distribution, source, c);
-  fs.appendFileSync(path.join(source, 'skills/core/discover-work/SKILL.md'), '\nchanged\n');
+  fs.appendFileSync(path.join(source, 'skills/core/research-work/SKILL.md'), '\nchanged\n');
   assert.throws(() => executePlan(p, distribution, { runner: () => assert.fail('not allowed') }), /source changed/);
 });
 test('source snapshots include executable bits and empty directories', t => {
@@ -92,12 +92,12 @@ test('source snapshots include executable bits and empty directories', t => {
 test('home aliases are normalized in the actual child environment', t => {
   const c = fixture(t); const alias = path.join(c.dir, 'home alias'); fs.symlinkSync(c.home, alias);
   const p = createPlan({ global: 'core', agents: 'pi' }, distribution, root, { ...c, home: alias });
-  assert.equal(p.childEnv.HOME, c.home); assert.equal(p.jobs[0].targets[0].path, path.join(c.home, '.agents/skills/discover-work'));
+  assert.equal(p.childEnv.HOME, c.home); assert.equal(p.jobs[0].targets[0].path, path.join(c.home, '.agents/skills/research-work'));
 });
 test('cross-plan target/lock ancestry is refused', t => {
   const c = fixture(t);
   c.env.CLAUDE_CONFIG_DIR = path.join(c.project, 'skills-lock.json');
-  assert.throws(() => createPlan({ global: 'verify-and-stop', local: 'discover-work', agents: 'claude-code' }, distribution, root, c), /destinations overlap/);
+  assert.throws(() => createPlan({ global: 'create-content', local: 'research-work', agents: 'claude-code' }, distribution, root, c), /destinations overlap/);
 });
 test('unexpected global default metadata cannot pass verification', () => {
   const before = { version: 3, skills: {} };

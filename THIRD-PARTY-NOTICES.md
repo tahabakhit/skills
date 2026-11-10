@@ -27,9 +27,9 @@ inside each folder so selective copying retains them:
 
 | Material | Copyright and complete notices |
 | --- | --- |
-| Codebase design | Copyright (c) 2026 bolens: [MIT](skills/engineering/codebase-design/LICENSE). Copyright (c) 2026 Matt Pocock: [MIT](skills/engineering/codebase-design/LICENSE-MATT). |
-| Systematic debugging and its vendored CI references | Copyright (c) 2026 bolens: [MIT](skills/engineering/systematic-debugging/LICENSE). Copied and derived Superpowers material, copyright (c) 2025 Jesse Vincent: [MIT](skills/engineering/systematic-debugging/LICENSE-SUPERPOWERS). The retained Lace example does not include the Lace runtime. |
-| Acceptance verification | Copyright (c) 2026 Julius Brussee: [MIT](skills/core/verify-and-stop/LICENSE), including the skill-only split-license scope note. Copyright (c) 2026 bolens: [MIT](skills/core/verify-and-stop/LICENSE-BOLENS). No Caveman Engine-linked runtime is bundled. |
+| Codebase design | Copyright (c) 2026 bolens: [MIT](archive/skills/engineering/codebase-design/LICENSE). Copyright (c) 2026 Matt Pocock: [MIT](archive/skills/engineering/codebase-design/LICENSE-MATT). |
+| Systematic debugging and its vendored CI references | Copyright (c) 2026 bolens: [MIT](archive/skills/engineering/systematic-debugging/LICENSE). Copied and derived Superpowers material, copyright (c) 2025 Jesse Vincent: [MIT](archive/skills/engineering/systematic-debugging/LICENSE-SUPERPOWERS). The retained Lace example does not include the Lace runtime. |
+| Acceptance verification | Copyright (c) 2026 Julius Brussee: [MIT](archive/skills/core/verify-and-stop/LICENSE), including the skill-only split-license scope note. Copyright (c) 2026 bolens: [MIT](archive/skills/core/verify-and-stop/LICENSE-BOLENS). No Caveman Engine-linked runtime is bundled. |
 
 Their local `PROVENANCE.json` and `UPSTREAM.md` files record reviewed source
 revisions, ancestry limitations, input/result hashes, and adaptations. The
@@ -42,12 +42,12 @@ Source: [DROOdotFOO/agent-skills](https://github.com/DROOdotFOO/agent-skills/tre
 commit `252cabcc930274ae32e131d67c354091c6ec651c`, MIT, copyright (c) 2026 DROO.
 
 - `performance-profiler` guidance is adapted into
-  [performance profiling](skills/engineering/systematic-debugging/references/performance-profiling.md).
-  The full grant is [LICENSE-DROO](skills/engineering/systematic-debugging/LICENSE-DROO);
-  local additions carry the [project notice](skills/engineering/systematic-debugging/LICENSE.local).
+  [performance profiling](archive/skills/engineering/systematic-debugging/references/performance-profiling.md).
+  The full grant is [LICENSE-DROO](archive/skills/engineering/systematic-debugging/LICENSE-DROO);
+  local additions carry the [project notice](archive/skills/engineering/systematic-debugging/LICENSE.local).
 - `database-designer/migration-safety.md` is adapted into
-  [database migrations](skills/engineering/change-safely/references/database-migrations.md).
-  The full grant is [LICENSE-DROO](skills/engineering/change-safely/LICENSE-DROO);
+  [database migrations](archive/skills/engineering/change-safely/references/database-migrations.md).
+  The full grant is [LICENSE-DROO](archive/skills/engineering/change-safely/LICENSE-DROO);
   the existing project notice covers local additions.
 
 Per-folder provenance records input hashes and revisions. No upstream scripts,
@@ -63,7 +63,7 @@ complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MI
 notice and provenance travel with it.
 
 `skills/core/create-content` includes three Bolens technical-writing references;
-`skills/engineering/git-hygiene` four Git references;
+`archive/skills/engineering/git-hygiene` four Git references;
 `skills/engineering/ci-maintenance` two setup/environment references. Each affected
 folder also carries the complete `LICENSE-BOLENS`.
 Their earlier original/conceptual records do not claim these later imports as
@@ -71,9 +71,9 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 42 skills under `skills/<group>/<name>/` in nine bundles;
-the former configuration bundle name is removed. The redundant `unslop` folder
-is removed with no alias; prose cleanup belongs to core's `create-content`.
+Current source contains 28 skills under `skills/<group>/<name>/` in nine bundles;
+skills overlapping pstack are in `archive/skills/`. The former configuration bundle
+name is removed. The redundant `unslop` folder is removed with no alias.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-package-maintenance`,
 `arch-update-recovery`, `rhel-fedora` and `workstation-health-triage` are no longer

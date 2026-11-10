@@ -1,7 +1,8 @@
 # Standalone skill system
 
-The approved source layout has **42 purpose-scoped skills** in nine disjoint
-bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
+The approved source layout has **28 purpose-scoped skills** in nine disjoint
+bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
+workflow; skills that overlapped it live, frozen, in [archive/](archive/README.md). This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
 passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage gaps.
@@ -29,19 +30,19 @@ standalone does not mean tool-free.
 
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
-| core | Global | `discover-work`, `research-work`, `create-content`, `verify-and-stop` (4) |
-| engineering | Local | `define-work`, `codebase-design`, `systematic-debugging`, `deliver-work`, `testing-work`, `code-review`, `change-safely`, `git-hygiene`, `ci-maintenance`, `dependency-updates`, `release-packaging`, `security-review`, `repository-onboarding`, `code-quality` (14) |
+| core | Global | `research-work`, `create-content` (2) |
+| engineering | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
 | content | Local | `document-review` (1) |
 | interface-review | Local | `interface-review` (1) |
 | data | Local | `analyze-data`, `data-pipelines` (2) |
 | workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
 | linux | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | macos | Global, macOS | `macos-administration` (1) |
-| agents | Global | Instructions, skill authoring, harness audits, sessions, integrations and delegation (10) |
+| agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions, prompt caching and integrations (9) |
 
-`create-content` owns shared writing and prose cleanup. The redundant `unslop`
-entrypoint is removed with no alias. `define-work` is a project engineering skill,
-not global core. Bundle names describe installation sources, not competing workflow
+`create-content` covers general writing, including developer docs and prose cleanup;
+this partly overlaps pstack's `technical-writing` and `unslop`, so prefer pstack's
+skills inside pstack workflows. Bundle names describe installation sources, not competing workflow
 owners or a new profile framework. The workstation, OS and agent bundles originated in the owner's dotfiles (commit
 `8eb84ae`), with retained provenance. Current entrypoints share one size bound.
 Code-quality guidance belongs to engineering. Review, delivery and communication
@@ -115,22 +116,17 @@ commits cannot replace published bytes.
 
 ## One owner for each workflow
 
-`deliver-work` is the only end-to-end engineering coordinator; plan and implementation
-modes remain separately usable. Domain skills contribute expertise without starting
-a second delivery process. `git-hygiene` owns commit/issue/PR drafting and bounded
-submission mechanics; `deliver-work` coordinates implementation and merge/release
-follow-through. A draft request never initiates the delivery coordinator. CI owns pipeline contracts, Git owns writer/candidate
-freshness, testing supplies proof, review supplies findings, and verification maps
-candidate-bound evidence to acceptance. Reuse sufficient records and valid evidence
-rather than creating competing trackers or rerunning every stage.
+pstack is the end-to-end engineering workflow: specs, design, implementation,
+debugging, tests, review, security review, commits and PRs. Skills here contribute
+domain expertise (CI contracts, dependencies, release artifacts, workstation and OS
+administration, agent tooling) without starting a second delivery process or
+competing for pstack's triggers. A new skill that would overlap pstack belongs in
+pstack's own customization (`automate-me`, a `-mode` skill), not here.
 
-`code-quality` supplies judgment, not a parallel refactor/test/update procedure.
-Imported review/editorial/submission guides are adapted references with original
-source identities retained, not whole old workflows hidden below the entrypoint.
-Current payload hashes belong to the root provenance; origin hashes identify inputs.
-Shared setup judgment is maintained under ci-maintenance and copied byte-identically
-into systematic-debugging for independent installation. Tests prevent copy drift;
-required cross-skill filesystem links are not used.
+Imported editorial guides are adapted references with original source identities
+retained, not whole old workflows hidden below the entrypoint. Current payload hashes
+belong to the root provenance; origin hashes identify inputs. Required cross-skill
+filesystem links are not used.
 
 Each skill needs clear triggers, exclusions, output, capabilities, action boundaries,
 handoffs and a stopping point. Distinguish required dependencies from optional

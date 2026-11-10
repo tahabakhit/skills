@@ -8,23 +8,23 @@ import { skillPath, validateDistribution, selections } from '../lib/selection.mj
 const distribution = {
   schemaVersion: 1, installer: 'skills@1.7.4',
   groups: [
-    { name: 'core', skills: ['discover-work'], recommendedScope: 'global' },
+    { name: 'core', skills: ['research-work'], recommendedScope: 'global' },
     { name: 'configuration', skills: ['managed-config-drift'], recommendedScope: 'project' }
   ]
 };
 
 test('skillPath derives only the owning group, without filesystem or flat fallback', () => {
-  assert.equal(skillPath('/source', distribution, 'discover-work'), path.join('/source', 'skills/core/discover-work'));
+  assert.equal(skillPath('/source', distribution, 'research-work'), path.join('/source', 'skills/core/research-work'));
   assert.equal(skillPath('/source', distribution, 'managed-config-drift'), path.join('/source', 'skills/configuration/managed-config-drift'));
-  for (const name of ['unknown', '../discover-work', '/discover-work', 'a/b', '', null, 'a'.repeat(256)]) {
+  for (const name of ['unknown', '../research-work', '/research-work', 'a/b', '', null, 'a'.repeat(256)]) {
     assert.throws(() => skillPath('/source', distribution, name));
   }
   for (const group of ['../core', '/core', 'a/b', 'all', '', null, 'a'.repeat(65)]) {
     const copy = structuredClone(distribution); copy.groups[0].name = group;
-    assert.throws(() => skillPath('/source', copy, 'discover-work'), /group name/);
+    assert.throws(() => skillPath('/source', copy, 'research-work'), /group name/);
   }
-  const duplicate = structuredClone(distribution); duplicate.groups[1].skills.push('discover-work');
-  assert.throws(() => skillPath('/source', duplicate, 'discover-work'), /exactly one package owner/);
+  const duplicate = structuredClone(distribution); duplicate.groups[1].skills.push('research-work');
+  assert.throws(() => skillPath('/source', duplicate, 'research-work'), /exactly one package owner/);
 });
 
 test('distribution validation requires nested entrypoints even when flat files exist', t => {
@@ -46,6 +46,6 @@ test('distribution validation requires nested entrypoints even when flat files e
 
 test('recommended scope is guidance, not enforcement', () => {
   assert.deepEqual(selections({ global: 'configuration', local: 'core' }, distribution), {
-    global: ['managed-config-drift'], local: ['discover-work']
+    global: ['managed-config-drift'], local: ['research-work']
   });
 });

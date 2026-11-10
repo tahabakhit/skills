@@ -39,7 +39,7 @@ try {
   const localLock = JSON.parse(fs.readFileSync(path.join(project, 'skills-lock.json')));
   assert.deepEqual(Object.keys(globalLock.skills).sort(), globalNames.slice().sort());
   assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
-  const protectedFile = path.join(home, '.agents/skills/discover-work/SKILL.md');
+  const protectedFile = path.join(home, '.agents/skills/research-work/SKILL.md');
   const bytes = fs.readFileSync(protectedFile);
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);

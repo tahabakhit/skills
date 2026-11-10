@@ -1,5 +1,9 @@
 # Model-driven acceptance scenarios
 
+Cases that name or target archived skills (discovery and specification, debugging,
+`change-safely`) now describe pstack's territory; they stay as a record and are not
+run against this collection. See [archive/README.md](../archive/README.md).
+
 These are evaluation cases, not automated passing results. Use a disposable
 repository and a fresh session with just these skills. No remote writes, installs,
 paid workers or delivery runs are needed. For each case, capture the transcript

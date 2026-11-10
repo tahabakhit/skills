@@ -1,7 +1,11 @@
 # @tahabakhit/skills
 
-42 purpose-scoped workflow skills in nine disjoint bundles. Install **core once globally**,
-then add **whole local bundles** to the projects that need them. These are scope
+28 purpose-scoped skills in nine disjoint bundles. They complement
+[pstack](https://github.com/cursor/plugins/tree/main/pstack), which is the assumed
+engineering workflow (discovery, design, delivery, debugging, testing, review and Git
+submission); skills that overlapped it are [archived](archive/README.md). Install
+**core once globally**, then add **whole local bundles** to the projects that need
+them. These are scope
 defaults: cross-repository users can install engineering globally instead, and
 content/data can be global opt-ins; avoid duplicate definitions at both scopes. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
@@ -34,15 +38,15 @@ and host-loader versions, checks and remaining limits.
 
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
-| [core](skills/core) | Global | `discover-work`, `research-work`, `create-content`, `verify-and-stop` (4) |
-| [engineering](skills/engineering) | Local | Repository onboarding, code quality, specification, design, debugging, delivery, tests, review, safe changes, Git, CI, dependencies, packaging, security (14) |
+| [core](skills/core) | Global | `research-work`, `create-content` (2) |
+| [engineering](skills/engineering) | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
 | [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
 | [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
 | [linux](skills/linux) | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | [macos](skills/macos) | Global, macOS | `macos-administration` (1) |
-| [agents](skills/agents) | Global | Agent instructions, skill authoring, harness audits, session diagnosis, Chrome CDP, TypeSafe and delegation (10) |
+| [agents](skills/agents) | Global | Agent instructions, skill authoring, tooling design, harness audits, session diagnosis, Pi session analysis, prompt caching, Chrome CDP and TypeSafe (9) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
@@ -66,7 +70,7 @@ claude plugin marketplace add tahabakhit/skills --scope project
 claude plugin install engineering@tahabakhit-skills --scope project
 ```
 
-Plugin skills are namespaced, for example `/core:verify-and-stop`. Update them
+Plugin skills are namespaced, for example `/core:research-work`. Update them
 through `/plugin`. Do not also install the same bundle with `npx skills -a claude-code`.
 
 ## Use the workflows
@@ -74,25 +78,19 @@ through `/plugin`. Do not also install the same bundle with `npx skills -a claud
 Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
 
 ```text
-/skill:discover-work Clarify the outcome and choices for a new export feature.
-/skill:define-work Turn our agreed requirements into a testable specification.
-/skill:deliver-work Implement the agreed specification and return a tested local candidate. Do not publish.
-/skill:testing-work Audit assertion quality without changing production code.
-/skill:code-review Review only the staged candidate without editing it.
-/skill:git-hygiene Draft a GitHub issue from this bug report. Do not publish it.
+/skill:research-work Compare these three vendor reports and reconcile where they disagree.
+/skill:create-content Draft a short announcement from these release notes.
+/skill:dependency-updates Assess the outdated packages in this lockfile. Do not apply updates.
+/skill:ci-maintenance Find why the required check passes on a different revision than the one tested.
+/skill:cachyos Explain which kernel and scheduler this machine is running and why.
 ```
 
-Skip discovery for clear requests. Discovery/specification does not start delivery,
-workers or tracker publication. Delivery continues within existing authority without
-a default plan-approval pause. Diagnosis, review and verification remain separately
-usable. Passing tests grants no merge/deploy/publication authority; self-checks do
-not replace required independent review.
-
-`create-content` owns writing and prose cleanup in core. The redundant `unslop`
-entrypoint is removed, with no alias. `define-work` belongs to engineering.
-`git-hygiene` owns commit/issue/PR drafting and bounded submission; `deliver-work`
-coordinates implementation and merge/release follow-through. The agents bundle's
-scope-focused names are `hc-delegation`, `analyze-pi-sessions` and
+Engineering work itself (specs, design, implementation, debugging, tests, review,
+commits and PRs) goes through pstack's `poteto-mode` and its skills; this repository
+does not carry competing owners. Core's `create-content` covers general writing,
+including developer docs and prose cleanup; it partly overlaps pstack's
+`technical-writing` and `unslop`, which take precedence inside pstack workflows.
+The agents bundle's scope-focused names are `analyze-pi-sessions` and
 `agent-tooling-design`; engineering's update owner is `dependency-updates`.
 See [the catalog](CATALOG.md) for exact responsibilities and gaps, and
 [scope choices](INSTALL.md#choose-scope-before-installing) before changing installs.

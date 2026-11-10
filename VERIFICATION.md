@@ -643,3 +643,34 @@ safely. No general skill-effectiveness claim follows from packaging or these pro
 Historical audits, frozen pilot/development records, source pins and immutable releases
 remain unchanged. New evaluation records contain synthetic test outputs, not private
 history. No live skill installation, commit, push or publication was performed.
+
+## Archive of pstack-overlapping skills (2026-11-10)
+
+pstack became the owner's default engineering workflow, so 14 skills whose triggers
+competed with it moved from `skills/` to [archive/skills/](archive/README.md) with
+`git mv`: core `discover-work`, `verify-and-stop`; engineering `change-safely`,
+`code-quality`, `code-review`, `codebase-design`, `define-work`, `deliver-work`,
+`git-hygiene`, `repository-onboarding`, `security-review`, `systematic-debugging`,
+`testing-work`; agents `hc-delegation`. Source now has 28 skills in the same nine
+bundles (core 2, engineering 3, agents 9). The preceding 42-skill cleanup was
+committed first as `67f7199`, so this change is a separate commit.
+
+- Catalog, distribution and plugin marketplace list only current skills; optional
+  handoffs to archived skills were removed. Third-party notices point to the archive
+  paths, where the licensed files still live. The npm allowlist never included
+  `archive/`.
+- Tests that checked archived skills' own content (import pins, polluter and
+  command-status helpers, profiling and wait examples, define-work contracts, CI copy
+  equality) were removed; installer fixtures now use `research-work` and
+  `create-content`. A new package check keeps archived names out of the catalog,
+  distribution and handoffs, and requires each to be listed in `archive/README.md`.
+- `npm run check`: lint, package checks, 70 Node tests, zero failures; ten packages built.
+- `node test/install-smoke.mjs`: real pinned installer, 28 skills (21 global, 7
+  project), 56 physical copies, receipts, hashes and locks; unapproved reinstall refused.
+- `node test/native-install-smoke.mjs` with Skills 1.7.4: 9 subtrees plus umbrella,
+  28 skills, full bytes, modes and references.
+- `node test/pi-discovery.mjs` with the installed Pi 1.5.2 loader: umbrella and all
+  nine bundle directories discovered without diagnostics.
+
+No live installation, push or publication was performed. Published npm 0.3.0 is
+unchanged. Historical audits, evaluations and records above are not rewritten.

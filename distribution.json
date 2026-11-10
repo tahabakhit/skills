@@ -9,34 +9,21 @@
   "groups": [
     {
       "name": "core",
-      "description": "Cross-project discovery, evidence research, writing and bounded verification",
+      "description": "Cross-project evidence research and writing",
       "recommendedScope": "global",
       "skills": [
-        "discover-work",
         "research-work",
-        "create-content",
-        "verify-and-stop"
+        "create-content"
       ]
     },
     {
       "name": "engineering",
-      "description": "Specifications, delivery, design, debugging, tests, review, Git, CI, dependencies, packaging and security",
+      "description": "CI maintenance, dependency updates and release packaging not covered by pstack",
       "recommendedScope": "project",
       "skills": [
-        "codebase-design",
-        "systematic-debugging",
-        "deliver-work",
-        "testing-work",
-        "code-review",
-        "change-safely",
-        "git-hygiene",
         "ci-maintenance",
         "dependency-updates",
-        "release-packaging",
-        "security-review",
-        "define-work",
-        "code-quality",
-        "repository-onboarding"
+        "release-packaging"
       ]
     },
     {
@@ -108,8 +95,7 @@
         "prompt-caching",
         "chrome-cdp",
         "typesafe-ai",
-        "analyze-pi-sessions",
-        "hc-delegation"
+        "analyze-pi-sessions"
       ]
     }
   ]

@@ -44,7 +44,7 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
 done
 pass 'cataloged, named, described and bounded skills'
 
-for file in README.md INSTALL.md CONTRIBUTING.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md skills/engineering/define-work/SKILL.md; do
+for file in README.md INSTALL.md CONTRIBUTING.md CATALOG.md SOURCES.md ARCHITECTURE.md VERIFICATION.md THIRD-PARTY-NOTICES.md research/README.md audits/installed-skills.md archive/README.md; do
   # Links in these authored documents have simple relative targets, no spaces.
   links=$(grep -oE '\]\([^)]*\)' "$file" | cut -c 3- | tr -d ')' || true)
   for link in $links; do
@@ -55,19 +55,17 @@ for file in README.md INSTALL.md CONTRIBUTING.md CATALOG.md SOURCES.md ARCHITECT
 done
 pass 'local Markdown reference targets exist'
 
-for skill in discover-work define-work; do
-  file="$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .path' catalog.json)/SKILL.md"
-  grep -Fq 'Do not launch workers unless authorized' "$file" || fail "missing worker boundary: $skill"
+# Archived skills are frozen: never cataloged, packaged or loaded.
+for folder in archive/skills/*/*; do
+  name=$(basename "$folder")
+  [ -f "$folder/SKILL.md" ] || fail "archived folder without SKILL.md: $folder"
+  jq -e --arg name "$name" 'all(.skills[]; .name != $name and (.optionalSkills | index($name) | not))' catalog.json >/dev/null \
+    || fail "archived skill still cataloged or advertised: $name"
+  jq -e --arg name "$name" 'all(.groups[]; .skills | index($name) | not)' distribution.json >/dev/null \
+    || fail "archived skill still distributed: $name"
+  grep -Fq "\`$name\`" archive/README.md || fail "archived skill not listed in archive/README.md: $name"
 done
-grep -Fq 'Spec approval is not implementation' skills/engineering/define-work/SKILL.md
-grep -Fq 'Do not invoke it here.' skills/engineering/define-work/SKILL.md
-pass 'written authority and handoff boundaries remain present'
-
-grep -Fq 'Readiness: draft' skills/engineering/define-work/SKILL.md
-grep -Fq 'later material change returns' skills/engineering/define-work/SKILL.md
-grep -Fq 'Do not turn proposed answers into confirmed requirements.' skills/engineering/define-work/SKILL.md
-grep -Fq 'Do not demand tracker publishing' skills/engineering/define-work/SKILL.md
-pass 'draft, correction and local-spec contracts remain present'
+pass 'archived skills stay out of the catalog, distribution and handoffs'
 
 jq -r '.files[]' package.json | while IFS= read -r path; do
   [ -e "$path" ] || fail "missing npm allowlist entry: $path"
@@ -91,17 +89,11 @@ jq -e '.schemaVersion == 1
   audits/shared-inventory.json >/dev/null || fail 'invalid historical audit snapshot'
 pass 'historical audit snapshot retains recorded counts and digests'
 
-sh test/imports.sh
-pass 'reviewed import identities, notices, routes and helper contracts remain present'
 sh test/standalone.sh
 pass 'all selected folders retain standalone notices, references and exact payload identities'
 sh test/catalog-mutations.sh
 pass 'damaged selectable-folder fixtures are rejected'
 sh test/evaluation-record.sh
 pass 'frozen pilot snapshots, assignments, quotes and paired calculations are internally consistent'
-sh test/polluter.sh
-pass 'optional diagnostic helper passes isolated executable fixtures'
-sh test/command-status.sh
-pass 'documented command-status example propagates producer and renderer failures'
 
 printf '%s package checks passed; no model calls made by this command.\n' "$checks"
