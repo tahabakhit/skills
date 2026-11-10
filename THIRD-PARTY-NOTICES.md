@@ -62,7 +62,7 @@ repository and has returned as `skills/workstation/managed-config-drift`. Its
 complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MIT
 notice and provenance travel with it.
 
-`skills/core/create-content` includes three Bolens technical-writing references;
+`archive/skills/core/create-content` includes three Bolens technical-writing references;
 `archive/skills/engineering/git-hygiene` four Git references;
 `skills/engineering/ci-maintenance` two setup/environment references. Each affected
 folder also carries the complete `LICENSE-BOLENS`.
@@ -105,7 +105,8 @@ The dotfiles import includes guidance carrying the MIT notice **Copyright (c)
 `UPSTREAM.md` records. The former `review-judgment`, `repository-delivery` and
 `communication` payloads now live under the `references/` trees of `code-review`,
 `git-hygiene` and `create-content`, respectively (submission material is under
-`git-hygiene/references/submission`). Each full original notice and
+`git-hygiene/references/submission`). All three owners are now archived under
+`archive/skills/`, with these notices intact. Each full original notice and
 origin record remains in that tree as an input identity, not a checksum assertion
 about locally adapted loaded prose; each receiving skill also carries the full
 upstream grant as `LICENSE-IMPORTED`. The former `codebase-hygiene` material is

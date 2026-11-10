@@ -2,12 +2,12 @@
 
 ## Current source and historical records
 
-Current source contains 28 skills at `skills/<group>/<name>/`: core (2, global),
-engineering (3, local), content (1, local), interface-review (1, local), data
-(2, local), workstation (4, global), linux (5, global), macos (1, global) and
-agents (9, global). pstack is the assumed engineering workflow; the 14 skills that
-overlapped it moved to [archive/](archive/README.md) with their provenance and
-licenses. `create-content` is in core. The workstation, linux, macos and agents
+Current source contains 25 skills at `skills/<group>/<name>/`: engineering (3,
+local), interface-review (1, local), data (2, local), workstation (4, global), linux
+(5, global), macos (1, global) and agents (9, global). pstack is the assumed
+engineering workflow; the 17 skills that overlapped it or were really standing rules
+(now in the global `AGENTS.md`) moved to [archive/](archive/README.md) with their
+provenance and licenses. The workstation, linux, macos and agents
 bundles returned from the owner's dotfiles at commit `8eb84ae`; their folder-local
 provenance records that move. Later adaptations keep original input
 identities/notices while root provenance records current loaded bytes. CI-maintenance

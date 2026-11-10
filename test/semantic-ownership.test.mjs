@@ -19,12 +19,10 @@ test('semantic domains, package owners and optional handoffs have distinct valid
     assert.equal(new Set(skill.optionalSkills).size, skill.optionalSkills.length);
     for (const optional of skill.optionalSkills) assert.ok(names.has(optional), `${skill.name} -> ${optional}`);
   }
-  assert.equal(catalog.skills.find(s => s.name === 'research-work').domain, 'research');
 });
 
 test('adapted loaded guides are plain references, not stale skill entrypoints', () => {
   for (const file of [
-    'skills/core/create-content/references/communication/guide.md',
     'skills/agents/harness-audit/references/audit-checks.md',
     'skills/agents/typesafe-ai/references/integration-guide.md'
   ]) assert.doesNotMatch(read(file), /^---\s*\nname:/);

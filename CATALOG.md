@@ -1,12 +1,10 @@
 # Workflow catalog
 
-Current source has 28 purpose-scoped skills under `skills/<group>/<name>/`. [pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed engineering workflow; the 14 skills that overlapped it are [archived](archive/README.md) and are not cataloged, packaged or installed. Install core once globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 25 purpose-scoped skills under `skills/<group>/<name>/`. [pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed engineering workflow; the 17 skills that overlapped it or were really standing rules (now in the owner's global `AGENTS.md`) are [archived](archive/README.md) and are not cataloged, packaged or installed. Install the workstation, OS and agents bundles globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
-| [core](skills/core) | Global | 2 |
 | [engineering](skills/engineering) | Local | 3 |
-| [content](skills/content) | Local | 1 |
 | [interface-review](skills/interface-review) | Local | 1 |
 | [data](skills/data) | Local | 2 |
 | [workstation](skills/workstation) | Global | 4 |
@@ -14,23 +12,15 @@ Current source has 28 purpose-scoped skills under `skills/<group>/<name>/`. [pst
 | [macos](skills/macos) | Global, macOS | 1 |
 | [agents](skills/agents) | Global | 9 |
 
-The nine bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
+The seven bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records.
 `bundle` is the installation/package owner and matches `distribution.json` plus the
-source directory. `domain` is the semantic subject area, independent of installation:
-research and writing can be globally useful.
+source directory. `domain` is the semantic subject area, independent of installation.
 `optionalSkills` records advertised handoffs/judgment owners, not required installs,
 a scheduler or a mandatory chain. Missing optional owners never trigger installation.
 Recommended scopes are defaults, not permission boundaries; see
 [scope choices](INSTALL.md#choose-scope-before-installing). `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
-
-## Core — global (2)
-
-| Owner | Responsibility | Does not own |
-| --- | --- | --- |
-| `research-work` | Source collection, conflicting evidence and real participant-material synthesis | Exhaustive literature coverage or invented fieldwork |
-| `create-content` | Writing, editing, prose cleanup, developer docs, reports, communications and supported file-production work | A document engine or permission to send/publish |
 
 ## Engineering — local (3)
 
@@ -44,25 +34,23 @@ These cover what pstack lacks: CI design and hardening (pstack's `fix-ci` only r
 
 ## Other local bundles
 
-Content contains only `document-review`; interface-review contains only
-`interface-review`; and data contains `analyze-data` and `data-pipelines`.
+Interface-review contains only `interface-review`; data contains `analyze-data`
+and `data-pipelines`.
 
 | Owner | Responsibility | Does not supply |
 | --- | --- | --- |
-| `document-review` | Factual, numerical and inferential review of supplied prose | Specialist statistical/legal review or binary-file editing |
 | `interface-review` | Evidence-bounded usability/accessibility review | A new-UI design procedure, certification or a browser adapter |
 | `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
 | `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
 
-Calculation defaults to `analyze-data`, evidence retrieval to `research-work`, expression to `create-content`, and review findings to `document-review`. These are responsibility defaults, not mandatory sibling dependencies. A reviewer can correct arithmetic from supplied facts without invoking three more workflows. `create-content` keeps its three imported technical-writing references and its prose-cleanup guidance; these partly overlap pstack's `technical-writing` and `unslop`, which take precedence inside pstack workflows.
+Calculation defaults to `analyze-data`. Evidence handling, research and document review follow the evidence standards in the global `AGENTS.md`; writing follows pstack's `technical-writing` and `unslop`.
 
 ## Consolidation map
 
 | Components considered | Canonical owner |
 | --- | --- |
 | Planning, implementation, debugging, tests, review, refactoring, migrations, commits and PRs | pstack (`poteto-mode` playbooks and skills); the former owners are [archived](archive/README.md) |
-| Editing, marketing, reports, communications and file-production contracts | Core's `create-content` modes/references |
-| Evidence investigation and participant-study planning/synthesis | `research-work` |
+| Writing, editing, prose cleanup, research and document review | pstack's `technical-writing`/`unslop` and the global `AGENTS.md` evidence standards; the former owners are archived |
 | SQL, metrics, cohorts and numerical analysis | `analyze-data` |
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
@@ -85,11 +73,10 @@ TypeSafe and harness audit procedures are loaded only through explicit reference
 | `analyze-sessions` | `analyze-pi-sessions`, bounded Pi-history extraction on any supported host |
 | `agent-engineering` | `agent-tooling-design`, agent tools and harness extensions |
 | `triage-dependency-updates` | `dependency-updates`, assessment and authorized application |
-| `communication` | Optional explanation and prose guidance inside `create-content` |
+| `communication` | Guidance inside `create-content`, since archived |
 
 Loaded references are adapted domain judgment, not frozen former skills. Original
-source records/licenses remain; root provenance records current adapted bytes. Writing
-lives in `create-content`. CI maintenance owns environment-contract judgment.
+source records/licenses remain; root provenance records current adapted bytes. CI maintenance owns environment-contract judgment.
 Fedora supplies package/policy/deployment overlays; generic desktop/service diagnosis
 starts with the corresponding Linux owner.
 
@@ -111,7 +98,7 @@ The catalog itself does not change live skills, links, locks, host settings or c
 | `chezmoi`, `managed-config-drift` | Returned from the owner's dotfiles into the `workstation` bundle |
 | `ci-maintenance`, `git-hygiene` | `ci-maintenance` retains setup/environment references; `git-hygiene` is archived in favour of pstack |
 | `safe-refactor`, `migration` | Covered by pstack (`change-safely` is archived) |
-| `technical-writing` | pstack ships `technical-writing`; core's `create-content` keeps the three reference files |
+| `technical-writing` | pstack ships `technical-writing`; the three reference files are archived with `create-content` |
 | `unslop` | Not carried here; pstack ships `unslop` |
 | `herdr-core`, `ketch` | External CLI-managed integrations, not required by this collection. `herdr-core` was never an included skill; audit references are historical, not current ownership evidence |
 

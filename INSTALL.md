@@ -1,14 +1,14 @@
 # Install workflow bundles
 
-Current source has 28 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+Current source has 25 skills in seven disjoint bundles under `skills/<group>/<name>/`.
 They assume pstack as the engineering workflow; overlapping skills are
 [archived](archive/README.md) and never installed.
-Use the standard Skills CLI: install core once globally, then whole domain bundles
-locally in the receiving project. No custom installer is required.
+Use the standard Skills CLI: install the workstation, OS and agents bundles once
+globally, then whole domain bundles locally in the receiving project. No custom installer is required.
 
 ## Choose scope before installing
 
-The table/catalog scopes are defaults, not enforced restrictions. Keep core globally.
+The table/catalog scopes are defaults, not enforced restrictions.
 For an engineering-heavy personal workflow across many repositories, install the
 engineering bundle globally **instead of** repeating it locally:
 
@@ -16,15 +16,11 @@ engineering bundle globally **instead of** repeating it locally:
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi --global
 ```
 
-This makes onboarding/review/submission available before entering an unfamiliar
-checkout. Project-local engineering remains appropriate for project-owned setups.
-Do not install the same skill at both scopes and assume host precedence. Updating
-core/agents alone no longer supplies the formerly global code/review/submission
-entrypoints: deliberately choose engineering's scope before removing old copies.
-This documentation does not migrate existing installations.
+Project-local engineering remains appropriate for project-owned setups. Do not
+install the same skill at both scopes and assume host precedence. This
+documentation does not migrate existing installations.
 
-For one-off document review or ad-hoc data work, content/data may likewise be global
-opt-ins. Keep data-pipeline mutation within its task/environment authority regardless
+For ad-hoc data work, data may likewise be a global opt-in. Keep data-pipeline mutation within its task/environment authority regardless
 of install scope. Shell scripting is an optional cross-project language specialist
 in workstation. The agents bundle also includes optional browser and TypeSafe adapters;
 its grouping is an installation convenience, not a claim all AI tools are one domain.
@@ -35,7 +31,9 @@ For Claude Code prefer the namespaced plugin route:
 
 ```text
 /plugin marketplace add tahabakhit/skills
-/plugin install core@tahabakhit-skills
+/plugin install workstation@tahabakhit-skills
+/plugin install linux@tahabakhit-skills
+/plugin install agents@tahabakhit-skills
 ```
 
 Install engineering with `claude plugin install engineering@tahabakhit-skills --scope project`
@@ -44,15 +42,6 @@ is separate from Skills CLI copies: do not activate the same bundle through both
 Plugin namespaces avoid ambiguous bare skill names; host precedence of duplicate
 names is not assumed. None of these commands was applied to live settings by this task.
 
-## One-time global core
-
-```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
-```
-
-Core contains `research-work` and `create-content` (2). `create-content` covers general
-writing and prose cleanup; there is no `unslop` skill or alias here (pstack ships one).
-
 ## Local project bundles
 
 Run the relevant commands from the receiving project. Each selects the entire
@@ -60,7 +49,6 @@ bundle; choose bundles, not a hand-maintained list of individual skills.
 
 ```fish
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/content --skill "*" -a pi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/interface-review --skill "*" -a pi
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data --skill "*" -a pi
 ```
@@ -68,14 +56,13 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data
 | Bundle | Count | Contents |
 | --- | --- | --- |
 | engineering | 3 | `ci-maintenance`, `dependency-updates`, `release-packaging` |
-| content | 1 | `document-review` |
 | interface-review | 1 | `interface-review` |
 | data | 2 | `analyze-data`, `data-pipelines` |
 
 The tree URL selects a group directory and `--skill "*"` selects all its skills.
-There is no native `--group` flag in this recipe. Core uses global scope; the
-project bundles above omit `--global`. The workstation, linux, macos and agents
-bundles also use global scope; see below. Add `--copy` only when plain copies are
+There is no native `--group` flag in this recipe. The project bundles above omit
+`--global`; the workstation, linux, macos and agents bundles use global scope; see
+below. Add `--copy` only when plain copies are
 explicitly wanted;
 otherwise leave upstream installation mode unchanged. Inspect the upstream plan,
 destinations and existing owners before accepting any replacement.
@@ -98,7 +85,7 @@ access; use the selected upstream CLI's runtime requirements. See
 versions and limits. Restart the agent after installation, and use a fresh
 conversation after replacing workflow instructions.
 
-## Other global bundles
+## Global bundles
 
 Install only the bundles relevant to the workstation; Linux and macOS bundles are
 platform-specific. These use the same tree-source recipe with global scope:
@@ -115,7 +102,7 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/agen
 For an explicit plan with the checkout's additional checks, run:
 
 ```fish
-node /path/to/skills-checkout/bin/skills.mjs --global core --local engineering --agents pi --project /path/to/project --dry-run
+node /path/to/skills-checkout/bin/skills.mjs --global workstation --local engineering --agents pi --project /path/to/project --dry-run
 ```
 
 Inspect the plan, then replace `--dry-run` with `--yes` to execute. For an interactive
@@ -153,15 +140,13 @@ its local-source lock is not a promise that `skills update` can update those cop
 ## Source versus published npm artifacts
 
 The current package version remains **0.3.0**, with source-only changes. Generated
-packages follow the nine-group partition; generating them locally does not publish
+packages follow the seven-group partition; generating them locally does not publish
 them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 28 | Published 0.3.0 still contains 30 |
-| `@tahabakhit/skills-core` | 2 | Published 0.3.0 has the former 5 |
+| `@tahabakhit/skills` | 25 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-engineering` | 3 | Published 0.3.0 has the former 11 |
-| `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
 | `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
 | `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
 | `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
@@ -169,8 +154,9 @@ them or alter a registry release.
 | `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-agents` | 9 | Locally generated identity; not published by this source change |
 
-Existing `@tahabakhit/skills-design@0.3.0` (1) and
-`@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package
+Existing `@tahabakhit/skills-core@0.3.0` (5), `@tahabakhit/skills-content@0.3.0` (2),
+`@tahabakhit/skills-design@0.3.0` (1) and `@tahabakhit/skills-operations@0.3.0` (9)
+remain unchanged; source no longer generates core or content packages. The seven-package
 historical `0.3.0` release retains the old group names, `unslop`, removed OS skills
 and custom guards. Neither `@latest` nor `@0.3.0` on those packages means this grouped source.
 The [release record](releases/0.3.0.json) describes those immutable artifacts, not
@@ -191,7 +177,7 @@ pstack. No legacy-name aliases are needed. Installed copies of archived skills a
 not removed by this source change; uninstall them separately if present.
 
 The workstation, linux, macos and agents bundles came from the owner's dotfiles
-and normally install globally like core. The new purpose names are
+and normally install globally. The new purpose names are
 analyze-pi-sessions, agent-tooling-design and dependency-updates; see the
 [catalog name map](CATALOG.md#setup-cleanup-and-name-map). Resolve resources from
 the host's actual installed skill/plugin path, not a fixed home directory. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this

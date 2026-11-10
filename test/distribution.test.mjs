@@ -15,7 +15,7 @@ import { tree } from '../lib/files.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
 const hash = 'a'.repeat(64);
-const core = ['research-work', 'create-content'];
+const workstation = ['chezmoi', 'managed-config-drift', 'shell-scripting', 'backup-restore'];
 const labels = { pi: 'Pi', codex: 'Codex', 'claude-code': 'Claude Code' };
 function fixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-test-'));
@@ -26,7 +26,7 @@ function fixture(t) {
 }
 function plan(t, options = {}) {
   const context = fixture(t);
-  return { context, plan: createPlan({ local: 'research-work', agents: 'pi,claude-code,codex', project: context.project, ...options }, distribution, root, context) };
+  return { context, plan: createPlan({ local: 'shell-scripting', agents: 'pi,claude-code,codex', project: context.project, ...options }, distribution, root, context) };
 }
 function receipts(p, job) {
   return job.names.map(name => ({ name, status: 'installed', scope: job.scope, mode: 'copy', source: p.source, hash, agents: job.agents.map(a => labels[a]) }));
@@ -48,22 +48,21 @@ function cli(args, context) {
 }
 
 test('groups select known literal owners, never every skill implicitly', () => {
-  assert.deepEqual(select('core', distribution), core);
-  assert.deepEqual(select('1,core,research-work', distribution), core);
+  assert.deepEqual(select('workstation', distribution), workstation);
+  assert.deepEqual(select('4,workstation,shell-scripting', distribution), workstation);
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
   assert.deepEqual(select('all', distribution), distribution.groups.flatMap(g => g.skills));
   assert.deepEqual(select('macos', distribution), ['macos-administration']);
   assert.throws(() => select('configuration', distribution), /Unknown/);
-  assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
-  assert.throws(() => select('../core', distribution), /Unknown/);
+  assert.throws(() => select('workstation,nonexistent', distribution), /Unknown/);
+  assert.throws(() => select('../workstation', distribution), /Unknown/);
 });
 test('catalog paths and provenance agree with the distribution owner, not workflow domain', () => {
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
   assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
-    ['core', 2, 'global'], ['engineering', 3, 'project'], ['content', 1, 'project'],
-    ['interface-review', 1, 'project'], ['data', 2, 'project'],
+    ['engineering', 3, 'project'], ['interface-review', 1, 'project'], ['data', 2, 'project'],
     ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 9, 'global']
   ]);
   for (const skill of catalog.skills) {
@@ -78,11 +77,11 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   }
 });
 test('argument parser fails closed on unknown, missing and repeated values', () => {
-  assert.deepEqual(parseArgs(['--global', 'core', '--local', 'data', '--yes']), { global: 'core', local: 'data', yes: true });
+  assert.deepEqual(parseArgs(['--global', 'workstation', '--local', 'data', '--yes']), { global: 'workstation', local: 'data', yes: true });
   for (const args of [['--global'], ['--force'], ['--local', '--yes'], ['--local', 'data', '--local', 'core']]) assert.throws(() => parseArgs(args));
 });
 test('scope overlap and empty selection are rejected', () => {
-  assert.throws(() => selections({ global: 'core', local: 'create-content' }, distribution), /one scope/);
+  assert.throws(() => selections({ global: 'workstation', local: 'backup-restore' }, distribution), /one scope/);
   assert.throws(() => selections({}, distribution), /Nothing selected/);
 });
 test('agent IDs and numbers are explicit and deduplicated', () => {
@@ -93,50 +92,50 @@ test('agent IDs and numbers are explicit and deduplicated', () => {
 test('manifest names and one-owner partition are validated', () => {
   validateDistribution(distribution, root);
   const copy = structuredClone(distribution);
-  copy.groups[1].skills.push('research-work');
+  copy.groups[1].skills.push('shell-scripting');
   assert.throws(() => validateDistribution(copy, root), /one package owner/);
 });
 test('Pi/Codex share canonical targets while Claude has a distinct project path', t => {
   const { context, plan: p } = plan(t);
-  assert.deepEqual(p.jobs[0].targets.map(t => t.path), [path.join(context.project, '.agents/skills/research-work'), path.join(context.project, '.claude/skills/research-work')]);
+  assert.deepEqual(p.jobs[0].targets.map(t => t.path), [path.join(context.project, '.agents/skills/shell-scripting'), path.join(context.project, '.claude/skills/shell-scripting')]);
   assert.equal(p.jobs[0].lock, path.join(context.project, 'skills-lock.json'));
-  assert.deepEqual(installerArgs(p, p.jobs[0]), ['--yes', 'skills@1.7.4', 'add', root.replace(/\/$/, ''), '--skill', 'research-work', '--agent', 'pi', 'claude-code', 'codex', '--copy', '--yes', '--json']);
+  assert.deepEqual(installerArgs(p, p.jobs[0]), ['--yes', 'skills@1.7.4', 'add', root.replace(/\/$/, ''), '--skill', 'shell-scripting', '--agent', 'pi', 'claude-code', 'codex', '--copy', '--yes', '--json']);
 });
 test('global targets, Claude override and XDG lock match pinned installer contract', t => {
   const c = fixture(t);
   c.env = { CLAUDE_CONFIG_DIR: path.join(c.dir, 'claude elsewhere'), XDG_STATE_HOME: path.join(c.dir, 'state'), CODEX_HOME: path.join(c.dir, 'codex detection only') };
-  const p = createPlan({ global: 'research-work', agents: 'pi,codex,claude-code', project: c.project }, distribution, root, c);
-  assert.deepEqual(p.jobs[0].targets.map(t => t.path), [path.join(c.home, '.agents/skills/research-work'), path.join(c.dir, 'claude elsewhere/skills/research-work')]);
+  const p = createPlan({ global: 'shell-scripting', agents: 'pi,codex,claude-code', project: c.project }, distribution, root, c);
+  assert.deepEqual(p.jobs[0].targets.map(t => t.path), [path.join(c.home, '.agents/skills/shell-scripting'), path.join(c.dir, 'claude elsewhere/skills/shell-scripting')]);
   assert.equal(p.jobs[0].lock, path.join(c.dir, 'state/skills/.skill-lock.json'));
   assert.equal(installerArgs(p, p.jobs[0]).at(-1), '--global');
 });
 test('relative environment overrides and home/root project targets are refused', t => {
   const c = fixture(t);
-  const opts = { local: 'core', agents: 'pi', project: c.project };
+  const opts = { local: 'workstation', agents: 'pi', project: c.project };
   for (const key of ['CLAUDE_CONFIG_DIR', 'XDG_STATE_HOME']) assert.throws(() => createPlan(opts, distribution, root, { ...c, env: { [key]: 'relative' } }), /absolute/);
   for (const project of [c.home, '/']) assert.throws(() => createPlan({ ...opts, project }, distribution, root, c), /repository directory/);
 });
 test('dangling target and parent symlinks are never followed or replaced', t => {
   const c = fixture(t);
   fs.symlinkSync(path.join(c.dir, 'missing'), path.join(c.project, '.agents'));
-  assert.throws(() => createPlan({ local: 'core', agents: 'pi', project: c.project, replace: true }, distribution, root, c), /symlink/);
+  assert.throws(() => createPlan({ local: 'workstation', agents: 'pi', project: c.project, replace: true }, distribution, root, c), /symlink/);
   assert.equal(fs.readlinkSync(path.join(c.project, '.agents')), path.join(c.dir, 'missing'));
 });
 test('source/destination overlaps are rejected before any upstream invocation', t => {
   const c = fixture(t);
-  assert.throws(() => createPlan({ local: 'research-work', agents: 'pi', project: skillPath(root, distribution, 'research-work') }, distribution, root, c), /overlap/);
+  assert.throws(() => createPlan({ local: 'shell-scripting', agents: 'pi', project: skillPath(root, distribution, 'shell-scripting') }, distribution, root, c), /overlap/);
 });
 test('malformed, future and extension-bearing project locks are preserved', t => {
   const c = fixture(t); const lock = path.join(c.project, 'skills-lock.json');
   for (const text of ['broken', '{"version":2,"skills":{}}', '{"version":1,"skills":{},"custom":"keep"}', '{"version":1,"skills":{"foreign":null}}']) {
     fs.writeFileSync(lock, text);
-    assert.throws(() => createPlan({ local: 'core', agents: 'pi', project: c.project }, distribution, root, c));
+    assert.throws(() => createPlan({ local: 'workstation', agents: 'pi', project: c.project }, distribution, root, c));
     assert.equal(fs.readFileSync(lock, 'utf8'), text);
   }
 });
 test('collision in either scope prevents every installer write', t => {
-  const { context, plan: p } = plan(t, { global: 'create-content' });
-  fs.mkdirSync(path.join(context.home, '.agents/skills/create-content'), { recursive: true });
+  const { context, plan: p } = plan(t, { global: 'backup-restore' });
+  fs.mkdirSync(path.join(context.home, '.agents/skills/backup-restore'), { recursive: true });
   let called = false;
   assert.throws(() => executePlan(p, distribution, { runner: () => { called = true; }, log() {} }), /--replace/);
   assert.equal(called, false);
@@ -159,7 +158,7 @@ test('successful copies and lock entries are independently checked', t => {
     assert.ok(!Object.hasOwn(p.jobs[0], 'guard'));
     return upstream(p, p.jobs[0]);
   }, log() {} });
-  assert.ok(fs.existsSync(path.join(context.project, '.claude/skills/research-work/LICENSE')));
+  assert.ok(fs.existsSync(path.join(context.project, '.claude/skills/shell-scripting/LICENSE')));
   assert.equal(fs.existsSync(`${p.jobs[0].lock}.taha-install`), false);
 });
 test('successful exit/receipts do not hide wrong destination bytes', t => {
@@ -176,20 +175,20 @@ test('legacy guard files neither block installs nor get changed', t => {
   assert.ok(!Object.hasOwn(p.jobs[0], 'guard'));
 });
 test('later scope failure does not erase verified earlier work', t => {
-  const { context, plan: p } = plan(t, { global: 'create-content' }); const messages = [];
+  const { context, plan: p } = plan(t, { global: 'backup-restore' }); const messages = [];
   assert.throws(() => executePlan(p, distribution, { runner: args => {
     if (!args.includes('--global')) throw new Error('local fixture failure');
     return upstream(p, p.jobs[0]);
   }, log: s => messages.push(s) }), /local fixture/);
   assert.match(messages[0], /Verified global/);
-  assert.ok(fs.existsSync(path.join(context.home, '.agents/skills/create-content/SKILL.md')));
-  assert.equal(fs.existsSync(path.join(context.project, '.agents/skills/research-work')), false);
+  assert.ok(fs.existsSync(path.join(context.home, '.agents/skills/backup-restore/SKILL.md')));
+  assert.equal(fs.existsSync(path.join(context.project, '.agents/skills/shell-scripting')), false);
 });
 test('lock preservation checks detect lost or changed unrelated entries', t => {
   const { context, plan: p } = plan(t); const job = p.jobs[0];
   const foreign = { source: '../foreign', sourceType: 'local', computedHash: 'kept' };
   const before = { version: 1, skills: { foreign } };
-  const after = { version: 1, skills: { foreign: { ...foreign, source: path.resolve(context.project, '../foreign') }, 'research-work': { source: p.source, sourceType: 'local', computedHash: hash } } };
+  const after = { version: 1, skills: { foreign: { ...foreign, source: path.resolve(context.project, '../foreign') }, 'shell-scripting': { source: p.source, sourceType: 'local', computedHash: hash } } };
   verifyLock(before, after, job, receipts(p, job), context.project);
   delete after.skills.foreign;
   assert.throws(() => verifyLock(before, after, job, receipts(p, job), context.project), /unrelated/);

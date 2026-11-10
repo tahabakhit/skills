@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { select, skillPath } from '../lib/selection.mjs';
 
@@ -10,31 +9,6 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
 const read = file => fs.readFileSync(file, 'utf8');
-
-// Preserve origin identities/notices while allowing declared, root-hashed adaptations.
-for (const [owner, former, subdir] of [['create-content', 'communication', 'communication']]) {
-  test(`${former} has a traceable adapted reference under ${owner}, not another skill`, () => {
-    const folder = skillPath(root, distribution, owner);
-    const reference = path.join(folder, 'references', subdir);
-    const origin = JSON.parse(read(path.join(reference, 'PROVENANCE.json')));
-    const current = JSON.parse(read(path.join(folder, 'PROVENANCE.json')));
-    const imported = current.imports.find(i => i.sourceRecord === `references/${subdir}/PROVENANCE.json`);
-    assert.ok(imported, 'retained input record is identified by current provenance');
-    assert.ok(imported.adaptedFiles.includes('guide.md'));
-    assert.ok(read(path.join(folder, 'SKILL.md')).includes(`references/${subdir}/guide.md`));
-    for (const file of origin.files) {
-      const relative = file.path === 'SKILL.md' ? 'guide.md' : file.path;
-      const target = path.join(reference, relative);
-      const actual = crypto.createHash('sha256').update(fs.readFileSync(target)).digest('hex');
-      if (!imported.adaptedFiles.includes(relative)) assert.equal(actual, file.sha256, `unchanged input: ${former}/${file.path}`);
-      assert.ok(current.files.some(f => f.path === `references/${subdir}/${relative}` && f.sha256 === actual), 'current bytes recorded separately from input');
-    }
-    assert.doesNotMatch(read(path.join(reference, 'guide.md')), /^---\s*\nname:/);
-    assert.equal(fs.existsSync(path.join(reference, 'SKILL.md')), false);
-    assert.equal(catalog.skills.some(s => s.name === former), false);
-    assert.throws(() => select(former, distribution), /Unknown/);
-  });
-}
 
 test('repository and agent owners have disjoint purposes and scope', () => {
   const engineering = select('engineering', distribution);

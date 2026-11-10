@@ -674,3 +674,25 @@ committed first as `67f7199`, so this change is a separate commit.
 
 No live installation, push or publication was performed. Published npm 0.3.0 is
 unchanged. Historical audits, evaluations and records above are not rewritten.
+
+## Archive of writing, research and document-review skills (2026-11-10)
+
+`create-content`, `research-work` and `document-review` moved to
+[archive/skills/](archive/README.md). Writing is covered by pstack's
+`technical-writing` and `unslop`; the research and review skills were mostly evidence
+rules, which now live as standards in the owner's global `AGENTS.md`. The emptied
+`core` and `content` bundles were removed, leaving 25 skills in seven bundles. Install
+guidance now starts from the global workstation, OS and agents bundles.
+
+- Installer, safety and fixture tests moved from the core group to `workstation`
+  (`shell-scripting`, `backup-restore`); tests of the archived communication guide and
+  research domain were removed. The 0.3.0 release record test is unchanged.
+- `npm run check`: lint, package checks, 69 Node tests, zero failures; packages built.
+- `node test/install-smoke.mjs`: 25 skills, 50 physical copies, receipts, hashes and
+  locks; unapproved reinstall refused.
+- `node test/native-install-smoke.mjs` with Skills 1.7.4: 7 subtrees plus umbrella,
+  25 skills.
+- `node test/pi-discovery.mjs` with the installed Pi 1.5.2 loader: umbrella and all
+  seven bundle directories, no diagnostics.
+
+Published npm 0.3.0, including its core and content packages, is unchanged.

@@ -8,15 +8,6 @@
   ],
   "groups": [
     {
-      "name": "core",
-      "description": "Cross-project evidence research and writing",
-      "recommendedScope": "global",
-      "skills": [
-        "research-work",
-        "create-content"
-      ]
-    },
-    {
       "name": "engineering",
       "description": "CI maintenance, dependency updates and release packaging not covered by pstack",
       "recommendedScope": "project",
@@ -24,14 +15,6 @@
         "ci-maintenance",
         "dependency-updates",
         "release-packaging"
-      ]
-    },
-    {
-      "name": "content",
-      "description": "Factual, numerical and inferential review of supplied documents",
-      "recommendedScope": "project",
-      "skills": [
-        "document-review"
       ]
     },
     {

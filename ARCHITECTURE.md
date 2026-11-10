@@ -1,8 +1,9 @@
 # Standalone skill system
 
-The approved source layout has **28 purpose-scoped skills** in nine disjoint
+The approved source layout has **25 purpose-scoped skills** in seven disjoint
 bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
-workflow; skills that overlapped it live, frozen, in [archive/](archive/README.md). This document defines ownership and distribution,
+workflow; skills that overlapped it, or were really standing rules now kept in the
+global `AGENTS.md`, live frozen in [archive/](archive/README.md). This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
 passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage gaps.
@@ -15,7 +16,7 @@ passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage ga
 | Audience | Primarily Taha's use, but shareable. Private preferences and personal permissions stay in global `AGENTS.md`, separately managed by chezmoi. |
 | Sources | Adapt reviewed material with exact revisions, full applicable notices, input identities and local changes recorded. |
 | Hosts | Target Pi, Claude Code and Codex; verify actual discovery and behavior rather than claiming compatibility from file placement. |
-| Distribution | Standard Skills CLI with a GitHub group tree URL and `--skill "*" -a pi`; one-time global core plus whole local bundles. The checkout wrapper is optional. |
+| Distribution | Standard Skills CLI with a GitHub group tree URL and `--skill "*" -a pi`; global workstation, OS and agents bundles plus whole local bundles. The checkout wrapper is optional. |
 | Progress | No default plan-approval pause. Continue within the requested endpoint and existing authority; pause for unresolved consequential decisions, changed scope or missing permission. |
 | Interaction | Ask simple questions one at a time when user decisions are needed; investigate discoverable facts first. |
 | Review | Ordinary tasks may use one agent, but required independent review cannot be replaced with self-review. Report missing capabilities honestly. |
@@ -30,9 +31,7 @@ standalone does not mean tool-free.
 
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
-| core | Global | `research-work`, `create-content` (2) |
 | engineering | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| content | Local | `document-review` (1) |
 | interface-review | Local | `interface-review` (1) |
 | data | Local | `analyze-data`, `data-pipelines` (2) |
 | workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
@@ -40,9 +39,9 @@ standalone does not mean tool-free.
 | macos | Global, macOS | `macos-administration` (1) |
 | agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions, prompt caching and integrations (9) |
 
-`create-content` covers general writing, including developer docs and prose cleanup;
-this partly overlaps pstack's `technical-writing` and `unslop`, so prefer pstack's
-skills inside pstack workflows. Bundle names describe installation sources, not competing workflow
+Writing is pstack's (`technical-writing`, `unslop`); evidence and research rules are
+standards in the global `AGENTS.md`, because they apply to every task rather than
+being a procedure to load. Bundle names describe installation sources, not competing workflow
 owners or a new profile framework. The workstation, OS and agent bundles originated in the owner's dotfiles (commit
 `8eb84ae`), with retained provenance. Current entrypoints share one size bound.
 Code-quality guidance belongs to engineering. Review, delivery and communication
@@ -55,14 +54,13 @@ records renames and migration boundaries. `herdr-core` and `ketch` remain exclud
 A skill may be a workflow, judgment library or bounded tool adapter. One procedural
 owner does not require every capability to coordinate work. `catalog.json.bundle`
 is the unique package owner and matches the source path/distribution. `domain` is a
-subject label and can differ: core research has research subject matter, while
-core discovery/verification are cross-domain. Optional sibling metadata describes
+subject label and can differ from the bundle. Optional sibling metadata describes
 handoffs, not runtime dependencies, required installations or stage scheduling.
 
 Scopes are recommendations, not capability or permission boundaries. Project-local
 engineering is the minimal default; users working across arbitrary repositories may
 install engineering globally instead, once per host—not both locally and globally.
-Document review and ad-hoc analysis may also be global opt-ins. Do not migrate a
+Ad-hoc analysis may also be a global opt-in. Do not migrate a
 previously global capability to local-only availability silently. See
 [scope choices](INSTALL.md#choose-scope-before-installing).
 
@@ -71,7 +69,7 @@ previously global capability to local-only availability silently. See
 The clean Pi journey uses standard commands:
 
 ```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
 ```
 
@@ -88,7 +86,7 @@ The `pi.skills` manifest remains `["./skills"]`; recursive Pi package discovery
 must be verified separately. Do not load the same skill through both package
 registration and a Skills CLI installation.
 
-`distribution.json` partitions the same canonical folders into nine generated domain
+`distribution.json` partitions the same canonical folders into seven generated domain
 packages and an umbrella. `dist/npm/` and `dist/tarballs/` are disposable generated
 output, not edited source copies. Required files must travel with their owner;
 optional sibling handoffs do not become mandatory bundle dependencies. Audit local

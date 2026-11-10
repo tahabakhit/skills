@@ -6,28 +6,12 @@
   "description": "Selectively installable workflow skills.",
   "plugins": [
     {
-      "name": "core",
-      "source": "./skills/core",
-      "skills": [
-        "./"
-      ],
-      "description": "research-work, create-content"
-    },
-    {
       "name": "engineering",
       "source": "./skills/engineering",
       "skills": [
         "./"
       ],
       "description": "ci-maintenance, dependency-updates, release-packaging"
-    },
-    {
-      "name": "content",
-      "source": "./skills/content",
-      "skills": [
-        "./"
-      ],
-      "description": "document-review"
     },
     {
       "name": "interface-review",

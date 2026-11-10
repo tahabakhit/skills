@@ -50,76 +50,12 @@
       "bundle": "engineering"
     },
     {
-      "name": "research-work",
-      "domain": "research",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "analyze-data",
-        "create-content"
-      ],
-      "path": "skills/core/research-work",
-      "provenance": "skills/core/research-work/PROVENANCE.json",
-      "capabilities": "Supplied evidence or authorized retrieval. Participant research requires real material and applicable permission.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "core"
-    },
-    {
-      "name": "create-content",
-      "domain": "content",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "analyze-data",
-        "document-review",
-        "research-work"
-      ],
-      "path": "skills/core/create-content",
-      "provenance": "skills/core/create-content/PROVENANCE.json",
-      "capabilities": "Text needs supplied material and text tools. Binary operations require separately available, suitable engines.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "core"
-    },
-    {
-      "name": "document-review",
-      "domain": "content",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "analyze-data",
-        "research-work"
-      ],
-      "path": "skills/content/document-review",
-      "provenance": "skills/content/document-review/PROVENANCE.json",
-      "capabilities": "Supplied text/evidence. Does not provide legal, statistical or binary-editing expertise.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "content"
-    },
-    {
       "name": "interface-review",
       "domain": "design",
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "create-content"
-      ],
+      "optionalSkills": [],
       "path": "skills/interface-review/interface-review",
       "provenance": "skills/interface-review/interface-review/PROVENANCE.json",
       "capabilities": "Proposal/source supports bounded reasoning. Runtime accessibility and visual claims require appropriate testing.",
@@ -137,10 +73,7 @@
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
-      "optionalSkills": [
-        "document-review",
-        "research-work"
-      ],
+      "optionalSkills": [],
       "path": "skills/data/analyze-data",
       "provenance": "skills/data/analyze-data/PROVENANCE.json",
       "capabilities": "Supplied data or an authorized engine. Does not supply credentials, statistical qualification or a causal design.",
@@ -505,41 +438,15 @@
   "consolidations": [
     {
       "components": [
-        "writing",
-        "editing",
-        "technical-writing",
-        "marketing-copy",
-        "communications",
-        "report-production",
-        "file-production"
-      ],
-      "owner": "create-content"
-    },
-    {
-      "components": [
-        "evidence-research",
-        "user-research-planning",
-        "user-research-synthesis"
-      ],
-      "owner": "research-work"
-    },
-    {
-      "components": [
         "SQL-analysis",
         "metrics",
         "cohorts",
         "numerical-analysis"
       ],
       "owner": "analyze-data"
-    },
-    {
-      "components": [
-        "communication"
-      ],
-      "owner": "create-content"
     }
   ],
-  "coverageNote": "28 purpose-scoped owners in nine disjoint installation bundles. pstack (cursor/plugins/pstack) is the assumed engineering workflow, so skills that overlapped it (discovery, verification, design, delivery, review, debugging, testing, refactoring, Git submission, onboarding, security review, hc delegation) are archived under archive/skills/. Core is the global base for research and writing; the remaining engineering, content, interface-review and data skills are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
+  "coverageNote": "25 purpose-scoped owners in seven disjoint installation bundles. pstack (cursor/plugins/pstack) is the assumed engineering workflow, so skills that overlapped it (discovery, verification, design, delivery, review, debugging, testing, refactoring, Git submission, onboarding, security review, hc delegation, writing, research and document review) are archived under archive/skills/. Evidence and research standards live in the owner's global AGENTS.md instead. The remaining engineering, interface-review and data skills are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
   "taxonomy": {
     "bundle": "Installation/package owner, matching distribution.json and source path; not a semantic discipline or permission boundary.",
     "domain": "Primary subject area, independent of bundle. cross-domain owners are useful outside engineering.",

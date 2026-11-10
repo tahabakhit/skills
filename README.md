@@ -1,21 +1,24 @@
 # @tahabakhit/skills
 
-28 purpose-scoped skills in nine disjoint bundles. They complement
+25 purpose-scoped skills in seven disjoint bundles. They complement
 [pstack](https://github.com/cursor/plugins/tree/main/pstack), which is the assumed
-engineering workflow (discovery, design, delivery, debugging, testing, review and Git
-submission); skills that overlapped it are [archived](archive/README.md). Install
-**core once globally**, then add **whole local bundles** to the projects that need
-them. These are scope
-defaults: cross-repository users can install engineering globally instead, and
-content/data can be global opt-ins; avoid duplicate definitions at both scopes. Canonical source
+engineering workflow (discovery, design, delivery, debugging, testing, review, writing
+and Git submission); skills that overlapped it, or that were really standing rules for
+a global `AGENTS.md`, are [archived](archive/README.md). Install the **workstation,
+OS and agents bundles globally**, then add **whole local bundles** to the projects
+that need them. These are scope defaults: cross-repository users can install
+engineering globally instead, and data can be a global opt-in; avoid duplicate
+definitions at both scopes. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
 ## Install for Pi
 
-One-time global core:
+Global bundles, once per machine (use `macos` instead of `linux` on a Mac):
 
 ```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/core --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/linux --skill "*" -a pi --global
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/agents --skill "*" -a pi --global
 ```
 
 From an engineering project, install the engineering bundle locally:
@@ -38,9 +41,7 @@ and host-loader versions, checks and remaining limits.
 
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
-| [core](skills/core) | Global | `research-work`, `create-content` (2) |
 | [engineering](skills/engineering) | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
 | [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
@@ -56,11 +57,14 @@ all-skill picker, not a group install. A custom installer is not required.
 
 Each bundle is also a Claude Code plugin, listed in
 [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). Add the
-marketplace once, then install core for your user and other bundles per project:
+marketplace once, then install the global bundles for your user and other bundles
+per project:
 
 ```text
 /plugin marketplace add tahabakhit/skills
-/plugin install core@tahabakhit-skills
+/plugin install workstation@tahabakhit-skills
+/plugin install linux@tahabakhit-skills
+/plugin install agents@tahabakhit-skills
 ```
 
 From a project, install a bundle into that project's `.claude/settings.json`:
@@ -70,7 +74,7 @@ claude plugin marketplace add tahabakhit/skills --scope project
 claude plugin install engineering@tahabakhit-skills --scope project
 ```
 
-Plugin skills are namespaced, for example `/core:research-work`. Update them
+Plugin skills are namespaced, for example `/workstation:chezmoi`. Update them
 through `/plugin`. Do not also install the same bundle with `npx skills -a claude-code`.
 
 ## Use the workflows
@@ -78,18 +82,16 @@ through `/plugin`. Do not also install the same bundle with `npx skills -a claud
 Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
 
 ```text
-/skill:research-work Compare these three vendor reports and reconcile where they disagree.
-/skill:create-content Draft a short announcement from these release notes.
+/skill:chezmoi Show which source file manages ~/.zshrc and what apply would change.
 /skill:dependency-updates Assess the outdated packages in this lockfile. Do not apply updates.
 /skill:ci-maintenance Find why the required check passes on a different revision than the one tested.
 /skill:cachyos Explain which kernel and scheduler this machine is running and why.
 ```
 
 Engineering work itself (specs, design, implementation, debugging, tests, review,
-commits and PRs) goes through pstack's `poteto-mode` and its skills; this repository
-does not carry competing owners. Core's `create-content` covers general writing,
-including developer docs and prose cleanup; it partly overlaps pstack's
-`technical-writing` and `unslop`, which take precedence inside pstack workflows.
+commits, PRs and technical writing) goes through pstack's `poteto-mode` and its
+skills; this repository does not carry competing owners. Evidence and research
+standards live in the global `AGENTS.md`, not in a skill.
 The agents bundle's scope-focused names are `analyze-pi-sessions` and
 `agent-tooling-design`; engineering's update owner is `dependency-updates`.
 See [the catalog](CATALOG.md) for exact responsibilities and gaps, and
@@ -101,7 +103,7 @@ If you want the additional selector and plan checks, run the wrapper from the
 **current checkout**, targeting the receiving project:
 
 ```fish
-node /path/to/skills-checkout/bin/skills.mjs --global core --local engineering --agents pi --project /path/to/project --dry-run
+node /path/to/skills-checkout/bin/skills.mjs --global workstation --local engineering --agents pi --project /path/to/project --dry-run
 ```
 
 Inspect the plan before replacing `--dry-run` with `--yes`. For the wizard, omit
