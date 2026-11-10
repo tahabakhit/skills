@@ -741,3 +741,66 @@ Claude/Codex plugin lifecycle acceptance. No live settings, installations,
 marketplaces, commits, pushes, publication or VM changes were performed.
 Native marketplace refresh, installed payload verification and independent
 review remain parent-owned rollout gates. Package version stays 0.3.0.
+
+## Native plugin child-root metadata fix (2026-11-10)
+
+The five marketplace `skills` arrays now name their existing child directories,
+with membership derived from `distribution.json`. Codex 0.167.0 accepts string
+arrays but rejects bare `./` in its
+[manifest path resolver](https://github.com/openai/codex/blob/rust-v0.167.0/codex-rs/core-plugins/src/manifest.rs#L581-L623).
+This explains why native installation succeeded while skill discovery returned
+zero personal skills. No skill bodies, bundle ownership, Pi manifest or package
+version changed. All 19 trees and 175 tracked payload files remain unchanged.
+
+Commands ran in an isolated source worktree based on `a56ce8e`, with Node
+26.13.0, npm 11.20.0, Codex 0.167.0 and Claude Code 2.1.322:
+
+```sh
+node --test test/global-setup.test.mjs
+npm ci --ignore-scripts
+npm run check
+node test/pi-discovery.mjs /home/taha/.pi/agent/install/releases/1.5.2/node_modules/@earendil-works/pi-coding-agent/dist/core/skills.js
+```
+
+- The first test-only run exited 1. Its engineering diff showed actual `['./']`
+  versus expected `['./ci-maintenance', './dependency-updates', './release-packaging']`.
+  The other four bundles had the same root mismatch. After the metadata fix,
+  all three tests passed. Negative controls reject an omitted root and a
+  same-count substituted root. Exact 19-name, five-owner and Pi manifest
+  assertions remain in place.
+- `npm run check` passed lint, 10 package checks and 60 Node tests with no
+  failures or skips. It checked all 19 standalone payloads and packed six local
+  packages. Packing did not publish them.
+- The installed Pi 1.5.2 loader found the exact 19 source names and each of the
+  five bundle inventories without diagnostics.
+
+A temporary copy of the existing metadata experiment accepted the actual
+candidate marketplace and registry as inputs. It copied the candidate plugin
+entries into inert fixtures, changing only the marketplace name for isolation.
+Its negative control restored the original five `['./']` arrays. Both fixture
+marketplaces were compared with the candidate and base JSON respectively.
+
+```sh
+python3 /tmp/codex-skill-roots-implementation-fixture.py array --all --manifest "$PWD/.claude-plugin/marketplace.json" --registry "$PWD/distribution.json" --expect exact
+python3 /tmp/codex-skill-roots-implementation-fixture.py leaves --all --claude --manifest "$PWD/.claude-plugin/marketplace.json" --registry "$PWD/distribution.json" --expect exact
+```
+
+The control exited 1 with `actual: []`, `count: 0` and `expectedCount: 19`.
+The candidate exited 0 with the exact 19 namespaced names, correct plugin IDs,
+all skills enabled and no discovery errors from a fresh Codex `skills/list`.
+Both runs verified all five installed/enabled plugins, complete inert skill
+payloads and generated cache metadata. Claude's native details command returned
+exact engineering, workstation, linux, macos and agents inventories of
+3, 4, 5, 1 and 6 skills. The fixture also ran `claude plugin validate "$PWD" --json`
+against this source worktree in its isolated environment. Source and fixture
+validation returned `success: true` with no errors or warnings.
+
+Logs and the test-only patch are retained locally under
+`/tmp/codex-skill-roots-implementation-*`. Raw native records are in the
+`array-bm98h9rg` and `leaves-w6gsguym` directories with that prefix. Fixtures used
+empty temporary homes, `CODEX_HOME` and Claude configuration directories, with
+no credentials copied and no model prompts. These checks prove metadata
+compatibility with the tested native versions, not a completed live rollout or
+native update semantics. No normal-user installations, live cache/config,
+dotfiles, VM, commits, pushes or publication changed. Independent review and
+post-publication live 19-skill verification remain parent-owned.

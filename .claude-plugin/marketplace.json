@@ -9,7 +9,9 @@
       "name": "engineering",
       "source": "./skills/engineering",
       "skills": [
-        "./"
+        "./ci-maintenance",
+        "./dependency-updates",
+        "./release-packaging"
       ],
       "description": "ci-maintenance, dependency-updates, release-packaging"
     },
@@ -17,7 +19,10 @@
       "name": "workstation",
       "source": "./skills/workstation",
       "skills": [
-        "./"
+        "./chezmoi",
+        "./managed-config-drift",
+        "./shell-scripting",
+        "./backup-restore"
       ],
       "description": "chezmoi, managed-config-drift, shell-scripting, backup-restore"
     },
@@ -25,7 +30,11 @@
       "name": "linux",
       "source": "./skills/linux",
       "skills": [
-        "./"
+        "./linux-administration",
+        "./linux-desktop",
+        "./arch-linux",
+        "./fedora",
+        "./cachyos"
       ],
       "description": "linux-administration, linux-desktop, arch-linux, fedora, cachyos"
     },
@@ -33,7 +42,7 @@
       "name": "macos",
       "source": "./skills/macos",
       "skills": [
-        "./"
+        "./macos-administration"
       ],
       "description": "macos-administration"
     },
@@ -41,7 +50,12 @@
       "name": "agents",
       "source": "./skills/agents",
       "skills": [
-        "./"
+        "./agents-md",
+        "./skill-authoring",
+        "./agent-tooling-design",
+        "./agent-session-diagnostics",
+        "./harness-audit",
+        "./prompt-caching"
       ],
       "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching"
     }

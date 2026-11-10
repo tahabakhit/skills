@@ -46,6 +46,11 @@ Each plugin uses its canonical `skills/<group>` source. Names carry the bundle
 prefix, such as `workstation:chezmoi`. Dotfiles bootstrap keeps existing plugins
 and marketplaces. It does not upgrade or uninstall them.
 
+Marketplace `skills` arrays enumerate each bundle's existing child directories.
+Codex 0.167.0 rejects the bare `./` root and discovers no skills with that value.
+Explicit child roots also work with Claude Code 2.1.322. See the
+[metadata runtime check](VERIFICATION.md#native-plugin-child-root-metadata-fix-2026-11-10).
+
 Before a fresh install from an old marketplace, inspect the manager's current
 help and refresh only `tahabakhit-skills`. For an existing plugin, use its native
 scoped update control if available, or back up and explicitly reinstall that
