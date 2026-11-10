@@ -27,6 +27,8 @@ If a desired claim lacks support, give the closest supported wording and name th
 
 For analytical reports, distinguish observations, calculations, estimates, forecasts, and recommendations. Check material arithmetic, scope, time periods, units, and denominators. Avoid counting the same underlying activity twice. Keep assumptions visible and scenarios conditional. Read [analytical-reports.md](references/analytical-reports.md) when these issues matter.
 
+For voice/genre judgment, lessons, worked explanations or research presentations, read only the applicable branch of [editorial guidance](references/communication/guide.md). It is an author's lens, not a second review workflow. Requested factual/numerical/inferential findings belong to an available document-review owner; keep review-only work separate from rewriting.
+
 For marketing, communication, or collaborative authoring, read [writing-modes.md](references/writing-modes.md). Use the requested voice and headings instead of imposing a corporate template or simulated expert panel.
 
 For developer documents, read [document structure](references/document-structure.md),

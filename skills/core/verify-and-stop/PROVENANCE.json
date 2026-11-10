@@ -38,7 +38,8 @@
     "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
     "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records.",
     "Move the complete standalone folder to skills/core/verify-and-stop, preserving licenses and all pinned upstream inputs.",
-    "Make acceptance proof domain-neutral with non-code examples and conditional repository, test and runtime checks; preserve candidate-bound proof reuse, one existing coordinator, selective activation and no mandatory gates."
+    "Make acceptance proof domain-neutral with non-code examples and conditional repository, test and runtime checks; preserve candidate-bound proof reuse, one existing coordinator, selective activation and no mandatory gates.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "upstreamFiles": [
     {
@@ -84,8 +85,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "d57972e920f3abeee762030c78bcb9d1e65eb65fea3e0a29e8de706b713be9a9",
-      "gitBlob": "4ecdf6a1060d167f42295903fb3109343c3d506a"
+      "sha256": "8bc1cfadd0a0285a9320878218265b2547af82cd67de3e847977c20289d1ec6a",
+      "gitBlob": "ea382e4deaac0d6d3dea70efe7a3478d7dc5e3db"
     },
     {
       "path": "UPSTREAM.md",

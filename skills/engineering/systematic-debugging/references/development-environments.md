@@ -61,10 +61,9 @@ and [input pinning](https://devenv.sh/pinning/).
 
 Prefer a NixOS development VM or integration test when reproducibility includes
 systemd units, users/permissions, service topology, networking, or OS configuration.
-Use the project's documented modules, pinned host output, generation, and
-activation contract. The optional `nixos` specialist is not bundled; use it when
-available for a requested OS-level task. If required expertise or a safe activation
-procedure is missing, report that gap rather than changing the host. A normal `nix develop` or devenv shell does not reproduce
+Use the platform's supported documentation for modules, pinned host outputs,
+generations and activation. If the required NixOS expertise is missing, report
+the gap instead of treating a shell environment as a system test. A normal `nix develop` or devenv shell does not reproduce
 an entire operating system, and a container shares its host kernel.
 
 Keep the development/test configuration in the repository and pin nixpkgs and
@@ -111,8 +110,9 @@ separate actions; do not publish from untrusted PR validation.
 
 ## Environment contracts and specification-based examples
 
-Prefer a tracked `.env.spec` over `.env.example` or `.env.sample` when adding or
-improving an environment contract. Document each key's purpose, required/optional
+Use the project's existing typed schema or tracked environment contract when
+adding or improving setup. A tracked `.env.spec` is one option, not a reason to
+rename working `.env.example` or `.env.sample` files. Document each key's purpose, required/optional
 status, type or constraints, safe default, scope, and secret classification.
 Keep real credentials and operator values in the existing ignored runtime file or
 secret provider. A required secret has no usable example credential or fallback.
@@ -126,8 +126,8 @@ copy that contract into a runtime environment. See the concrete
 [Runme environment specification example](https://runme.dev/blog/substitute-yaml-with-nouns-verbs)
 for one tool-specific implementation, not a universal format.
 
-Choose one authoritative contract. For a new environment contract, prefer
-`.env.spec` with a supported validator. If the application already owns a typed
+Choose one authoritative contract and a supported validator. Use `.env.spec`
+only when it fits the project's loader and conventions. If the application already owns a typed
 schema, derive or check `.env.spec` against it instead of introducing a competing
 source of truth. Avoid independently maintained lists of keys. Wire setup,
 documentation, CI and container checks to that owner. When migrating an existing example, update all consumers and explicit

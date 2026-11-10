@@ -92,19 +92,27 @@ See `condition-based-waiting-example.ts` in this directory for complete implemen
 **❌ Stale data:** Cache state before loop
 **✅ Fix:** Call getter inside loop for fresh data
 
-## When Arbitrary Timeout IS Correct
+## Distinguish output completion from elapsed time
 
 ```typescript
-// Tool ticks every 100ms - need 2 ticks to verify partial output
-await waitForEvent(manager, 'TOOL_STARTED'); // First: wait for condition
-await new Promise(r => setTimeout(r, 200));   // Then: wait for timed behavior
-// 200ms = 2 ticks at 100ms intervals - documented and justified
+// Partial output is the contract: await two completed outputs, not two nominal ticks.
+const baseline = manager.getCompletedOutputs().length;
+await manager.startTool();
+await waitFor(
+  () => manager.getCompletedOutputs().length >= baseline + 2,
+  'two completed tool outputs'
+);
 ```
 
-**Requirements:**
-1. First wait for triggering condition
-2. Based on known timing (not guessing)
-3. Comment explaining WHY
+Capture the baseline before starting the producer so fast outputs are not missed.
+Adapt the getter and start operation to the project's API. A real 200ms sleep
+cannot prove two 100ms interval callbacks, especially their async work, completed.
+Use a bounded condition wait even after a start event; start is not output readiness.
+
+When interval timing itself is the contract, use the project's controlled clock or
+scheduler. Advance to the relevant boundary, drain the scheduled work and assert
+observable outputs on both sides. A real delay is appropriate only when elapsed
+real time is the thing being measured, not as a proxy for another completion event.
 
 ## Real-World Impact
 

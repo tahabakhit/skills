@@ -16,7 +16,9 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/typesafe-ai/ into skills/agents/typesafe-ai."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/typesafe-ai/ into skills/agents/typesafe-ai.",
+    "Purpose-focused setup cleanup: rename or shorten the entrypoint; retain original source records and specialist guidance.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -33,9 +35,14 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
+      "path": "references/integration-guide.md",
+      "sha256": "e9c7e95ec879b268f45e88da5797519d93adc5ccda053652ab679201435dadcc",
+      "gitBlob": "fc472e54f600b66f9e6f0fe8aac3f6732fda3026"
+    },
+    {
       "path": "SKILL.md",
-      "sha256": "9f43ab2a5892f9fde96fa3a1989bacdc3c2a62fa4208011dc28c697a5ffe9379",
-      "gitBlob": "11827c086151d53263cfbecf85ab78ef263c9514"
+      "sha256": "48fb15d9398a4d3181f71b7fe54c287ec3a7775567c742620fbfecf398f4a3f3",
+      "gitBlob": "50536c4b62b1a2c6cc13025ade6c2a94d8ce2a4a"
     },
     {
       "path": "UPSTREAM.md",

@@ -7,9 +7,10 @@ compatibility: Linux and macOS with the intended shells installed. Linters and t
 
 # Shell scripting
 
-The owner's default interactive shell is Zsh. Use Zsh-compatible interactive
-examples and Zsh semantics for startup files/functions. This does not override a
-script's shebang or a repository's declared sh/Bash contract.
+Identify the target shell from the request, startup filename and environment.
+Use that shell's syntax for interactive examples and startup/functions: Bash for
+.bashrc, Zsh for .zshrc, and the declared target for other files. The user's current
+login shell does not override a script's shebang or repository interpreter contract.
 
 Identify the file's owner, interpreter and minimum supported versions before
 editing. The interactive login shell does not determine a script's interpreter.

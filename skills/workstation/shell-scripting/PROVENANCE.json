@@ -11,7 +11,8 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/shell-scripting/ into skills/workstation/shell-scripting."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/shell-scripting/ into skills/workstation/shell-scripting.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -23,14 +24,14 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
-      "path": "SKILL.md",
-      "sha256": "55bbe383d98ee1b122cc9fdac09c386741270ee92a0b13bbef377e6b69d8f488",
-      "gitBlob": "ab908c46eb6c1f522fe757656b555a9d549a20e7"
-    },
-    {
       "path": "references/portability.md",
       "sha256": "d20b3f383a663688257ff07896424ee46ae430a2d1eafa267ef4f03525ed71f2",
       "gitBlob": "2acbca628b3a702a46748801a699ca6adf76133b"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "bdacd02e7199d9c16b0545f4de5d6b729423a56c6cf25d9a1e983690b1cd90b0",
+      "gitBlob": "345a15ae47faffce4a2bcfda6062d48163ea0e27"
     }
   ]
 }

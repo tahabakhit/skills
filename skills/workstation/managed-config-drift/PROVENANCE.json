@@ -17,7 +17,8 @@
   "requiredSiblingSkills": [],
   "changes": [
     "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/managed-config-drift/ into skills/workstation/managed-config-drift.",
-    "Drop chezmoi executable_ prefixes from script names; files keep their executable mode."
+    "Drop chezmoi executable_ prefixes from script names; files keep their executable mode.",
+    "Update optional specialist handoffs to the purpose-named administration skills."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -35,8 +36,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "71b0d54b61b32cce2f4891af8a0e4f31942ab496724addfdc3942580ecf4ef49",
-      "gitBlob": "20184affd183c67ad16f07b6ac9f5e0143c9cf57"
+      "sha256": "20fcb923574d48f2619ff92de3c5c9398a1cab5fb968131de9ac0d1c3ab2c8f2",
+      "gitBlob": "4b4c05fb507fdd104ef3ee6113b52c82ddb8fe83"
     },
     {
       "path": "UPSTREAM.md",

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "dependency-updates",
+  "kind": "original-procedure",
+  "sourceRecord": "SOURCES.json",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Bound candidate-code execution, inherited credentials, network and writable-service scope before build/install/test.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
+  ],
+  "verification": {
+    "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
+    "note": "The catalog separately records frozen-entrypoint pilot coverage. The files list excludes this provenance record."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/candidates.md",
+      "sha256": "cc13a6cc5268ab7a832c33fbf2231cded5cb7e38c05869dea79ede80ffee2255",
+      "gitBlob": "f4f4df06e24d069d7f45f0ebee315e08ddff9216"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "780031c2a3fd35ebfb72b49763d10b4cc9e81447850a79e28726300a836415a8",
+      "gitBlob": "203be8ea7c3cb7274d469e7ff6e7fbce0c39e54c"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "95c7a41c15d5cfda7f8c1dbc531b027b51e7b08fbecf3b6908da3078875d9653",
+      "gitBlob": "b1a7d3c9ed346f6f545390a62edfab9344ab1524"
+    }
+  ]
+}

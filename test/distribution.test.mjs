@@ -53,7 +53,7 @@ test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
   assert.deepEqual(select('', distribution), []);
   assert.deepEqual(select('all', distribution), distribution.groups.flatMap(g => g.skills));
-  assert.deepEqual(select('macos', distribution), ['macos']);
+  assert.deepEqual(select('macos', distribution), ['macos-administration']);
   assert.throws(() => select('configuration', distribution), /Unknown/);
   assert.throws(() => select('core,nonexistent', distribution), /Unknown/);
   assert.throws(() => select('../core', distribution), /Unknown/);
@@ -62,9 +62,9 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
   assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
-    ['core', 4, 'global'], ['engineering', 12, 'project'], ['content', 1, 'project'],
+    ['core', 4, 'global'], ['engineering', 14, 'project'], ['content', 1, 'project'],
     ['interface-review', 1, 'project'], ['data', 2, 'project'],
-    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 14, 'global']
+    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 10, 'global']
   ]);
   for (const skill of catalog.skills) {
     const relative = path.relative(root, skillPath(root, distribution, skill.name));

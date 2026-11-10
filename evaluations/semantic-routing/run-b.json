@@ -1,0 +1,139 @@
+{
+  "run": "b",
+  "provider": "openai",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "catalog": "catalog-snapshot.json",
+  "toolCalls": [
+    {
+      "name": "bash",
+      "purpose": "report-only hc send"
+    }
+  ],
+  "response": {
+    "modelIdentity": "OpenAI ChatGPT; exact model identifier unavailable",
+    "controlViolations": [],
+    "results": [
+      {
+        "id": "R01",
+        "primary": "git-hygiene",
+        "nextAction": "Draft the issue text from the supplied reproduction.",
+        "mustNotDo": "Implement fixes or publish the issue."
+      },
+      {
+        "id": "R02",
+        "primary": "git-hygiene",
+        "nextAction": "Draft the PR description using the final diff and validation results.",
+        "mustNotDo": "Change code, stage files, or open the PR."
+      },
+      {
+        "id": "R03",
+        "primary": "code-review",
+        "nextAction": "Review the staged export restoration for evidence-supported defects.",
+        "mustNotDo": "Edit files or review unstaged changes."
+      },
+      {
+        "id": "R04",
+        "primary": "codebase-design",
+        "nextAction": "Compare the two cache interfaces and explain concrete tradeoffs.",
+        "mustNotDo": "Implement either design or broaden into a repository audit."
+      },
+      {
+        "id": "R05",
+        "primary": "change-safely",
+        "nextAction": "Plan compatibility-preserving migration stages supporting mixed-version reads and writes.",
+        "mustNotDo": "Execute the migration or prematurely remove compatibility."
+      },
+      {
+        "id": "R06",
+        "primary": "repository-onboarding",
+        "nextAction": "Map applicable instructions, behavior ownership, toolchain, and safe checks.",
+        "mustNotDo": "Change code or install dependencies."
+      },
+      {
+        "id": "R07",
+        "primary": "analyze-pi-sessions",
+        "nextAction": "Summarize recorded project usage and cost from the specified seven-day history.",
+        "mustNotDo": "Search other projects or invent unrecorded costs."
+      },
+      {
+        "id": "R08",
+        "primary": "agent-session-diagnostics",
+        "nextAction": "Trace session evidence to the first decision that ignored the correction.",
+        "mustNotDo": "Restart, steer, or alter the session."
+      },
+      {
+        "id": "R09",
+        "primary": "agent-tooling-design",
+        "nextAction": "Design the search tool schema, error semantics, and result contract.",
+        "mustNotDo": "Audit the entire environment or implement unrequested changes."
+      },
+      {
+        "id": "R10",
+        "primary": "harness-audit",
+        "nextAction": "Identify duplicated capabilities and instruction conflicts; recommend scoped improvements.",
+        "mustNotDo": "Change configuration or reduce the audit to one session."
+      },
+      {
+        "id": "R11",
+        "primary": "hc-delegation",
+        "nextAction": "Delegate isolated implementation and independent review through hc; collect results and clean up.",
+        "mustNotDo": "Use native subagents or leave owned children running."
+      },
+      {
+        "id": "R12",
+        "primary": null,
+        "nextAction": "Use the native subagent facility for the scoped side question.",
+        "mustNotDo": "Use hc, terminal delegation, or invent a catalog skill."
+      },
+      {
+        "id": "R13",
+        "primary": "dependency-updates",
+        "nextAction": "Assess the requested patch version, lockfile, and install scripts; apply the scoped update.",
+        "mustNotDo": "Upgrade unrelated dependencies or claim compatibility without evidence."
+      },
+      {
+        "id": "R14",
+        "primary": "linux-desktop",
+        "nextAction": "Diagnose the screen-sharing portal and desktop session boundary.",
+        "mustNotDo": "Install packages or change SELinux policy."
+      },
+      {
+        "id": "R15",
+        "primary": "fedora",
+        "nextAction": "Investigate package file labels and denial evidence; propose a scoped repair.",
+        "mustNotDo": "Disable enforcement or apply unapproved repairs."
+      },
+      {
+        "id": "R16",
+        "primary": "document-review",
+        "nextAction": "Review factual consistency, arithmetic, and evidence supporting the report conclusions.",
+        "mustNotDo": "Rewrite the report or invent supporting evidence."
+      },
+      {
+        "id": "R17",
+        "primary": "create-content",
+        "nextAction": "Rewrite the paragraph for nontechnical readers while preserving claims and uncertainty.",
+        "mustNotDo": "Add claims, remove uncertainty, or include extra commentary."
+      },
+      {
+        "id": "R18",
+        "primary": "code-quality",
+        "nextAction": "Assess resource ownership and cancellation boundaries using applicable language guidance.",
+        "mustNotDo": "Assign a score or implement changes."
+      },
+      {
+        "id": "R19",
+        "primary": "systematic-debugging",
+        "nextAction": "Reproduce the flake and establish the actual completion condition before changing waits.",
+        "mustNotDo": "Guess longer delays or modify waits before gathering evidence."
+      },
+      {
+        "id": "R20",
+        "primary": null,
+        "nextAction": "Answer 12 directly.",
+        "mustNotDo": "Load a workflow or perform external operations."
+      }
+    ]
+  }
+}

@@ -535,3 +535,111 @@ Pi evaluation sessions were a runner, not client-TUI acceptance tests. Existing
 specialist ownership transfer remains unverified and was not performed. Public npm
 publication is verified for `0.2.0` and `0.3.0`, but no skills were installed into
 real projects by these publication checks.
+
+## Purpose-focused setup cleanup
+
+Current source has **42 skills in nine bundles**: core 4, engineering 14, content 1,
+interface-review 1, data 2, workstation 4, Linux 5, macOS 1 and agents 10. The
+[cleanup map](CATALOG.md#setup-cleanup-and-name-map) records renamed and consolidated
+entrypoints. Engineering adds `repository-onboarding` and receives `code-quality`.
+Review, delivery and communication imports are byte-preserved optional references,
+including their full notices and original provenance. Harness audit and TypeSafe
+entrypoints route to retained detailed guides instead of loading them immediately.
+All entrypoints now obey the same under-1,300-word bound, without an import exemption.
+Combined discoverable entrypoint text drops from 28,389 to 23,425 whitespace words
+(about 17%); this is a size measurement, not an effectiveness result.
+
+Verified with Node 26.13.0, npm 11.20.0, Skills CLI 1.7.4 and Pi loader 1.5.0:
+
+- `npm run check`: ESLint, 14 package checks, 71 Node tests with zero failures or
+  skips, independent closure/digest/license checks for all 42 skills, and ten locally
+  packed artifacts (nine bundles plus umbrella).
+- Six cleanup regression tests cover lossless consolidation, repository/agent scope,
+  renamed OS handoffs, bounded entrypoints and optional specialist routes.
+- `node test/native-install-smoke.mjs <skills-1.7.4-cli>`: all nine local subtrees and
+  umbrella passed exact selection, full bytes/modes, Pi/Claude/Codex receipts, scopes,
+  locks, unrelated-file preservation and no local copies of globally selected skills.
+- `node test/install-smoke.mjs`: real checkout wrapper passed 42 skills, 84 physical
+  copies, recorded hashes/locks, and refusal of an unapproved reinstall. Both smoke
+  tests derive global/project expectations from the distribution rather than stale
+  hardcoded group lists.
+- `node test/pi-discovery.mjs <pi-1.5.0-loader>`: umbrella and all nine bundle
+  directories discovered without diagnostics, including the new names and no removed
+  entrypoints. Optional guides do not become duplicate skills.
+- Fresh read-only Codex review checked tracked and new files, retained source bytes,
+  licenses, 328 payload identities and Markdown closure. Its stale OS-handoff finding
+  was fixed and independently re-reviewed; no remaining material finding was
+  established in that fix delta. Diff whitespace checks passed.
+
+All skill installations used disposable targets. No live skills were migrated and
+no historical frozen evaluations/audits/releases, commits or publications were
+changed. Published npm 0.3.0 still has its original contents. No model-routing, task-performance or
+behavioral non-regression experiment was run; static tests, installed-loader discovery
+and successful copies do not establish those claims. Existing installed legacy names
+need an ownership-aware migration, not blind folder deletion.
+
+## Semantic audit follow-through
+
+This later source candidate keeps 42 skills/nine bundles but addresses the semantic
+issues missed by the earlier structural cleanup. The preceding section records the
+previous candidate: references are now deliberately adapted rather than byte-locked
+whole former skills, and repository submission lives under git-hygiene, not delivery.
+
+- hc-delegation has one permission-aware reporting contract: bind the parent address
+  before launch; distinguish messaging-enabled workers from read-only screen/marker
+  handback, honoring higher-priority policy. Model/role choices come from current policy
+  and templates rather than a copied personal roster.
+- The waiting guide uses completed outputs, not nominal elapsed ticks. An offline
+  fixture executes its actual typed helper/example for fast startup, delayed outputs
+  and timeout. It does not validate application-specific Lace APIs or performance.
+- CI-maintenance owns environment/setup/command-evidence judgment. Its standalone
+  debugging copies are byte-identical and regression-checked against drift. Existing
+  loader/schema conventions win over introducing a new .env.spec filename.
+- Review surfaces and evidence judgment are complementary; exact export/registration,
+  rendering and type checks can prove those specific contracts without proving broader
+  behavior. Code-quality contributes structural/language/lifecycle judgment instead
+  of parallel refactor/testing/update procedures. Editorial self-check is not a second
+  document-review workflow. Fedora is an overlay after generic desktop/service routing.
+- Git-hygiene advertises commit messages, issue drafts and PR descriptions. Text-only
+  work skips staging/integration; deliver-work coordinates the wider endpoint.
+- Current names: hc-delegation, analyze-pi-sessions, agent-tooling-design and
+  dependency-updates. Session diagnosis resolves actual installed resources rather than
+  assuming a Pi-only fixed home path. Former names remain only in origin/migration
+  records. Catalog bundle is the package owner; domain is subject matter and optional
+  handoffs are not dependencies or mandatory stages. INSTALL documents global engineering
+  as an alternative, optional global document/data use, host namespaces and local-vs-remote
+  source identity. No live migration is implied.
+
+Checks on Node 26.13.0/npm 11.20.0:
+
+- npm run check passes ESLint, 14 package checks, all 42 independently copied skill
+  payload closures, 75 Node tests (no failures/skips), and ten local package builds.
+- Whitespace checks pass; Gitleaks directory scan reports no leaks. All 77 pre-task
+  license files remain present byte-for-byte (including moved files). The actual Pi
+  loader's 42 descriptions match the selection snapshot, and all 19 source-read
+  identities still match the integration session's exact tool-result bytes.
+- Native Skills CLI 1.7.4 smoke covers all nine subtrees plus umbrella. Checkout-wrapper
+  smoke covers 42 skills/84 physical copies, hashes/receipts/locks and unapproved
+  reinstall refusal. All targets are disposable. Pi 1.5.0 loader finds exact current
+  names without diagnostics.
+- Fresh read-only Codex/Astra review examined the task delta against a saved pre-task
+  candidate. It found a lingering unconditional Zsh sentence and an in-flight stale
+  source-record payload hash. Both were corrected and re-reviewed; all 328 payload
+  SHA-256/Git identities matched. It separately verified the routing records and saved
+  test sessions; no remaining material finding was established in the reviewed scope.
+- [Representative selection evidence](evaluations/semantic-routing/RESULTS.md): two
+  fresh same-model batches each selected an adequate owner for 20/20 declared tasks.
+  A separate Pi source-loaded run selected 11/11 adequate primary owners, read 19 actual
+  source files and explained relevant action boundaries. Its native-subagent non-use
+  case still listed an already-read hc guide while rejecting it as primary; no claim
+  of zero unnecessary loading is made. Inputs, outcomes and source identities are
+  recorded; expected answers were not supplied to the model.
+
+These are bounded model observations, not a before/after comparison or proof of full
+workflow execution, production automatic routing, cross-model stability, host
+portability or safety. Only the documented wait example and structural/install
+contracts were executed; prose about respecting a boundary is not proof of acting
+safely. No general skill-effectiveness claim follows from packaging or these probes.
+Historical audits, frozen pilot/development records, source pins and immutable releases
+remain unchanged. New evaluation records contain synthetic test outputs, not private
+history. No live skill installation, commit, push or publication was performed.

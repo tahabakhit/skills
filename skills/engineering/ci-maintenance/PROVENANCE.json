@@ -18,7 +18,8 @@
   "requiredSiblingSkills": [],
   "changes": [
     "Assemble original procedure and local references with the project notice and source comparison record.",
-    "Merge audited installed specialist references and carry Bolens MIT notice."
+    "Merge audited installed specialist references and carry Bolens MIT notice.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -36,19 +37,9 @@
       "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
     },
     {
-      "path": "SKILL.md",
-      "sha256": "9cf412a923c3acd429f5385b72687b1cae985f8b3b28fd1c1e84a007d679d9ec",
-      "gitBlob": "d3f295241dae1c63e10cdbe7b3059bf0ac5b45df"
-    },
-    {
-      "path": "SOURCES.json",
-      "sha256": "98b646d89a33a5d2acb1c4196cc8a07b5ad041e819067bea4aaaad33eef27ec0",
-      "gitBlob": "996f3966f5d11014a7b65a755bbdd8965d0bbdf0"
-    },
-    {
       "path": "references/command-evidence.md",
-      "sha256": "bbfe19e3c4ab7afa5d7aa933c77ae70280883127d42929638333ec0aa37c7509",
-      "gitBlob": "4f588ca9e70c019f6c1ecec1739206d6802db330"
+      "sha256": "15e9065fd00722a277f62315de1de7cdd00f9582d30e7385d3c952ffb8f405bd",
+      "gitBlob": "3b954f9fcd5f30090b46da9c8edc9b309ca5bd2f"
     },
     {
       "path": "references/development-environments.md",
@@ -64,6 +55,16 @@
       "path": "references/trust-and-coverage.md",
       "sha256": "ec5874bd607006ec03c0b79190be20609b898a14affaf4c8e7270c8cebd70d3c",
       "gitBlob": "df78704e31fbf8e11d31a7f04c56879cdfd8fcdd"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "9cf412a923c3acd429f5385b72687b1cae985f8b3b28fd1c1e84a007d679d9ec",
+      "gitBlob": "d3f295241dae1c63e10cdbe7b3059bf0ac5b45df"
+    },
+    {
+      "path": "SOURCES.json",
+      "sha256": "98b646d89a33a5d2acb1c4196cc8a07b5ad041e819067bea4aaaad33eef27ec0",
+      "gitBlob": "996f3966f5d11014a7b65a755bbdd8965d0bbdf0"
     }
   ],
   "imports": [

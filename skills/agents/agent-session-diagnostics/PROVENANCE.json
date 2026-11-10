@@ -16,7 +16,8 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/agent-session-diagnostics/ into skills/agents/agent-session-diagnostics."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/agent-session-diagnostics/ into skills/agents/agent-session-diagnostics.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -34,8 +35,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "a9fd1608c382ff4f962aeacf67132419f6e519a536c55014cb0619c2e6fd6e01",
-      "gitBlob": "630c6e2588b1f6a504384d250bb02fe5f815606d"
+      "sha256": "a51798c21eb9430d3be298de4492657723c3f6db12d73a3143f9b3a4c633c7ab",
+      "gitBlob": "eecb7c2183f4450c2d738dd40751ee2f2975abe9"
     },
     {
       "path": "UPSTREAM.md",

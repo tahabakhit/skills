@@ -1,6 +1,6 @@
 ---
 name: fedora
-description: Administer Fedora Linux packages, services, desktops, SELinux, RPM builds, release upgrades and recovery. Identify mutable DNF, rpm-ostree or bootc deployments before choosing a task reference. Enterprise RPM derivatives require their own vendor support and upgrade procedures.
+description: Administer Fedora-specific DNF/RPM packages, repositories, SELinux, mutable or image-based deployments, release upgrades and boot recovery. Use as a Fedora overlay when desktop or service diagnosis identifies a package, policy or deployment cause. Not the first owner for generic audio, portal or systemd troubleshooting.
 license: MIT
 compatibility: Fedora Linux and installed native tools; image-based variants use their deployment owner, not mutable-host DNF commands.
 ---
@@ -36,9 +36,13 @@ rather than embedding a fixed release table.
 | Remote gaming/input | [Remote input](references/remote-gaming-input-and-tooling.md) |
 | Other RPM-family host identified | [Vendor boundaries](references/derivatives-and-vendor-quirks.md) |
 
-Read only the relevant reference. Generic Linux diagnostics and broad health
-triage are optional in linux; packaging and recovery stay task references here,
-just as they do in arch-linux.
+For desktop/audio/portal/session symptoms, start with an available linux-desktop
+owner; for distro-neutral systemd/resource/network symptoms, start with an available
+linux-administration owner. This table's desktop/service references are Fedora
+package, deployment and policy overlays after identifying that boundary—not competing
+generic diagnosis procedures. If those specialists are absent, use installed native
+docs and bounded read-only diagnosis; absence does not authorize installation or a
+package/SELinux change. Packaging and recovery remain owned here.
 
 ## Evidence, ownership and security
 

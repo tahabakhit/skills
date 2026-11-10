@@ -39,7 +39,7 @@ Capture the exact command, transaction log, pacman log window, current booted ke
 
 Do not delete a lock while its owner is running, force package overwrites broadly, initialize a new keyring over an unexplained trust failure, or erase package caches needed for rollback. Prefer official package metadata and installed logs over forum recipes.
 
-Use the optional `linux` skill's health-triage reference for broad post-upgrade instability. For a specific coredump, narrow evidence to the failing executable, build identity, crash time and relevant backtrace without exposing memory secrets. Use Omarchy's guidance only when it owns the remaining desktop problem. Otherwise use the installed desktop's documentation and, optionally, `arch-linux` for system configuration.
+Use the optional `linux-administration` skill's health-triage reference for broad post-upgrade instability. For a specific coredump, narrow evidence to the failing executable, build identity, crash time and relevant backtrace without exposing memory secrets. Use Omarchy's guidance only when it owns the remaining desktop problem. Otherwise use the installed desktop's documentation and, optionally, `arch-linux` for system configuration.
 
 ## Recovery and verification
 

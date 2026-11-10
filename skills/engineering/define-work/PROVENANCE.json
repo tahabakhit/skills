@@ -18,7 +18,8 @@
   "requiredSiblingSkills": [],
   "changes": [
     "Replace transitional external delivery with optional owned deliver-work, preserving specification-only scope.",
-    "Update the example handoff and carry project and Matt Pocock notices locally."
+    "Update the example handoff and carry project and Matt Pocock notices locally.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -47,8 +48,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "8afa7817c319a5d652d6d16b3ba89f916cda3516f31900594b451e8fedf518c8",
-      "gitBlob": "d41061f82482a9813259ab4b0bd99441ad0afb1a"
+      "sha256": "f0e7fa6ecdea1ab733a24f32aeb9ae0f940d7c8a9ee55840ac7a8569a962c396",
+      "gitBlob": "56d66256684bbeb17c28bcd1fcda0889d9221ff3"
     },
     {
       "path": "SOURCES.json",

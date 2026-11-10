@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "name": "repository-onboarding",
+  "kind": "original-procedure",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Create a bounded repository orientation workflow for first changes and contributor setup documentation."
+  ],
+  "verification": {
+    "scope": "Recorded identities and local closure only; no model behavioral evaluation."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "c5a64e5c5053702da36de57af957eb82924d98fe9bd9c3d4cd3029d9b013b2eb",
+      "gitBlob": "9c4a4fb8d422e1d93bda65cf29d5775786a7731b"
+    }
+  ]
+}

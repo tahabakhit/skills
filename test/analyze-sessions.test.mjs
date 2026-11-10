@@ -8,7 +8,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 const repo = fileURLToPath(new URL('../', import.meta.url));
-const script = path.join(repo, 'skills/agents/analyze-sessions/scripts/analyze.py');
+const script = path.join(repo, 'skills/agents/analyze-pi-sessions/scripts/analyze.py');
 
 function temporary(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pi-personal-'));

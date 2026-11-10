@@ -16,7 +16,9 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/fedora/ into skills/linux/fedora."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/fedora/ into skills/linux/fedora.",
+    "Update optional specialist handoffs to the purpose-named administration skills.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -31,16 +33,6 @@
       "path": "LICENSE-UPSTREAM",
       "sha256": "e572dd93a29151c0304a8875ae8035fa6bd9a01252071949091563bc30603805",
       "gitBlob": "eaa245a0fb5e6863615212f89f70ed3d56e63968"
-    },
-    {
-      "path": "SKILL.md",
-      "sha256": "f79460721f607b660dd7187e35b366081be3fabd97f6908f7ed09e3288381c6c",
-      "gitBlob": "7a054aeea5100568837e0c31f31bbc64f0dd8a55"
-    },
-    {
-      "path": "UPSTREAM.md",
-      "sha256": "367fe3cf47f70339e802c865f5bbf83490447d44d70a1a01c623b7fdf6be3a81",
-      "gitBlob": "e91c1811c252ba1a0253b21eba3b20c6ccd5a455"
     },
     {
       "path": "references/base-linux-and-cli.md",
@@ -126,6 +118,16 @@
       "path": "references/update-recovery.md",
       "sha256": "c16e49618533379eb7be25e1e39fe5a8b705b2005e8b685a2edf2e3004580621",
       "gitBlob": "24324cd48b40c47a847904cb4d611f8e91a8bbb5"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "764a3a83a123383853d6cd61720d37a4274c94661a2755f46d8950da77067594",
+      "gitBlob": "7fb98b1531aa3d1098780d5090d341d737b31585"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "367fe3cf47f70339e802c865f5bbf83490447d44d70a1a01c623b7fdf6be3a81",
+      "gitBlob": "e91c1811c252ba1a0253b21eba3b20c6ccd5a455"
     }
   ]
 }

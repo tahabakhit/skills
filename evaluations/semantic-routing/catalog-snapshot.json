@@ -1,0 +1,170 @@
+[
+  {
+    "name": "discover-work",
+    "description": "Clarify an idea, challenge a proposed solution, or resolve uncertain requirements before doing the work. Use when the user wants to explore an outcome, compare approaches, or work out what they need in any domain. Produces an agreed brief, not the deliverable or a delivery plan. Skip when requirements are already clear."
+  },
+  {
+    "name": "define-work",
+    "description": "Turn an agreed discussion, discovery brief, or existing requirements into a concise, testable specification for engineering delivery. Use when asked to write a spec, define acceptance criteria, or prepare requirements for deliver-work. Preserves unresolved decisions and never publishes issues or starts implementation automatically."
+  },
+  {
+    "name": "codebase-design",
+    "description": "Design or compare a specific module boundary, interface, dependency seam, or refactor. Use for concrete architecture options for a known design problem, not a broad repository audit or unrequested implementation."
+  },
+  {
+    "name": "systematic-debugging",
+    "description": "Diagnose reproducible bugs, test failures, build failures, performance regressions, and unexpected technical behavior by gathering evidence and tracing the failure before changing code. Use when the user asks to debug, investigate, diagnose, or fix a technical failure."
+  },
+  {
+    "name": "verify-and-stop",
+    "description": "Check that an existing artifact, answer, event plan, analysis, or software change meets its acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, and last-mile proof; not a mandatory stage for every task."
+  },
+  {
+    "name": "deliver-work",
+    "description": "Carry an agreed engineering outcome to its authorized endpoint, or run only its planning, implementation, PR-follow-through, or release-follow-through stage. Use for feature or issue delivery and resuming interrupted delivery. Not for discovery-only, review-only, packaging-only, or unapproved publication."
+  },
+  {
+    "name": "testing-work",
+    "description": "Write behavior tests, run a test-first change, assess test adequacy, or add targeted property or mutation tests. Use for regression protection, weak assertions, over-mocking, and meaningful invariants. Not for deciding product requirements, broad PR review, or claiming acceptance from a coverage percentage."
+  },
+  {
+    "name": "code-review",
+    "description": "Review a specified working-tree, staged, commit-range, branch, or PR candidate without editing it. Use for concrete correctness, requirement, test, compatibility, and security findings or for evaluating review feedback. Not for implementing fixes, posting remote reviews unasked, or reviewing an unspecified candidate as though its boundary were known."
+  },
+  {
+    "name": "change-safely",
+    "description": "Restructure existing code without changing its contract, or execute a compatibility-preserving schema, data, API, protocol, or configuration migration. Use when preservation, mixed-version operation, rollback, or staged contraction matters. Not for hiding feature changes as cleanup or treating a destructive transition as an ordinary refactor."
+  },
+  {
+    "name": "git-hygiene",
+    "description": "Prepare commits, commit messages, issue drafts and PR descriptions, protect concurrent Git work, and integrate the exact candidate against current refs. Use for standalone repository submission or mixed index/worktree and branch handoffs. Not implementation, a code-review workflow, a task scheduler or unasked publication."
+  },
+  {
+    "name": "ci-maintenance",
+    "description": "Design, repair, audit, or harden CI workflows and developer setup contracts. Use for required-check coverage, event trust, tested-revision mismatches, hidden command failures, or environment drift. Not for PR monitoring, changing merge policy without permission, or judging application acceptance from workflow syntax alone."
+  },
+  {
+    "name": "dependency-updates",
+    "description": "Assess or apply dependency updates using actual candidate versions, compatibility evidence, lockfile review, and supply-chain checks. Use for outdated packages, advisories, updater changes, or suspicious install drift. Not for a fleet-wide upgrade from a local request or claiming freshness without registry evidence."
+  },
+  {
+    "name": "release-packaging",
+    "description": "Build or assess an exact installable release artifact and prove its supported target behavior. Use for missing packaged files, runtime or ABI compatibility, build/runtime dependency separation, and install/upgrade/remove validation. Not for registry publication, live installation, production promotion, or claiming portability from cross-compilation alone."
+  },
+  {
+    "name": "security-review",
+    "description": "Examine a scoped change or system for reachable attack, credential leak, authorization, or CI trust paths and verify a proposed security repair. Use when exploit preconditions and security evidence matter. Not for scanner installation, unapproved live exploitation, or turning generic hardening preferences into confirmed vulnerabilities."
+  },
+  {
+    "name": "research-work",
+    "description": "Investigate a question using supplied material or authorized sources, reconcile conflicting evidence, and produce a traceable synthesis. Also supports research planning and analysis of real user-research material."
+  },
+  {
+    "name": "create-content",
+    "description": "Draft or edit articles, technical explanations, analytical reports, marketing copy, communications, diagrams, or supported document artifacts. Preserve evidence, author voice, requested format, and action boundaries."
+  },
+  {
+    "name": "document-review",
+    "description": "Review supplied prose or a report for factual consistency, reasoning, evidence support, and decision readiness. Preserve the document's facts and distinguish editorial fixes from claims needing more evidence."
+  },
+  {
+    "name": "interface-review",
+    "description": "Review a proposed or existing interface for usability and accessibility. Report prioritized evidence-bounded findings without redesigning or implementing it unasked."
+  },
+  {
+    "name": "analyze-data",
+    "description": "Analyze tables, SQL results, metrics, cohorts, funnels, experiments, or operational reports with explicit measurement definitions and independently checked results. Use for analytical questions and reviews of numerical claims. Not for administering databases, repairing pipelines, or claiming causal effects without a suitable design."
+  },
+  {
+    "name": "data-pipelines",
+    "description": "Build, change, diagnose, or plan replay of data transformations and scheduled ingestion with explicit contracts, late-data handling, idempotence, and candidate-bound verification. Use for dbt models, orchestrated assets, incremental loads, schema evolution, or backfills. Not for an analytical answer alone or automatic production execution."
+  },
+  {
+    "name": "chezmoi",
+    "description": "Inspect, configure, and make authorized scoped changes to chezmoi-managed dotfiles. Use for source and target mapping, CLI commands, templates, machine data, attributes, scripts, externals, secrets, initialization, and persistent state. Keep diagnosis read-only unless mutation of named paths or state is authorized."
+  },
+  {
+    "name": "managed-config-drift",
+    "description": "Audit drift between live Linux or macOS configuration, version-controlled configuration repositories, symlink farms, and packaged defaults. Use when configuration ownership is unclear, a desktop behaves differently from its repo, symlinks may be broken, generated files may be stale, or an update may have overwritten local state. Default to reporting and do not synchronize or replace files automatically."
+  },
+  {
+    "name": "shell-scripting",
+    "description": "Write, review, test, or port POSIX sh, Bash, and Zsh scripts and startup files across Linux and macOS. Use for shell semantics, GNU/BSD differences, safe subprocess handling, and isolated tests; not general host administration or automatic shell activation."
+  },
+  {
+    "name": "backup-restore",
+    "description": "Assess backup coverage and plan or verify scoped restores on Linux and macOS, including restic and Time Machine boundaries. Use for recoverability, integrity checks, and disposable restore drills; not automatic backup setup, retention/pruning, snapshot rollback, or boot repair."
+  },
+  {
+    "name": "linux-administration",
+    "description": "Diagnose Linux hosts and services, including systemd, resource pressure, network failures, and broad workstation instability. Use for distribution-neutral investigation and scoped repairs; use arch-linux or fedora for package builds, release upgrades and boot recovery, and macos-administration for Macs."
+  },
+  {
+    "name": "linux-desktop",
+    "description": "Configure or diagnose Linux desktop, compositor, shell, monitor, audio-session and Wayland/X11 portal behavior using version-matched official documentation. First owner for desktop symptoms, including on Fedora; hand package, SELinux or deployment causes to the distro specialist. Not package administration or boot recovery."
+  },
+  {
+    "name": "arch-linux",
+    "description": "Administer Arch-family systems, including packages and services, PKGBUILD maintenance, system upgrades, and transaction or boot recovery. Select the matching task reference; use cachyos only for installed CachyOS components and linux-administration for distribution-neutral diagnostics."
+  },
+  {
+    "name": "fedora",
+    "description": "Administer Fedora-specific DNF/RPM packages, repositories, SELinux, mutable or image-based deployments, release upgrades and boot recovery. Use as a Fedora overlay when desktop or service diagnosis identifies a package, policy or deployment cause. Not the first owner for generic audio, portal or systemd troubleshooting."
+  },
+  {
+    "name": "cachyos",
+    "description": "Maintain and diagnose CachyOS-specific optimized repositories, kernels, chwd hardware profiles, sched-ext scheduling, and packaged system settings. Use for these components on CachyOS or an explicitly configured Arch host, not generic Arch administration or every desktop edit."
+  },
+  {
+    "name": "macos-administration",
+    "description": "Diagnose and make scoped changes on Apple silicon macOS using native ownership, Homebrew, launchd, and privacy-aware evidence. Use for macOS packages, services, permissions, and shell integration; not Linux administration, Nix activation, OS upgrades, or arbitrary defaults-tweak bundles."
+  },
+  {
+    "name": "agents-md",
+    "description": "Read before creating, auditing, or revising an AGENTS.md file."
+  },
+  {
+    "name": "skill-authoring",
+    "description": "Use when creating or revising a reusable agent skill, or empirically tuning a reusable agent prompt. Not for routine task prompts."
+  },
+  {
+    "name": "agent-tooling-design",
+    "description": "Use when designing or changing an agent-facing tool or harness extension. Not for whole-environment audits or diagnosing a past session."
+  },
+  {
+    "name": "agent-session-diagnostics",
+    "description": "Read before diagnosing a coding-agent session or recurring skill or tool failure that drifted, looped, ignored intent, or behaved unexpectedly."
+  },
+  {
+    "name": "harness-audit",
+    "description": "Audit a coding-agent environment for workflow fit, instruction conflicts, duplicated capabilities and unnecessary startup surface. Read-only recommendations, not setup changes or single-session diagnosis."
+  },
+  {
+    "name": "prompt-caching",
+    "description": "Read before designing, measuring, or debugging prompt-cache behaviour in an agent harness or extension."
+  },
+  {
+    "name": "chrome-cdp",
+    "description": "Use the bundled Chrome CDP CLI when rendered pages or an authorized existing browser session matter and exposed browser tools are insufficient."
+  },
+  {
+    "name": "typesafe-ai",
+    "description": "Design, review or debug TypeSafe System One/Jev typed judgments, questions and state, or assess where semantic classification helps an application. Not authority for live API calls or safety/approval decisions."
+  },
+  {
+    "name": "analyze-pi-sessions",
+    "description": "Search, inspect, and summarize saved Pi sessions or extract recurring user prompting patterns. Use for explicit requests about past Pi work, recorded usage/cost, or repeated corrections."
+  },
+  {
+    "name": "code-quality",
+    "description": "Use when shaping or assessing maintained code's ownership, contracts, execution paths and resource lifecycle. Load language guidance only for changed behavior. Not a delivery coordinator, a review workflow or prose guidance."
+  },
+  {
+    "name": "hc-delegation",
+    "description": "Delegate scoped implementation, research or independent review through herdr-core hc terminals, then collect results and clean up owned children. Not for native in-harness subagents or generic delegation without hc."
+  },
+  {
+    "name": "repository-onboarding",
+    "description": "Map an unfamiliar repository before its first change or document how to work in it: instruction scope, owning code, safe setup and executable checks. Not broad architecture redesign, automatic dependency installation or a mandatory preflight for familiar tasks."
+  }
+]

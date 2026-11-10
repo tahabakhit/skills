@@ -12,7 +12,10 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Clarify that unrelated discovered defects do not automatically change acceptance or authorize repair."
+    "Clarify that unrelated discovered defects do not automatically change acceptance or authorize repair.",
+    "Consolidate overlapping imported entrypoint as optional local reference guidance.",
+    "Move bounded submission judgment to git-hygiene; delivery coordinates the endpoint without a second commit/issue/PR procedure.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -36,8 +39,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "e571ccd36c72ed3732c8b5c86e439e1447f31a2c4d36f0128721408d5869be20",
-      "gitBlob": "b4f064a85f0f0f93687c2249fbecb8f65843c7d2"
+      "sha256": "20859fb59d9f6075076dde22547281c117799dbf00aa5ce2b15daf75c2a6c531",
+      "gitBlob": "919587fad4788f47e348553a184cc2e7a2fe5b6b"
     },
     {
       "path": "SOURCES.json",

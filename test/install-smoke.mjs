@@ -13,10 +13,12 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-real-install-'));
 const home = path.join(dir, 'home'); const project = path.join(dir, 'repo with spaces');
 fs.mkdirSync(home); fs.mkdirSync(project);
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
-const globalNames = distribution.groups.find(g => g.name === 'core').skills;
-const localNames = distribution.groups.filter(g => g.name !== 'core').flatMap(g => g.skills);
+const globalGroups = distribution.groups.filter(g => g.recommendedScope === 'global');
+const localGroups = distribution.groups.filter(g => g.recommendedScope === 'project');
+const globalNames = globalGroups.flatMap(g => g.skills);
+const localNames = localGroups.flatMap(g => g.skills);
 try {
-  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--local', 'engineering,content,interface-review,data', '--agents', 'pi,claude-code,codex', '--yes'], {
+  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', globalGroups.map(g => g.name).join(','), '--local', localGroups.map(g => g.name).join(','), '--agents', 'pi,claude-code,codex', '--yes'], {
     cwd: project, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024,
     env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state'), NPM_CONFIG_CACHE: process.env.npm_config_cache || process.env.NPM_CONFIG_CACHE || path.join(os.homedir(), '.npm'), NPM_CONFIG_OFFLINE: 'true' }
   });
@@ -42,5 +44,5 @@ try {
   const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'core', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log('Real pinned installer passed: 20 skills, global+project scopes, Pi/Claude Code/Codex receipts, 40 physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.');
+  console.log(`Real pinned installer passed: ${globalNames.length + localNames.length} skills, global+project scopes, Pi/Claude Code/Codex receipts, ${2 * (globalNames.length + localNames.length)} physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.`);
 } finally { fs.rmSync(dir, { recursive: true }); }

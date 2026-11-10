@@ -1,6 +1,6 @@
 ---
 name: git-hygiene
-description: Protect concurrent Git work, capture the correct candidate, and integrate changes against verified current refs. Use for mixed index/worktree state, shared checkouts, isolated workers, branch handoffs, and pre-integration freshness. Not a task scheduler or permission to push, merge, reset, or delete branches.
+description: Prepare commits, commit messages, issue drafts and PR descriptions, protect concurrent Git work, and integrate the exact candidate against current refs. Use for standalone repository submission or mixed index/worktree and branch handoffs. Not implementation, a code-review workflow, a task scheduler or unasked publication.
 license: MIT
 ---
 
@@ -25,6 +25,10 @@ For concurrent writers, read [ownership and integration](references/ownership.md
 
 Use [semantic conventions](references/semantic-conventions.md) only when they
 match repository policy. They do not impose a new commit/version scheme.
+
+## Prepare submission text or an authorized submission
+
+For commit wording, issue drafts and PR descriptions, read [submission judgment](references/submission/guide.md) and its applicable branch. Establish the intended diff or supplied bug evidence; an issue draft need not have a code change. Follow repository templates and preserve unresolved facts. Drafting stops at text unless publication is authorized. For a text-only request, skip staging and integration. Evaluate code-review feedback with an available code-review owner; do not implement repairs during submission-only work.
 
 ## Integrate the verified candidate
 

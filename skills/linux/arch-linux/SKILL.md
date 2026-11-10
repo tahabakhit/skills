@@ -1,6 +1,6 @@
 ---
 name: arch-linux
-description: Administer Arch-family systems, including packages and services, PKGBUILD maintenance, system upgrades, and transaction or boot recovery. Select the matching task reference; use cachyos only for installed CachyOS components and linux for distribution-neutral diagnostics.
+description: Administer Arch-family systems, including packages and services, PKGBUILD maintenance, system upgrades, and transaction or boot recovery. Select the matching task reference; use cachyos only for installed CachyOS components and linux-administration for distribution-neutral diagnostics.
 license: MIT
 ---
 
@@ -36,7 +36,7 @@ source, live output and package defaults before proposing synchronization.
 
 For systemd, distinguish system/user units and active/enabled state; inspect safe
 effective settings and scoped logs. Use source-owned overrides/drop-ins instead
-of editing vendor units. Generic service/network triage belongs in linux.
+of editing vendor units. Generic service/network triage belongs in `linux-administration`.
 
 Check repository priority, installed/candidate versions and provider conflicts.
 Prefer official packages when they meet the need. An AUR entry is executable
@@ -59,7 +59,7 @@ Keep credentials, environments and raw logs out of agent output.
 Validate candidate configuration before activation. Verify the requested service,
 command, package regression or boot behavior, not merely installation success.
 Report changed source versus applied state and untested GUI/reboot behavior.
-Broad instability can use linux's health-triage reference; drift ownership can
+Broad instability can use `linux-administration`'s health-triage reference; drift ownership can
 use managed-config-drift, without loading an entire skill collection.
 
 ## Primary references

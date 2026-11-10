@@ -11,7 +11,9 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/linux-desktop/ into skills/linux/linux-desktop."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/linux-desktop/ into skills/linux/linux-desktop.",
+    "Update optional specialist handoffs to the purpose-named administration skills.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -23,14 +25,14 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
-      "path": "SKILL.md",
-      "sha256": "445fdf498231f0804c596e3ef9a9efc4679e8d4fd0eb996f22e54f242a3aa2e5",
-      "gitBlob": "af7d8aa119151e1bb7a32bcbe66b9699b26f3b68"
-    },
-    {
       "path": "references/documentation-sources.md",
       "sha256": "1af6237febcacd4f61aab4d6bc7b580b2b5a67c03dab272f604332fbb17abdd8",
       "gitBlob": "7f19f855134e3e72068758c2b3c420863150f1a5"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "7446cd67267545855ce826d3e6d0dc2b701edb2364136c8a91be14c68496fd6f",
+      "gitBlob": "07055d08e5719e9a0f2bacfd35cf274cf40d0ce2"
     }
   ]
 }

@@ -37,7 +37,8 @@
     "Do not require CONTEXT.md or the broad architecture-audit specialist.",
     "Qualify merging boundaries and test-retirement guidance.",
     "Preserve Matt Pocock attribution rather than the source's whole-folder local-original label.",
-    "Replace root-only provenance pointers with this self-contained record and retain complete author notices."
+    "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "upstreamFiles": [
     {
@@ -80,43 +81,43 @@
   "files": [
     {
       "path": "agents/openai.yaml",
-      "gitBlob": "02e68acd155c3b8e21bf775f6f5d238b5be26c92",
-      "sha256": "d2088b72eef53cd43ff6c63a937342a79ae464dd8e8382ea8bb7ee39f0cc4d45"
+      "sha256": "d2088b72eef53cd43ff6c63a937342a79ae464dd8e8382ea8bb7ee39f0cc4d45",
+      "gitBlob": "02e68acd155c3b8e21bf775f6f5d238b5be26c92"
     },
     {
       "path": "DEEPENING.md",
-      "gitBlob": "bccc1e7a8747f9d282cf9cdefae36c6a70d1efef",
-      "sha256": "36eaeb8285e7c08fb6524e6a66e34371e2ea944df45952c937282233b725a99b"
+      "sha256": "36eaeb8285e7c08fb6524e6a66e34371e2ea944df45952c937282233b725a99b",
+      "gitBlob": "bccc1e7a8747f9d282cf9cdefae36c6a70d1efef"
     },
     {
       "path": "DESIGN-IT-TWICE.md",
-      "gitBlob": "ba2f4b13d639b0e93148936aa13d5a4b501ae049",
-      "sha256": "fc19b27c3595d6fed3e247cf1c26d76b164c7f44f221ec2df9388f38d3061ad4"
+      "sha256": "fc19b27c3595d6fed3e247cf1c26d76b164c7f44f221ec2df9388f38d3061ad4",
+      "gitBlob": "ba2f4b13d639b0e93148936aa13d5a4b501ae049"
     },
     {
       "path": "LICENSE",
-      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257",
-      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071"
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
     },
     {
       "path": "LICENSE-MATT",
-      "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+      "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
     },
     {
       "path": "references/experience-and-interfaces.md",
-      "gitBlob": "12f1caae9934b4379be24ba026b6c43218fb1bf9",
-      "sha256": "a63b86bb40043fd34bf21621c0553ed5e4c0597cd8658fb52f01ff4104132179"
+      "sha256": "a63b86bb40043fd34bf21621c0553ed5e4c0597cd8658fb52f01ff4104132179",
+      "gitBlob": "12f1caae9934b4379be24ba026b6c43218fb1bf9"
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "3aae5f23d2a88de138b35a6fe3e5e6df76a0ddda",
-      "sha256": "a518993855939875a9109221bce20ce98cd0bd0d40b26bcb8607b3d4cdd0692c"
+      "sha256": "a518993855939875a9109221bce20ce98cd0bd0d40b26bcb8607b3d4cdd0692c",
+      "gitBlob": "3aae5f23d2a88de138b35a6fe3e5e6df76a0ddda"
     },
     {
       "path": "UPSTREAM.md",
-      "gitBlob": "ac81b74f436e105783af354db1e5b80278ad2c90",
-      "sha256": "a084107f8c85dba97dddfc48804fcf9d5eb193985161f6620743f38bce0301e8"
+      "sha256": "a084107f8c85dba97dddfc48804fcf9d5eb193985161f6620743f38bce0301e8",
+      "gitBlob": "ac81b74f436e105783af354db1e5b80278ad2c90"
     }
   ],
   "verification": {

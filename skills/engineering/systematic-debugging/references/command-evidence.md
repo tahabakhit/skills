@@ -1,43 +1,47 @@
-# Command status and diagnostic output
+# Command and environment evidence
 
-Use for build/test wrappers and pipelines whose readable output can obscure the
-actual result. Keep the repository's task runner and existing validation commands.
-A new Makefile or output formatter is useful only when it resolves a concrete gap.
+## Preserve the producer result
 
-## Preserve the result through every layer
+A test command piped through a formatter or log collector can fail while the final process succeeds. Preserve both statuses using mechanisms appropriate to the actual execution shell, or run the producer into an owned temporary output file and capture its exit status before rendering it. Do not assume one shell's pipeline-status variables exist in another.
 
-Trace the producer, formatter, log writer, shell, task runner, and CI step.
-A successful final command can hide an earlier failure. Neither an empty error
-summary nor a generated report establishes that compilation or tests passed.
+In Bash, `pipefail` returns the rightmost failing stage, not necessarily the
+producer's status. Capture `PIPESTATUS` immediately if individual outcomes matter,
+and account for `errexit` before arranging that capture. Make normally runs separate
+recipe lines in separate shells; keep the chosen option and pipeline in the same
+shell or use a reviewed wrapper. Do not change every recipe's semantics to fix one.
+Keep formatter diagnostics bounded and credential-free; preserve structured result
+bundles when the contract requires them, including proof that relevant tests ran.
 
-In Bash, `pipefail` makes a pipeline fail when a stage fails. Its status is the
-rightmost nonzero stage status, which is not necessarily the producer's code.
-When individual outcomes matter, capture `PIPESTATUS` immediately after the
-pipeline, before another command overwrites it, and account for `errexit` when
-arranging that capture. Retain formatter/logging failures as separate evidence.
+Define the result policy explicitly. A failing producer cannot become a passing test because the renderer succeeded. If rendering is itself required, its failure also needs an appropriate non-pass. Keep logs available on failure.
 
-Confirm the executing shell supports the selected mechanism. Make normally
-executes separate recipe lines in separate shells, so setting an option on one
-line may not govern the pipeline on the next. Scope the option and command to
-the same shell or use a reviewed wrapper with an explicit runtime. Do not change
-all recipe semantics to repair one command without checking other targets.
+Exercise the wrapper with controlled commands:
 
-If pipeline control is unsuitable, run the producer into a task-owned log,
-capture its status, then render that log and return the appropriate failure.
-Avoid catch-all success fallbacks and test-marker searches as substitutes for
-the producer's status. Preserve structured result bundles when the test contract
-requires them, including evidence that relevant tests actually ran.
+| Producer | Renderer | Expected |
+| --- | --- | --- |
+| Exit 0 | Exit 0 | Success |
+| Exit 7 | Exit 0 | Non-pass preserving producer failure |
+| Exit 0 | Exit 9 | Non-pass when rendering is required |
+| Exit 7 | Exit 9 | Non-pass with both causes visible |
+| Cancelled or timed out | Any | No test-pass claim |
 
-## Keep diagnostics useful
+Also check missing result files and partial output. A report generator should not fabricate an empty passing suite when collection failed.
 
-Present a short result with the failing stage and relevant diagnostic location.
-Retain raw stdout/stderr in a bounded, access-appropriate artifact when filtering
-could remove necessary evidence. Keep credentials out of logs and check the
-artifact before external publication. Distinguish warnings from failures under
-the repository's existing policy rather than enabling warnings-as-errors by default.
+## Reproduce the environment contract
 
-Before trusting a new wrapper, exercise producer failure with a successful
-formatter, formatter failure, and ordinary success in disposable state. Also
-check the outer task/CI status. Use focused tests while iterating, then required
-handoff gates. A successful build alone does not prove that a freshly built
-application launched or that its runtime behavior passed.
+Identify runtime/compiler versions, package-manager version, lockfile mode, service versions, external tools and setup commands that affect execution. Verify declared setup in a clean supported environment. Do not rely on a warm cache, globally installed CLI or a service left by another job.
+
+Allocate ports and mutable service state per concurrent job. Record process ownership so cleanup stops only what the job started. A worktree alone cannot isolate a shared database or listening port.
+
+Make setup and teardown failures visible. The application test may never have run when seed, migration or browser installation failed. Classify that as unavailable or failed setup rather than a product pass. Keep the original test error if teardown also fails.
+
+## Measure optimization
+
+Use comparable revisions/workloads and separate queue delay, setup, execution and artifact/report overhead. Inspect the critical path. More shards can increase setup cost or overwhelm shared services. Cache changes can make a broken dependency declaration appear healthy.
+
+Compare before and after with enough observations to expose variance. Preserve correctness checks when optimizing. A faster lane that skips required behavior is a coverage reduction, not a speed improvement.
+
+## Evidence receipt
+
+Record the command, working directory, tested revision, relevant runtime versions, start/end status and observed result. Record output/artifact identity when later stages consume it. Keep observation time distinct from report creation.
+
+State which environment/event combinations remain untested. A successful local setup is useful evidence, but it cannot establish a different hosted runner's privileges, architecture or provider event semantics.

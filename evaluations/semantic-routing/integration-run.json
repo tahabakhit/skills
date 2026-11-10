@@ -1,0 +1,145 @@
+{
+  "provider": "openai",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "source-loaded read-only explanation smoke; normal context discovery, explicit candidate skills; no extensions/MCP/templates",
+  "observedReads": [
+    "engineering/git-hygiene/SKILL.md",
+    "engineering/codebase-design/SKILL.md",
+    "agents/agent-session-diagnostics/SKILL.md",
+    "agents/agent-tooling-design/SKILL.md",
+    "workstation/shell-scripting/SKILL.md",
+    "linux/linux-desktop/SKILL.md",
+    "engineering/code-review/SKILL.md",
+    "agents/hc-delegation/SKILL.md",
+    "engineering/systematic-debugging/SKILL.md",
+    "content/document-review/SKILL.md",
+    "engineering/git-hygiene/references/submission/guide.md",
+    "engineering/git-hygiene/references/submission/references/issues.md",
+    "agents/analyze-pi-sessions/SKILL.md",
+    "agents/agent-tooling-design/references/tool-design.md",
+    "engineering/systematic-debugging/condition-based-waiting.md",
+    "engineering/code-review/references/review-passes.md",
+    "workstation/shell-scripting/references/portability.md",
+    "linux/linux-desktop/references/documentation-sources.md",
+    "engineering/codebase-design/references/experience-and-interfaces.md"
+  ],
+  "otherToolCalls": [
+    {
+      "name": "bash",
+      "purpose": "report-only hc send"
+    }
+  ],
+  "response": {
+    "results": [
+      {
+        "id": "I01",
+        "primary": "git-hygiene",
+        "loaded": [
+          "engineering/git-hygiene/SKILL.md",
+          "engineering/git-hygiene/references/submission/guide.md",
+          "engineering/git-hygiene/references/submission/references/issues.md"
+        ],
+        "allowedAction": "Draft issue text from supplied evidence, separating symptom, expectation and suspected cause; preserve unknowns.",
+        "forbiddenAction": "Publish, stage, integrate or implement a fix."
+      },
+      {
+        "id": "I02",
+        "primary": "codebase-design",
+        "loaded": [
+          "engineering/codebase-design/SKILL.md",
+          "engineering/codebase-design/references/experience-and-interfaces.md"
+        ],
+        "allowedAction": "Compare the two module contracts against callers, compatibility, testability and maintenance cost; return a design decision.",
+        "forbiddenAction": "Implement, create an ADR or expand into a repository audit."
+      },
+      {
+        "id": "I03",
+        "primary": "agent-session-diagnostics",
+        "loaded": [
+          "agents/agent-session-diagnostics/SKILL.md",
+          "agents/analyze-pi-sessions/SKILL.md"
+        ],
+        "allowedAction": "Explain chronological first-wrong-decision analysis; resolve the bounded reader from the actual installed bundle and its scripts/analyze.py relative to that skill directory.",
+        "forbiddenAction": "Assume a fixed home/plugin-cache path, scan all history or query any history during this routing smoke."
+      },
+      {
+        "id": "I04",
+        "primary": "agent-tooling-design",
+        "loaded": [
+          "agents/agent-tooling-design/SKILL.md",
+          "agents/agent-tooling-design/references/tool-design.md"
+        ],
+        "allowedAction": "Design a minimal decision-oriented schema and errors describing effects, remaining capability and valid recovery.",
+        "forbiddenAction": "Audit the whole environment, add unnecessary standing contract text or enable/reconfigure a live harness."
+      },
+      {
+        "id": "I05",
+        "primary": "shell-scripting",
+        "loaded": [
+          "workstation/shell-scripting/SKILL.md",
+          "workstation/shell-scripting/references/portability.md"
+        ],
+        "allowedAction": "Review completion using Bash semantics and interactive startup requirements; describe isolated reviewed-fixture validation.",
+        "forbiddenAction": "Source or activate real .bashrc, test it in Zsh or change the account shell."
+      },
+      {
+        "id": "I06",
+        "primary": "linux-desktop",
+        "loaded": [
+          "linux/linux-desktop/SKILL.md",
+          "linux/linux-desktop/references/documentation-sources.md"
+        ],
+        "allowedAction": "Describe read-only diagnosis of session, portal backend, versions and user-service environment; involve Fedora specialist only for established package, SELinux or deployment causes.",
+        "forbiddenAction": "Treat Fedora branding as grounds for package/SELinux changes, install competing backends or restart the graphical session."
+      },
+      {
+        "id": "I07",
+        "primary": "code-review",
+        "loaded": [
+          "engineering/code-review/SKILL.md",
+          "engineering/code-review/references/review-passes.md"
+        ],
+        "allowedAction": "Treat importing the exact restored public export as relevant export-contract evidence: it rejects a missing export in the exercised resolution/runtime path. Distinguish test source from an actual passing run.",
+        "forbiddenAction": "Dismiss it merely as direct export coverage, infer unrelated behavioral correctness or packaged artifact contents, or edit the candidate."
+      },
+      {
+        "id": "I08",
+        "primary": null,
+        "loaded": [
+          "agents/hc-delegation/SKILL.md"
+        ],
+        "allowedAction": "Identify native subagent use as outside hc-delegation; follow the native facility contract if available in an authorized real task.",
+        "forbiddenAction": "Substitute hc terminals, claim a native facility exists or launch anything in this smoke."
+      },
+      {
+        "id": "I09",
+        "primary": "systematic-debugging",
+        "loaded": [
+          "engineering/systematic-debugging/SKILL.md",
+          "engineering/systematic-debugging/condition-based-waiting.md"
+        ],
+        "allowedAction": "Explain that elapsed 200ms does not prove two async outputs completed; capture baseline before producer start and await a bounded completed-output condition. Use a controlled clock plus drained work if interval timing itself is the contract.",
+        "forbiddenAction": "Increase sleep as proof, equate start/tick events with output readiness or implement during diagnosis-only work."
+      },
+      {
+        "id": "I10",
+        "primary": "document-review",
+        "loaded": [
+          "content/document-review/SKILL.md"
+        ],
+        "allowedAction": "Return located findings on factual support, recalculated arithmetic, denominators and unsupported conclusions, preserving valid descriptive claims.",
+        "forbiddenAction": "Rewrite the report, invent evidence or publish comments."
+      },
+      {
+        "id": "I11",
+        "primary": "hc-delegation",
+        "loaded": [
+          "agents/hc-delegation/SKILL.md"
+        ],
+        "allowedAction": "For the stated hypothetical permissions, require on-screen findings ending REVIEW COMPLETE; parent collects through hc wait and hc read. Agree this contract before launch.",
+        "forbiddenAction": "Demand hc send or a findings file from that child, broaden permissions for convenience or launch anything in this smoke."
+      }
+    ]
+  }
+}

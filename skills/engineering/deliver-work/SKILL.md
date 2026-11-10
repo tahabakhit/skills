@@ -21,6 +21,8 @@ Check the available repository, runtime, test commands and delivery access. Ordi
 - **Deliver:** carry units through implementation, required checks, review and authorized integration. After a fix, refresh the proof affected by that fix. A self-check must not be represented as independent review. If independent review is required but unavailable, retain it as an unmet condition.
 - **Follow through:** reconcile an existing PR, merge or release with current remote state before acting. Read [follow-through](references/follow-through.md) before remote integration, publication, promotion or a retry.
 
+For commit preparation, issue writing or PR descriptions, use an available git-hygiene owner for that bounded stage; it owns submission judgment, not another delivery loop. If absent, follow the repository's existing submission policy and templates. For findings adjudication use available code-review judgment. Preparing text is not permission to publish it.
+
 For multiple units, delegated work or resumption, read [work state](references/work-state.md). Use its candidate and attempt identities to prevent old results from completing new work. Parallelize only independent units with separate writers and resources. Lack of worker support means serial execution, not simulated delegation.
 
 ## Finish against the original criteria

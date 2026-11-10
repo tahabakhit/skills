@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "name": "code-quality",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE.local",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/codebase-hygiene/ into skills/agents/codebase-hygiene.",
+    "Purpose-focused setup cleanup: rename or shorten the entrypoint; retain original source records and specialist guidance.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/dependency-safety.md",
+      "sha256": "90a0ce8226cfdabf703921d8afea7ed251595baac5d0c20f45624aee42d051ad",
+      "gitBlob": "4576822d42df28ee628a0f8b4c22c775baa7d76e"
+    },
+    {
+      "path": "references/execution-topology.md",
+      "sha256": "d153877ea1831581f0d82d4c4d8d6b47fdacfe90aab0f574f26cf8cfb85361a4",
+      "gitBlob": "f997031e5c556b98fe66c36938eff2adcc93a0f8"
+    },
+    {
+      "path": "references/go.md",
+      "sha256": "1ecd119d10939f7031243517a887c057f4eea5353b65c91dfbf9f6d6a0ae0590",
+      "gitBlob": "344ee5429a050b8f1c62778cffce639cb56b111b"
+    },
+    {
+      "path": "references/js-ts.md",
+      "sha256": "234282ebd65db5cadd0792cefe79ece1d03e28eb7d89434d20210dd97927bc03",
+      "gitBlob": "ef2a67b691661332284fb55d0ed5177b4614c9ec"
+    },
+    {
+      "path": "references/python.md",
+      "sha256": "07b2bd80d4f4619171e532205e747d5c76bcb4fc02a5a1a7170bf698a5b79b4b",
+      "gitBlob": "4b8f7ad8b857b36de08af546bbb9d88b34956b9a"
+    },
+    {
+      "path": "references/react.md",
+      "sha256": "a552052320bbd7ffbea4dc1b60676f871174318518bf99977c9bacf5b853e757",
+      "gitBlob": "d475f4833b663c78e2b98ac40265906848cc1bb9"
+    },
+    {
+      "path": "references/refactoring.md",
+      "sha256": "fad51a28434bfe6f529f177c9e4508f3c878443954756da3585113e2c078bb2e",
+      "gitBlob": "6d8acd3cb81aafa1567ff754cf4904092cdda960"
+    },
+    {
+      "path": "references/rust.md",
+      "sha256": "5b4caeaf02888a056c2ef41b74e2d56754d14d447db91c2b5b7c413f2a0a7998",
+      "gitBlob": "d78cca442afac725242d5f1f558244e801b6ed1a"
+    },
+    {
+      "path": "references/scoring-rubric.md",
+      "sha256": "f83e8a8694846eb5703351cfd16f608cf583d6c22799c03b4c40e4808b529d53",
+      "gitBlob": "d7c0b96fe1a7dd96995cea8fbd4f9cf9aa6f976f"
+    },
+    {
+      "path": "references/testing.md",
+      "sha256": "df505119eaf016e6570a9bc3ac27f1ac523910508bac0ffecf866ca275a5bf68",
+      "gitBlob": "65f2a1ab0e5a0134ad3437096060c9d9d800eac3"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "6c68a0a53cc0e982a9702a2ae97e6f07a410920138b88ee1dfafe6e641ee8d90",
+      "gitBlob": "68d9aa7140f74b860de82cba8b3a862118d70feb"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "434c9c3b9b6553f8118b5d9c1fab8a200d6f05a9d1e385eca6242684bab7fec9",
+      "gitBlob": "a0db074ceed29307d36b13f1f681f67b056911b5"
+    }
+  ]
+}

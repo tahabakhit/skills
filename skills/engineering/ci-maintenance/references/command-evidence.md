@@ -4,6 +4,14 @@
 
 A test command piped through a formatter or log collector can fail while the final process succeeds. Preserve both statuses using mechanisms appropriate to the actual execution shell, or run the producer into an owned temporary output file and capture its exit status before rendering it. Do not assume one shell's pipeline-status variables exist in another.
 
+In Bash, `pipefail` returns the rightmost failing stage, not necessarily the
+producer's status. Capture `PIPESTATUS` immediately if individual outcomes matter,
+and account for `errexit` before arranging that capture. Make normally runs separate
+recipe lines in separate shells; keep the chosen option and pipeline in the same
+shell or use a reviewed wrapper. Do not change every recipe's semantics to fix one.
+Keep formatter diagnostics bounded and credential-free; preserve structured result
+bundles when the contract requires them, including proof that relevant tests ran.
+
 Define the result policy explicitly. A failing producer cannot become a passing test because the renderer succeeded. If rendering is itself required, its failure also needs an appropriate non-pass. Keep logs available on failure.
 
 Exercise the wrapper with controlled commands:

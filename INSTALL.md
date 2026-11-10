@@ -1,8 +1,46 @@
 # Install workflow bundles
 
-Current source has 44 skills in nine disjoint bundles under `skills/<group>/<name>/`.
+Current source has 42 skills in nine disjoint bundles under `skills/<group>/<name>/`.
 Use the standard Skills CLI: install core once globally, then whole domain bundles
 locally in the receiving project. No custom installer is required.
+
+## Choose scope before installing
+
+The table/catalog scopes are defaults, not enforced restrictions. Keep core globally.
+For an engineering-heavy personal workflow across many repositories, install the
+engineering bundle globally **instead of** repeating it locally:
+
+```sh
+npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi --global
+```
+
+This makes onboarding/review/submission available before entering an unfamiliar
+checkout. Project-local engineering remains appropriate for project-owned setups.
+Do not install the same skill at both scopes and assume host precedence. Updating
+core/agents alone no longer supplies the formerly global code/review/submission
+entrypoints: deliberately choose engineering's scope before removing old copies.
+This documentation does not migrate existing installations.
+
+For one-off document review or ad-hoc data work, content/data may likewise be global
+opt-ins. Keep data-pipeline mutation within its task/environment authority regardless
+of install scope. Shell scripting is an optional cross-project language specialist
+in workstation. The agents bundle also includes optional browser and TypeSafe adapters;
+its grouping is an installation convenience, not a claim all AI tools are one domain.
+
+For Codex, use the same Skills CLI commands with `-a codex`; Pi/Codex may share
+canonical installed files, so inspect the existing owner before adding/replacing.
+For Claude Code prefer the namespaced plugin route:
+
+```text
+/plugin marketplace add tahabakhit/skills
+/plugin install core@tahabakhit-skills
+```
+
+Install engineering with `claude plugin install engineering@tahabakhit-skills --scope project`
+for a local setup, or `--scope user` for the cross-repository choice. Plugin lifecycle
+is separate from Skills CLI copies: do not activate the same bundle through both.
+Plugin namespaces avoid ambiguous bare skill names; host precedence of duplicate
+names is not assumed. None of these commands was applied to live settings by this task.
 
 ## One-time global core
 
@@ -28,7 +66,7 @@ npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/data
 
 | Bundle | Count | Contents |
 | --- | --- | --- |
-| engineering | 12 | `define-work` plus design, debugging, delivery, testing, review, safe changes, Git, CI, dependencies, packaging and security |
+| engineering | 14 | Repository onboarding, code quality, `define-work`, design, debugging, delivery, testing, review, safe changes, Git, CI, dependencies, packaging and security |
 | content | 1 | `document-review` |
 | interface-review | 1 | `interface-review` |
 | data | 2 | `analyze-data`, `data-pipelines` |
@@ -47,7 +85,11 @@ The repository-root command remains an **all-skill picker**, not a bundle select
 npx skills@latest add tahabakhit/skills -a pi
 ```
 
-These routes read GitHub source rather than the npm wrapper's bundled catalog.
+These routes read the selected GitHub revision, not uncommitted checkout changes
+or the npm wrapper's bundled catalog. Before this candidate is committed/pushed,
+use the checkout wrapper below or pass an absolute local bundle path to the same
+Skills CLI (for example `skills add /path/to/checkout/skills/engineering --skill "*" -a pi`).
+Do not assume remote main already contains the names/counts shown by a local worktree.
 The example `main` URLs track the current source; substitute a commit for `main`
 when reproducibility is required. They require Node.js/npm and GitHub/registry
 access; use the selected upstream CLI's runtime requirements. See
@@ -115,16 +157,16 @@ them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 44 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 42 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-core` | 4 | Published 0.3.0 has the former 5 |
-| `@tahabakhit/skills-engineering` | 12 | Published 0.3.0 has the former 11 |
+| `@tahabakhit/skills-engineering` | 14 | Published 0.3.0 has the former 11 |
 | `@tahabakhit/skills-content` | 1 | Published 0.3.0 has the former 2 |
 | `@tahabakhit/skills-interface-review` | 1 | New locally generated identity; not published |
 | `@tahabakhit/skills-data` | 2 | Existing 0.3.0 release is unchanged |
 | `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
-| `@tahabakhit/skills-agents` | 14 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-agents` | 10 | Locally generated identity; not published by this source change |
 
 Existing `@tahabakhit/skills-design@0.3.0` (1) and
 `@tahabakhit/skills-operations@0.3.0` (9) remain unchanged. The seven-package
@@ -147,7 +189,10 @@ migration evidence and rollback guidance, not current installation ownership.
 prose cleanup belong to core's `create-content`. No legacy-name aliases are needed.
 
 The workstation, linux, macos and agents bundles came from the owner's dotfiles
-and install globally like core. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
+and normally install globally like core. The new purpose names are hc-delegation,
+analyze-pi-sessions, agent-tooling-design and dependency-updates; see the
+[catalog name map](CATALOG.md#setup-cleanup-and-name-map). Resolve resources from
+the host's actual installed skill/plugin path, not a fixed home directory. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
 catalog does not uninstall old names, retire chezmoi sources, alter host settings
 or apply changes to live installations. Those actions need their own authorization
 and verification. Do not activate duplicate copies via native package loading and

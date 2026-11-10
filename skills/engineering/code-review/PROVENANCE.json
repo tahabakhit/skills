@@ -8,11 +8,18 @@
       "file": "LICENSE",
       "copyright": "Copyright (c) Taha Bakhit",
       "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-IMPORTED",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
     }
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Assemble original procedure and local references with the project notice and source comparison record."
+    "Assemble original procedure and local references with the project notice and source comparison record.",
+    "Consolidate overlapping imported entrypoint as optional local reference guidance.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -25,19 +32,58 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
+      "path": "LICENSE-IMPORTED",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "references/review-judgment/guide.md",
+      "sha256": "6d274d750c9eb3cb1573c8471bd1d375d5bddc1ca359be59a3dbd110f25c0c05",
+      "gitBlob": "dc1676a99fd8166346c92b47373a14b37228bcf5"
+    },
+    {
+      "path": "references/review-judgment/LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "references/review-judgment/LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/review-judgment/PROVENANCE.json",
+      "sha256": "4dac8675cf3f33b8abbd468c35f82990a96c4fc2575f7e3f624b1d3f9d2daef2",
+      "gitBlob": "1b043a422293a5eb24eb20c1023de38fbb81c9a6"
+    },
+    {
+      "path": "references/review-judgment/UPSTREAM.md",
+      "sha256": "cbff879858ba00927ffd9d7a8675038ba7b7b03904c171b5c5ee1622b24cd001",
+      "gitBlob": "bd2da8550ab8bf6b31782f68ae4aeedeea58b953"
+    },
+    {
       "path": "references/review-passes.md",
-      "sha256": "c41113df4eabfaa387e4831485fca8253c0179f519d957ff2c29fd8589199844",
-      "gitBlob": "6603bceecca521677ea16fad3d82d6f24d87d4a2"
+      "sha256": "a36d5a33b557d8d4c5b73bd21a9bf413fe5ae1321332738db233a1644820ed89",
+      "gitBlob": "d946de2675077a6799c4f12a123378ce7d99afab"
     },
     {
       "path": "SKILL.md",
-      "sha256": "30fb68e6a21c26e8ec1eefaed24fd4edb8789564dade8330ce41f998560c47a3",
-      "gitBlob": "e3b4d49bd2718e408c2a3f4e185b2a203ca4c3bd"
+      "sha256": "0501743d71fd8b0c57d864738d6348c8ef396c65f443318af81a27b20428f36a",
+      "gitBlob": "c61c231cdfd027689d97a828383253e03d26b77f"
     },
     {
       "path": "SOURCES.json",
       "sha256": "a4d2cb874fdc56f169593c0bc8ccb1a3e96e7ae03e03cbcbedfcd8ffe4d18a04",
       "gitBlob": "7206c04136588cd9a5a7db7c0a7af1a9f8fb4b9c"
+    }
+  ],
+  "imports": [
+    {
+      "sourceRecord": "references/review-judgment/PROVENANCE.json",
+      "note": "Original input identities retained; declared loaded files locally adapted to complementary judgment. Root files records current payload identities.",
+      "adaptedFiles": [
+        "guide.md"
+      ]
     }
   ]
 }

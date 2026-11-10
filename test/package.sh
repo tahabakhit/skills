@@ -39,9 +39,8 @@ for skill in $(jq -r '.skills[].name' catalog.json); do
     /^description: / { if (length($0) > 13 && length($0) <= 1037) described = 1 }
     END { if (!closed || !named || !described) exit 1 }
   ' "$file" || fail "invalid frontmatter in $file"
-  # Skills moved from dotfiles keep their size until reviewed; see CATALOG.md.
-  [ "$(jq -r --arg name "$skill" '.skills[] | select(.name==$name) | .origin' catalog.json)" = moved-from-dotfiles ] ||
-    [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
+  # Every discoverable entrypoint is bounded, regardless of its origin.
+  [ "$(wc -w < "$file")" -lt 1300 ] || fail "oversized instructions: $file"
 done
 pass 'cataloged, named, described and bounded skills'
 

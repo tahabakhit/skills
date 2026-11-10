@@ -1,0 +1,16 @@
+{
+  "scope":"Read-only host-loaded source smoke: actual entrypoint reads and boundary explanations, not executing the requested actions or automatic production routing.",
+  "cases":[
+    {"id":"I01","task":"Draft a GitHub issue from supplied bug evidence. Do not publish it or implement a fix.","expectedPrimary":["git-hygiene"]},
+    {"id":"I02","task":"Compare two proposed module interfaces; return a design decision without implementation.","expectedPrimary":["codebase-design"]},
+    {"id":"I03","task":"Diagnose the first wrong decision in a saved Pi agent session. The reader is installed in a plugin bundle, not a fixed home-directory path.","expectedPrimary":["agent-session-diagnostics"],"expectedBoundary":"Locate actual installed reader; do not treat a missing legacy path as missing capability."},
+    {"id":"I04","task":"Design a new agent-facing tool's input schema and recoverable errors, without auditing the full environment.","expectedPrimary":["agent-tooling-design"]},
+    {"id":"I05","task":"Review interactive completion setup in .bashrc for a Bash user. Do not activate or source their real shell configuration.","expectedPrimary":["shell-scripting"],"expectedBoundary":"Bash syntax, not unconditional Zsh semantics."},
+    {"id":"I06","task":"Diagnose screen sharing in a Fedora desktop session before making package or SELinux changes.","expectedPrimary":["linux-desktop"]},
+    {"id":"I07","task":"Review a change restoring a public export. Its test imports that exact export. Is the test relevant evidence for the export contract, and what does it not prove? No editing.","expectedPrimary":["code-review"],"expectedBoundary":"Valid for exact export contract, insufficient alone for broader behavior."},
+    {"id":"I08","task":"Use the native in-harness subagent facility, not hc terminals, for a small side question.","expectedPrimary":[null]},
+    {"id":"I09","task":"Diagnose a flaky test that sleeps 200ms to infer two completed 100ms tick outputs; async callbacks may finish later.","expectedPrimary":["systematic-debugging"],"expectedBoundary":"Wait for completed output count, not elapsed time."},
+    {"id":"I10","task":"Review a supplied report for incorrect facts, arithmetic and unsupported conclusions. Return findings without rewriting.","expectedPrimary":["document-review"]},
+    {"id":"I11","task":"Use hc for a scoped read-only child review. It has no messaging/file-write permission, and there is no higher-priority requirement to send a message. Explain the handback contract; do not launch anything in this test.","expectedPrimary":["hc-delegation"],"expectedBoundary":"Screen/marker collection, no demand for forbidden writes or sends; bind parent before launching send-enabled children."}
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "name": "macos-administration",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/macos/ into skills/macos/macos.",
+    "Purpose-focused setup cleanup: rename or shorten the entrypoint; retain original source records and specialist guidance."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "688f7915cdc65cae863ae96398e46b359ff4305b841877d4908d8c58a6b4721f",
+      "gitBlob": "e446b104ff26257a59a971246eb3edf16f23c00c"
+    },
+    {
+      "path": "references/native-operations.md",
+      "sha256": "7ead957f577cb0e0cea2977ebb2f4c7424764bd8eeb98024c7ed5a2702839b06",
+      "gitBlob": "ec34ca39800d55fba38782e1380962017d7a1fad"
+    }
+  ]
+}

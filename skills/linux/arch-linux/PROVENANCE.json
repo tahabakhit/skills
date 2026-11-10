@@ -16,7 +16,8 @@
   ],
   "requiredSiblingSkills": [],
   "changes": [
-    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/arch-linux/ into skills/linux/arch-linux."
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/arch-linux/ into skills/linux/arch-linux.",
+    "Update optional specialist handoffs to the purpose-named administration skills."
   ],
   "verification": {
     "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
@@ -34,8 +35,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "d5fba51b32177c809de039f8f5c7ac5b1cd87a438ff33b845ac4c57b7057cb61",
-      "gitBlob": "2efc18e5a2c9804dd34b5aaa87b0750b74c280c1"
+      "sha256": "f97a49f7e6b7703827e3e67c18a1e1daf43a03235e685ef5619437786551f168",
+      "gitBlob": "20f52a8cdac13bf3ef16a942c777c625b129d180"
     },
     {
       "path": "UPSTREAM.md",
@@ -54,8 +55,8 @@
     },
     {
       "path": "references/update-recovery.md",
-      "sha256": "7512cd660bc047efbc566470e07686abf150044319d110238cbb76f6035877c5",
-      "gitBlob": "566c6862fc840757109754b28b8a30b9402d524e"
+      "sha256": "3a54d139e2a155f33744a70d96abfcdd07900542864e07a0459a75a605d8416f",
+      "gitBlob": "620c16ff24a10b3474f76fba8ddfe6f037b68f85"
     }
   ]
 }

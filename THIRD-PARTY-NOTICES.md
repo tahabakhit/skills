@@ -71,7 +71,7 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 44 skills under `skills/<group>/<name>/` in nine bundles;
+Current source contains 42 skills under `skills/<group>/<name>/` in nine bundles;
 the former configuration bundle name is removed. The redundant `unslop` folder
 is removed with no alias; prose cleanup belongs to core's `create-content`.
 Its historical adaptation used the pinned Bolens grant above, retained in the
@@ -97,6 +97,20 @@ this package.
 `herdr-core` was never an included skill. No `herdr-core` or `ketch` content/runtime
 is redistributed by these imports; historical audit references do not establish
 current installation ownership.
+
+## Consolidated agent guidance
+
+The dotfiles import includes guidance carrying the MIT notice **Copyright (c)
+2026 Igor Warzocha**, plus Taha Bakhit's local notice and pinned folder-local
+`UPSTREAM.md` records. The former `review-judgment`, `repository-delivery` and
+`communication` payloads now live under the `references/` trees of `code-review`,
+`git-hygiene` and `create-content`, respectively (submission material is under
+`git-hygiene/references/submission`). Each full original notice and
+origin record remains in that tree as an input identity, not a checksum assertion
+about locally adapted loaded prose; each receiving skill also carries the full
+upstream grant as `LICENSE-IMPORTED`. The former `codebase-hygiene` material is
+now engineering's `code-quality`, with its original notices and references.
+Renaming or consolidating an entrypoint does not make its expression newly authored.
 
 ## Chezmoi skills
 

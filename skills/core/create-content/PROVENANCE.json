@@ -13,6 +13,11 @@
       "file": "LICENSE-BOLENS",
       "spdx": "MIT",
       "copyright": "Copyright (c) 2026 bolens"
+    },
+    {
+      "file": "LICENSE-IMPORTED",
+      "copyright": "Copyright (c) 2026 Igor Warzocha",
+      "spdx": "MIT"
     }
   ],
   "requiredSiblingSkills": [],
@@ -23,7 +28,9 @@
     "Merge audited installed specialist references and carry Bolens MIT notice.",
     "Move the complete standalone folder to skills/core/create-content without changing licenses or existing pinned source inputs.",
     "Absorb useful scope-bound prose-cleanup guidance from the local unslop adaptation; remove its optional handoff without an alias, retaining the existing Bolens notice.",
-    "Tighten drafting and cleanup prose, retain evidence/voice/format boundaries, and return the artifact first with only material explanatory notes."
+    "Tighten drafting and cleanup prose, retain evidence/voice/format boundaries, and return the artifact first with only material explanatory notes.",
+    "Consolidate overlapping imported entrypoint as optional local reference guidance.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "verification": {
     "scope": "Recorded file identities and local notice/reference closure. Not legal clearance or full behavioral verification.",
@@ -41,9 +48,64 @@
       "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
     },
     {
+      "path": "LICENSE-IMPORTED",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
       "path": "references/analytical-reports.md",
       "sha256": "4ce0a0605c3d5b61dae88cc4b6798a14fef67f02079af4ec3268a49e25c220ae",
       "gitBlob": "db2c724317f0c58628c20017778e47213bfc2cb2"
+    },
+    {
+      "path": "references/communication/guide.md",
+      "sha256": "2f70d50b74deb8362be132802b4603287dca84649b0dadbc47060a7536ee826f",
+      "gitBlob": "d5d1e5628e43ed314f58a22ded15963a3c49b8fb"
+    },
+    {
+      "path": "references/communication/LICENSE",
+      "sha256": "62e30d946c466ae06393dc26d5073a46e03759eae97fa2d078b934534d15be6e",
+      "gitBlob": "2fd3d4e9ace72f872d4b9193afbb1b7f8edadbea"
+    },
+    {
+      "path": "references/communication/LICENSE.local",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "references/communication/PROVENANCE.json",
+      "sha256": "6f6d1b3d279e1b1e75e79a220062635fc918d40022288d2ba9af7600ea73036a",
+      "gitBlob": "b358aa702edf25a84d62f47e05330e8a884d80b8"
+    },
+    {
+      "path": "references/communication/references/explain-and-teach.md",
+      "sha256": "a0f0c669f593bb61f8aff1df53873c6a90126b8b2018685e16941eb614553d71",
+      "gitBlob": "ca4af53e303c80b6f2565f6f9fe704a61bd89876"
+    },
+    {
+      "path": "references/communication/references/exploration.md",
+      "sha256": "6d4fe263c6d09974df673e41accf56a19edc2853ab57ab9c2ea9df39c921b827",
+      "gitBlob": "8da6c6954562ca9c3ad6608f3e3bc5054eb24a60"
+    },
+    {
+      "path": "references/communication/references/non-code-review.md",
+      "sha256": "00b0abb282a849b0bd552a683fc624bf029ab1d4f891f0eef8763442d1dd5017",
+      "gitBlob": "6b7d2de69563e95ca9080f2298d3526243642fee"
+    },
+    {
+      "path": "references/communication/references/technical-writing.md",
+      "sha256": "903b8b6c330da7af55ab66f05fef4c205a7ad85a3c4a28850e4663cb57ababd9",
+      "gitBlob": "fd80b3fbfbe47f03b5cffecd774b7fee32c62198"
+    },
+    {
+      "path": "references/communication/references/writing.md",
+      "sha256": "92774fb6a2a10c29c46ec72fd7958c9945f69d311ece6d2afd10b39dcc7234a8",
+      "gitBlob": "ea7f4076dad5c088f5ca7dbcd00eb4991c32e914"
+    },
+    {
+      "path": "references/communication/UPSTREAM.md",
+      "sha256": "5ec261ac1dea8907e2d2eda898b7157a555cafbff92d7c81f3f445ec91404d2c",
+      "gitBlob": "5ed875acac3f8696be980193ec920d982130ccb9"
     },
     {
       "path": "references/document-structure.md",
@@ -72,8 +134,8 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "0e3cc0c97c20f3cc81ab3aae7795cb6d8e49a2d7c1f32c1a6bfb81ad544c26f4",
-      "gitBlob": "3689a618209201768cdd9008d68c0edf058887d8"
+      "sha256": "e28882914149accc91dd993570d6e27ce390c654f91549b28387037622987c5d",
+      "gitBlob": "a2f878bd97834999fa4c6fff8ac9c782d086a66e"
     },
     {
       "path": "SOURCES.json",
@@ -136,6 +198,14 @@
       "changes": [
         "Adapt selected non-redundant cleanup guidance into SKILL.md; omit blanket word and punctuation bans, duplicate sentence rules, and any separate skill or alias.",
         "Retain the existing complete LICENSE-BOLENS and project LICENSE. Original input identities are copied from the local source record, not re-fetched or rewritten."
+      ]
+    },
+    {
+      "sourceRecord": "references/communication/PROVENANCE.json",
+      "note": "Original input identities retained; declared loaded files locally adapted to complementary judgment. Root files records current payload identities.",
+      "adaptedFiles": [
+        "guide.md",
+        "references/non-code-review.md"
       ]
     }
   ]

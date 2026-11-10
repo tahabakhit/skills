@@ -61,8 +61,8 @@ try {
     console.log(`Native ${global ? 'global' : 'project'} bundle passed: ${group.name} (${group.skills.length})`);
   }
   assert.equal(fs.readFileSync(unrelated, 'utf8'), 'keep');
-  const baseNames = distribution.groups.find(g => g.name === 'core').skills;
-  const localNames = distribution.groups.filter(g => g.name !== 'core').flatMap(g => g.skills);
+  const baseNames = distribution.groups.filter(g => g.recommendedScope === 'global').flatMap(g => g.skills);
+  const localNames = distribution.groups.filter(g => g.recommendedScope === 'project').flatMap(g => g.skills);
   const localLock = JSON.parse(fs.readFileSync(path.join(project, 'skills-lock.json')));
   const globalLock = JSON.parse(fs.readFileSync(path.join(scratch, 'state/skills/.skill-lock.json')));
   assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
@@ -74,5 +74,5 @@ try {
   for (const group of distribution.groups) checkCopies(umbrella, group);
   assert.equal(fs.existsSync(path.join(umbrella, '.agents/skills/unslop')), false);
   assert.equal(fs.existsSync(path.join(project, 'skills-lock.json.taha-install')), false);
-  console.log(`Native upstream passed (${githubRef ? `GitHub ${githubRef}` : 'local sources'}): five subtree sources + umbrella, ${allNames.length} skills, full bytes/modes/references, Pi/Claude/Codex receipts, no local base copies. Disposable targets only.`);
+  console.log(`Native upstream passed (${githubRef ? `GitHub ${githubRef}` : 'local sources'}): ${distribution.groups.length} subtree sources + umbrella, ${allNames.length} skills, full bytes/modes/references, Pi/Claude/Codex receipts, no local base copies. Disposable targets only.`);
 } finally { fs.rmSync(scratch, { recursive: true, force: true }); }

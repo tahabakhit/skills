@@ -1,0 +1,78 @@
+[
+  {
+    "path": "skills/engineering/git-hygiene/SKILL.md",
+    "sha256": "1122e3484d3f994b60719d9f92b9c36c687aa7dd11f73d45812cc55e9ade3ba8"
+  },
+  {
+    "path": "skills/engineering/codebase-design/SKILL.md",
+    "sha256": "a518993855939875a9109221bce20ce98cd0bd0d40b26bcb8607b3d4cdd0692c"
+  },
+  {
+    "path": "skills/agents/agent-session-diagnostics/SKILL.md",
+    "sha256": "a51798c21eb9430d3be298de4492657723c3f6db12d73a3143f9b3a4c633c7ab"
+  },
+  {
+    "path": "skills/agents/agent-tooling-design/SKILL.md",
+    "sha256": "e7b6e62718ccfa7c312c873450e677fadac871d104a35ccdcc5003472b985dc0"
+  },
+  {
+    "path": "skills/workstation/shell-scripting/SKILL.md",
+    "sha256": "bdacd02e7199d9c16b0545f4de5d6b729423a56c6cf25d9a1e983690b1cd90b0"
+  },
+  {
+    "path": "skills/linux/linux-desktop/SKILL.md",
+    "sha256": "7446cd67267545855ce826d3e6d0dc2b701edb2364136c8a91be14c68496fd6f"
+  },
+  {
+    "path": "skills/engineering/code-review/SKILL.md",
+    "sha256": "0501743d71fd8b0c57d864738d6348c8ef396c65f443318af81a27b20428f36a"
+  },
+  {
+    "path": "skills/agents/hc-delegation/SKILL.md",
+    "sha256": "fecc8fb651b446d1670c868613cda7eb3b9fd8924eba56bed64e44b457c824e8"
+  },
+  {
+    "path": "skills/engineering/systematic-debugging/SKILL.md",
+    "sha256": "8726451ad0f413ca565449ba992b0d926f3edb7966a9388d80a5b511a157dc89"
+  },
+  {
+    "path": "skills/content/document-review/SKILL.md",
+    "sha256": "a1aec4993522f2e9fc9b8181d0d88390de25d0e50e61c128dfd9d2445296d7eb"
+  },
+  {
+    "path": "skills/engineering/git-hygiene/references/submission/guide.md",
+    "sha256": "2f185548a69e27b3da91c333413b8718a88771cf03c13d90d736539381760869"
+  },
+  {
+    "path": "skills/engineering/git-hygiene/references/submission/references/issues.md",
+    "sha256": "6c146d569d945c221fcaa558cfb0bab2b1d9ba2afecd60bf01c1d130350425b2"
+  },
+  {
+    "path": "skills/agents/analyze-pi-sessions/SKILL.md",
+    "sha256": "2a3c987086c44dcd55de7f8cf0699dbc266ebc87e9e737c7e4fd97410d79b123"
+  },
+  {
+    "path": "skills/agents/agent-tooling-design/references/tool-design.md",
+    "sha256": "badedce2eddd657bdcef8f9ca657495d62b85936107da3ee490774cf90964f8a"
+  },
+  {
+    "path": "skills/engineering/systematic-debugging/condition-based-waiting.md",
+    "sha256": "e6c0f20bedc525b1037033af3f2b7b2b97ae6fec279accd3c48a25abbf74049c"
+  },
+  {
+    "path": "skills/engineering/code-review/references/review-passes.md",
+    "sha256": "a36d5a33b557d8d4c5b73bd21a9bf413fe5ae1321332738db233a1644820ed89"
+  },
+  {
+    "path": "skills/workstation/shell-scripting/references/portability.md",
+    "sha256": "d20b3f383a663688257ff07896424ee46ae430a2d1eafa267ef4f03525ed71f2"
+  },
+  {
+    "path": "skills/linux/linux-desktop/references/documentation-sources.md",
+    "sha256": "1af6237febcacd4f61aab4d6bc7b580b2b5a67c03dab272f604332fbb17abdd8"
+  },
+  {
+    "path": "skills/engineering/codebase-design/references/experience-and-interfaces.md",
+    "sha256": "a63b86bb40043fd34bf21621c0553ed5e4c0597cd8658fb52f01ff4104132179"
+  }
+]

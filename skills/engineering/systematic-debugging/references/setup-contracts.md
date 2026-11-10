@@ -155,9 +155,8 @@ browser sessions or another task's processes as incidental cleanup.
 Use lightweight fixtures for most supervisor regressions and a short native probe
 for library-specific shutdown. Do not start another full matrix to test the limiter.
 
-Return accepted proof, busy dependencies, or failed conditions through the existing
-task coordinator. Carry the candidate, requested endpoint, owned resources, and
-remaining work. The optional `git-hygiene` specialist is not bundled or required
-for a single-agent diagnosis.
+Return accepted proof, busy dependencies, or failed conditions to the existing
+task coordinator with the exact candidate, resource owner and evidence. A busy
+resource is not a failed product test or permission to launch another runner.
 Lower process priority can reduce desktop interference but does not replace
 capacity control or prove that checks became faster.

@@ -20,7 +20,7 @@ manager. On macOS, distinguish Apple-managed paths, Homebrew packages/services,
 application preferences and chezmoi sources. Do not compare binary plists or
 application databases as if they were stable text, and do not rewrite them merely
 to make a tree comparison clean. Inspect supported preference interfaces without
-bulk exports. Use the macos skill for native ownership/activation where needed.
+bulk exports. Use the `macos-administration` skill for native ownership/activation where needed.
 
 The comparator uses Python filesystem APIs rather than Linux-only tools; it is
 optional on both platforms. macOS case-insensitive/Unicode-normalizing filesystems

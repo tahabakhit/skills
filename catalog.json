@@ -3,7 +3,7 @@
   "skills": [
     {
       "name": "discover-work",
-      "domain": "engineering",
+      "domain": "cross-domain",
       "maturity": "authored",
       "requiredSkills": [],
       "optionalSkills": [
@@ -15,7 +15,8 @@
       "provenance": "skills/core/discover-work/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "core"
     },
     {
       "name": "define-work",
@@ -23,8 +24,8 @@
       "maturity": "authored",
       "requiredSkills": [],
       "optionalSkills": [
-        "discover-work",
-        "deliver-work"
+        "deliver-work",
+        "discover-work"
       ],
       "activation": "selective",
       "origin": "authored-adaptation",
@@ -32,7 +33,8 @@
       "provenance": "skills/engineering/define-work/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "codebase-design",
@@ -40,8 +42,8 @@
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
-        "interface-review",
-        "change-safely"
+        "change-safely",
+        "interface-review"
       ],
       "path": "skills/engineering/codebase-design",
       "provenance": "skills/engineering/codebase-design/PROVENANCE.json",
@@ -54,7 +56,8 @@
       },
       "unbundledSpecialists": [
         "improve-codebase-architecture"
-      ]
+      ],
+      "bundle": "engineering"
     },
     {
       "name": "systematic-debugging",
@@ -62,10 +65,10 @@
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
-        "testing-work",
         "deliver-work",
         "git-hygiene",
-        "security-review"
+        "security-review",
+        "testing-work"
       ],
       "path": "skills/engineering/systematic-debugging",
       "provenance": "skills/engineering/systematic-debugging/PROVENANCE.json",
@@ -79,11 +82,12 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "verify-and-stop",
-      "domain": "engineering",
+      "domain": "cross-domain",
       "maturity": "source-import",
       "requiredSkills": [],
       "optionalSkills": [
@@ -97,7 +101,8 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "core"
     },
     {
       "name": "deliver-work",
@@ -106,12 +111,12 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "define-work",
-        "testing-work",
         "code-review",
-        "verify-and-stop",
+        "define-work",
         "git-hygiene",
-        "release-packaging"
+        "release-packaging",
+        "testing-work",
+        "verify-and-stop"
       ],
       "path": "skills/engineering/deliver-work",
       "provenance": "skills/engineering/deliver-work/PROVENANCE.json",
@@ -119,7 +124,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "testing-work",
@@ -137,7 +143,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "code-review",
@@ -146,9 +153,10 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "testing-work",
+        "code-quality",
+        "git-hygiene",
         "security-review",
-        "git-hygiene"
+        "testing-work"
       ],
       "path": "skills/engineering/code-review",
       "provenance": "skills/engineering/code-review/PROVENANCE.json",
@@ -156,7 +164,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "change-safely",
@@ -165,8 +174,8 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "testing-work",
         "data-pipelines",
+        "testing-work",
         "verify-and-stop"
       ],
       "path": "skills/engineering/change-safely",
@@ -175,7 +184,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "git-hygiene",
@@ -184,8 +194,9 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "deliver-work",
-        "code-review"
+        "code-review",
+        "create-content",
+        "deliver-work"
       ],
       "path": "skills/engineering/git-hygiene",
       "provenance": "skills/engineering/git-hygiene/PROVENANCE.json",
@@ -193,7 +204,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "ci-maintenance",
@@ -211,25 +223,27 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
-      "name": "triage-dependency-updates",
+      "name": "dependency-updates",
       "domain": "engineering",
       "maturity": "experimental",
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "testing-work",
-        "security-review"
+        "security-review",
+        "testing-work"
       ],
-      "path": "skills/engineering/triage-dependency-updates",
-      "provenance": "skills/engineering/triage-dependency-updates/PROVENANCE.json",
+      "path": "skills/engineering/dependency-updates",
+      "provenance": "skills/engineering/dependency-updates/PROVENANCE.json",
       "capabilities": "Existing package manager, manifests and lockfiles. Registry freshness and candidate execution require suitable access and isolation.",
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "release-packaging",
@@ -238,8 +252,8 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "testing-work",
-        "deliver-work"
+        "deliver-work",
+        "testing-work"
       ],
       "path": "skills/engineering/release-packaging",
       "provenance": "skills/engineering/release-packaging/PROVENANCE.json",
@@ -247,7 +261,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "security-review",
@@ -256,8 +271,8 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "code-review",
         "ci-maintenance",
+        "code-review",
         "testing-work"
       ],
       "path": "skills/engineering/security-review",
@@ -266,7 +281,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
       "name": "research-work",
@@ -286,7 +302,8 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "core"
     },
     {
       "name": "create-content",
@@ -295,9 +312,9 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "research-work",
         "analyze-data",
-        "document-review"
+        "document-review",
+        "research-work"
       ],
       "path": "skills/core/create-content",
       "provenance": "skills/core/create-content/PROVENANCE.json",
@@ -305,7 +322,8 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "core"
     },
     {
       "name": "document-review",
@@ -314,8 +332,8 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "research-work",
-        "analyze-data"
+        "analyze-data",
+        "research-work"
       ],
       "path": "skills/content/document-review",
       "provenance": "skills/content/document-review/PROVENANCE.json",
@@ -325,7 +343,8 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "content"
     },
     {
       "name": "interface-review",
@@ -345,7 +364,8 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "interface-review"
     },
     {
       "name": "analyze-data",
@@ -354,8 +374,8 @@
       "origin": "original",
       "requiredSkills": [],
       "optionalSkills": [
-        "research-work",
-        "document-review"
+        "document-review",
+        "research-work"
       ],
       "path": "skills/data/analyze-data",
       "provenance": "skills/data/analyze-data/PROVENANCE.json",
@@ -365,7 +385,8 @@
         "status": "frozen-entrypoint-development-pilot",
         "record": "evaluations/entrypoint-pilot/RESULTS.md",
         "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      }
+      },
+      "bundle": "data"
     },
     {
       "name": "data-pipelines",
@@ -375,8 +396,8 @@
       "requiredSkills": [],
       "optionalSkills": [
         "change-safely",
-        "testing-work",
-        "systematic-debugging"
+        "systematic-debugging",
+        "testing-work"
       ],
       "path": "skills/data/data-pipelines",
       "provenance": "skills/data/data-pipelines/PROVENANCE.json",
@@ -384,49 +405,60 @@
       "activation": "selective",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "data"
     },
     {
       "name": "chezmoi",
       "domain": "workstation",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "managed-config-drift"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/workstation/chezmoi",
       "provenance": "skills/workstation/chezmoi/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "workstation"
     },
     {
       "name": "managed-config-drift",
       "domain": "workstation",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "chezmoi",
+        "macos-administration"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/workstation/managed-config-drift",
       "provenance": "skills/workstation/managed-config-drift/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "workstation"
     },
     {
       "name": "shell-scripting",
       "domain": "workstation",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "chezmoi"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/workstation/shell-scripting",
       "provenance": "skills/workstation/shell-scripting/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "workstation"
     },
     {
       "name": "backup-restore",
@@ -440,91 +472,125 @@
       "provenance": "skills/workstation/backup-restore/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "workstation"
     },
     {
-      "name": "linux",
+      "name": "linux-administration",
       "domain": "linux",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "arch-linux",
+        "backup-restore",
+        "chezmoi",
+        "fedora",
+        "linux-desktop",
+        "macos-administration",
+        "managed-config-drift"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/linux/linux",
-      "provenance": "skills/linux/linux/PROVENANCE.json",
+      "path": "skills/linux/linux-administration",
+      "provenance": "skills/linux/linux-administration/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "linux"
     },
     {
       "name": "linux-desktop",
       "domain": "linux",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "arch-linux",
+        "cachyos",
+        "chezmoi",
+        "fedora",
+        "linux-administration",
+        "managed-config-drift"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/linux/linux-desktop",
       "provenance": "skills/linux/linux-desktop/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "linux"
     },
     {
       "name": "arch-linux",
       "domain": "linux",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "cachyos",
+        "linux-administration",
+        "managed-config-drift"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/linux/arch-linux",
       "provenance": "skills/linux/arch-linux/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "linux"
     },
     {
       "name": "fedora",
       "domain": "linux",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "linux-administration",
+        "linux-desktop"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/linux/fedora",
       "provenance": "skills/linux/fedora/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "linux"
     },
     {
       "name": "cachyos",
       "domain": "linux",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "arch-linux"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/linux/cachyos",
       "provenance": "skills/linux/cachyos/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "linux"
     },
     {
-      "name": "macos",
+      "name": "macos-administration",
       "domain": "macos",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "chezmoi",
+        "managed-config-drift"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/macos/macos",
-      "provenance": "skills/macos/macos/PROVENANCE.json",
+      "path": "skills/macos/macos-administration",
+      "provenance": "skills/macos/macos-administration/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "macos"
     },
     {
       "name": "agents-md",
@@ -538,7 +604,8 @@
       "provenance": "skills/agents/agents-md/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
       "name": "skill-authoring",
@@ -552,49 +619,67 @@
       "provenance": "skills/agents/skill-authoring/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
-      "name": "agent-engineering",
+      "name": "agent-tooling-design",
       "domain": "agents",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "prompt-caching",
+        "skill-authoring"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/agents/agent-engineering",
-      "provenance": "skills/agents/agent-engineering/PROVENANCE.json",
+      "path": "skills/agents/agent-tooling-design",
+      "provenance": "skills/agents/agent-tooling-design/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
       "name": "agent-session-diagnostics",
       "domain": "agents",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "agent-tooling-design",
+        "analyze-pi-sessions",
+        "prompt-caching",
+        "skill-authoring"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
       "path": "skills/agents/agent-session-diagnostics",
       "provenance": "skills/agents/agent-session-diagnostics/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
-      "name": "harness-checklist",
+      "name": "harness-audit",
       "domain": "agents",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "agent-session-diagnostics",
+        "agent-tooling-design",
+        "agents-md",
+        "prompt-caching",
+        "skill-authoring"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/agents/harness-checklist",
-      "provenance": "skills/agents/harness-checklist/PROVENANCE.json",
+      "path": "skills/agents/harness-audit",
+      "provenance": "skills/agents/harness-audit/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
       "name": "prompt-caching",
@@ -608,7 +693,8 @@
       "provenance": "skills/agents/prompt-caching/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
       "name": "chrome-cdp",
@@ -622,7 +708,8 @@
       "provenance": "skills/agents/chrome-cdp/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
       "name": "typesafe-ai",
@@ -636,91 +723,73 @@
       "provenance": "skills/agents/typesafe-ai/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
-      "name": "analyze-sessions",
+      "name": "analyze-pi-sessions",
       "domain": "agents",
       "maturity": "authored",
       "requiredSkills": [],
       "optionalSkills": [],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/agents/analyze-sessions",
-      "provenance": "skills/agents/analyze-sessions/PROVENANCE.json",
+      "path": "skills/agents/analyze-pi-sessions",
+      "provenance": "skills/agents/analyze-pi-sessions/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
     },
     {
-      "name": "codebase-hygiene",
-      "domain": "agents",
+      "name": "code-quality",
+      "domain": "engineering",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [],
+      "optionalSkills": [
+        "change-safely",
+        "dependency-updates",
+        "testing-work"
+      ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
-      "path": "skills/agents/codebase-hygiene",
-      "provenance": "skills/agents/codebase-hygiene/PROVENANCE.json",
+      "path": "skills/engineering/code-quality",
+      "provenance": "skills/engineering/code-quality/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "engineering"
     },
     {
-      "name": "review-judgment",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/review-judgment",
-      "provenance": "skills/agents/review-judgment/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "repository-delivery",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/repository-delivery",
-      "provenance": "skills/agents/repository-delivery/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "communication",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/communication",
-      "provenance": "skills/agents/communication/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      }
-    },
-    {
-      "name": "agent-delegation",
+      "name": "hc-delegation",
       "domain": "agents",
       "maturity": "authored",
       "requiredSkills": [],
       "optionalSkills": [],
       "activation": "selective",
       "origin": "authored",
-      "path": "skills/agents/agent-delegation",
-      "provenance": "skills/agents/agent-delegation/PROVENANCE.json",
+      "path": "skills/agents/hc-delegation",
+      "provenance": "skills/agents/hc-delegation/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
-      }
+      },
+      "bundle": "agents"
+    },
+    {
+      "name": "repository-onboarding",
+      "domain": "engineering",
+      "maturity": "experimental",
+      "origin": "original",
+      "requiredSkills": [],
+      "optionalSkills": [],
+      "path": "skills/engineering/repository-onboarding",
+      "provenance": "skills/engineering/repository-onboarding/PROVENANCE.json",
+      "activation": "selective",
+      "capabilities": "Read-only repository exploration and authorized safe baseline checks; no installer or architecture audit.",
+      "behaviorEvidence": {
+        "status": "not-evaluated"
+      },
+      "bundle": "engineering"
     }
   ],
   "consolidations": [
@@ -779,7 +848,30 @@
         "numerical-analysis"
       ],
       "owner": "analyze-data"
+    },
+    {
+      "components": [
+        "review-judgment"
+      ],
+      "owner": "code-review"
+    },
+    {
+      "components": [
+        "repository-delivery"
+      ],
+      "owner": "git-hygiene"
+    },
+    {
+      "components": [
+        "communication"
+      ],
+      "owner": "create-content"
     }
   ],
-  "coverageNote": "20 canonical owners in five disjoint installation groups. Core is the recommended global base; domain bundles are normally project-local, with selective activation rather than mandatory stages. General prose cleanup belongs to create-content; the redundant unslop skill is removed without an alias. The chezmoi, managed-config-drift, OS administration and workstation-health skills are managed separately by the owner's dotfiles repository. CLI-managed herdr-core/ketch are not included. Source changes do not modify live installations or immutable npm releases."
+  "coverageNote": "42 purpose-scoped owners in nine disjoint installation bundles. Core is the global base; repository workflows and content, interface-review and data domains are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. Code quality and repository onboarding belong to engineering; duplicate review, delivery and communication entrypoints are local references of canonical owners. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
+  "taxonomy": {
+    "bundle": "Installation/package owner, matching distribution.json and source path; not a semantic discipline or permission boundary.",
+    "domain": "Primary subject area, independent of bundle. cross-domain owners are useful outside engineering.",
+    "optionalSkills": "Advertised optional handoffs or judgment owners, not required installs or a mandatory workflow graph. Absence needs a bounded fallback, not automatic installation."
+  }
 }

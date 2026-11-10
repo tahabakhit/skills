@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **44 canonical workflow owners** in nine disjoint
+The approved source layout has **42 purpose-scoped skills** in nine disjoint
 bundles at `skills/<group>/<name>/`. This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -30,23 +30,40 @@ standalone does not mean tool-free.
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
 | core | Global | `discover-work`, `research-work`, `create-content`, `verify-and-stop` (4) |
-| engineering | Local | `define-work`, `codebase-design`, `systematic-debugging`, `deliver-work`, `testing-work`, `code-review`, `change-safely`, `git-hygiene`, `ci-maintenance`, `triage-dependency-updates`, `release-packaging`, `security-review` (12) |
+| engineering | Local | `define-work`, `codebase-design`, `systematic-debugging`, `deliver-work`, `testing-work`, `code-review`, `change-safely`, `git-hygiene`, `ci-maintenance`, `dependency-updates`, `release-packaging`, `security-review`, `repository-onboarding`, `code-quality` (14) |
 | content | Local | `document-review` (1) |
 | interface-review | Local | `interface-review` (1) |
 | data | Local | `analyze-data`, `data-pipelines` (2) |
 | workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| linux | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| macos | Global, macOS | `macos` (1) |
-| agents | Global | Instructions, skills, harnesses, sessions and agent engineering judgment (14) |
+| linux | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| macos | Global, macOS | `macos-administration` (1) |
+| agents | Global | Instructions, skill authoring, harness audits, sessions, integrations and delegation (10) |
 
 `create-content` owns shared writing and prose cleanup. The redundant `unslop`
 entrypoint is removed with no alias. `define-work` is a project engineering skill,
 not global core. Bundle names describe installation sources, not competing workflow
-owners or a new profile framework. The `workstation`, `linux`, `macos` and `agents` bundles moved here unchanged
-from the owner's dotfiles (commit `8eb84ae`); each `PROVENANCE.json` says so. They
-are exempt from the entrypoint word limit and still overlap some engineering/core
-owners (`codebase-hygiene`, `review-judgment`, `repository-delivery`,
-`communication`) until reviewed. `herdr-core` and `ketch` remain excluded CLI integrations.
+owners or a new profile framework. The workstation, OS and agent bundles originated in the owner's dotfiles (commit
+`8eb84ae`), with retained provenance. Current entrypoints share one size bound.
+Code-quality guidance belongs to engineering. Review, delivery and communication
+judgment is optional local reference material of the existing canonical owners,
+not competing entrypoints. [The catalog](CATALOG.md#setup-cleanup-and-name-map)
+records renames and migration boundaries. `herdr-core` and `ketch` remain excluded CLI integrations.
+
+## Capability, subject and installation identity
+
+A skill may be a workflow, judgment library or bounded tool adapter. One procedural
+owner does not require every capability to coordinate work. `catalog.json.bundle`
+is the unique package owner and matches the source path/distribution. `domain` is a
+subject label and can differ: core research has research subject matter, while
+core discovery/verification are cross-domain. Optional sibling metadata describes
+handoffs, not runtime dependencies, required installations or stage scheduling.
+
+Scopes are recommendations, not capability or permission boundaries. Project-local
+engineering is the minimal default; users working across arbitrary repositories may
+install engineering globally instead, once per host—not both locally and globally.
+Document review and ad-hoc analysis may also be global opt-ins. Do not migrate a
+previously global capability to local-only availability silently. See
+[scope choices](INSTALL.md#choose-scope-before-installing).
 
 ## Native distribution and optional adapter
 
@@ -100,10 +117,20 @@ commits cannot replace published bytes.
 
 `deliver-work` is the only end-to-end engineering coordinator; plan and implementation
 modes remain separately usable. Domain skills contribute expertise without starting
-a second delivery process. CI owns pipeline contracts, Git owns writer/candidate
+a second delivery process. `git-hygiene` owns commit/issue/PR drafting and bounded
+submission mechanics; `deliver-work` coordinates implementation and merge/release
+follow-through. A draft request never initiates the delivery coordinator. CI owns pipeline contracts, Git owns writer/candidate
 freshness, testing supplies proof, review supplies findings, and verification maps
 candidate-bound evidence to acceptance. Reuse sufficient records and valid evidence
 rather than creating competing trackers or rerunning every stage.
+
+`code-quality` supplies judgment, not a parallel refactor/test/update procedure.
+Imported review/editorial/submission guides are adapted references with original
+source identities retained, not whole old workflows hidden below the entrypoint.
+Current payload hashes belong to the root provenance; origin hashes identify inputs.
+Shared setup judgment is maintained under ci-maintenance and copied byte-identically
+into systematic-debugging for independent installation. Tests prevent copy drift;
+required cross-skill filesystem links are not used.
 
 Each skill needs clear triggers, exclusions, output, capabilities, action boundaries,
 handoffs and a stopping point. Distinguish required dependencies from optional

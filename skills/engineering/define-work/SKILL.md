@@ -1,6 +1,6 @@
 ---
 name: define-work
-description: Turn an agreed discussion, discovery brief, or existing requirements into a concise, testable specification for engineering delivery. Use when asked to write a spec, define acceptance criteria, or prepare work for resolve-issues. Preserves unresolved decisions and never publishes issues or starts implementation automatically.
+description: Turn an agreed discussion, discovery brief, or existing requirements into a concise, testable specification for engineering delivery. Use when asked to write a spec, define acceptance criteria, or prepare requirements for deliver-work. Preserves unresolved decisions and never publishes issues or starts implementation automatically.
 license: MIT
 ---
 # Define work

@@ -18,7 +18,7 @@ Check whether the relevant runtime and isolated test environment exist. Read-onl
 
 ## Inspect the behavior
 
-Read [review passes](references/review-passes.md). Trace changed values through their producers, consumers, persistence and failure paths. Review the tests and their expected results rather than relying on test names or a green badge. Consult project requirements and standards that apply to the touched behavior.
+Read [review surfaces](references/review-passes.md). For disputed evidence or a material claim needing a decisive counterexample, optionally read [evidence judgment](references/review-judgment/guide.md); it supplements this workflow rather than defining another review procedure. Trace changed values through their producers, consumers, persistence and failure paths. Review the tests and their expected results rather than relying on test names or a green badge. Consult project requirements and standards that apply to the touched behavior.
 
 For each suspected defect, build a counterexample or identify an explicit unmet requirement. Check whether existing guards, callers or runtime behavior invalidate it. Separate security exploitability, confidence and impact. Missing tests can be a required-proof gap without proving that production code is wrong.
 

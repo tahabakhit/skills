@@ -2,14 +2,19 @@
 
 ## Current source and historical records
 
-Current source contains 44 skills at `skills/<group>/<name>/`: core (4, global),
-engineering (12, local), content (1, local), interface-review (1, local), data
+Current source contains 42 skills at `skills/<group>/<name>/`: core (4, global),
+engineering (14, local), content (1, local), interface-review (1, local), data
 (2, local), workstation (4, global), linux (5, global), macos (1, global) and
-agents (14, global). `create-content` is in core and owns
+agents (10, global). `create-content` is in core and owns
 prose cleanup; `define-work` is in engineering. The redundant `unslop` entrypoint
 is removed with no alias. The workstation, linux, macos and agents bundles returned
 from the owner's dotfiles at commit `8eb84ae`; their folder-local provenance
-records that move. `herdr-core` and `ketch` are excluded CLI integrations.
+records that move. Later adaptations keep original input identities/notices while
+root provenance records current loaded bytes. `git-hygiene` now owns submission
+judgment; folded review/editorial guides no longer carry independent procedures.
+CI-maintenance owns shared setup judgment, mirrored with equality checks into
+standalone debugging. Purpose renames are documented in the catalog; scope choices
+are defaults, not forced installations. `herdr-core` and `ketch` are excluded CLI integrations.
 
 The sections below preserve research, origin pins and earlier import/adapter
 results. Counts and upstream paths in historical records describe the inspected

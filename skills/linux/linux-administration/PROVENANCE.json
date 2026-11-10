@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "name": "linux-administration",
+  "kind": "moved-from-dotfiles",
+  "licenses": [
+    {
+      "file": "LICENSE",
+      "copyright": "Copyright (c) Taha Bakhit",
+      "spdx": "MIT"
+    },
+    {
+      "file": "LICENSE-BOLENS",
+      "copyright": "Copyright (c) 2026 bolens",
+      "spdx": "MIT"
+    }
+  ],
+  "requiredSiblingSkills": [],
+  "changes": [
+    "Moved unchanged from tahabakhit/dotfiles 8eb84ae dot_pi/agent/skills/linux/ into skills/linux/linux.",
+    "Drop chezmoi executable_ prefixes from script names; files keep their executable mode.",
+    "Purpose-focused setup cleanup: rename or shorten the entrypoint; retain original source records and specialist guidance."
+  ],
+  "verification": {
+    "scope": "Recorded file identities only. Not legal clearance or behavioral verification."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "c5865efa0b10556bc675e60c956d0ef3b6163f0b133e492d9388c33542222613",
+      "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
+    },
+    {
+      "path": "LICENSE-BOLENS",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "3d4a50d74c815a47249eb38a7f2d3878a161492bbd8ea0e89634433e9f5d9c6b",
+      "gitBlob": "c46277f239c13573c7f48e355a2d7f2c76c7b1be"
+    },
+    {
+      "path": "UPSTREAM.md",
+      "sha256": "915d04852c64631c7605cd96dbe1440cc7f5895692029876bc66e2bd30744210",
+      "gitBlob": "c8832a58dbddb337466d0317f58d67f5e686c75b"
+    },
+    {
+      "path": "references/health-triage.md",
+      "sha256": "c4e7b065ab4d3a312480b6263a363430dffc30f7069d3d1aeaff6badfe820c6a",
+      "gitBlob": "673b4e6a7746bc0bf7c6681b5ab12ec0424ba152"
+    },
+    {
+      "path": "references/platform-boundaries.md",
+      "sha256": "bd058fce165378d31357f8c3ca86165b049c7b5d28a0bce0b6b9776778701277",
+      "gitBlob": "dcb358c3c6b4e650f222a449a8ee2239e2ef0843"
+    },
+    {
+      "path": "references/services-and-network.md",
+      "sha256": "f568c34bca812628d13e8e28d035c9529bb9d7a69775fa44d1511a468064567a",
+      "gitBlob": "783996720759997534e7a1d248a3aa197a238b6a"
+    },
+    {
+      "path": "scripts/collect-health.py",
+      "sha256": "582affbb556edc4eb8479850805fa80b753717f167ee19336072dcda8a4a3c60",
+      "gitBlob": "2e76dcedb01460aaee01a079db9c48ccc2303c15"
+    },
+    {
+      "path": "scripts/collect-health.sh",
+      "sha256": "1255de1fb3512265bec912ee5bda577f489e5947c04930eaf0e0061fd30b1161",
+      "gitBlob": "b8ce901392145671284ea4203dfd36fefb2d0e64"
+    }
+  ]
+}

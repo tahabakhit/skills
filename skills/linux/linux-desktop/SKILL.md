@@ -1,6 +1,6 @@
 ---
 name: linux-desktop
-description: Configure, customize, or troubleshoot Linux desktop environments, window managers, compositors, and desktop shells. Use for KDE Plasma/KWin, GNOME, XFCE, Cinnamon, COSMIC, Hyprland, Niri, Sway, Mango, Noctalia, panels, widgets, shortcuts, window rules, monitors, scaling, theming, and desktop-specific Wayland/X11 or portal issues. Consult current version-matched official documentation before version-sensitive advice or changes; not a replacement for distribution package or boot recovery skills.
+description: Configure or diagnose Linux desktop, compositor, shell, monitor, audio-session and Wayland/X11 portal behavior using version-matched official documentation. First owner for desktop symptoms, including on Fedora; hand package, SELinux or deployment causes to the distro specialist. Not package administration or boot recovery.
 license: MIT
 ---
 
@@ -24,8 +24,8 @@ assume bundled references are current product documentation.
   manager, a package, a generator, or the application itself. Read applicable
   `chezmoi` or `managed-config-drift` skills for source/live mapping. Edit the
   authorized source, not a generated or package-owned file by default.
-- Load `linux` for distribution-neutral service/hardware investigation,
-  `arch-linux` or `fedora` for package operations and recovery, and `cachyos` only
+- Load `linux-administration` for distribution-neutral service/hardware investigation,
+  `arch-linux` or `fedora` for package operations, Fedora policy/deployment causes and recovery, and `cachyos` only
   for actual CachyOS-specific components. A desktop task alone is not permission
   to install packages, switch sessions, or migrate desktop environments.
 

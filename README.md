@@ -1,7 +1,9 @@
 # @tahabakhit/skills
 
-44 standalone workflow skills in nine disjoint bundles. Install **core once globally**,
-then add **whole local bundles** to the projects that need them. Canonical source
+42 purpose-scoped workflow skills in nine disjoint bundles. Install **core once globally**,
+then add **whole local bundles** to the projects that need them. These are scope
+defaults: cross-repository users can install engineering globally instead, and
+content/data can be global opt-ins; avoid duplicate definitions at both scopes. Canonical source
 is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
 
 ## Install for Pi
@@ -24,7 +26,8 @@ Omit `--global` for project bundles. Add `--copy` only if you explicitly want pl
 copies instead of the upstream default installation mode. Review destinations and
 existing ownership before accepting replacements.
 
-These URLs follow the grouped source on `main`; use a commit in place of `main`
+These URLs read remote `main`, not uncommitted checkout changes; use the checkout
+wrapper below to install an unpublished local candidate. Use a commit in place of `main`
 when a fixed source revision is needed. Older npm releases keep their original
 layout and contents. [VERIFICATION.md](VERIFICATION.md) records tested installer
 and host-loader versions, checks and remaining limits.
@@ -32,14 +35,14 @@ and host-loader versions, checks and remaining limits.
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
 | [core](skills/core) | Global | `discover-work`, `research-work`, `create-content`, `verify-and-stop` (4) |
-| [engineering](skills/engineering) | Local | Specification, design, debugging, delivery, tests, review, safe changes, Git, CI, dependencies, packaging, security (12) |
+| [engineering](skills/engineering) | Local | Repository onboarding, code quality, specification, design, debugging, delivery, tests, review, safe changes, Git, CI, dependencies, packaging, security (14) |
 | [content](skills/content) | Local | `document-review` (1) |
 | [interface-review](skills/interface-review) | Local | `interface-review` (1) |
 | [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
 | [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| [linux](skills/linux) | Global, Linux | `linux`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| [macos](skills/macos) | Global, macOS | `macos` (1) |
-| [agents](skills/agents) | Global | Agent instructions, skills, harnesses, sessions, Chrome CDP, TypeSafe, code/review/delivery judgment, communication, agent delegation (14) |
+| [linux](skills/linux) | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| [macos](skills/macos) | Global, macOS | `macos-administration` (1) |
+| [agents](skills/agents) | Global | Agent instructions, skill authoring, harness audits, session diagnosis, Chrome CDP, TypeSafe and delegation (10) |
 
 Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
 all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
@@ -76,6 +79,7 @@ Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
 /skill:deliver-work Implement the agreed specification and return a tested local candidate. Do not publish.
 /skill:testing-work Audit assertion quality without changing production code.
 /skill:code-review Review only the staged candidate without editing it.
+/skill:git-hygiene Draft a GitHub issue from this bug report. Do not publish it.
 ```
 
 Skip discovery for clear requests. Discovery/specification does not start delivery,
@@ -86,7 +90,12 @@ not replace required independent review.
 
 `create-content` owns writing and prose cleanup in core. The redundant `unslop`
 entrypoint is removed, with no alias. `define-work` belongs to engineering.
-See [the catalog](CATALOG.md) for exact responsibilities and gaps.
+`git-hygiene` owns commit/issue/PR drafting and bounded submission; `deliver-work`
+coordinates implementation and merge/release follow-through. The agents bundle's
+scope-focused names are `hc-delegation`, `analyze-pi-sessions` and
+`agent-tooling-design`; engineering's update owner is `dependency-updates`.
+See [the catalog](CATALOG.md) for exact responsibilities and gaps, and
+[scope choices](INSTALL.md#choose-scope-before-installing) before changing installs.
 
 ## Optional checkout wrapper and npm status
 
@@ -111,11 +120,12 @@ cover preparing a future version, not overwriting `0.3.0`.
 
 ## Coverage, provenance and safety
 
-The `workstation`, `linux`, `macos` and `agents` bundles moved here unchanged
-from the owner's dotfiles (commit `8eb84ae`); each `PROVENANCE.json` says so. They
-are exempt from the entrypoint word limit and still overlap some engineering/core
-owners (`codebase-hygiene`, `review-judgment`, `repository-delivery`,
-`communication`) until reviewed.
+The workstation, OS and agent material originated in the owner's dotfiles
+(commit `8eb84ae`); provenance retains that history. Current entrypoints all share
+the same size bound. Repository/code guidance now belongs to engineering; duplicate
+review, delivery and communication entrypoints became optional references of their
+canonical owners. See [the cleanup map](CATALOG.md#setup-cleanup-and-name-map) for
+renames and installation migration boundaries.
 `herdr-core` and `ketch` are
 excluded external CLI integrations. Source changes do not migrate or uninstall
 live skills. Check current managers before replacing any installed folder; the

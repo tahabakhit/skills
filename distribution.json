@@ -31,10 +31,12 @@
         "change-safely",
         "git-hygiene",
         "ci-maintenance",
-        "triage-dependency-updates",
+        "dependency-updates",
         "release-packaging",
         "security-review",
-        "define-work"
+        "define-work",
+        "code-quality",
+        "repository-onboarding"
       ]
     },
     {
@@ -78,7 +80,7 @@
       "description": "Linux diagnostics, desktops, Arch, Fedora and CachyOS administration",
       "recommendedScope": "global",
       "skills": [
-        "linux",
+        "linux-administration",
         "linux-desktop",
         "arch-linux",
         "fedora",
@@ -90,28 +92,24 @@
       "description": "Apple silicon macOS administration",
       "recommendedScope": "global",
       "skills": [
-        "macos"
+        "macos-administration"
       ]
     },
     {
       "name": "agents",
-      "description": "Agent instructions, skills, harness design, session diagnostics and engineering judgment",
+      "description": "Agent instructions, skill authoring, harness audits, session diagnostics and integrations",
       "recommendedScope": "global",
       "skills": [
         "agents-md",
         "skill-authoring",
-        "agent-engineering",
+        "agent-tooling-design",
         "agent-session-diagnostics",
-        "harness-checklist",
+        "harness-audit",
         "prompt-caching",
         "chrome-cdp",
         "typesafe-ai",
-        "analyze-sessions",
-        "codebase-hygiene",
-        "review-judgment",
-        "repository-delivery",
-        "communication",
-        "agent-delegation"
+        "analyze-pi-sessions",
+        "hc-delegation"
       ]
     }
   ]

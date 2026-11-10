@@ -54,7 +54,8 @@
     "Mark TDD and sensitive-info-audit handoffs explicitly optional.",
     "Replace root-only provenance pointers with this self-contained record and retain complete author notices.",
     "Replace optional legacy handoff names with this collection's owned roles after the entrypoint pilot snapshot was frozen; preserve stage authority and all original input/ancestor records.",
-    "Add an optional performance-profiling reference adapted from pinned DROO inputs with complete upstream and local notices. Tighten delivery/fleet handback prose without changing authority boundaries."
+    "Add an optional performance-profiling reference adapted from pinned DROO inputs with complete upstream and local notices. Tighten delivery/fleet handback prose without changing authority boundaries.",
+    "Semantic audit follow-through: reconcile ownership, evidence/action boundaries, current names or installed-path discovery; preserve original inputs and notices."
   ],
   "upstreamFiles": [
     {
@@ -174,9 +175,54 @@
   ],
   "files": [
     {
+      "path": "agents/openai.yaml",
+      "sha256": "f6ca2199e6bd93c02ec9ca787456a0a0d0bf7d6c480eac679c7295003c2ecf0b",
+      "gitBlob": "765401f199342260ee35594e648148838b40f7bf"
+    },
+    {
+      "path": "condition-based-waiting-example.ts",
+      "sha256": "40ae5ebe497fdf310200e43fe986552546d0a22837c0d39e855db1cfd33eb88e",
+      "gitBlob": "703a06b653160d060bbf46ab5c6e0cd7446bd592"
+    },
+    {
+      "path": "condition-based-waiting.md",
+      "sha256": "e6c0f20bedc525b1037033af3f2b7b2b97ae6fec279accd3c48a25abbf74049c",
+      "gitBlob": "bdbbb03ccfa4913a555a819e178949b6ce009528"
+    },
+    {
+      "path": "CREATION-LOG.md",
+      "sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789",
+      "gitBlob": "9aa03092809feaf93c9bfa985252f6f1c9624692"
+    },
+    {
+      "path": "defense-in-depth.md",
+      "sha256": "8d0b8c17a3b6f551655971194384e40ae89e2d21e565396cc9eb3841bd5e1017",
+      "gitBlob": "34b9feade3479f2ff043c61e13f57b22b603f5f2"
+    },
+    {
+      "path": "find-polluter.py",
+      "sha256": "4abfb2b9bf5b86b241c638946860ef2151801c73cf153bd19a113aa870c28ab7",
+      "gitBlob": "ec2b8f7cd60b1b16de37cb24ae3dd7294cfb1fba"
+    },
+    {
+      "path": "find-polluter.sh",
+      "sha256": "e93de768032e51b58c029715d27119afdc65fb251274cd7bee2f73fcf6efda0b",
+      "gitBlob": "4fdaa69ff36a50386363495c2ecc4369bd54c631"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071",
+      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257"
+    },
+    {
       "path": "LICENSE-DROO",
       "sha256": "cdd55259c892ad65e31aec72c1991b898acbe5a53da7ff834ba9f812125b5b1b",
       "gitBlob": "5ac57bf0ddbc7d3ab073b5eff52bb7e1a1a6b835"
+    },
+    {
+      "path": "LICENSE-SUPERPOWERS",
+      "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400",
+      "gitBlob": "abf0390320aa14406af7a520b9b0739fdda9bf08"
     },
     {
       "path": "LICENSE.local",
@@ -184,114 +230,69 @@
       "gitBlob": "a10057e22e396050dd63f4da4bad6e4841e5f691"
     },
     {
+      "path": "references/command-evidence.md",
+      "sha256": "15e9065fd00722a277f62315de1de7cdd00f9582d30e7385d3c952ffb8f405bd",
+      "gitBlob": "3b954f9fcd5f30090b46da9c8edc9b309ca5bd2f"
+    },
+    {
+      "path": "references/development-environments.md",
+      "sha256": "de174a43fa5cd76dc5db0209fc34df24967b07fcdd5e99bd3a1b53aa1673328d",
+      "gitBlob": "33c76211800ac9cf6bc6428f434eb71e089bdc8c"
+    },
+    {
       "path": "references/performance-profiling.md",
       "sha256": "e6b313483308214e57915ec6ff2f7df3034e96f44b3411b98ef448c3366ef86b",
       "gitBlob": "2d5f64000b897cfeb2527f305f78ef4ace58b06f"
     },
     {
-      "path": "agents/openai.yaml",
-      "gitBlob": "765401f199342260ee35594e648148838b40f7bf",
-      "sha256": "f6ca2199e6bd93c02ec9ca787456a0a0d0bf7d6c480eac679c7295003c2ecf0b"
-    },
-    {
-      "path": "condition-based-waiting-example.ts",
-      "gitBlob": "703a06b653160d060bbf46ab5c6e0cd7446bd592",
-      "sha256": "40ae5ebe497fdf310200e43fe986552546d0a22837c0d39e855db1cfd33eb88e"
-    },
-    {
-      "path": "condition-based-waiting.md",
-      "gitBlob": "70994f777c586f7d4c43033aac34c7cf0da6688b",
-      "sha256": "e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26"
-    },
-    {
-      "path": "CREATION-LOG.md",
-      "gitBlob": "9aa03092809feaf93c9bfa985252f6f1c9624692",
-      "sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789"
-    },
-    {
-      "path": "defense-in-depth.md",
-      "gitBlob": "34b9feade3479f2ff043c61e13f57b22b603f5f2",
-      "sha256": "8d0b8c17a3b6f551655971194384e40ae89e2d21e565396cc9eb3841bd5e1017"
-    },
-    {
-      "path": "find-polluter.py",
-      "gitBlob": "ec2b8f7cd60b1b16de37cb24ae3dd7294cfb1fba",
-      "sha256": "4abfb2b9bf5b86b241c638946860ef2151801c73cf153bd19a113aa870c28ab7"
-    },
-    {
-      "path": "find-polluter.sh",
-      "gitBlob": "4fdaa69ff36a50386363495c2ecc4369bd54c631",
-      "sha256": "e93de768032e51b58c029715d27119afdc65fb251274cd7bee2f73fcf6efda0b"
-    },
-    {
-      "path": "LICENSE",
-      "gitBlob": "87584b57d951786ed754a13523f1a288b37c1257",
-      "sha256": "6c2455f9103c305907dfce9dbe93b16e02742ef498c46c96e5dc33e8a66b3071"
-    },
-    {
-      "path": "LICENSE-SUPERPOWERS",
-      "gitBlob": "abf0390320aa14406af7a520b9b0739fdda9bf08",
-      "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
-    },
-    {
-      "path": "references/command-evidence.md",
-      "gitBlob": "76fe33c8c6cf21ab3e539ad46b0f970dc51f58ad",
-      "sha256": "ae8cd652a872c74b4519b18641b04492494c9668a029c6e918fb3448e90fe8fd"
-    },
-    {
-      "path": "references/development-environments.md",
-      "gitBlob": "6c646f7da250d0ac0c7d947ae349fafa7c623c4f",
-      "sha256": "3a20469f53922ae7e0d563a71734623bd5507947517101aa1bcc24e64a131644"
-    },
-    {
       "path": "references/polluter-search.md",
-      "gitBlob": "46d8930f21a42ea5340823fb6aaabce979abf462",
-      "sha256": "96a5cf1fde91fdedd8de0e86807029c4721980b4cf2b0b5debe34a073a05499b"
+      "sha256": "96a5cf1fde91fdedd8de0e86807029c4721980b4cf2b0b5debe34a073a05499b",
+      "gitBlob": "46d8930f21a42ea5340823fb6aaabce979abf462"
     },
     {
       "path": "references/setup-contracts.md",
-      "gitBlob": "6d62789a9f9499e644d5648d64356a8f852a846a",
-      "sha256": "e3e4c90ea9b7cc1be55e667e8a1c4d08160d52f3db6a8fcff97e34dd861153fd"
+      "sha256": "4fffbaf94fb6b92863eb9880cde43bb5697e28f273bf440c7998609846069756",
+      "gitBlob": "7913aa9c9dc80635fb0dc8337bead7c180e521f3"
     },
     {
       "path": "references/wide-events.md",
-      "gitBlob": "31b871b8095d9e2e6851bb6f30f5b63bd76725e7",
-      "sha256": "e301bb61beb69e12551d4f8521e86347589143f444428294aa37db9a26201acb"
+      "sha256": "e301bb61beb69e12551d4f8521e86347589143f444428294aa37db9a26201acb",
+      "gitBlob": "31b871b8095d9e2e6851bb6f30f5b63bd76725e7"
     },
     {
       "path": "root-cause-tracing.md",
-      "gitBlob": "fa5d9439c4fb2837f684b114c55549326fda2b85",
-      "sha256": "bc70f7f6a335e73ea098c0007937d2cada50ce3b20b0a2b7b593763d4cf13c48"
+      "sha256": "bc70f7f6a335e73ea098c0007937d2cada50ce3b20b0a2b7b593763d4cf13c48",
+      "gitBlob": "fa5d9439c4fb2837f684b114c55549326fda2b85"
     },
     {
       "path": "SKILL.md",
-      "gitBlob": "a95dc50517e68e540812be9253b0c12a01299e54",
-      "sha256": "8726451ad0f413ca565449ba992b0d926f3edb7966a9388d80a5b511a157dc89"
+      "sha256": "8726451ad0f413ca565449ba992b0d926f3edb7966a9388d80a5b511a157dc89",
+      "gitBlob": "a95dc50517e68e540812be9253b0c12a01299e54"
     },
     {
       "path": "test-academic.md",
-      "gitBlob": "23a6ed7a2044e0c44d74c3101406140f4851aa41",
-      "sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486"
+      "sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486",
+      "gitBlob": "23a6ed7a2044e0c44d74c3101406140f4851aa41"
     },
     {
       "path": "test-pressure-1.md",
-      "gitBlob": "8d13b467e4a98abfffd12161cbc3c418021d6023",
-      "sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a"
+      "sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a",
+      "gitBlob": "8d13b467e4a98abfffd12161cbc3c418021d6023"
     },
     {
       "path": "test-pressure-2.md",
-      "gitBlob": "2d2315ec8a24ca872bc80d2f4056468ba051462a",
-      "sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016"
+      "sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016",
+      "gitBlob": "2d2315ec8a24ca872bc80d2f4056468ba051462a"
     },
     {
       "path": "test-pressure-3.md",
-      "gitBlob": "89734b86fdc756488df315d53e5c3ac2d3752cd8",
-      "sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708"
+      "sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708",
+      "gitBlob": "89734b86fdc756488df315d53e5c3ac2d3752cd8"
     },
     {
       "path": "UPSTREAM.md",
-      "gitBlob": "34453886d93cf1d08f19c1bf8c9b2fe1ccd2276c",
-      "sha256": "00bdeac70edf827d39b67d2a10fcc518dbd5fbedca40a3f01425afb6131701e9"
+      "sha256": "00bdeac70edf827d39b67d2a10fcc518dbd5fbedca40a3f01425afb6131701e9",
+      "gitBlob": "34453886d93cf1d08f19c1bf8c9b2fe1ccd2276c"
     }
   ],
   "imports": [
