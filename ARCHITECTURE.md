@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **25 purpose-scoped skills** in seven disjoint
+The approved source layout has **19 purpose-scoped skills** in five disjoint
 bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
 workflow; skills that overlapped it, or were really standing rules now kept in the
 global `AGENTS.md`, live frozen in [archive/](archive/README.md). This document defines ownership and distribution,
@@ -16,7 +16,7 @@ passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage ga
 | Audience | Primarily Taha's use, but shareable. Private preferences and personal permissions stay in global `AGENTS.md`, separately managed by chezmoi. |
 | Sources | Adapt reviewed material with exact revisions, full applicable notices, input identities and local changes recorded. |
 | Hosts | Target Pi, Claude Code and Codex; verify actual discovery and behavior rather than claiming compatibility from file placement. |
-| Distribution | Standard Skills CLI with a GitHub group tree URL and `--skill "*" -a pi`; global workstation, OS and agents bundles plus whole local bundles. The checkout wrapper is optional. |
+| Distribution | One native Pi Git package and five Claude Code/Codex user plugins, globally on every supported platform. Skills CLI and the checkout wrapper remain alternatives, not extra loaders. |
 | Progress | No default plan-approval pause. Continue within the requested endpoint and existing authority; pause for unresolved consequential decisions, changed scope or missing permission. |
 | Interaction | Ask simple questions one at a time when user decisions are needed; investigate discoverable facts first. |
 | Review | Ordinary tasks may use one agent, but required independent review cannot be replaced with self-review. Report missing capabilities honestly. |
@@ -31,13 +31,11 @@ standalone does not mean tool-free.
 
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
-| engineering | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| interface-review | Local | `interface-review` (1) |
-| data | Local | `analyze-data`, `data-pipelines` (2) |
+| engineering | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
 | workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| linux | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| macos | Global, macOS | `macos-administration` (1) |
-| agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions, prompt caching and integrations (9) |
+| linux | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| macos | Global | `macos-administration` (1) |
+| agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions and prompt caching (6) |
 
 Writing is pstack's (`technical-writing`, `unslop`); evidence and research rules are
 standards in the global `AGENTS.md`, because they apply to every task rather than
@@ -57,36 +55,27 @@ is the unique package owner and matches the source path/distribution. `domain` i
 subject label and can differ from the bundle. Optional sibling metadata describes
 handoffs, not runtime dependencies, required installations or stage scheduling.
 
-Scopes are recommendations, not capability or permission boundaries. Project-local
-engineering is the minimal default; users working across arbitrary repositories may
-install engineering globally instead, once per host—not both locally and globally.
-Ad-hoc analysis may also be a global opt-in. Do not migrate a
-previously global capability to local-only availability silently. See
+Scopes are recommendations, not capability or permission boundaries. All five
+bundles default to global scope, including both OS bundles everywhere. Explicit
+project-local overrides remain supported, but do not load duplicate definitions at
+both scopes. Skill bodies and references remain task-loaded. See
 [scope choices](INSTALL.md#choose-scope-before-installing).
 
 ## Native distribution and optional adapter
 
-The clean Pi journey uses standard commands:
+Pi uses `git:github.com/tahabakhit/skills` once in its package settings. The
+`pi.skills` manifest remains `["./skills"]`. Claude Code and Codex use five user
+plugins from the marketplace. Dotfiles owns only the declaration and fixed
+five-bundle install policy, not bodies, symlinks or native caches.
 
-```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
-```
+The standard Skills CLI still accepts a GitHub bundle tree URL and `--skill "*"`.
+All bundles default to global scope. An explicit local selection is an alternative,
+not a second loader. The optional wrapper accepts unpublished checkout sources.
+No custom profile framework, dependency resolver or auto-migration is added.
+[INSTALL.md](INSTALL.md) describes scoped maintenance. Native update/reinstall
+semantics require their own evidence; fresh-install fixtures do not establish them.
 
-The tree URL narrows the source to one bundle; the quoted wildcard selects all
-skills in it. Project-domain bundles omit `--global`; workstation, linux, macos
-and agents use global scope. [INSTALL.md](INSTALL.md) lists all bundle commands.
-Add `--copy` only for explicitly desired plain copies, not as a hidden default.
-The root repository remains an all-skill picker. No native group flag, dependency
-resolver, custom profile framework or auto-migration is implied. The `main` URLs
-track the grouped source; use a commit for a fixed revision. Install support and
-scope behavior remain subject to integration checks.
-
-The `pi.skills` manifest remains `["./skills"]`; recursive Pi package discovery
-must be verified separately. Do not load the same skill through both package
-registration and a Skills CLI installation.
-
-`distribution.json` partitions the same canonical folders into seven generated domain
+`distribution.json` partitions the same canonical folders into five generated domain
 packages and an umbrella. `dist/npm/` and `dist/tarballs/` are disposable generated
 output, not edited source copies. Required files must travel with their owner;
 optional sibling handoffs do not become mandatory bundle dependencies. Audit local
@@ -106,8 +95,8 @@ protection. Failures can leave partial installs; no atomic rollback is promised.
 This is a source-only change at package version `0.3.0`, not a new release.
 Immutable npm `0.3.0` still contains the former 30 skills, old group names,
 `unslop` and custom guards. Existing `skills-design` and `skills-operations`
-releases are unchanged. The new `@tahabakhit/skills-interface-review` identity is generated locally, not
-published.
+releases are unchanged. Current source no longer generates data or interface-review
+packages.
 A future npm release needs an unused version, approved exact artifacts, secret
 scans, explicit release authority and registry verification. Source/documentation
 commits cannot replace published bytes.

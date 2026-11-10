@@ -49,8 +49,8 @@ function cli(args, context) {
 
 test('groups select known literal owners, never every skill implicitly', () => {
   assert.deepEqual(select('workstation', distribution), workstation);
-  assert.deepEqual(select('4,workstation,shell-scripting', distribution), workstation);
-  assert.deepEqual(select('data', distribution), ['analyze-data', 'data-pipelines']);
+  assert.deepEqual(select('2,workstation,shell-scripting', distribution), workstation);
+  assert.deepEqual(select('engineering', distribution), ['ci-maintenance', 'dependency-updates', 'release-packaging']);
   assert.deepEqual(select('', distribution), []);
   assert.deepEqual(select('all', distribution), distribution.groups.flatMap(g => g.skills));
   assert.deepEqual(select('macos', distribution), ['macos-administration']);
@@ -62,8 +62,8 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
   assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
-    ['engineering', 3, 'project'], ['interface-review', 1, 'project'], ['data', 2, 'project'],
-    ['workstation', 4, 'global'], ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 9, 'global']
+    ['engineering', 3, 'global'], ['workstation', 4, 'global'],
+    ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 6, 'global']
   ]);
   for (const skill of catalog.skills) {
     const relative = path.relative(root, skillPath(root, distribution, skill.name));
@@ -202,7 +202,7 @@ test('noninteractive CLI cannot silently choose scope or install', t => {
 });
 test('help/list/version and dry run are network-free and leave no installation files', t => {
   const c = fixture(t);
-  for (const args of [['--help'], ['--version'], ['--list'], ['--local', 'data', '--agents', 'pi,codex', '--dry-run']]) {
+  for (const args of [['--help'], ['--version'], ['--list'], ['--local', 'engineering', '--agents', 'pi,codex', '--dry-run']]) {
     const result = cli(args, c);
     assert.equal(result.status, 0, result.stderr);
   }

@@ -17,10 +17,14 @@ const globalGroups = distribution.groups.filter(g => g.recommendedScope === 'glo
 const localGroups = distribution.groups.filter(g => g.recommendedScope === 'project');
 const globalNames = globalGroups.flatMap(g => g.skills);
 const localNames = localGroups.flatMap(g => g.skills);
+const env = { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state'), NPM_CONFIG_CACHE: process.env.npm_config_cache || process.env.NPM_CONFIG_CACHE || path.join(os.homedir(), '.npm'), NPM_CONFIG_OFFLINE: 'true' };
 try {
-  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', globalGroups.map(g => g.name).join(','), '--local', localGroups.map(g => g.name).join(','), '--agents', 'pi,claude-code,codex', '--yes'], {
+  const scopeArgs = [];
+  if (globalGroups.length) scopeArgs.push('--global', globalGroups.map(g => g.name).join(','));
+  if (localGroups.length) scopeArgs.push('--local', localGroups.map(g => g.name).join(','));
+  const result = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), ...scopeArgs, '--agents', 'pi,claude-code,codex', '--yes'], {
     cwd: project, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024,
-    env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state'), NPM_CONFIG_CACHE: process.env.npm_config_cache || process.env.NPM_CONFIG_CACHE || path.join(os.homedir(), '.npm'), NPM_CONFIG_OFFLINE: 'true' }
+    env
   });
   process.stdout.write(result.stdout || '');
   if (result.status !== 0) process.stderr.write(result.stderr || '');
@@ -36,13 +40,29 @@ try {
     }
   }
   const globalLock = JSON.parse(fs.readFileSync(path.join(dir, 'state/skills/.skill-lock.json')));
-  const localLock = JSON.parse(fs.readFileSync(path.join(project, 'skills-lock.json')));
+  const localLockPath = path.join(project, 'skills-lock.json');
   assert.deepEqual(Object.keys(globalLock.skills).sort(), globalNames.slice().sort());
-  assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
+  if (localNames.length) {
+    const localLock = JSON.parse(fs.readFileSync(localLockPath));
+    assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
+  } else {
+    assert.equal(fs.existsSync(localLockPath), false, 'global-only install creates no project lock');
+    assert.deepEqual(fs.readdirSync(project), [], 'global-only install leaves the project untouched');
+  }
+  const override = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--local', 'engineering', '--agents', 'pi,claude-code,codex', '--yes'], {
+    cwd: project, encoding: 'utf8', env
+  });
+  assert.equal(override.status, 0, override.stderr);
+  const localLock = JSON.parse(fs.readFileSync(localLockPath));
+  const engineering = distribution.groups.find(g => g.name === 'engineering');
+  assert.deepEqual(Object.keys(localLock.skills).sort(), engineering.skills.slice().sort());
+  for (const name of engineering.skills) for (const agent of ['.agents', '.claude']) {
+    assert.deepEqual(fs.readFileSync(path.join(project, agent, 'skills', name, 'SKILL.md')), fs.readFileSync(path.join(root, 'skills/engineering', name, 'SKILL.md')));
+  }
   const protectedFile = path.join(home, '.agents/skills/shell-scripting/SKILL.md');
   const bytes = fs.readFileSync(protectedFile);
-  const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'workstation', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env: { ...process.env, HOME: home, CLAUDE_CONFIG_DIR: path.join(home, '.claude'), XDG_STATE_HOME: path.join(dir, 'state') } });
+  const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'workstation', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
-  console.log(`Real pinned installer passed: ${globalNames.length + localNames.length} skills, global+project scopes, Pi/Claude Code/Codex receipts, ${2 * (globalNames.length + localNames.length)} physical copies, recorded hashes and locks; unapproved reinstall refused. Disposable state only.`);
+  console.log(`Real pinned installer passed: ${globalNames.length + localNames.length} default skills, no empty scope arguments or project lock for global-only defaults, explicit local engineering override, Pi/Claude Code/Codex receipts, recorded hashes and locks; unapproved reinstall refused. Disposable state only.`);
 } finally { fs.rmSync(dir, { recursive: true }); }

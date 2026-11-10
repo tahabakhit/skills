@@ -50,58 +50,6 @@
       "bundle": "engineering"
     },
     {
-      "name": "interface-review",
-      "domain": "design",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "path": "skills/interface-review/interface-review",
-      "provenance": "skills/interface-review/interface-review/PROVENANCE.json",
-      "capabilities": "Proposal/source supports bounded reasoning. Runtime accessibility and visual claims require appropriate testing.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "interface-review"
-    },
-    {
-      "name": "analyze-data",
-      "domain": "data",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "path": "skills/data/analyze-data",
-      "provenance": "skills/data/analyze-data/PROVENANCE.json",
-      "capabilities": "Supplied data or an authorized engine. Does not supply credentials, statistical qualification or a causal design.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "frozen-entrypoint-development-pilot",
-        "record": "evaluations/entrypoint-pilot/RESULTS.md",
-        "limits": "One task per treatment and registered ID, except document-review's two tasks. No full-skill, routing, tools or host-portability claim. Compare snapshot hashes before applying results to current files."
-      },
-      "bundle": "data"
-    },
-    {
-      "name": "data-pipelines",
-      "domain": "data",
-      "maturity": "experimental",
-      "origin": "original",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "path": "skills/data/data-pipelines",
-      "provenance": "skills/data/data-pipelines/PROVENANCE.json",
-      "capabilities": "Existing transformation/orchestration stack and authorized disposable target. Platform-specific commands are not bundled.",
-      "activation": "selective",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "data"
-    },
-    {
       "name": "chezmoi",
       "domain": "workstation",
       "maturity": "authored",
@@ -340,7 +288,6 @@
       "requiredSkills": [],
       "optionalSkills": [
         "agent-tooling-design",
-        "analyze-pi-sessions",
         "prompt-caching",
         "skill-authoring"
       ],
@@ -388,65 +335,10 @@
         "status": "not-evaluated"
       },
       "bundle": "agents"
-    },
-    {
-      "name": "chrome-cdp",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/chrome-cdp",
-      "provenance": "skills/agents/chrome-cdp/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "agents"
-    },
-    {
-      "name": "typesafe-ai",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/typesafe-ai",
-      "provenance": "skills/agents/typesafe-ai/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "agents"
-    },
-    {
-      "name": "analyze-pi-sessions",
-      "domain": "agents",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/agents/analyze-pi-sessions",
-      "provenance": "skills/agents/analyze-pi-sessions/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "agents"
     }
   ],
-  "consolidations": [
-    {
-      "components": [
-        "SQL-analysis",
-        "metrics",
-        "cohorts",
-        "numerical-analysis"
-      ],
-      "owner": "analyze-data"
-    }
-  ],
-  "coverageNote": "25 purpose-scoped owners in seven disjoint installation bundles. pstack (cursor/plugins/pstack) is the assumed engineering workflow, so skills that overlapped it (discovery, verification, design, delivery, review, debugging, testing, refactoring, Git submission, onboarding, security review, hc delegation, writing, research and document review) are archived under archive/skills/. Evidence and research standards live in the owner's global AGENTS.md instead. The remaining engineering, interface-review and data skills are project-local. Workstation, Linux, macOS and agent-tooling bundles are optional global specialists. Selective activation is not a mandatory workflow graph. All entrypoints share a word bound. CLI-managed herdr-core/ketch are excluded. Source changes do not modify live installations or immutable npm releases.",
+  "consolidations": [],
+  "coverageNote": "19 purpose-scoped owners in five disjoint global installation bundles. pstack is the assumed engineering workflow; the existing 17 archived skills remain outside discovery. Engineering, workstation, Linux, macOS and agent-tooling bundles are available globally on every supported platform. Install scope is not task authority. Evidence and research standards stay in the owner's global AGENTS.md. Skill bodies and references load only for relevant tasks. CLI-managed herdr-core/ketch and the six owner-excluded skills are not included. Source changes do not modify live installations or immutable npm releases.",
   "taxonomy": {
     "bundle": "Installation/package owner, matching distribution.json and source path; not a semantic discipline or permission boundary.",
     "domain": "Primary subject area, independent of bundle. cross-domain owners are useful outside engineering.",

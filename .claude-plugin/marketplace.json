@@ -14,22 +14,6 @@
       "description": "ci-maintenance, dependency-updates, release-packaging"
     },
     {
-      "name": "interface-review",
-      "source": "./skills/interface-review",
-      "skills": [
-        "./"
-      ],
-      "description": "interface-review"
-    },
-    {
-      "name": "data",
-      "source": "./skills/data",
-      "skills": [
-        "./"
-      ],
-      "description": "analyze-data, data-pipelines"
-    },
-    {
       "name": "workstation",
       "source": "./skills/workstation",
       "skills": [
@@ -59,7 +43,7 @@
       "skills": [
         "./"
       ],
-      "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching, chrome-cdp, typesafe-ai, analyze-pi-sessions"
+      "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching"
     }
   ]
 }

@@ -23,7 +23,6 @@ test('semantic domains, package owners and optional handoffs have distinct valid
 
 test('adapted loaded guides are plain references, not stale skill entrypoints', () => {
   for (const file of [
-    'skills/agents/harness-audit/references/audit-checks.md',
-    'skills/agents/typesafe-ai/references/integration-guide.md'
+    'skills/agents/harness-audit/references/audit-checks.md'
   ]) assert.doesNotMatch(read(file), /^---\s*\nname:/);
 });

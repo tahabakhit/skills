@@ -1,18 +1,22 @@
 # Workflow catalog
 
-Current source has 25 purpose-scoped skills under `skills/<group>/<name>/`. [pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed engineering workflow; the 17 skills that overlapped it or were really standing rules (now in the owner's global `AGENTS.md`) are [archived](archive/README.md) and are not cataloged, packaged or installed. Install the workstation, OS and agents bundles globally and whole domain bundles locally as needed. This is a broad workflow foundation, not every platform, scientific method or professional specialty. Availability does not mean loading every entrypoint and reference into every task.
+Current source has 19 purpose-scoped skills under `skills/<group>/<name>/`.
+[pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed
+engineering workflow. The existing 17 [archived skills](archive/README.md) remain
+outside discovery. Install all five bundles globally on every supported platform,
+including both OS bundles. Availability does not preload entrypoints or references.
 
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
-| [engineering](skills/engineering) | Local | 3 |
-| [interface-review](skills/interface-review) | Local | 1 |
-| [data](skills/data) | Local | 2 |
+| [engineering](skills/engineering) | Global | 3 |
 | [workstation](skills/workstation) | Global | 4 |
-| [linux](skills/linux) | Global, Linux | 5 |
-| [macos](skills/macos) | Global, macOS | 1 |
-| [agents](skills/agents) | Global | 9 |
+| [linux](skills/linux) | Global | 5 |
+| [macos](skills/macos) | Global | 1 |
+| [agents](skills/agents) | Global | 6 |
 
-The seven bundles are disjoint. [INSTALL.md](INSTALL.md) documents native GitHub tree-source commands, not a custom group flag. Immutable published npm `0.3.0` retains the former 30 skills and old names/guards; source edits do not alter it. The new interface-review package identity is locally generated, not published.
+The five bundles are disjoint. [INSTALL.md](INSTALL.md) documents one Pi Git package,
+five native Claude Code/Codex plugins, and alternative Skills CLI commands.
+Immutable published npm `0.3.0` retains its former 30 skills and old names/guards.
 
 The machine-readable [catalog](catalog.json) records capability boundaries and source records.
 `bundle` is the installation/package owner and matches `distribution.json` plus the
@@ -22,7 +26,7 @@ a scheduler or a mandatory chain. Missing optional owners never trigger installa
 Recommended scopes are defaults, not permission boundaries; see
 [scope choices](INSTALL.md#choose-scope-before-installing). `experimental` means the new workflow is provisional. The older `authored` and `source-import` labels describe origin, not measured reliability. The development pilot covers frozen entrypoints only. It does not promote the whole catalog to proven effectiveness.
 
-## Engineering — local (3)
+## Engineering (3)
 
 | Owner | Responsibility | Does not own |
 | --- | --- | --- |
@@ -32,18 +36,21 @@ Recommended scopes are defaults, not permission boundaries; see
 
 These cover what pstack lacks: CI design and hardening (pstack's `fix-ci` only repairs failing checks), dependency assessment and release artifacts. Specs, design, implementation, debugging, tests, review, security review and Git submission belong to pstack's `poteto-mode` and its skills.
 
-## Other local bundles
+## Workstation, OS and agent specialists
 
-Interface-review contains only `interface-review`; data contains `analyze-data`
-and `data-pipelines`.
+Workstation owns chezmoi, managed configuration drift, shell scripting, and backup
+and restore. Linux owns host and desktop administration plus Arch, Fedora and
+CachyOS overlays. macOS owns Apple silicon administration.
 
-| Owner | Responsibility | Does not supply |
-| --- | --- | --- |
-| `interface-review` | Evidence-bounded usability/accessibility review | A new-UI design procedure, certification or a browser adapter |
-| `analyze-data` | SQL, measurement, grain, time, cohorts and reconciliation | Database administration or a complete causal/statistical method |
-| `data-pipelines` | Transformations, late data, incremental state and replay | Complete dbt/Dagster syntax or production-run authority |
+Agents owns instructions, skill authoring, tooling design, session diagnosis,
+harness audits, and prompt caching. Session diagnostics discovers available
+bounded native history controls or reports a capability gap. It does not supply
+a history reader.
 
-Calculation defaults to `analyze-data`. Evidence handling, research and document review follow the evidence standards in the global `AGENTS.md`; writing follows pstack's `technical-writing` and `unslop`.
+`analyze-pi-sessions`, `chrome-cdp`, `typesafe-ai`, `analyze-data`,
+`data-pipelines`, and `interface-review` are excluded. Their active source trees
+are deleted, with no new archive or aliases. Data analysis, pipelines, browser
+control and interface review require separately available capabilities.
 
 ## Consolidation map
 
@@ -51,15 +58,14 @@ Calculation defaults to `analyze-data`. Evidence handling, research and document
 | --- | --- |
 | Planning, implementation, debugging, tests, review, refactoring, migrations, commits and PRs | pstack (`poteto-mode` playbooks and skills); the former owners are [archived](archive/README.md) |
 | Writing, editing, prose cleanup, research and document review | pstack's `technical-writing`/`unslop` and the global `AGENTS.md` evidence standards; the former owners are archived |
-| SQL, metrics, cohorts and numerical analysis | `analyze-data` |
 
 This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
 
 ## Setup cleanup and name map
 
 All entrypoints have the same word bound, including imported material. Source pins,
-notices and useful language/platform guidance remain with their owners. Large
-TypeSafe and harness audit procedures are loaded only through explicit references.
+notices and useful language/platform guidance remain with their owners. The large
+harness audit procedure loads only through an explicit reference.
 
 | Former entrypoint | Current purpose / location |
 | --- | --- |
@@ -70,7 +76,7 @@ TypeSafe and harness audit procedures are loaded only through explicit reference
 | `review-judgment` | Guidance inside `code-review`, since archived in favour of pstack |
 | `repository-delivery` | Submission judgment inside `git-hygiene`, since archived in favour of pstack |
 | `agent-delegation` | `hc-delegation`, since archived; pstack subagents and Orca orchestration replace it |
-| `analyze-sessions` | `analyze-pi-sessions`, bounded Pi-history extraction on any supported host |
+| `analyze-sessions`, `analyze-pi-sessions` | Removed. Session diagnostics uses available bounded native controls or reports a gap |
 | `agent-engineering` | `agent-tooling-design`, agent tools and harness extensions |
 | `triage-dependency-updates` | `dependency-updates`, assessment and authorized application |
 | `communication` | Guidance inside `create-content`, since archived |

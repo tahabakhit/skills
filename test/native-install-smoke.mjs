@@ -63,9 +63,14 @@ try {
   assert.equal(fs.readFileSync(unrelated, 'utf8'), 'keep');
   const baseNames = distribution.groups.filter(g => g.recommendedScope === 'global').flatMap(g => g.skills);
   const localNames = distribution.groups.filter(g => g.recommendedScope === 'project').flatMap(g => g.skills);
-  const localLock = JSON.parse(fs.readFileSync(path.join(project, 'skills-lock.json')));
+  const localLockPath = path.join(project, 'skills-lock.json');
+  if (localNames.length) {
+    const localLock = JSON.parse(fs.readFileSync(localLockPath));
+    assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
+  } else {
+    assert.equal(fs.existsSync(localLockPath), false, 'global-only bundles create no project lock');
+  }
   const globalLock = JSON.parse(fs.readFileSync(path.join(scratch, 'state/skills/.skill-lock.json')));
-  assert.deepEqual(Object.keys(localLock.skills).sort(), localNames.slice().sort());
   assert.deepEqual(Object.keys(globalLock.skills).sort(), baseNames.slice().sort());
   for (const name of baseNames) assert.equal(fs.existsSync(path.join(project, '.agents/skills', name)), false, 'no local base duplication');
   const umbrella = path.join(scratch, 'umbrella'); fs.mkdirSync(umbrella);

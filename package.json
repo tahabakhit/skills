@@ -1,7 +1,7 @@
 {
   "name": "@tahabakhit/skills",
   "version": "0.3.0",
-  "description": "Selectively installable workstation, OS, agent-tooling, CI, release and data skills that complement pstack.",
+  "description": "Global engineering, workstation, Linux, macOS and agent-tooling skills that complement pstack.",
   "license": "MIT",
   "author": "Taha Bakhit",
   "publishConfig": {

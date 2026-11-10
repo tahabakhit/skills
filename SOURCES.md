@@ -2,9 +2,9 @@
 
 ## Current source and historical records
 
-Current source contains 25 skills at `skills/<group>/<name>/`: engineering (3,
-local), interface-review (1, local), data (2, local), workstation (4, global), linux
-(5, global), macos (1, global) and agents (9, global). pstack is the assumed
+Current source contains 19 skills at `skills/<group>/<name>/`: engineering (3),
+workstation (4), linux (5), macos (1) and agents (6). All five bundles default to
+global scope on every supported platform, including both OS bundles. pstack is the assumed
 engineering workflow; the 17 skills that overlapped it or were really standing rules
 (now in the global `AGENTS.md`) moved to [archive/](archive/README.md) with their
 provenance and licenses. The workstation, linux, macos and agents
@@ -24,9 +24,8 @@ No profile framework or native group flag is required.
 
 This is source-only at package version `0.3.0`. Published npm `0.3.0` remains the
 immutable 30-skill release, including old groups, `unslop` and custom guards.
-The new `skills-interface-review` package identity is locally generated, not
-published; existing design/operations releases are
-unchanged. Historical adapter checks below do not establish native grouped-source
+Current source generates five group packages and the umbrella, not data or
+interface-review packages. Existing registry releases remain unchanged. Historical adapter checks below do not establish native grouped-source
 installation or recursive Pi discovery; those require separate integration checks.
 
 ## Focused specialist additions

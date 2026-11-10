@@ -71,8 +71,11 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 28 skills under `skills/<group>/<name>/` in nine bundles;
-skills overlapping pstack are in `archive/skills/`. The former configuration bundle
+Current source contains 19 skills under `skills/<group>/<name>/` in five global
+bundles. The existing 17 archived skills remain unchanged in `archive/skills/`.
+The active analyze-pi-sessions, chrome-cdp, typesafe-ai, analyze-data,
+data-pipelines and interface-review trees are removed without new archives or
+aliases. Required notices remain with retained source and frozen evaluations. The former configuration bundle
 name is removed. The redundant `unslop` folder is removed with no alias.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-package-maintenance`,
@@ -89,8 +92,8 @@ above. The former `rhel-fedora` adaptation used `iuliandita/skills` at
 2025 Iulian Dita, in that artifact's `LICENSE-UPSTREAM` and project notices for
 local changes. Those files are not linked as current source paths here. Source
 and documentation edits do not replace registry bytes or remove their notices.
-The package version remains `0.3.0`; new interface-review package
-identity is generated locally, not published. Existing design/operations
+The package version remains `0.3.0`; current source generates only the five group
+packages and umbrella, without publishing. Existing design/operations
 releases retain their original names and contents. Neither upstream endorses
 this package.
 

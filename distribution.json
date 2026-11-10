@@ -10,28 +10,11 @@
     {
       "name": "engineering",
       "description": "CI maintenance, dependency updates and release packaging not covered by pstack",
-      "recommendedScope": "project",
+      "recommendedScope": "global",
       "skills": [
         "ci-maintenance",
         "dependency-updates",
         "release-packaging"
-      ]
-    },
-    {
-      "name": "interface-review",
-      "description": "Evidence-bounded usability and accessibility review, not new-interface design",
-      "recommendedScope": "project",
-      "skills": [
-        "interface-review"
-      ]
-    },
-    {
-      "name": "data",
-      "description": "Measurement, SQL analysis and stateful data pipelines",
-      "recommendedScope": "project",
-      "skills": [
-        "analyze-data",
-        "data-pipelines"
       ]
     },
     {
@@ -67,7 +50,7 @@
     },
     {
       "name": "agents",
-      "description": "Agent instructions, skill authoring, harness audits, session diagnostics and integrations",
+      "description": "Agent instructions, skill authoring, tooling design, harness audits, session diagnostics and prompt caching",
       "recommendedScope": "global",
       "skills": [
         "agents-md",
@@ -75,10 +58,7 @@
         "agent-tooling-design",
         "agent-session-diagnostics",
         "harness-audit",
-        "prompt-caching",
-        "chrome-cdp",
-        "typesafe-ai",
-        "analyze-pi-sessions"
+        "prompt-caching"
       ]
     }
   ]

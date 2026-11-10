@@ -17,7 +17,7 @@ test('repository and agent owners have disjoint purposes and scope', () => {
     assert.ok(engineering.includes(name));
     assert.equal(agents.includes(name), false);
   }
-  for (const name of ['harness-audit', 'skill-authoring', 'agent-session-diagnostics', 'analyze-pi-sessions', 'agent-tooling-design']) assert.ok(agents.includes(name));
+  for (const name of ['harness-audit', 'skill-authoring', 'agent-session-diagnostics', 'agent-tooling-design']) assert.ok(agents.includes(name));
   for (const [group, name] of [['linux', 'linux-administration'], ['macos', 'macos-administration']]) assert.ok(select(group, distribution).includes(name));
   for (const former of ['codebase-hygiene', 'harness-checklist', 'agent-delegation', 'analyze-sessions', 'agent-engineering', 'triage-dependency-updates']) assert.throws(() => select(former, distribution), /Unknown/);
   // Skills archived for overlapping pstack are no longer selectable.
@@ -48,7 +48,7 @@ test('all entrypoints are bounded; large optional agent guides stay behind local
     const words = read(path.join(root, skill.path, 'SKILL.md')).trim().split(/\s+/).length;
     assert.ok(words < 1300, `${skill.name}: ${words} words`);
   }
-  for (const [name, guide] of [['harness-audit', 'audit-checks'], ['typesafe-ai', 'integration-guide']]) {
+  for (const [name, guide] of [['harness-audit', 'audit-checks']]) {
     const folder = skillPath(root, distribution, name);
     const entry = read(path.join(folder, 'SKILL.md'));
     assert.ok(entry.trim().split(/\s+/).length < 400);

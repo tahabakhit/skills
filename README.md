@@ -1,81 +1,55 @@
 # @tahabakhit/skills
 
-25 purpose-scoped skills in seven disjoint bundles. They complement
-[pstack](https://github.com/cursor/plugins/tree/main/pstack), which is the assumed
-engineering workflow (discovery, design, delivery, debugging, testing, review, writing
-and Git submission); skills that overlapped it, or that were really standing rules for
-a global `AGENTS.md`, are [archived](archive/README.md). Install the **workstation,
-OS and agents bundles globally**, then add **whole local bundles** to the projects
-that need them. These are scope defaults: cross-repository users can install
-engineering globally instead, and data can be a global opt-in; avoid duplicate
-definitions at both scopes. Canonical source
-is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
+19 purpose-scoped skills in five disjoint global bundles. They complement
+[pstack](https://github.com/cursor/plugins/tree/main/pstack), the assumed
+engineering workflow. The existing 17 overlapping skills remain
+[archived](archive/README.md). Six owner-excluded skills are removed, not archived.
+
+Canonical source is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
+All five bundles, including both OS bundles, are available globally on every
+supported platform. Skill bodies and optional references load for relevant tasks,
+not into every conversation. Global `AGENTS.md` stays separately managed.
 
 ## Install for Pi
 
-Global bundles, once per machine (use `macos` instead of `linux` on a Mac):
+Use one native Git package declaration:
 
-```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/linux --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/agents --skill "*" -a pi --global
+```sh
+pi install git:github.com/tahabakhit/skills
 ```
 
-From an engineering project, install the engineering bundle locally:
-
-```fish
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi
-```
-
-The GitHub tree URL selects the group source; `--skill "*"` selects every skill
-in that source. This is the standard Skills CLI, not a custom native group flag.
-Omit `--global` for project bundles. Add `--copy` only if you explicitly want plain
-copies instead of the upstream default installation mode. Review destinations and
-existing ownership before accepting replacements.
-
-These URLs read remote `main`, not uncommitted checkout changes; use the checkout
-wrapper below to install an unpublished local candidate. Use a commit in place of `main`
-when a fixed source revision is needed. Older npm releases keep their original
-layout and contents. [VERIFICATION.md](VERIFICATION.md) records tested installer
-and host-loader versions, checks and remaining limits.
+The package manifest exposes `./skills`. Dotfiles declares that same source once
+in Pi's global settings instead of copying skills. Do not also load these skills
+through Skills CLI copies or another checkout. See [INSTALL.md](INSTALL.md) for
+scope overrides and [VERIFICATION.md](VERIFICATION.md) for discovery checks.
 
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
-| [engineering](skills/engineering) | Local | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| [interface-review](skills/interface-review) | Local | `interface-review` (1) |
-| [data](skills/data) | Local | `analyze-data`, `data-pipelines` (2) |
+| [engineering](skills/engineering) | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
 | [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| [linux](skills/linux) | Global, Linux | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| [macos](skills/macos) | Global, macOS | `macos-administration` (1) |
-| [agents](skills/agents) | Global | Agent instructions, skill authoring, tooling design, harness audits, session diagnosis, Pi session analysis, prompt caching, Chrome CDP and TypeSafe (9) |
+| [linux](skills/linux) | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
+| [macos](skills/macos) | Global | `macos-administration` (1) |
+| [agents](skills/agents) | Global | `agents-md`, `skill-authoring`, `agent-tooling-design`, `agent-session-diagnostics`, `harness-audit`, `prompt-caching` (6) |
 
-Use the same tree-URL pattern for any local bundle; [INSTALL.md](INSTALL.md) has
-all commands. `npx skills@latest add tahabakhit/skills -a pi` remains the repository-wide
-all-skill picker, not a group install. A custom installer is not required.
+## Install for Claude Code and Codex
 
-## Install for Claude Code
-
-Each bundle is also a Claude Code plugin, listed in
-[.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). Add the
-marketplace once, then install the global bundles for your user and other bundles
-per project:
-
-```text
-/plugin marketplace add tahabakhit/skills
-/plugin install workstation@tahabakhit-skills
-/plugin install linux@tahabakhit-skills
-/plugin install agents@tahabakhit-skills
-```
-
-From a project, install a bundle into that project's `.claude/settings.json`:
+Each bundle is a native plugin in
+[.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). Register the
+marketplace once, then install all five bundles for your user:
 
 ```sh
-claude plugin marketplace add tahabakhit/skills --scope project
-claude plugin install engineering@tahabakhit-skills --scope project
+claude plugin marketplace add tahabakhit/skills
+codex plugin marketplace add tahabakhit/skills
+for bundle in engineering workstation agents linux macos; do
+    claude plugin install --scope user "$bundle@tahabakhit-skills"
+    codex plugin add "$bundle@tahabakhit-skills"
+done
 ```
 
-Plugin skills are namespaced, for example `/workstation:chezmoi`. Update them
-through `/plugin`. Do not also install the same bundle with `npx skills -a claude-code`.
+Plugin skills are namespaced, for example `/workstation:chezmoi`. Native managers
+own their caches and registrations. Do not also install the same bundles with
+`npx skills`. Refresh stale marketplaces before fresh installs.
+[INSTALL.md](INSTALL.md) describes scoped maintenance and its verification limits.
 
 ## Use the workflows
 
@@ -92,8 +66,8 @@ Engineering work itself (specs, design, implementation, debugging, tests, review
 commits, PRs and technical writing) goes through pstack's `poteto-mode` and its
 skills; this repository does not carry competing owners. Evidence and research
 standards live in the global `AGENTS.md`, not in a skill.
-The agents bundle's scope-focused names are `analyze-pi-sessions` and
-`agent-tooling-design`; engineering's update owner is `dependency-updates`.
+Agent tooling design and bounded session diagnosis stay in the agents bundle;
+engineering's update owner is `dependency-updates`.
 See [the catalog](CATALOG.md) for exact responsibilities and gaps, and
 [scope choices](INSTALL.md#choose-scope-before-installing) before changing installs.
 
@@ -103,7 +77,7 @@ If you want the additional selector and plan checks, run the wrapper from the
 **current checkout**, targeting the receiving project:
 
 ```fish
-node /path/to/skills-checkout/bin/skills.mjs --global workstation --local engineering --agents pi --project /path/to/project --dry-run
+node /path/to/skills-checkout/bin/skills.mjs --global all --agents pi --project /path/to/project --dry-run
 ```
 
 Inspect the plan before replacing `--dry-run` with `--yes`. For the wizard, omit
@@ -113,9 +87,8 @@ for replacement, shared-agent paths and failure limits.
 This is a source-only change; the package version remains `0.3.0`. Published npm
 `0.3.0` is immutable: it still has 30 skills, old group names, `unslop`, and the old
 custom install guards. It is **not** the grouped source shown above.
-`@tahabakhit/skills-interface-review` is a new locally generated identity,
-**not a published package**. Existing `skills-design`
-and `skills-operations` releases are unchanged. [Release details](INSTALL.md#maintainer-release-process)
+Current source generates only the five group packages and the umbrella.
+Existing data, design, and operations releases are unchanged. [Release details](INSTALL.md#maintainer-release-process)
 cover preparing a future version, not overwriting `0.3.0`.
 
 ## Coverage, provenance and safety
@@ -143,9 +116,8 @@ better delivery. [VERIFICATION.md](VERIFICATION.md) separates recorded checks fr
 untested claims. Format-specific document engines, advanced statistics, platform
 recovery and professional specialist advice are not supplied by generic workflows.
 
-The optional debugging polluter helper executes inspected repository tests; it is
-not a sandbox. It requires Bash, Python 3.9+, POSIX process groups and the project's
-npm test contract. Its TypeScript waiting example needs project-specific types.
+Archived debugging helpers and examples remain historical material. They are not
+part of the active collection or generated packages.
 
 ## Development
 
@@ -159,8 +131,8 @@ install skills or publish. See [CONTRIBUTING.md](CONTRIBUTING.md) for prerequisi
 focused checks and CI coverage. Release dry runs are separate maintainer actions.
 
 The checkout wrapper requires Node.js 22.20+ and npm; it uses Node built-ins and
-invokes pinned Vercel `skills@1.7.4` only after confirmation. The primary native
-route uses `skills@latest` and that version's runtime requirements. Development
+invokes pinned Vercel `skills@1.7.4` only after confirmation. The alternative Skills
+CLI route uses `skills@latest` and that version's runtime requirements. Development
 checks also use Git, jq, Bash and Python 3.9+ for existing helper fixtures. ESLint
 is dev-only and enforces complexity below 15. There are no install hooks.
 

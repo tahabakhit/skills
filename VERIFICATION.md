@@ -696,3 +696,48 @@ guidance now starts from the global workstation, OS and agents bundles.
   seven bundle directories, no diagnostics.
 
 Published npm 0.3.0, including its core and content packages, is unchanged.
+
+## Global personal collection source checks (2026-11-10)
+
+The source candidate retains 19 skills in five bundles, all recommended global:
+engineering (3), workstation (4), linux (5), macos (1), agents (6). Both OS bundles
+remain available on every supported platform. Six excluded active trees and the
+dedicated Pi reader/browser tests are deleted without new archives or aliases.
+The existing 17 archived skills, historical audits, frozen evaluations and release
+records are unchanged. Diagnostics discovers bounded native history controls or
+reports a gap instead of routing to the removed reader.
+
+- `npm ci --ignore-scripts` restored development dependencies from the lockfile.
+- `npm run check` passed lint, 10 package checks and 59 Node tests with zero
+  failures. Six local packages were built/packed. Standalone copies of all 19
+  folders passed file, SHA-256/blob, notice and Markdown-closure checks.
+- `test/global-setup.test.mjs` fixes the exact retained inventory, five global
+  groups, exclusions and marketplace/catalog parity. Negative controls reject a
+  wrong plugin source, an omitted catalog member and a same-count owner swap.
+- `node test/install-smoke.mjs` passed with the pinned Skills CLI 1.7.4 in
+  disposable targets. All 19 defaults installed globally with receipts, hashes
+  and locks. No empty local argument or default project lock was produced.
+  An explicit local engineering override also passed; unapproved reinstall was
+  refused. Its first run failed because the override used an empty fixture npm
+  cache. Sharing the existing explicit offline cache fixed the fixture.
+- `node test/native-install-smoke.mjs /home/taha/.npm/_npx/0757c8f0298e564a/node_modules/skills/dist/cli.mjs`
+  passed against local source. All five global subtree selections and the
+  project-local umbrella copied the exact 19 trees, including modes, references
+  and notices. Global-only selection produced no project lock and preserved an
+  unrelated skill.
+- `node test/pi-discovery.mjs /home/taha/.pi/agent/install/releases/1.5.2/node_modules/@earendil-works/pi-coding-agent/dist/core/skills.js`
+  passed. The installed Pi 1.5.2 loader discovered exactly the umbrella's 19 names
+  and each of the five bundle directories without diagnostics.
+- In the reserved dotfiles source worktree, `sh tests/verify.sh` passed the full
+  source gate, including 51 Node tests, mocked five-plugin selection on Arch,
+  Fedora and macOS, one Pi Git declaration, settings preservation/idempotence and
+  the source secret scan. No source bodies or global instruction changes were
+  introduced there.
+
+Full command logs for this run are under
+`/tmp/global-skills-implementation-*.log` on the implementation machine.
+These are source, package-copy and loader checks, not model-behavior or real
+Claude/Codex plugin lifecycle acceptance. No live settings, installations,
+marketplaces, commits, pushes, publication or VM changes were performed.
+Native marketplace refresh, installed payload verification and independent
+review remain parent-owned rollout gates. Package version stays 0.3.0.
