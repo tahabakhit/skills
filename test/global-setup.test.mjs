@@ -24,7 +24,7 @@ function checkMirrors(registry, catalog, marketplace) {
   assert.deepEqual(catalog.skills.map(({ name, bundle, path, provenance }) => ({ name, bundle, path, provenance })), owners);
   assert.deepEqual(marketplace.plugins.map(({ name, source, skills, description }) => ({ name, source, skills, description })),
     registry.groups.map(group => ({
-      name: group.name, source: `./skills/${group.name}`, skills: ['./'], description: group.skills.join(', ')
+      name: group.name, source: `./skills/${group.name}`, skills: group.skills.map(name => `./${name}`), description: group.skills.join(', ')
     })));
 }
 
@@ -40,6 +40,15 @@ test('all 19 retained skills have exactly five global owners and matching native
     assert.equal(catalog.skills.some(skill => skill.optionalSkills.includes(name)), false);
   }
   assert.deepEqual(read('package.json').pi, { skills: ['./skills'] });
+});
+
+test('mirror checks reject omitted skill roots and same-count substituted roots', () => {
+  const omitted = structuredClone(marketplace);
+  omitted.plugins[0].skills.pop();
+  assert.throws(() => checkMirrors(distribution, catalog, omitted), /deep-equal/);
+  const substituted = structuredClone(marketplace);
+  substituted.plugins[0].skills[0] = './chezmoi';
+  assert.throws(() => checkMirrors(distribution, catalog, substituted), /deep-equal/);
 });
 
 test('mirror checks reject wrong plugin sources, omitted members and same-count owner swaps', () => {
