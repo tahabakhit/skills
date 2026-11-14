@@ -1,6 +1,6 @@
 # @tahabakhit/skills
 
-19 purpose-scoped skills in five disjoint global bundles. They complement
+18 purpose-scoped skills in five disjoint global bundles. They complement
 [pstack](https://github.com/cursor/plugins/tree/main/pstack), the assumed
 engineering workflow. The existing 17 overlapping skills remain
 [archived](archive/README.md). Six owner-excluded skills are removed, not archived.
@@ -26,7 +26,7 @@ scope overrides and [VERIFICATION.md](VERIFICATION.md) for discovery checks.
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
 | [engineering](skills/engineering) | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
+| [workstation](skills/workstation) | Global | `chezmoi`, `shell-scripting`, `backup-restore` (3) |
 | [linux](skills/linux) | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | [macos](skills/macos) | Global | `macos-administration` (1) |
 | [agents](skills/agents) | Global | `agents-md`, `skill-authoring`, `agent-tooling-design`, `agent-session-diagnostics`, `harness-audit`, `prompt-caching` (6) |

@@ -58,9 +58,9 @@ endorsed by DROO.
 
 The `managed-config-drift` adaptation of Bolens material at
 `e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` previously moved to the owner's dotfiles
-repository and has returned as `skills/workstation/managed-config-drift`. Its
-complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MIT
-notice and provenance travel with it.
+repository, returned as `skills/workstation/managed-config-drift`, and was retired
+on 2026-11-15. No current skill ships its material; Git history keeps it with its
+complete MIT grant with copyright 2026 bolens.
 
 `archive/skills/core/create-content` includes three Bolens technical-writing references;
 `archive/skills/engineering/git-hygiene` four Git references;
@@ -122,11 +122,10 @@ Source: [mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills/tree/09
 MIT License, copyright (c) 2026 Mike Kobit. Nine skill entrypoints and 38 reference
 files were consolidated and adapted into the `chezmoi` skill, previously moved to
 `private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
-and now returned as `skills/workstation/chezmoi`. The complete source grant and
-local contribution notice travel with the skill.
-Its `PROVENANCE.json` records original input paths/hashes, resulting identities and
-changes. No upstream runtime, plugin or evaluation harness is bundled. Neither
-Mike Kobit nor the chezmoi project endorses this adaptation.
+and returned as `skills/workstation/chezmoi`. On 2026-11-15 the skill was rewritten
+as an original procedure and its adapted references were deleted. The current
+`chezmoi` skill contains no mkobit material; Git history keeps the adaptation with
+its complete source grant.
 
 ## Matt Pocock skills
 

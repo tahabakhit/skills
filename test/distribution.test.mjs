@@ -15,7 +15,7 @@ import { tree } from '../lib/files.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const distribution = JSON.parse(fs.readFileSync(path.join(root, 'distribution.json')));
 const hash = 'a'.repeat(64);
-const workstation = ['chezmoi', 'managed-config-drift', 'shell-scripting', 'backup-restore'];
+const workstation = ['chezmoi', 'shell-scripting', 'backup-restore'];
 const labels = { pi: 'Pi', codex: 'Codex', 'claude-code': 'Claude Code' };
 function fixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'taha-skills-test-'));
@@ -62,7 +62,7 @@ test('catalog paths and provenance agree with the distribution owner, not workfl
   const catalog = JSON.parse(fs.readFileSync(path.join(root, 'catalog.json')));
   assert.deepEqual(catalog.skills.map(s => s.name).sort(), distribution.groups.flatMap(g => g.skills).sort());
   assert.deepEqual(distribution.groups.map(g => [g.name, g.skills.length, g.recommendedScope]), [
-    ['engineering', 3, 'global'], ['workstation', 4, 'global'],
+    ['engineering', 3, 'global'], ['workstation', 3, 'global'],
     ['linux', 5, 'global'], ['macos', 1, 'global'], ['agents', 6, 'global']
   ]);
   for (const skill of catalog.skills) {

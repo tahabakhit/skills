@@ -1,6 +1,6 @@
 # Standalone skill system
 
-The approved source layout has **19 purpose-scoped skills** in five disjoint
+The approved source layout has **18 purpose-scoped skills** in five disjoint
 bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
 workflow; skills that overlapped it, or were really standing rules now kept in the
 global `AGENTS.md`, live frozen in [archive/](archive/README.md). This document defines ownership and distribution,
@@ -32,7 +32,7 @@ standalone does not mean tool-free.
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
 | engineering | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
+| workstation | Global | `chezmoi`, `shell-scripting`, `backup-restore` (3) |
 | linux | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
 | macos | Global | `macos-administration` (1) |
 | agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions and prompt caching (6) |

@@ -9,7 +9,7 @@ const catalog = read('catalog.json');
 const marketplace = read('.claude-plugin/marketplace.json');
 const retained = {
   engineering: ['ci-maintenance', 'dependency-updates', 'release-packaging'],
-  workstation: ['chezmoi', 'managed-config-drift', 'shell-scripting', 'backup-restore'],
+  workstation: ['chezmoi', 'shell-scripting', 'backup-restore'],
   linux: ['linux-administration', 'linux-desktop', 'arch-linux', 'fedora', 'cachyos'],
   macos: ['macos-administration'],
   agents: ['agents-md', 'skill-authoring', 'agent-tooling-design', 'agent-session-diagnostics', 'harness-audit', 'prompt-caching']

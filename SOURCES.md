@@ -288,8 +288,9 @@ Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkob
 All nine skill entrypoints and 38 reference files were read for this adaptation.
 Their topics were consolidated into one skill, subsequently moved with all 52 files
 to `private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
-and later returned here as `skills/workstation/chezmoi`. The source MIT grant, copyright 2026 Mike Kobit,
-and local contribution notice travel with that source.
+and later returned here as `skills/workstation/chezmoi`. On 2026-11-15 the skill
+was rewritten as an original drift-resolution procedure and this imported material
+was deleted from it. The record below describes the retired adaptation.
 
 The adaptation preserves topic detail while adding an entrypoint safety gate for
 source, destination, configuration and persistent-state identity. It distinguishes

@@ -20,11 +20,10 @@
       "source": "./skills/workstation",
       "skills": [
         "./chezmoi",
-        "./managed-config-drift",
         "./shell-scripting",
         "./backup-restore"
       ],
-      "description": "chezmoi, managed-config-drift, shell-scripting, backup-restore"
+      "description": "chezmoi, shell-scripting, backup-restore"
     },
     {
       "name": "linux",

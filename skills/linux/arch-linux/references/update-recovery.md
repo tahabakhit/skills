@@ -19,7 +19,7 @@ Read the distribution's current official notices and the local repository's upda
 
 Arch does not support partial upgrades. Do not refresh package databases and then selectively upgrade an unrelated subset as a repair. Treat unofficial helpers as clients of pacman, not separate package authorities.
 
-When safety depends on a backup, verify its coverage and a restore on a disposable target. A snapshot alone may omit boot volumes or external state. Review `.pacnew`, `.pacsave`, generated configuration and packaged-default changes against their authoritative sources, optionally with `managed-config-drift`. Never overwrite local changes merely to remove drift.
+When safety depends on a backup, verify its coverage and a restore on a disposable target. A snapshot alone may omit boot volumes or external state. Review `.pacnew`, `.pacsave`, generated configuration and packaged-default changes against their authoritative sources. Never overwrite local changes merely to remove drift.
 
 Keep raw logs and configurations out of agent output. Select non-sensitive fields or have necessary excerpts redacted locally before sharing. Publication requires authority for the exact artifact.
 

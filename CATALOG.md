@@ -1,6 +1,6 @@
 # Workflow catalog
 
-Current source has 19 purpose-scoped skills under `skills/<group>/<name>/`.
+Current source has 18 purpose-scoped skills under `skills/<group>/<name>/`.
 [pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed
 engineering workflow. The existing 17 [archived skills](archive/README.md) remain
 outside discovery. Install all five bundles globally on every supported platform,
@@ -9,7 +9,7 @@ including both OS bundles. Availability does not preload entrypoints or referenc
 | Bundle | Normal scope | Count |
 | --- | --- | --- |
 | [engineering](skills/engineering) | Global | 3 |
-| [workstation](skills/workstation) | Global | 4 |
+| [workstation](skills/workstation) | Global | 3 |
 | [linux](skills/linux) | Global | 5 |
 | [macos](skills/macos) | Global | 1 |
 | [agents](skills/agents) | Global | 6 |
@@ -101,7 +101,7 @@ The catalog itself does not change live skills, links, locks, host settings or c
 | Existing audited capability | Source-repository disposition |
 | --- | --- |
 | `operate-systems`, `arch-package-maintenance`, `arch-update-recovery`, `rhel-fedora`, `workstation-health-triage` | Replaced by the dotfiles-era `linux`, `arch-linux`, `cachyos` and `fedora` skills, now back here in the `linux` bundle. Immutable npm `0.3.0` retains the old copies |
-| `chezmoi`, `managed-config-drift` | Returned from the owner's dotfiles into the `workstation` bundle |
+| `chezmoi`, `managed-config-drift` | Returned from the owner's dotfiles into the `workstation` bundle. On 2026-11-15 `chezmoi` was rewritten as an original drift-resolution procedure and `managed-config-drift` was retired into it |
 | `ci-maintenance`, `git-hygiene` | `ci-maintenance` retains setup/environment references; `git-hygiene` is archived in favour of pstack |
 | `safe-refactor`, `migration` | Covered by pstack (`change-safely` is archived) |
 | `technical-writing` | pstack ships `technical-writing`; the three reference files are archived with `create-content` |

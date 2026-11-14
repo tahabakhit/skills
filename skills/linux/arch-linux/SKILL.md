@@ -59,8 +59,8 @@ Keep credentials, environments and raw logs out of agent output.
 Validate candidate configuration before activation. Verify the requested service,
 command, package regression or boot behavior, not merely installation success.
 Report changed source versus applied state and untested GUI/reboot behavior.
-Broad instability can use `linux-administration`'s health-triage reference; drift ownership can
-use managed-config-drift, without loading an entire skill collection.
+Broad instability can use `linux-administration`'s health-triage reference; dotfiles drift can
+use chezmoi, without loading an entire skill collection.
 
 ## Primary references
 

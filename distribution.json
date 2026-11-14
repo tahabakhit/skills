@@ -23,7 +23,6 @@
       "recommendedScope": "global",
       "skills": [
         "chezmoi",
-        "managed-config-drift",
         "shell-scripting",
         "backup-restore"
       ]

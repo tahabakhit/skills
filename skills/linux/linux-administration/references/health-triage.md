@@ -36,4 +36,4 @@ Rank findings as corroborated active failure, degraded/risky state, unavailable 
 
 Report observations, causal confidence, relevant times, probe limitations and the next discriminating check. Do not restart services, repair packages, delete caches, mount filesystems or change settings during diagnosis. Continue repairs only within existing authority, with exact targets, recovery and post-change verification established.
 
-Optional specialists are `arch-linux`, `cachyos`, `fedora` and `managed-config-drift`. Use only the one relevant to the identified platform or ownership boundary. Boot recovery, declarative systems, container infrastructure and restore testing need their own supported procedures. Report missing expertise rather than treating this collector as a repair playbook.
+Optional specialists are `arch-linux`, `cachyos`, `fedora` and `chezmoi`. Use only the one relevant to the identified platform or ownership boundary. Boot recovery, declarative systems, container infrastructure and restore testing need their own supported procedures. Report missing expertise rather than treating this collector as a repair playbook.

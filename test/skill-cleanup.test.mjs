@@ -32,7 +32,6 @@ test('active OS handoffs use discoverable administration names', () => {
     ['skills/linux/arch-linux/SKILL.md', 'linux-administration'],
     ['skills/linux/fedora/SKILL.md', 'linux-administration'],
     ['skills/linux/arch-linux/references/update-recovery.md', 'linux-administration'],
-    ['skills/workstation/managed-config-drift/SKILL.md', 'macos-administration'],
     ['skills/linux/linux-administration/SKILL.md', 'macos-administration']
   ];
   for (const [file, owner] of routes) {

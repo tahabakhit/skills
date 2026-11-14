@@ -54,31 +54,11 @@
       "domain": "workstation",
       "maturity": "authored",
       "requiredSkills": [],
-      "optionalSkills": [
-        "managed-config-drift"
-      ],
+      "optionalSkills": [],
       "activation": "selective",
-      "origin": "moved-from-dotfiles",
+      "origin": "original-procedure",
       "path": "skills/workstation/chezmoi",
       "provenance": "skills/workstation/chezmoi/PROVENANCE.json",
-      "behaviorEvidence": {
-        "status": "not-evaluated"
-      },
-      "bundle": "workstation"
-    },
-    {
-      "name": "managed-config-drift",
-      "domain": "workstation",
-      "maturity": "authored",
-      "requiredSkills": [],
-      "optionalSkills": [
-        "chezmoi",
-        "macos-administration"
-      ],
-      "activation": "selective",
-      "origin": "moved-from-dotfiles",
-      "path": "skills/workstation/managed-config-drift",
-      "provenance": "skills/workstation/managed-config-drift/PROVENANCE.json",
       "behaviorEvidence": {
         "status": "not-evaluated"
       },
@@ -127,8 +107,7 @@
         "chezmoi",
         "fedora",
         "linux-desktop",
-        "macos-administration",
-        "managed-config-drift"
+        "macos-administration"
       ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
@@ -149,8 +128,7 @@
         "cachyos",
         "chezmoi",
         "fedora",
-        "linux-administration",
-        "managed-config-drift"
+        "linux-administration"
       ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
@@ -168,8 +146,7 @@
       "requiredSkills": [],
       "optionalSkills": [
         "cachyos",
-        "linux-administration",
-        "managed-config-drift"
+        "linux-administration"
       ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",
@@ -221,8 +198,7 @@
       "maturity": "authored",
       "requiredSkills": [],
       "optionalSkills": [
-        "chezmoi",
-        "managed-config-drift"
+        "chezmoi"
       ],
       "activation": "selective",
       "origin": "moved-from-dotfiles",

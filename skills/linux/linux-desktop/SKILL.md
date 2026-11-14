@@ -21,8 +21,8 @@ assume bundled references are current product documentation.
   appearance, portals, application settings, and distribution-provided defaults.
   For example, Niri or Mango may manage windows while Noctalia owns the panel.
 - Determine who owns the configuration before editing: chezmoi, another dotfiles
-  manager, a package, a generator, or the application itself. Read applicable
-  `chezmoi` or `managed-config-drift` skills for source/live mapping. Edit the
+  manager, a package, a generator, or the application itself. Read the applicable
+  `chezmoi` skill for source/live mapping. Edit the
   authorized source, not a generated or package-owned file by default.
 - Load `linux-administration` for distribution-neutral service/hardware investigation,
   `arch-linux` or `fedora` for package operations, Fedora policy/deployment causes and recovery, and `cachyos` only

@@ -132,9 +132,9 @@ them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 19 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 18 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-engineering` | 3 | Published 0.3.0 has the former 11 |
-| `@tahabakhit/skills-workstation` | 4 | Locally generated identity; not published by this source change |
+| `@tahabakhit/skills-workstation` | 3 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-agents` | 6 | Locally generated identity; not published by this source change |

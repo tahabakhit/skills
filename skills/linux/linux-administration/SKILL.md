@@ -26,8 +26,7 @@ authority, not routine approval of an already authorized operation.
 | Fedora package builds, upgrades or image deployments | fedora and its task references |
 
 CachyOS is an optional narrow overlay, not a second general workflow. Use
-managed-config-drift for ownership comparisons, chezmoi for its state/deployment
-semantics, and backup-restore for recovery evidence when those tasks apply.
+chezmoi for dotfiles drift and deployment, and backup-restore for recovery evidence when those tasks apply.
 Do not load every specialist or turn one failure into a full-system audit.
 
 ## Evidence, ownership and privacy
