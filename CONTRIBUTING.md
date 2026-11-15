@@ -33,8 +33,8 @@ through your workstation's normal package manager.
    library and build/release code.
 2. `npm test` — offline package/provenance checks and disposable executable
    fixtures, followed by Node's test runner.
-3. `npm run pack:packages` — generate nine domain packages and the umbrella,
-   then pack all ten locally with lifecycle scripts disabled.
+3. `npm run pack:packages` — generate two domain packages and the umbrella,
+   then pack all three locally with lifecycle scripts disabled.
 
 No npm login, agent credentials, live skill installation or publication is needed.
 The initial dependency install requires registry access; the checks use local

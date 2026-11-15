@@ -1,14 +1,18 @@
 # Install workflow bundles
 
-Current source has 19 skills in five disjoint bundles under `skills/<group>/<name>/`.
-All five have global scope by default on Linux and Apple silicon macOS, including
-both OS bundles. The existing 17 [archived skills](archive/README.md) stay outside
+Workstation, Linux and macOS skills moved to [tahabakhit/dotfiles](https://github.com/tahabakhit/dotfiles)
+on 2026-11-15. Chezmoi deploys those nine skills globally; this repository
+now ships only engineering (3) and agents (6). Existing installations and
+immutable registry releases need separate, explicit migration.
+
+Current source has 9 skills in two disjoint bundles under `skills/<group>/<name>/`.
+Both have global scope by default on Linux and Apple silicon macOS. The existing 17 [archived skills](archive/README.md) stay outside
 discovery. No archive or alias replaces the six owner-excluded skills.
 
 ## Choose scope before installing
 
 Use one native loader per harness. Pi uses one Git package. Claude Code and Codex
-use five user plugins. Install scope is not task authority, and bodies/references
+use two user plugins. Install scope is not task authority, and bodies/references
 load only when relevant. This does not change global `AGENTS.md`.
 
 Project-owned installations may explicitly choose local scope instead. Do not
@@ -25,26 +29,26 @@ command when settings are not managed elsewhere:
 pi install git:github.com/tahabakhit/skills
 ```
 
-The existing package manifest exposes `./skills`, including all five bundles.
+The existing package manifest exposes `./skills`, including both bundles.
 Dotfiles manages the single package declaration, not skill bodies or links.
 Do not also install this collection with Skills CLI or add a second checkout.
 
 ## Claude Code and Codex plugins
 
-Add the marketplace if missing, then install all five user bundles:
+Add the marketplace if missing, then install both user bundles:
 
 ```sh
 claude plugin marketplace add tahabakhit/skills
 codex plugin marketplace add tahabakhit/skills
-for bundle in engineering workstation agents linux macos; do
+for bundle in engineering agents; do
     claude plugin install --scope user "$bundle@tahabakhit-skills"
     codex plugin add "$bundle@tahabakhit-skills"
 done
 ```
 
 Each plugin uses its canonical `skills/<group>` source. Names carry the bundle
-prefix, such as `workstation:chezmoi`. Dotfiles bootstrap keeps existing plugins
-and marketplaces. It does not upgrade or uninstall them.
+prefix, such as `agents:skill-authoring`. Dotfiles bootstrap keeps existing active plugins and marketplaces. It also removes
+the retired workstation, linux and macos user plugins when explicitly run for setup.
 
 Marketplace `skills` arrays enumerate each bundle's existing child directories.
 Codex 0.167.0 rejects the bare `./` root and discovers no skills with that value.
@@ -65,9 +69,6 @@ loading is not in use. These are alternatives, not additional loaders:
 
 ```sh
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/engineering --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/workstation --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/linux --skill "*" -a pi --global
-npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/macos --skill "*" -a pi --global
 npx skills@latest add https://github.com/tahabakhit/skills/tree/main/skills/agents --skill "*" -a pi --global
 ```
 
@@ -127,16 +128,13 @@ its local-source lock is not a promise that `skills update` can update those cop
 ## Source versus published npm artifacts
 
 The current package version remains **0.3.0**, with source-only changes. Generated
-packages follow the five-group partition; generating them locally does not publish
+packages follow the two-group partition; generating them locally does not publish
 them or alter a registry release.
 
 | Current source package identity | Source count | Registry distinction |
 | --- | --- | --- |
-| `@tahabakhit/skills` | 18 | Published 0.3.0 still contains 30 |
+| `@tahabakhit/skills` | 9 | Published 0.3.0 still contains 30 |
 | `@tahabakhit/skills-engineering` | 3 | Published 0.3.0 has the former 11 |
-| `@tahabakhit/skills-workstation` | 3 | Locally generated identity; not published by this source change |
-| `@tahabakhit/skills-linux` | 5 | Locally generated identity; not published by this source change |
-| `@tahabakhit/skills-macos` | 1 | Locally generated identity; not published by this source change |
 | `@tahabakhit/skills-agents` | 6 | Locally generated identity; not published by this source change |
 
 Existing `@tahabakhit/skills-core@0.3.0` (5), `@tahabakhit/skills-content@0.3.0` (2),
@@ -163,7 +161,7 @@ pstack. No legacy-name aliases are needed. Installed copies of archived skills a
 not removed by this source change; uninstall them separately if present.
 
 The workstation, linux, macos and agents bundles came from the owner's dotfiles.
-All five current bundles install globally by default. See the
+Both current bundles install globally by default. See the
 [catalog name map](CATALOG.md#setup-cleanup-and-name-map). Resolve resources from
 the host's actual installed skill/plugin path, not a fixed home directory. `herdr-core` and `ketch` are excluded CLI-managed integrations. Changing this
 catalog does not uninstall old names, retire chezmoi sources, alter host settings

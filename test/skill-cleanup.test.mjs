@@ -18,27 +18,10 @@ test('repository and agent owners have disjoint purposes and scope', () => {
     assert.equal(agents.includes(name), false);
   }
   for (const name of ['harness-audit', 'skill-authoring', 'agent-session-diagnostics', 'agent-tooling-design']) assert.ok(agents.includes(name));
-  for (const [group, name] of [['linux', 'linux-administration'], ['macos', 'macos-administration']]) assert.ok(select(group, distribution).includes(name));
   for (const former of ['codebase-hygiene', 'harness-checklist', 'agent-delegation', 'analyze-sessions', 'agent-engineering', 'triage-dependency-updates']) assert.throws(() => select(former, distribution), /Unknown/);
   // Skills archived for overlapping pstack are no longer selectable.
   for (const archived of fs.readdirSync(path.join(root, 'archive/skills')).flatMap(b => fs.readdirSync(path.join(root, 'archive/skills', b)))) {
     assert.throws(() => select(archived, distribution), /Unknown/, archived);
-  }
-});
-
-test('active OS handoffs use discoverable administration names', () => {
-  const routes = [
-    ['skills/linux/linux-desktop/SKILL.md', 'linux-administration'],
-    ['skills/linux/arch-linux/SKILL.md', 'linux-administration'],
-    ['skills/linux/fedora/SKILL.md', 'linux-administration'],
-    ['skills/linux/arch-linux/references/update-recovery.md', 'linux-administration'],
-    ['skills/linux/linux-administration/SKILL.md', 'macos-administration']
-  ];
-  for (const [file, owner] of routes) {
-    const body = read(path.join(root, file));
-    assert.ok(body.includes(owner), `${file} routes to ${owner}`);
-    assert.doesNotMatch(body, /`(?:linux|macos)`|(?:in|and|use|Use) (?:linux|macos)(?=[;' .])/);
-    assert.ok(catalog.skills.some(s => s.name === owner));
   }
 });
 

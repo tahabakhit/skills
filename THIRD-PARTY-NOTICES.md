@@ -71,7 +71,7 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 19 skills under `skills/<group>/<name>/` in five global
+Current source contains 9 skills under `skills/<group>/<name>/` in two global
 bundles. The existing 17 archived skills remain unchanged in `archive/skills/`.
 The active analyze-pi-sessions, chrome-cdp, typesafe-ai, analyze-data,
 data-pipelines and interface-review trees are removed without new archives or
@@ -80,9 +80,7 @@ name is removed. The redundant `unslop` folder is removed with no alias.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-package-maintenance`,
 `arch-update-recovery`, `rhel-fedora` and `workstation-health-triage` are no longer
-included under those names. Current `arch-linux` and `cachyos` folders returned
-from dotfiles in the linux bundle; their local notices and provenance describe
-the current payloads. Historical audit/import records remain evidence of earlier
+included under those names. The `arch-linux` and `cachyos` skills now live in dotfiles with their complete notices. Historical audit/import records remain evidence of earlier
 work, not current source contents or live ownership.
 
 Immutable npm `0.3.0` still contains the former 30 skills and their folder-local
@@ -92,7 +90,7 @@ above. The former `rhel-fedora` adaptation used `iuliandita/skills` at
 2025 Iulian Dita, in that artifact's `LICENSE-UPSTREAM` and project notices for
 local changes. Those files are not linked as current source paths here. Source
 and documentation edits do not replace registry bytes or remove their notices.
-The package version remains `0.3.0`; current source generates only the five group
+The package version remains `0.3.0`; current source generates only the two group
 packages and umbrella, without publishing. Existing design/operations
 releases retain their original names and contents. Neither upstream endorses
 this package.

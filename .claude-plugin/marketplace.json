@@ -16,36 +16,6 @@
       "description": "ci-maintenance, dependency-updates, release-packaging"
     },
     {
-      "name": "workstation",
-      "source": "./skills/workstation",
-      "skills": [
-        "./chezmoi",
-        "./shell-scripting",
-        "./backup-restore"
-      ],
-      "description": "chezmoi, shell-scripting, backup-restore"
-    },
-    {
-      "name": "linux",
-      "source": "./skills/linux",
-      "skills": [
-        "./linux-administration",
-        "./linux-desktop",
-        "./arch-linux",
-        "./fedora",
-        "./cachyos"
-      ],
-      "description": "linux-administration, linux-desktop, arch-linux, fedora, cachyos"
-    },
-    {
-      "name": "macos",
-      "source": "./skills/macos",
-      "skills": [
-        "./macos-administration"
-      ],
-      "description": "macos-administration"
-    },
-    {
       "name": "agents",
       "source": "./skills/agents",
       "skills": [

@@ -18,36 +18,6 @@
       ]
     },
     {
-      "name": "workstation",
-      "description": "Chezmoi dotfiles, configuration drift, shell scripting and backup/restore",
-      "recommendedScope": "global",
-      "skills": [
-        "chezmoi",
-        "shell-scripting",
-        "backup-restore"
-      ]
-    },
-    {
-      "name": "linux",
-      "description": "Linux diagnostics, desktops, Arch, Fedora and CachyOS administration",
-      "recommendedScope": "global",
-      "skills": [
-        "linux-administration",
-        "linux-desktop",
-        "arch-linux",
-        "fedora",
-        "cachyos"
-      ]
-    },
-    {
-      "name": "macos",
-      "description": "Apple silicon macOS administration",
-      "recommendedScope": "global",
-      "skills": [
-        "macos-administration"
-      ]
-    },
-    {
       "name": "agents",
       "description": "Agent instructions, skill authoring, tooling design, harness audits, session diagnostics and prompt caching",
       "recommendedScope": "global",
