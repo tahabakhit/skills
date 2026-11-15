@@ -2,9 +2,9 @@
 
 ## Current source and historical records
 
-Current source contains 19 skills at `skills/<group>/<name>/`: engineering (3),
-workstation (4), linux (5), macos (1) and agents (6). All five bundles default to
-global scope on every supported platform, including both OS bundles. pstack is the assumed
+Current source contains 9 skills at `skills/<group>/<name>/`: engineering (3),
+agents (6). Both bundles default to
+global scope on every supported platform. pstack is the assumed
 engineering workflow; the 17 skills that overlapped it or were really standing rules
 (now in the global `AGENTS.md`) moved to [archive/](archive/README.md) with their
 provenance and licenses. The workstation, linux, macos and agents
@@ -24,7 +24,7 @@ No profile framework or native group flag is required.
 
 This is source-only at package version `0.3.0`. Published npm `0.3.0` remains the
 immutable 30-skill release, including old groups, `unslop` and custom guards.
-Current source generates five group packages and the umbrella, not data or
+Current source generates two group packages and the umbrella, not data or
 interface-review packages. Existing registry releases remain unchanged. Historical adapter checks below do not establish native grouped-source
 installation or recursive Pi discovery; those require separate integration checks.
 
@@ -288,8 +288,9 @@ Source: [mkobit/chezmoi-skills at the reviewed revision](https://github.com/mkob
 All nine skill entrypoints and 38 reference files were read for this adaptation.
 Their topics were consolidated into one skill, subsequently moved with all 52 files
 to `private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
-and later returned here as `skills/workstation/chezmoi`. The source MIT grant, copyright 2026 Mike Kobit,
-and local contribution notice travel with that source.
+and later returned here as `skills/workstation/chezmoi`. On 2026-11-15 the skill
+was rewritten as an original drift-resolution procedure and this imported material
+was deleted from it. The record below describes the retired adaptation.
 
 The adaptation preserves topic detail while adding an entrypoint safety gate for
 source, destination, configuration and persistent-state identity. It distinguishes
@@ -308,7 +309,7 @@ managed dotfiles or replacing existing live skills.
 ## Limits
 
 The discovery pair is authored from the design sources above. The three companions
-are attributed forks; the consolidated chezmoi fork is distributed in workstation. The 16 new procedures are provisional original workflows.
+are attributed forks; the later chezmoi procedure now lives in dotfiles. The 16 new procedures are provisional original workflows.
 None is an endorsed integration. [The recorded pilot](evaluations/entrypoint-pilot/RESULTS.md)
 is entrypoint-only development evidence, not proof of whole-system effectiveness,
 routing, tools, stopping behavior or host compatibility. Package changes can alter

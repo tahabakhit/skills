@@ -9,9 +9,6 @@ const catalog = read('catalog.json');
 const marketplace = read('.claude-plugin/marketplace.json');
 const retained = {
   engineering: ['ci-maintenance', 'dependency-updates', 'release-packaging'],
-  workstation: ['chezmoi', 'managed-config-drift', 'shell-scripting', 'backup-restore'],
-  linux: ['linux-administration', 'linux-desktop', 'arch-linux', 'fedora', 'cachyos'],
-  macos: ['macos-administration'],
   agents: ['agents-md', 'skill-authoring', 'agent-tooling-design', 'agent-session-diagnostics', 'harness-audit', 'prompt-caching']
 };
 const excluded = ['analyze-pi-sessions', 'chrome-cdp', 'typesafe-ai', 'analyze-data', 'data-pipelines', 'interface-review'];
@@ -28,7 +25,7 @@ function checkMirrors(registry, catalog, marketplace) {
     })));
 }
 
-test('all 19 retained skills have exactly five global owners and matching native plugins', () => {
+test('all nine retained skills have exactly two global owners and matching native plugins', () => {
   assert.deepEqual(Object.fromEntries(distribution.groups.map(group => [group.name, group.skills])), retained);
   assert.ok(distribution.groups.every(group => group.recommendedScope === 'global'));
   checkMirrors(distribution, catalog, marketplace);

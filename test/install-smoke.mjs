@@ -59,9 +59,9 @@ try {
   for (const name of engineering.skills) for (const agent of ['.agents', '.claude']) {
     assert.deepEqual(fs.readFileSync(path.join(project, agent, 'skills', name, 'SKILL.md')), fs.readFileSync(path.join(root, 'skills/engineering', name, 'SKILL.md')));
   }
-  const protectedFile = path.join(home, '.agents/skills/shell-scripting/SKILL.md');
+  const protectedFile = path.join(home, '.agents/skills/ci-maintenance/SKILL.md');
   const bytes = fs.readFileSync(protectedFile);
-  const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'workstation', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env });
+  const again = spawnSync(process.execPath, [path.join(root, 'bin/skills.mjs'), '--global', 'engineering', '--agents', 'pi,codex', '--yes'], { cwd: project, encoding: 'utf8', env });
   assert.notEqual(again.status, 0); assert.match(again.stderr, /--replace/);
   assert.deepEqual(fs.readFileSync(protectedFile), bytes);
   console.log(`Real pinned installer passed: ${globalNames.length + localNames.length} default skills, no empty scope arguments or project lock for global-only defaults, explicit local engineering override, Pi/Claude Code/Codex receipts, recorded hashes and locks; unapproved reinstall refused. Disposable state only.`);

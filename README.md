@@ -1,12 +1,17 @@
 # @tahabakhit/skills
 
-19 purpose-scoped skills in five disjoint global bundles. They complement
-[pstack](https://github.com/cursor/plugins/tree/main/pstack), the assumed
-engineering workflow. The existing 17 overlapping skills remain
+Workstation, Linux and macOS skills moved to [tahabakhit/dotfiles](https://github.com/tahabakhit/dotfiles)
+on 2026-11-15. Chezmoi deploys those nine skills globally; this repository
+now ships only engineering (3) and agents (6). Existing installations and
+immutable registry releases need separate, explicit migration.
+
+9 purpose-scoped specialist skills in two disjoint global bundles. They complement
+the owner's chosen native or installed engineering workflow without requiring
+[pstack](https://github.com/cursor/plugins/tree/main/pstack). The existing 17 overlapping skills remain
 [archived](archive/README.md). Six owner-excluded skills are removed, not archived.
 
 Canonical source is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
-All five bundles, including both OS bundles, are available globally on every
+Both bundles are available globally on every
 supported platform. Skill bodies and optional references load for relevant tasks,
 not into every conversation. Global `AGENTS.md` stays separately managed.
 
@@ -26,27 +31,24 @@ scope overrides and [VERIFICATION.md](VERIFICATION.md) for discovery checks.
 | Bundle | Normal scope | Skills |
 | --- | --- | --- |
 | [engineering](skills/engineering) | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| [workstation](skills/workstation) | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| [linux](skills/linux) | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| [macos](skills/macos) | Global | `macos-administration` (1) |
 | [agents](skills/agents) | Global | `agents-md`, `skill-authoring`, `agent-tooling-design`, `agent-session-diagnostics`, `harness-audit`, `prompt-caching` (6) |
 
 ## Install for Claude Code and Codex
 
 Each bundle is a native plugin in
 [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json). Register the
-marketplace once, then install all five bundles for your user:
+marketplace once, then install both bundles for your user:
 
 ```sh
 claude plugin marketplace add tahabakhit/skills
 codex plugin marketplace add tahabakhit/skills
-for bundle in engineering workstation agents linux macos; do
+for bundle in engineering agents; do
     claude plugin install --scope user "$bundle@tahabakhit-skills"
     codex plugin add "$bundle@tahabakhit-skills"
 done
 ```
 
-Plugin skills are namespaced, for example `/workstation:chezmoi`. Native managers
+Plugin skills are namespaced, for example `/agents:skill-authoring`. Native managers
 own their caches and registrations. Do not also install the same bundles with
 `npx skills`. Refresh stale marketplaces before fresh installs.
 [INSTALL.md](INSTALL.md) describes scoped maintenance and its verification limits.
@@ -56,16 +58,17 @@ own their caches and registrations. Do not also install the same bundles with
 Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
 
 ```text
-/skill:chezmoi Show which source file manages ~/.zshrc and what apply would change.
 /skill:dependency-updates Assess the outdated packages in this lockfile. Do not apply updates.
 /skill:ci-maintenance Find why the required check passes on a different revision than the one tested.
-/skill:cachyos Explain which kernel and scheduler this machine is running and why.
 ```
 
-Engineering work itself (specs, design, implementation, debugging, tests, review,
-commits, PRs and technical writing) goes through pstack's `poteto-mode` and its
-skills; this repository does not carry competing owners. Evidence and research
-standards live in the global `AGENTS.md`, not in a skill.
+The chosen parent harness and project instructions own ordinary engineering work.
+The owner's dotfiles source draft adds shared personal guidance and selected
+`work-through`, `investigate-bug` and `review-change` skills; it does not establish
+complete pstack replacement or live activation. Existing pstack installations
+remain available until a separately verified cutover. This repository supplies
+specialists rather than another delivery coordinator. Evidence and research
+standards remain in shared instructions.
 Agent tooling design and bounded session diagnosis stay in the agents bundle;
 engineering's update owner is `dependency-updates`.
 See [the catalog](CATALOG.md) for exact responsibilities and gaps, and
@@ -87,7 +90,7 @@ for replacement, shared-agent paths and failure limits.
 This is a source-only change; the package version remains `0.3.0`. Published npm
 `0.3.0` is immutable: it still has 30 skills, old group names, `unslop`, and the old
 custom install guards. It is **not** the grouped source shown above.
-Current source generates only the five group packages and the umbrella.
+Current source generates only the two group packages and the umbrella.
 Existing data, design, and operations releases are unchanged. [Release details](INSTALL.md#maintainer-release-process)
 cover preparing a future version, not overwriting `0.3.0`.
 

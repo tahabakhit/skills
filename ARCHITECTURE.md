@@ -1,8 +1,8 @@
 # Standalone skill system
 
-The approved source layout has **19 purpose-scoped skills** in five disjoint
-bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
-workflow; skills that overlapped it, or were really standing rules now kept in the
+The approved source layout has **9 purpose-scoped skills** in two disjoint
+bundles at `skills/<group>/<name>/`. They complement the chosen native or installed
+engineering workflow without requiring pstack. Skills previously overlapping it, or standing rules now kept in the
 global `AGENTS.md`, live frozen in [archive/](archive/README.md). This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -16,7 +16,7 @@ passing check. [CATALOG.md](CATALOG.md) records responsibilities and coverage ga
 | Audience | Primarily Taha's use, but shareable. Private preferences and personal permissions stay in global `AGENTS.md`, separately managed by chezmoi. |
 | Sources | Adapt reviewed material with exact revisions, full applicable notices, input identities and local changes recorded. |
 | Hosts | Target Pi, Claude Code and Codex; verify actual discovery and behavior rather than claiming compatibility from file placement. |
-| Distribution | One native Pi Git package and five Claude Code/Codex user plugins, globally on every supported platform. Skills CLI and the checkout wrapper remain alternatives, not extra loaders. |
+| Distribution | One native Pi Git package and two Claude Code/Codex user plugins, globally on every supported platform. Skills CLI and the checkout wrapper remain alternatives, not extra loaders. |
 | Progress | No default plan-approval pause. Continue within the requested endpoint and existing authority; pause for unresolved consequential decisions, changed scope or missing permission. |
 | Interaction | Ask simple questions one at a time when user decisions are needed; investigate discoverable facts first. |
 | Review | Ordinary tasks may use one agent, but required independent review cannot be replaced with self-review. Report missing capabilities honestly. |
@@ -32,13 +32,11 @@ standalone does not mean tool-free.
 | Bundle | Normal scope | Canonical owners |
 | --- | --- | --- |
 | engineering | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
-| workstation | Global | `chezmoi`, `managed-config-drift`, `shell-scripting`, `backup-restore` (4) |
-| linux | Global | `linux-administration`, `linux-desktop`, `arch-linux`, `fedora`, `cachyos` (5) |
-| macos | Global | `macos-administration` (1) |
 | agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions and prompt caching (6) |
 
-Writing is pstack's (`technical-writing`, `unslop`); evidence and research rules are
-standards in the global `AGENTS.md`, because they apply to every task rather than
+Writing follows the owner's shared preferences and any explicitly selected
+writing capability. Evidence and research rules are standards in shared
+instructions, because they apply across tasks rather than
 being a procedure to load. Bundle names describe installation sources, not competing workflow
 owners or a new profile framework. The workstation, OS and agent bundles originated in the owner's dotfiles (commit
 `8eb84ae`), with retained provenance. Current entrypoints share one size bound.
@@ -55,8 +53,8 @@ is the unique package owner and matches the source path/distribution. `domain` i
 subject label and can differ from the bundle. Optional sibling metadata describes
 handoffs, not runtime dependencies, required installations or stage scheduling.
 
-Scopes are recommendations, not capability or permission boundaries. All five
-bundles default to global scope, including both OS bundles everywhere. Explicit
+Scopes are recommendations, not capability or permission boundaries. Both
+bundles default to global scope, on supported platforms. Explicit
 project-local overrides remain supported, but do not load duplicate definitions at
 both scopes. Skill bodies and references remain task-loaded. See
 [scope choices](INSTALL.md#choose-scope-before-installing).
@@ -64,9 +62,9 @@ both scopes. Skill bodies and references remain task-loaded. See
 ## Native distribution and optional adapter
 
 Pi uses `git:github.com/tahabakhit/skills` once in its package settings. The
-`pi.skills` manifest remains `["./skills"]`. Claude Code and Codex use five user
-plugins from the marketplace. Dotfiles owns only the declaration and fixed
-five-bundle install policy, not bodies, symlinks or native caches.
+`pi.skills` manifest remains `["./skills"]`. Claude Code and Codex use two user
+plugins from the marketplace. Dotfiles declares the two plugin bundles. It separately owns and deploys the nine
+workstation, Linux and macOS skills through chezmoi. Native plugin caches stay tool-owned.
 
 The standard Skills CLI still accepts a GitHub bundle tree URL and `--skill "*"`.
 All bundles default to global scope. An explicit local selection is an alternative,
@@ -75,7 +73,7 @@ No custom profile framework, dependency resolver or auto-migration is added.
 [INSTALL.md](INSTALL.md) describes scoped maintenance. Native update/reinstall
 semantics require their own evidence; fresh-install fixtures do not establish them.
 
-`distribution.json` partitions the same canonical folders into five generated domain
+`distribution.json` partitions the same canonical folders into two generated domain
 packages and an umbrella. `dist/npm/` and `dist/tarballs/` are disposable generated
 output, not edited source copies. Required files must travel with their owner;
 optional sibling handoffs do not become mandatory bundle dependencies. Audit local
@@ -103,12 +101,14 @@ commits cannot replace published bytes.
 
 ## One owner for each workflow
 
-pstack is the end-to-end engineering workflow: specs, design, implementation,
-debugging, tests, review, security review, commits and PRs. Skills here contribute
-domain expertise (CI contracts, dependencies, release artifacts, workstation and OS
-administration, agent tooling) without starting a second delivery process or
-competing for pstack's triggers. A new skill that would overlap pstack belongs in
-pstack's own customization (`automate-me`, a `-mode` skill), not here.
+The parent harness, project instructions and the owner's chosen workflow own
+ordinary engineering delivery. Dotfiles is drafting shared personal guidance
+and selected planning, debugging and change-review skills. That draft is not
+complete pstack replacement or proof of live behavior; existing plugin retirement
+remains separately scoped. Skills here contribute domain expertise in CI contracts,
+dependencies, release artifacts and agent tooling without imposing a second
+delivery process. Personal workflow adaptations belong to dotfiles; broadly
+shareable specialist additions belong here when no current owner covers them.
 
 Imported editorial guides are adapted references with original source identities
 retained, not whole old workflows hidden below the entrypoint. Current payload hashes

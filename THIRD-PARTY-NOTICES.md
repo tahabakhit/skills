@@ -58,9 +58,9 @@ endorsed by DROO.
 
 The `managed-config-drift` adaptation of Bolens material at
 `e7c49bfa5b71c3bf3ebf97f090aab78842b0e63d` previously moved to the owner's dotfiles
-repository and has returned as `skills/workstation/managed-config-drift`. Its
-complete MIT grant with copyright 2026 bolens (`LICENSE-BOLENS`), the project MIT
-notice and provenance travel with it.
+repository, returned as `skills/workstation/managed-config-drift`, and was retired
+on 2026-11-15. No current skill ships its material; Git history keeps it with its
+complete MIT grant with copyright 2026 bolens.
 
 `archive/skills/core/create-content` includes three Bolens technical-writing references;
 `archive/skills/engineering/git-hygiene` four Git references;
@@ -71,7 +71,7 @@ newly authored expression. Per-folder provenance records the exact inputs.
 
 ### Historical imports removed from current source
 
-Current source contains 19 skills under `skills/<group>/<name>/` in five global
+Current source contains 9 skills under `skills/<group>/<name>/` in two global
 bundles. The existing 17 archived skills remain unchanged in `archive/skills/`.
 The active analyze-pi-sessions, chrome-cdp, typesafe-ai, analyze-data,
 data-pipelines and interface-review trees are removed without new archives or
@@ -80,9 +80,7 @@ name is removed. The redundant `unslop` folder is removed with no alias.
 Its historical adaptation used the pinned Bolens grant above, retained in the
 immutable releases that include it. `operate-systems`, `arch-package-maintenance`,
 `arch-update-recovery`, `rhel-fedora` and `workstation-health-triage` are no longer
-included under those names. Current `arch-linux` and `cachyos` folders returned
-from dotfiles in the linux bundle; their local notices and provenance describe
-the current payloads. Historical audit/import records remain evidence of earlier
+included under those names. The `arch-linux` and `cachyos` skills now live in dotfiles with their complete notices. Historical audit/import records remain evidence of earlier
 work, not current source contents or live ownership.
 
 Immutable npm `0.3.0` still contains the former 30 skills and their folder-local
@@ -92,7 +90,7 @@ above. The former `rhel-fedora` adaptation used `iuliandita/skills` at
 2025 Iulian Dita, in that artifact's `LICENSE-UPSTREAM` and project notices for
 local changes. Those files are not linked as current source paths here. Source
 and documentation edits do not replace registry bytes or remove their notices.
-The package version remains `0.3.0`; current source generates only the five group
+The package version remains `0.3.0`; current source generates only the two group
 packages and umbrella, without publishing. Existing design/operations
 releases retain their original names and contents. Neither upstream endorses
 this package.
@@ -122,11 +120,10 @@ Source: [mkobit/chezmoi-skills](https://github.com/mkobit/chezmoi-skills/tree/09
 MIT License, copyright (c) 2026 Mike Kobit. Nine skill entrypoints and 38 reference
 files were consolidated and adapted into the `chezmoi` skill, previously moved to
 `private_dot_agents/private_skills/chezmoi` in the owner's dotfiles repository,
-and now returned as `skills/workstation/chezmoi`. The complete source grant and
-local contribution notice travel with the skill.
-Its `PROVENANCE.json` records original input paths/hashes, resulting identities and
-changes. No upstream runtime, plugin or evaluation harness is bundled. Neither
-Mike Kobit nor the chezmoi project endorses this adaptation.
+and returned as `skills/workstation/chezmoi`. On 2026-11-15 the skill was rewritten
+as an original procedure and its adapted references were deleted. The current
+`chezmoi` skill contains no mkobit material; Git history keeps the adaptation with
+its complete source grant.
 
 ## Matt Pocock skills
 
