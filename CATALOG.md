@@ -6,8 +6,9 @@ now ships only engineering (3) and agents (6). Existing installations and
 immutable registry releases need separate, explicit migration.
 
 Current source has 9 purpose-scoped skills under `skills/<group>/<name>/`.
-[pstack](https://github.com/cursor/plugins/tree/main/pstack) is the assumed
-engineering workflow. The existing 17 [archived skills](archive/README.md) remain
+The parent harness and chosen workflow own ordinary engineering; this package
+does not require [pstack](https://github.com/cursor/plugins/tree/main/pstack).
+The existing 17 [archived skills](archive/README.md) remain
 outside discovery. Install both bundles globally on every supported platform,
  Availability does not preload entrypoints or references.
 
@@ -36,7 +37,9 @@ Recommended scopes are defaults, not permission boundaries; see
 | `dependency-updates` | Declared/resolved/installed/shipped versions and compatible candidates | Unscoped upgrades or unrestricted execution of candidate code |
 | `release-packaging` | Exact artifact contents, targets and lifecycle evidence | Registry publication or live installation |
 
-These cover what pstack lacks: CI design and hardening (pstack's `fix-ci` only repairs failing checks), dependency assessment and release artifacts. Specs, design, implementation, debugging, tests, review, security review and Git submission belong to pstack's `poteto-mode` and its skills.
+These supply CI design and hardening, dependency assessment and release-artifact
+verification. They complement the selected engineering workflow without taking
+over planning, ordinary implementation, general review or submission authority.
 
 ## Agent specialists
 
@@ -58,10 +61,12 @@ control and interface review require separately available capabilities.
 
 | Components considered | Canonical owner |
 | --- | --- |
-| Planning, implementation, debugging, tests, review, refactoring, migrations, commits and PRs | pstack (`poteto-mode` playbooks and skills); the former owners are [archived](archive/README.md) |
-| Writing, editing, prose cleanup, research and document review | pstack's `technical-writing`/`unslop` and the global `AGENTS.md` evidence standards; the former owners are archived |
+| Planning, implementation, debugging, tests, review, refactoring, migrations, commits and PRs | Parent/project workflow; dotfiles drafts three selected personal workflow skills. Existing pstack remains until separately verified retirement; former owners stay [archived](archive/README.md). |
+| Writing, editing, prose cleanup, research and document review | Shared personal preferences and the chosen native or installed capability; former owners remain archived. |
 
-This is an ownership proposal implemented in source, not experimental proof that merging outperforms separate skills. There are no legacy-name alias folders that secretly load another coordinator. Missing optional owners do not trigger installation.
+The personal workflow draft is not complete pstack coverage or proof of better
+behavior. There are no legacy-name aliases that load another coordinator.
+Missing optional owners do not trigger installation.
 
 ## Setup cleanup and name map
 
@@ -77,7 +82,7 @@ harness audit procedure loads only through an explicit reference.
 | `macos` | `macos-administration`, macOS host operations |
 | `review-judgment` | Guidance inside `code-review`, since archived in favour of pstack |
 | `repository-delivery` | Submission judgment inside `git-hygiene`, since archived in favour of pstack |
-| `agent-delegation` | `hc-delegation`, since archived; pstack subagents and Orca orchestration replace it |
+| `agent-delegation` | `hc-delegation`, since archived; current transport stays with native or explicitly configured tools |
 | `analyze-sessions`, `analyze-pi-sessions` | Removed. Session diagnostics uses available bounded native controls or reports a gap |
 | `agent-engineering` | `agent-tooling-design`, agent tools and harness extensions |
 | `triage-dependency-updates` | `dependency-updates`, assessment and authorized application |
@@ -105,9 +110,9 @@ The catalog itself does not change live skills, links, locks, host settings or c
 | `operate-systems`, `arch-package-maintenance`, `arch-update-recovery`, `rhel-fedora`, `workstation-health-triage` | Replaced by the dotfiles-era `linux`, `arch-linux`, `cachyos` and `fedora` skills, now deployed by `tahabakhit/dotfiles`. Immutable npm `0.3.0` retains the old copies |
 | `chezmoi`, `managed-config-drift` | Returned from the owner's dotfiles into the `workstation` bundle. On 2026-11-15 `chezmoi` was rewritten as an original drift-resolution procedure and `managed-config-drift` was retired into it. The resulting nine OS/workstation skills now live in dotfiles |
 | `ci-maintenance`, `git-hygiene` | `ci-maintenance` retains setup/environment references; `git-hygiene` is archived in favour of pstack |
-| `safe-refactor`, `migration` | Covered by pstack (`change-safely` is archived) |
-| `technical-writing` | pstack ships `technical-writing`; the three reference files are archived with `create-content` |
-| `unslop` | Not carried here; pstack ships `unslop` |
+| `safe-refactor`, `migration` | Chosen engineering workflow (`change-safely` remains archived) |
+| `technical-writing` | Optional selected writing capability; the three former reference files remain archived with `create-content` |
+| `unslop` | Not carried here; an installed pstack can supply it when selected |
 | `herdr-core`, `ketch` | External CLI-managed integrations, not required by this collection. `herdr-core` was never an included skill; audit references are historical, not current ownership evidence |
 
 [The migration guide](audits/installed-skill-import.md) records retained and omitted material, installation choices, ownership checks and rollback. This source import does not remove live folders. Moshi and host-bundled skills retain their separately recorded ownership/license boundaries.

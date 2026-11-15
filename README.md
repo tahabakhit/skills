@@ -5,9 +5,9 @@ on 2026-11-15. Chezmoi deploys those nine skills globally; this repository
 now ships only engineering (3) and agents (6). Existing installations and
 immutable registry releases need separate, explicit migration.
 
-9 purpose-scoped skills in two disjoint global bundles. They complement
-[pstack](https://github.com/cursor/plugins/tree/main/pstack), the assumed
-engineering workflow. The existing 17 overlapping skills remain
+9 purpose-scoped specialist skills in two disjoint global bundles. They complement
+the owner's chosen native or installed engineering workflow without requiring
+[pstack](https://github.com/cursor/plugins/tree/main/pstack). The existing 17 overlapping skills remain
 [archived](archive/README.md). Six owner-excluded skills are removed, not archived.
 
 Canonical source is `skills/<group>/<name>/` at https://github.com/tahabakhit/skills.
@@ -62,10 +62,13 @@ Ask the agent to use the relevant skill, or invoke it explicitly in Pi:
 /skill:ci-maintenance Find why the required check passes on a different revision than the one tested.
 ```
 
-Engineering work itself (specs, design, implementation, debugging, tests, review,
-commits, PRs and technical writing) goes through pstack's `poteto-mode` and its
-skills; this repository does not carry competing owners. Evidence and research
-standards live in the global `AGENTS.md`, not in a skill.
+The chosen parent harness and project instructions own ordinary engineering work.
+The owner's dotfiles source draft adds shared personal guidance and selected
+`work-through`, `investigate-bug` and `review-change` skills; it does not establish
+complete pstack replacement or live activation. Existing pstack installations
+remain available until a separately verified cutover. This repository supplies
+specialists rather than another delivery coordinator. Evidence and research
+standards remain in shared instructions.
 Agent tooling design and bounded session diagnosis stay in the agents bundle;
 engineering's update owner is `dependency-updates`.
 See [the catalog](CATALOG.md) for exact responsibilities and gaps, and

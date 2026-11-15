@@ -1,8 +1,8 @@
 # Standalone skill system
 
 The approved source layout has **9 purpose-scoped skills** in two disjoint
-bundles at `skills/<group>/<name>/`. They complement pstack, the assumed engineering
-workflow; skills that overlapped it, or were really standing rules now kept in the
+bundles at `skills/<group>/<name>/`. They complement the chosen native or installed
+engineering workflow without requiring pstack. Skills previously overlapping it, or standing rules now kept in the
 global `AGENTS.md`, live frozen in [archive/](archive/README.md). This document defines ownership and distribution,
 not authority to install, migrate, publish or deploy. Host behavior and native
 bundle installation require integration evidence; documentation alone is not a
@@ -34,8 +34,9 @@ standalone does not mean tool-free.
 | engineering | Global | `ci-maintenance`, `dependency-updates`, `release-packaging` (3) |
 | agents | Global | Instructions, skill authoring, tooling design, harness audits, sessions and prompt caching (6) |
 
-Writing is pstack's (`technical-writing`, `unslop`); evidence and research rules are
-standards in the global `AGENTS.md`, because they apply to every task rather than
+Writing follows the owner's shared preferences and any explicitly selected
+writing capability. Evidence and research rules are standards in shared
+instructions, because they apply across tasks rather than
 being a procedure to load. Bundle names describe installation sources, not competing workflow
 owners or a new profile framework. The workstation, OS and agent bundles originated in the owner's dotfiles (commit
 `8eb84ae`), with retained provenance. Current entrypoints share one size bound.
@@ -100,11 +101,14 @@ commits cannot replace published bytes.
 
 ## One owner for each workflow
 
-pstack is the end-to-end engineering workflow: specs, design, implementation,
-debugging, tests, review, security review, commits and PRs. Skills here contribute
-domain expertise (CI contracts, dependencies, release artifacts, workstation and agent tooling) without starting a second delivery process or
-competing for pstack's triggers. A new skill that would overlap pstack belongs in
-pstack's own customization (`automate-me`, a `-mode` skill), not here.
+The parent harness, project instructions and the owner's chosen workflow own
+ordinary engineering delivery. Dotfiles is drafting shared personal guidance
+and selected planning, debugging and change-review skills. That draft is not
+complete pstack replacement or proof of live behavior; existing plugin retirement
+remains separately scoped. Skills here contribute domain expertise in CI contracts,
+dependencies, release artifacts and agent tooling without imposing a second
+delivery process. Personal workflow adaptations belong to dotfiles; broadly
+shareable specialist additions belong here when no current owner covers them.
 
 Imported editorial guides are adapted references with original source identities
 retained, not whole old workflows hidden below the entrypoint. Current payload hashes

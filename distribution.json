@@ -9,7 +9,7 @@
   "groups": [
     {
       "name": "engineering",
-      "description": "CI maintenance, dependency updates and release packaging not covered by pstack",
+      "description": "CI contracts, dependency assessment and release artifact verification",
       "recommendedScope": "global",
       "skills": [
         "ci-maintenance",
