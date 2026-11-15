@@ -47,8 +47,11 @@ done
 ```
 
 Each plugin uses its canonical `skills/<group>` source. Names carry the bundle
-prefix, such as `agents:skill-authoring`. Dotfiles bootstrap keeps existing active plugins and marketplaces. It also removes
-the retired workstation, linux and macos user plugins when explicitly run for setup.
+prefix, such as `agents:skill-authoring`. Dotfiles bootstrap keeps existing plugins and marketplaces. Deploy and verify
+the shared OS skill payloads first, then explicitly retire only the old workstation,
+linux and macos user plugins through their native managers. Filter Pi package
+discovery to engineering/agents during that transition; source removal must not
+reach the default package branch before every target machine has replacement payloads.
 
 Marketplace `skills` arrays enumerate each bundle's existing child directories.
 Codex 0.167.0 rejects the bare `./` root and discovers no skills with that value.
