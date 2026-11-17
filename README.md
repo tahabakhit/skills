@@ -35,5 +35,4 @@ gives the agent duplicate definitions.
 
 ## Licence
 
-MIT. Skills adapted from other projects carry their upstream licence and an
-`UPSTREAM.md` in their own folder.
+MIT. See [LICENSE](LICENSE).

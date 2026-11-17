@@ -1,40 +1,45 @@
-# Trust, revisions and check coverage
+# Trust and check coverage
 
-## Trace the event to execution
+Read before changing triggers, permissions, checkout refs, artifact hand-offs between jobs, or the set of required checks.
 
-For each relevant event, record who controls its fields and repository files, which ref is checked out, and what later interprets that content. Include local actions, dependency lifecycle scripts, reusable workflows and instructions supplied to an AI agent.
+## Trace untrusted input to privilege
 
-Then record available tokens, secrets, deployment rights and persistent runner access. A privileged job that checks out a fork's local action can cross a trust boundary even when its top-level workflow is trusted. A field passed through an action input can become a command in that action. Inspect the downstream interpretation.
+For each event, list who controls its inputs (PR author, issue commenter, fork branch name) and what later interprets them: shell steps, local actions in the checked-out tree, dependency lifecycle scripts, build scripts, reusable workflows, and prompts given to AI agents. Then list what the job can reach: token scopes, secrets, deploy credentials, caches shared with trusted jobs, and long-lived self-hosted runners.
 
-Separate untrusted computation from privileged reporting or publication. If an untrusted job produces an artifact consumed by a privileged job, validate its data-only contract. Do not execute its scripts or accept arbitrary paths as trusted instructions. An apparent artifact boundary is not sufficient by itself.
+Patterns that cross the boundary (GitHub Actions terms; the shape applies elsewhere):
 
-Minimize permissions per job. Pin external action or workflow identities according to the repository's policy. Review update behavior so an immutable pin does not become a permanently unmaintained dependency. Long-lived self-hosted runners need a separate persistence and cleanup threat assessment.
+- `pull_request_target` or `workflow_run` checking out and running the PR head. Those events run with base-repo token and secrets.
+- A privileged job using a local action (`uses: ./...`) from a checkout of untrusted code.
+- `${{ github.event.pull_request.title }}`, `head_ref`, comment bodies and similar interpolated directly into `run:`. Pass them through `env:` and quote the variable instead.
+- An action input that the action itself evaluates as a command.
+- A privileged job that downloads an artifact from an untrusted job and executes it or trusts paths inside it. Treat such artifacts as data, validate their shape, and extract them somewhere they can't overwrite scripts.
+- A self-hosted runner shared between fork PRs and trusted jobs; state persists between jobs unless the runner is ephemeral.
 
-## Identify the revision under test
+The event name alone is not a verdict; follow what the job actually runs.
 
-Distinguish feature head, target base, synthetic merge and merge-queue candidate. Record which one each job builds and which identity the provider attaches to the result. A required gate must prove the candidate that policy intends, not whichever branch checkout defaults to.
+Set `permissions:` per job, default to read-only, and grant write scopes only to the job that needs them.
 
-Reused caches and downloaded artifacts must correspond to the relevant toolchain and content. A restore keyed too broadly can hide a missing build or reuse another candidate's outputs. A cache hit is an optimization, not execution evidence.
+## Know which revision a result describes
+
+Feature head, base, synthetic merge commit and merge-queue candidate are different trees. Record which one each job builds and which SHA the check is attached to. A required gate should test what will actually land, which in a merge queue is the queue candidate (for GitHub merge queues, the workflow must also trigger on `merge_group`).
+
+Cache and artifact keys must include the inputs that matter (lockfile hash, toolchain, OS/arch). A key that is too broad can restore another revision's build outputs.
 
 ## Model the final gate
 
-List required and genuinely optional producers for each event/path case. Write an expected outcome table before changing conditions. At minimum consider:
+Before editing conditions, write the expected outcome for each required producer:
 
-| Producer state | Expected treatment when its evidence is required |
+| Producer state | Gate treatment |
 | --- | --- |
-| Success with valid result | Eligible for pass |
-| Failure | Fail |
-| Cancelled or timeout | Non-pass |
-| Skipped despite required work | Non-pass |
-| No job/check emitted | Non-pass, with diagnosis |
-| Explicitly not applicable under agreed policy | Only the declared exemption may apply |
+| success | eligible to pass |
+| failure | fail |
+| cancelled or timed out | fail |
+| skipped although its work was required | fail |
+| no job or check created | fail, and explain why |
+| skipped under an agreed "not applicable" rule | pass, only for that declared case |
 
-A final aggregation job must still run when a producer fails so it can report the correct outcome. It must not mistake an empty dependency set or missing result for success. Avoid assigning a required name to a job whose path filter prevents the provider from creating it on an event where the rule still requires it.
+The gate must run when producers fail (`if: always()` on GitHub) so it can report failure, and must not treat an empty `needs` set or missing result as success. Don't give a required check name to a job or workflow that path filters can prevent from being created.
 
-## Exercise the coverage
+## Exercise it
 
-Use controlled cases for relevant changed and unchanged paths, fork inputs, failure, skip and queue behavior. Validate reusable workflow refs and inputs at the exact version being used. Parsing can detect malformed syntax, but only suitable provider/runner evidence can establish event behavior.
-
-Do not test privilege boundaries by exposing real secrets to an untrusted probe. Use a disposable environment and synthetic values. If authorized provider execution is unavailable, retain the event-level claim as unverified.
-
-Report the trust graph, expected check matrix, tested identities and actual exercised cases. Flag any change to required-check or privilege policy separately from the implementation that enforces it.
+Test changed and unchanged paths, a deliberate failure, a skip, a fork PR and a merge-queue run as relevant. Pin reusable workflow refs and test at that exact ref. Use synthetic secrets and disposable environments for trust tests. If you can't trigger an event (for example, no fork available), leave that case marked unverified.

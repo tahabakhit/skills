@@ -1,39 +1,49 @@
 ---
 name: ci-maintenance
-description: Design, repair, audit, or harden CI workflows and developer setup contracts. Use for required-check coverage, event trust, tested-revision mismatches, hidden command failures, or environment drift. Not for PR monitoring, changing merge policy without permission, or judging application acceptance from workflow syntax alone.
-license: MIT
+description: Fix, harden or speed up CI workflows and developer setup. Use for a failing or flaky CI job, a required check that is stuck, skipped or always green, workflow permissions and fork trust, slow pipelines, caching, or devcontainer/mise/env-file setup drift. Not for waiting on a PR's checks.
 ---
 
-# Maintain CI evidence
+# CI maintenance
 
-Make each required result identify what ran, on which candidate, under which trust and environment.
+A green check is only worth something if it ran the right commands, on the right revision, and fails when they fail. Most CI bugs are one of those three going wrong silently.
 
-## Map the current contract
+## Map before changing
 
-Read the repository's workflows, required-check policy, reusable workflows and relevant setup scripts. Identify triggering events, path filters, branch/queue conditions, tested revisions, check names, token permissions, secrets and outward effects. Trace a required check from event to final status.
+Read the workflows, any reusable workflows or composite actions they call, the scripts they run, and the branch protection or ruleset that names required checks. For the check you care about, trace:
 
-Check access to run logs, remote configuration, runner tools and isolated validation. A local parser can establish syntax, not provider event behavior. Without policy or run access, report the unverified part instead of claiming full coverage.
+- which events trigger it, and any path, branch or merge-queue filters;
+- which revision each job checks out (PR head, synthetic merge, base, queue candidate);
+- the exact check name the provider reports, and whether it matches the required name;
+- token permissions, secrets and anything it publishes or deploys.
 
-Read [trust and coverage](references/trust-and-coverage.md) before workflow changes. Read [command and environment evidence](references/command-evidence.md) when changing wrappers, setup, caching or execution topology.
+A YAML linter (for example `actionlint` on GitHub Actions) proves syntax, not event behaviour. If you can't see run logs or the required-check settings, say which part is unverified.
 
-## Choose the work
+## Common failures and what to check
 
-- **Coverage or correctness:** exercise changed/unchanged paths, absent optional jobs, skipped jobs, failures and merge-queue events as applicable. The final gate must reject failure and missing required proof without waiting forever for a check that cannot be emitted.
-- **Security:** trace attacker-controlled input through checkout, local actions, dependency install, scripts and agent instructions into credentials or persistent runner access. Narrow permissions and trusted execution boundaries. An event name alone is not a security verdict.
-- **Reliability or speed:** inspect measured run/job/step costs and the critical path. Change one bottleneck, then compare equivalent workloads. A cache hit or more workers does not itself prove faster or correct execution.
-- **Setup:** verify the same declared dependencies and commands in a clean supported environment. Account for services, ports, writable caches, process ownership and cleanup. Do not use undocumented warm-machine state as proof.
+**Required check never arrives.** On GitHub, a workflow filtered out by `paths`/`branches` creates no check, so a required check waits forever. Run the workflow unconditionally and skip work inside it, or use a final gate job.
 
-Preserve original command failure through formatters, log collectors and reports. Treat skipped, cancelled, unavailable and timed-out required evidence explicitly. Do not remove a check, reduce its scope or broaden privileges to get green without the relevant policy change being authorized.
+**Required check passes without doing anything.** On GitHub a job skipped by `if:` reports as skipped, and skipped satisfies a required check. Gate jobs need `if: always()` and must explicitly fail unless every required `needs.<job>.result` is `success` (or a deliberately allowed skip). Check that an empty or missing result can't count as success.
 
-For portable tools, devcontainers or environment schemas, read
-[development environments](references/development-environments.md). For repeatable
-bootstrap, precedence, concurrent services, secret contracts or browser capacity,
-read [setup contracts](references/setup-contracts.md). Preserve working project
-choices rather than introducing mise, Nix, a new schema filename or a supervisor
-just because an example uses it.
+**Failure swallowed by a pipe.** `cmd | tee log` or `cmd | formatter` returns the last stage's status. On GitHub Actions, steps with no `shell:` run `bash -e {0}` (no pipefail); `shell: bash` adds `-o pipefail`. In Make, each recipe line is a separate shell. Read [command evidence](references/command-evidence.md) when changing wrappers, reporters or test runners.
 
-## Validate and hand back
+**Wrong revision tested.** A job that checks out a branch name instead of the event's SHA, or a cache/artifact keyed too broadly, can report on bytes it never built. A cache hit is not evidence that a build ran.
 
-Use syntax/policy tooling plus controlled branch or runner tests suited to the change. Do not dispatch privileged production jobs merely to test a workflow. For unavailable event behavior, state the remaining validation step.
+**Untrusted code reaches secrets.** `pull_request_target` and `workflow_run` run with base-repo privileges; checking out and building the PR head there runs fork code with those privileges. `${{ github.event.* }}` fields (titles, branch names, bodies) interpolated into `run:` are shell injection. Read [trust and coverage](references/trust-and-coverage.md) before touching triggers, permissions, checkout refs or artifact hand-offs.
 
-Return the event-to-revision/check mapping, trust changes, exercised cases, before/after results and limits. Separate a running workflow from a passing check and a passing check from application acceptance. Delivery and PR waiting remain with their existing owner.
+**Slow pipeline.** Look at measured job and step times and the critical path first. Change one bottleneck at a time and compare comparable runs. More shards add setup cost and can overload shared services; a faster lane that drops required tests is a coverage cut, not a speed-up.
+
+**Works locally, fails in CI (or the reverse).** Compare runtime, package manager and lockfile mode, service versions and globally installed tools. Reproduce from a clean checkout without warm caches. Read [development environments](references/development-environments.md) for mise, devenv/Nix, devcontainers, env files, bootstrap scripts and concurrent local services.
+
+## Rules
+
+- Don't delete a check, narrow its scope, mark it `continue-on-error`, or widen permissions to get green unless the user agreed to that policy change. Flag such changes separately from the fix.
+- Set `permissions:` per job to the minimum. Pin third-party actions the way the repository already does (often a full commit SHA) and make sure an updater still covers them.
+- Treat cancelled, timed-out and skipped-when-required as non-passing.
+- Keep the project's existing tools. Don't introduce mise, Nix, a devcontainer or a new task runner because an example uses one.
+- Don't test a workflow by running privileged production jobs, and never probe trust boundaries with real secrets.
+
+## Validate
+
+Exercise the cases the change affects: a change that should trigger the job, one that shouldn't, a deliberately failing step, and a fork PR or merge-queue run where relevant. Use a throwaway branch where you can.
+
+When handing back, give the event-to-revision-to-check mapping, which cases you actually exercised, before/after results, and what remains unverified (for example fork behaviour you couldn't trigger). A running workflow is not a passing check, and a passing check is not proof the application works.

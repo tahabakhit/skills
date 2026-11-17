@@ -1,38 +1,89 @@
 ---
 name: skill-authoring
-description: "Use when creating or revising a reusable agent skill, or empirically tuning a reusable agent prompt. Not for routine task prompts."
+description: "Create, revise or review an agent skill, or test whether a skill or reusable prompt changes agent behaviour. Not for AGENTS.md files or one-off prompts."
 ---
 
-Inspect the existing skill and directly loaded files before revising it. Compare
-available skills and governing instructions before adding another behavioral owner.
+Agents choose skills by reading only their descriptions. Once a skill is chosen,
+its whole SKILL.md enters context while the agent is in the middle of a task. So
+the description is a matching problem, and the body should be something the agent
+can act on straight away.
 
-1. Ground the change in a real request, observed failure or explicit correction.
-   Name the decision it should change and the nearby case where it should stay unused.
-2. Choose scope. A global skill may be specialist but must work across the owner's
-   projects. Keep one repository's packages, paths and lifecycle in scoped guidance.
-   Same-name skills at different scopes can collide; precedence varies by harness.
-   Use a distinct name for a delta rather than assume which definition wins.
-3. Write a short, specific description that triggers at selection time. Put contents,
-   rationale and reference routes in the body. Do not use an always-on trigger for
-   occasional work, or pad it with search synonyms.
-4. Keep the normal decision path in SKILL.md. Put optional detail behind exact local
-   reference paths. When another skill owns a capability, discover and load the
-   applicable skill rather than copy it or assume an upstream package name.
-5. Keep domain judgment, known failure handling and completion boundaries. Remove
-   duplicated workflow, host guarantees and cheaply discoverable facts. Do not add
-   a script when prose is clearer; use code for deterministic work it can verify.
-6. Match register to purpose. Operational guidance needs concrete conditions and
-   actions; creative guidance can carry voice when that changes the output.
-7. Verify metadata, local references, script dependencies, deployment links and
-   platform gates under the repository's conventions. For the owner's personal
-   dotfiles skills, preserve the canonical source and harness links; this does not
-   prohibit another project's own scoped skills.
+## Decide whether a skill is needed
 
-For an explicitly requested behavioral comparison or recurring routing failure,
-read `references/instruction-calibration.md`. It also covers empirical tuning of
-reusable prompts that are not skills. Ordinary wording edits do not require an
-agent study. Follow the existing approval and helper policy for any such study.
+- Name the case that prompted it: a request agents handle badly, a mistake that
+  keeps recurring, or a correction a user had to repeat. If you can't name one, the
+  skill will probably be generic.
+- Write down one request that should trigger the skill and one similar request
+  that shouldn't. Use the pair to test the description later.
+- Look at the skills and instruction files already installed. If one covers the
+  area, improve that one or refer to it by name instead of adding an overlapping
+  skill.
+- A skill shared across projects must not rely on one repository's paths, scripts
+  or release process. Put those in that repository's AGENTS.md or a local skill. If
+  a local skill adapts a shared one, give it a different name, because harnesses
+  resolve duplicate names differently.
 
-Finish when each retained rule changes a decision, preserves intent or routes
-necessary knowledge. Report checks and limitations; static metadata tests do not
-establish model compliance.
+## Frontmatter
+
+```yaml
+---
+name: release-notes          # same as the folder name
+description: "..."
+---
+```
+
+Write the description as what the skill does, then when to use it, in the words a
+request would contain. Add "Not for ..." only to separate it from a specific
+neighbouring skill or task that would otherwise match. Aim for 300 characters or
+fewer.
+
+```text
+Bad:  description: "Best practices for documentation."
+Good: description: "Write or update a CHANGELOG entry or GitHub release notes from merged PRs. Not for commit messages."
+```
+
+Don't fill the description with synonyms, or explain what's inside the skill and
+why. The body is the place for that.
+
+## Body
+
+- Give instructions in the imperative: what to check, what to do, what done looks
+  like.
+- Spend lines on what the agent would otherwise get wrong: domain judgment,
+  common failures and their fixes, non-obvious limits.
+- Leave out general good practice, anything the harness already enforces, and facts
+  a quick look at the code or `--help` would show.
+- One bad/good pair teaches more than a paragraph of principle. Use them for the
+  decisions that matter most.
+- Headings help when the body has distinct phases. A short skill can be a list.
+- Operational skills need conditions and actions. Writing or design skills can
+  carry a voice when the voice is what shapes the output.
+- Add a script for mechanical, checkable work such as validation, conversion or
+  scaffolding. Keep judgment in prose.
+
+Before finishing, read each line and ask what an agent would do differently without
+it. If the answer is "nothing", delete the line.
+
+## References
+
+SKILL.md holds the common path. Material only some tasks need (an uncommon branch,
+a long lookup table, a detailed sub-procedure) goes in its own file in the skill's
+references folder. Link it by relative path and say when to open it:
+
+```text
+When comparing two prompt variants with real runs, read [references/instruction-calibration.md](references/instruction-calibration.md).
+```
+
+A reference that is almost never needed, or repeats the body, should be merged or
+deleted. Every link must resolve inside the skill folder.
+
+## Check before finishing
+
+- `name` matches the folder, and the description matches your trigger request but
+  not your near-miss request.
+- Every linked file, script and dependency exists, and the repository's checks pass.
+- Passing checks shows the files are well-formed. It doesn't show an agent will
+  follow them. If you've been asked to compare variants, or a skill keeps being
+  skipped or misapplied, read
+  [references/instruction-calibration.md](references/instruction-calibration.md).
+  Routine wording edits don't need that.

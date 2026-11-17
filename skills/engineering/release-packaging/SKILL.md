@@ -1,38 +1,45 @@
 ---
 name: release-packaging
-description: Build or assess an exact installable release artifact and prove its supported target behavior. Use for missing packaged files, runtime or ABI compatibility, build/runtime dependency separation, and install/upgrade/remove validation. Not for registry publication, live installation, production promotion, or claiming portability from cross-compilation alone.
-license: MIT
+description: Build and verify the installable artifact for a release (wheel, npm tarball, binary, .deb/.rpm, container image). Use for files missing from a package, works-from-source-but-not-installed bugs, glibc/ABI or platform support, and install/upgrade/uninstall testing. Not for publishing or deploying.
 ---
 
-# Verify the packaged candidate
+# Release packaging
 
-Judge the bytes users will install, not just the source tree that produced them.
+Test the file users will install, not the source tree. Most packaging bugs are invisible from a checkout because the checkout quietly supplies whatever the package forgot.
 
-## Define the target contract
+## Define what you promise
 
-Identify package format, version identity, supported operating systems, architectures, runtimes and ABI constraints. Read the repository's packaging rules and intended installation/upgrade path. Do not add platforms or distribution formats merely because a tool supports them.
+Write down the package format, version, and each supported OS, architecture and runtime floor (Python/Node version, glibc or musl, macOS minimum). Read the repository's existing packaging config and release docs. Don't add platforms or formats just because the build tool can produce them.
 
-Check available builders and isolated target runners. Use disposable environments or extraction directories for inspection. Building a package does not authorize installing it on the workstation. If a supported target cannot be exercised, distinguish built, inspected and runtime-tested status.
+## Build and record identity
 
-Read [artifact validation](references/artifact-validation.md) before changing packaging or claiming target support.
+1. Build the release artifact the way the release process does (`python -m build`, `npm pack`, `cargo build --release`, `goreleaser`, `docker build`, `dpkg-buildpackage`), not a dev build.
+2. Record the source commit, toolchain versions, filename, size and SHA-256. Every later result belongs to that digest. If you rebuild or repack, results for the old file don't carry over.
 
-## Build and inspect
+## Inspect the contents
 
-1. Record the source identity, relevant toolchain and dependency resolution. Build the intended artifact rather than a convenience development target.
-2. Record its filename, version, size and cryptographic digest. Keep this identity through every subsequent check.
-3. Inspect the actual file list, entrypoints, runtime templates, shared libraries, permissions, symlinks, licenses and configuration defaults. Check that packaging allowlists did not omit files present in source tests.
-4. Separate build-only dependencies from runtime requirements. Check dynamic linkage, interpreter paths, architecture and minimum runtime/ABI where applicable. A successful cross-build cannot establish target execution.
+List what's actually inside the artifact (commands per format in [artifact checks](references/artifact-checks.md)) and compare with what the code needs at runtime:
 
-Avoid reducing installed cost by deleting a dependency without proving the runtime no longer needs it. Prefer measured size and runtime dependency results over guessed portability.
+- entrypoints and console scripts point at modules that are present;
+- templates, data files, migrations, `py.typed`, licences and notices are included (a `files`/`MANIFEST.in`/`package_data`/`.npmignore` allowlist is the usual culprit);
+- no secrets, `.env` files, test fixtures or build-machine absolute paths;
+- executable bits and symlinks survived;
+- native code: architecture, linked libraries, and required glibc symbol versions match the stated floor.
 
-## Exercise the lifecycle
+Separate build-time from runtime dependencies. A runtime binary or library that happened to be present on the build machine through a dev dependency is a classic break. Don't drop a dependency to shrink the package unless you've shown the installed artifact runs without it.
 
-Install or unpack the exact artifact in an authorized clean target environment. Launch it from outside the source checkout so local files cannot fill packaging gaps. Exercise a representative promised function, error behavior and data/configuration location.
+## Run it like a user
 
-When upgrade or removal is in scope, seed representative prior-version state, upgrade, verify preservation, then remove and inspect the specified remainder. Keep user data unless the contract explicitly permits deletion. An irreversible format transition needs a recovery statement, not a nominal uninstall command.
+Install or unpack the exact artifact into a clean environment that matches a supported target: a fresh virtualenv, an empty directory with `npm install ./pkg.tgz`, a container of the oldest supported distro. Run it from outside the source checkout (so `import` can't pick up the local tree), exercise one real feature and one error path, and check where it reads config and writes data.
 
-## Hand back the artifact
+Cross-compiling proves it builds, not that it runs. If you can't execute on a target, report that target as built-and-inspected only.
 
-Return source and artifact identities, the target matrix, lifecycle results, runtime dependencies and known gaps. Keep results for different variants separate. Repacking or rebuilding changes the candidate and invalidates claims about the earlier bytes unless equivalence is demonstrated.
+Installing someone's package runs its install hooks. Do it in a disposable container or VM, not the user's machine.
 
-Provide a release-ready artifact only to the extent the evidence supports. Registry uploads, tags and live promotion remain separate authorized delivery actions.
+## Upgrade and uninstall
+
+When in scope, install the previous release, create representative config and data, upgrade to the new artifact, and confirm data and config survive and services restart correctly. Then uninstall and check what remains: user data and edited config should usually stay; generated caches, services and running processes should not. If the upgrade migrates data irreversibly, say whether the old version can still read it and how to recover. Details in [artifact checks](references/artifact-checks.md#upgrade-and-uninstall).
+
+## Hand back
+
+Report source commit, artifact digest, the target matrix with each target marked built, inspected or run, lifecycle results, runtime dependencies and gaps. Keep variants separate. Uploading to a registry, tagging and deploying are separate steps that need explicit approval.
