@@ -3,7 +3,7 @@
   "owner": {
     "name": "Taha Bakhit"
   },
-  "description": "Engineering and agent-tooling skills.",
+  "description": "Workflow, engineering and agent-tooling skills.",
   "plugins": [
     {
       "name": "engineering",
@@ -11,10 +11,9 @@
       "skills": [
         "./ci-maintenance",
         "./dependency-updates",
-        "./release-packaging",
-        "./docs"
+        "./release-packaging"
       ],
-      "description": "CI contracts, dependency updates, release artifact checks and Diataxis documentation."
+      "description": "CI contracts, dependency updates and release artifact checks."
     },
     {
       "name": "agents",
@@ -28,6 +27,19 @@
         "./prompt-caching"
       ],
       "description": "Agent instructions, skill authoring, tooling design, harness audits, session diagnostics and prompt caching."
+    },
+    {
+      "name": "workflow",
+      "source": "./skills/workflow",
+      "skills": [
+        "./handoff",
+        "./pickup",
+        "./recall",
+        "./reflect",
+        "./triage",
+        "./docs"
+      ],
+      "description": "Task handoff and pickup on the tsk board, recall across harnesses, reflection on sessions and memory, triage, and Diataxis docs."
     }
   ]
 }
