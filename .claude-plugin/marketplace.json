@@ -3,7 +3,7 @@
   "owner": {
     "name": "Taha Bakhit"
   },
-  "description": "Selectively installable workflow skills.",
+  "description": "Engineering and agent-tooling skills.",
   "plugins": [
     {
       "name": "engineering",
@@ -13,7 +13,7 @@
         "./dependency-updates",
         "./release-packaging"
       ],
-      "description": "ci-maintenance, dependency-updates, release-packaging"
+      "description": "CI contracts, dependency updates and release artifact checks."
     },
     {
       "name": "agents",
@@ -26,7 +26,7 @@
         "./harness-audit",
         "./prompt-caching"
       ],
-      "description": "agents-md, skill-authoring, agent-tooling-design, agent-session-diagnostics, harness-audit, prompt-caching"
+      "description": "Agent instructions, skill authoring, tooling design, harness audits, session diagnostics and prompt caching."
     }
   ]
 }

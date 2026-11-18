@@ -1,47 +1,36 @@
-# Command and environment evidence
+# Command evidence
 
-## Preserve the producer result
+Read when writing or changing a test wrapper, log collector, reporter, setup step or Make target that CI depends on.
 
-A test command piped through a formatter or log collector can fail while the final process succeeds. Preserve both statuses using mechanisms appropriate to the actual execution shell, or run the producer into an owned temporary output file and capture its exit status before rendering it. Do not assume one shell's pipeline-status variables exist in another.
+## Keep the producer's exit status
 
-In Bash, `pipefail` returns the rightmost failing stage, not necessarily the
-producer's status. Capture `PIPESTATUS` immediately if individual outcomes matter,
-and account for `errexit` before arranging that capture. Make normally runs separate
-recipe lines in separate shells; keep the chosen option and pipeline in the same
-shell or use a reviewed wrapper. Do not change every recipe's semantics to fix one.
-Keep formatter diagnostics bounded and credential-free; preserve structured result
-bundles when the contract requires them, including proof that relevant tests ran.
+A test command piped into a formatter, `tee` or a report generator can fail while the pipeline succeeds.
 
-Define the result policy explicitly. A failing producer cannot become a passing test because the renderer succeeded. If rendering is itself required, its failure also needs an appropriate non-pass. Keep logs available on failure.
+- Bash `set -o pipefail` returns the status of the rightmost failing stage, not necessarily the test command's. If you need each stage's status, read `PIPESTATUS` immediately after the pipeline, before any other command, and remember `set -e` may exit first.
+- `PIPESTATUS` is Bash-only (Zsh has `pipestatus`; POSIX sh has neither). Check which shell actually runs the step.
+- Simpler and portable: write the producer's output to a file, capture `$?`, then render the file.
+- Make runs each recipe line in its own shell. Keep the option and the pipeline on one line (or use `.ONESHELL` deliberately); don't change every recipe's semantics to fix one.
 
-Exercise the wrapper with controlled commands:
+Decide the result policy explicitly and test the wrapper against it with stub commands:
 
 | Producer | Renderer | Expected |
 | --- | --- | --- |
-| Exit 0 | Exit 0 | Success |
-| Exit 7 | Exit 0 | Non-pass preserving producer failure |
-| Exit 0 | Exit 9 | Non-pass when rendering is required |
-| Exit 7 | Exit 9 | Non-pass with both causes visible |
-| Cancelled or timed out | Any | No test-pass claim |
+| exit 0 | exit 0 | pass |
+| exit 7 | exit 0 | fail, producer's status visible |
+| exit 0 | exit 9 | fail if the report is required |
+| exit 7 | exit 9 | fail, both causes visible |
+| killed or timed out | any | no pass |
 
-Also check missing result files and partial output. A report generator should not fabricate an empty passing suite when collection failed.
+Also feed it a missing results file and truncated output. A JUnit or coverage reporter that finds no results must not publish an empty passing suite.
 
-## Reproduce the environment contract
+## Setup and teardown
 
-Identify runtime/compiler versions, package-manager version, lockfile mode, service versions, external tools and setup commands that affect execution. Verify declared setup in a clean supported environment. Do not rely on a warm cache, globally installed CLI or a service left by another job.
+If seeding, migrations, browser installation or service start fails, the tests never ran. Report that as a setup failure, not a test pass. If teardown also fails, keep the original test error as the headline.
 
-Allocate ports and mutable service state per concurrent job. Record process ownership so cleanup stops only what the job started. A worktree alone cannot isolate a shared database or listening port.
+Give each concurrent job its own ports, database and writable state, and stop only processes the job started. A separate worktree does not isolate a shared database or a listening port.
 
-Make setup and teardown failures visible. The application test may never have run when seed, migration or browser installation failed. Classify that as unavailable or failed setup rather than a product pass. Keep the original test error if teardown also fails.
+Wait for real readiness (a query succeeds, the app answers with the expected response) with a deadline, not a fixed `sleep` or an open port.
 
-## Measure optimization
+## Measuring speed changes
 
-Use comparable revisions/workloads and separate queue delay, setup, execution and artifact/report overhead. Inspect the critical path. More shards can increase setup cost or overwhelm shared services. Cache changes can make a broken dependency declaration appear healthy.
-
-Compare before and after with enough observations to expose variance. Preserve correctness checks when optimizing. A faster lane that skips required behavior is a coverage reduction, not a speed improvement.
-
-## Evidence receipt
-
-Record the command, working directory, tested revision, relevant runtime versions, start/end status and observed result. Record output/artifact identity when later stages consume it. Keep observation time distinct from report creation.
-
-State which environment/event combinations remain untested. A successful local setup is useful evidence, but it cannot establish a different hosted runner's privileges, architecture or provider event semantics.
+Compare the same workload on comparable revisions, with several runs to see variance. Split queue time, setup, execution and artifact upload. Cache changes can hide a missing dependency declaration: confirm a cold run still passes.

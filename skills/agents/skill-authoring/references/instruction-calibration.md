@@ -1,28 +1,53 @@
-Use this branch for an explicitly requested empirical comparison or a recurring instruction/routing failure. The parent skill owns reusable-instruction structure; this reference does not create another skill or authorize sessions.
+# Testing whether an instruction works
 
-## Define the comparison
+Read this when someone asks you to compare versions of a skill or prompt with real
+agent runs, or when a skill keeps being skipped or misapplied. Each run costs money
+and time, so agree the number of runs with the user before you start.
 
-- Start with a real request, observed failure, or durable correction. Name the consequential choice to change and what must stay unchanged.
-- Use the natural request, its closest decision boundary, and an unrelated non-use case. Do not put the desired solution into the task.
-- Separate remembered knowledge from productive performance. A closed-book probe can expose stale assumptions, but the working baseline should have the docs and source normally available. Verify generated work against the active API and execute relevant checks. Plausible output is not correctness.
+## Pick the tasks
 
-## Control the layers
+Write three short tasks:
 
-- Inspect current harness help. Start with few local instruction layers, record what remains, then restore docs access, repository context, and skills deliberately. These discovery runs are not isolated instruction comparisons when several variables change.
-- Disabling automatic discovery does not necessarily prevent reading instructions through tools. Verify active controls in current help, inspect actual reads, and exclude contaminated baselines or restrict access equally in both arms.
-- Compare fresh sessions with identical model, reasoning, tools, cwd, task, and available files. Change only the candidate instruction. Keep follow-ups and reloads for exploration, not clean baseline evidence.
-- Test the one-shot output before coaching. Do not credit corrections from a follow-up to the original instruction.
-- Finish with the normal worker environment to check skill selection and conflicting layers. Treat that as integration evidence, not an isolated comparison.
+1. A request the instruction is meant for, worded the way a user would word it.
+2. A similar request where the instruction shouldn't apply.
+3. An unrelated request, to catch the instruction applying everywhere.
 
-## Run with the agreed supervision
+Don't hint at the expected behaviour in the task text. Give the agent the files and
+docs it would normally have; an agent cut off from them tells you about its memory,
+not about your instruction.
 
-Follow the owner's established approval, helper and session policy. Request any missing authority for paid/model runs, session mutation or additional worker roles rather than inventing a runner. Preserve cwd and user focus, and never close a user's existing session as test cleanup. When comparison runs are authorized, report evidence and let the user judge UX preference.
+## Keep the comparison fair
 
-## Tune and verify
+- Start each run in a fresh session. Keep model, reasoning level, tools, working
+  directory and files the same, and change only the instruction.
+- Many harnesses load instruction files and skills automatically. Find out from the
+  current help how to switch that off, then check the transcript: the agent may still
+  read the files with its own tools. Discard runs where that happened.
+- Score the first answer. If you nudge the agent afterwards, the improvement is
+  yours, not the instruction's.
+- Finish with a run in the user's normal setup, everything loaded, to see whether
+  other skills compete for the same request. Treat it as a sanity check rather than
+  part of the comparison.
+- Leave the user's own sessions alone. Don't close or edit them while cleaning up.
 
-- Judge choices, actions, omissions, and useful output, not polish or identical wording. Separate instruction effects from model defaults, missing context, ambiguity, and local policy.
-- One unusually good or bad run is weak evidence. Repeat when disposition depends on stability, not to eliminate harmless variance. Repair underspecified tasks instead of enlarging reusable guidance.
-- Change one coherent boundary. Prefer the smallest condition and action. Keep inaccessible facts and local decisions. Do not teach a specialist its own discipline. Add examples only to resolve demonstrated ambiguity.
-- Rerun the same probes after compression, especially the closest collision. Reject new ceremony, eager routing, or regressions on non-use. For each retained line, identify the concrete failure its removal restores. Otherwise cull it.
+## Read the results
 
-Finish with the baseline, observed delta, active API verification, token change, final instruction change, and unresolved variance. For efficiency comparisons, use existing whole-task usage when available, including retries and workers. Text-token reductions alone do not establish task-cost savings. Do not turn model-compliance probes into permanent programmatic tests.
+- Score what the agent decided and did, what it skipped, and whether the result is
+  correct. Run any code it wrote. Ignore differences in wording or polish.
+- When behaviour is wrong, check whether the cause is the instruction, the model's
+  default habits, a missing file, or a vague task. Fix a vague task by rewriting the
+  task, not by adding rules to the instruction.
+- Don't act on a single run. Repeat when the decision hinges on whether a result is
+  consistent.
+- Change one thing per round and make the smallest edit that could work. Add an
+  example only when runs show the agent misreading the rule.
+- After shortening an instruction, rerun all three tasks. Watch the near-miss task
+  most closely: trimming often makes a skill trigger too eagerly.
+
+## Report
+
+Cover how the agent behaved before and after, the final wording change, how much
+shorter or longer the instruction got, and how much the runs varied. If you claim a
+cost saving, compare whole-task token use including retries and subagents. A
+shorter instruction alone doesn't prove that. Don't add these runs to the
+repository's automated tests.

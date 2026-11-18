@@ -1,69 +1,15 @@
 {
-  "name": "@tahabakhit/skills",
-  "version": "0.3.0",
-  "description": "Global engineering and agent-tooling specialist skills.",
+  "name": "tahabakhit-skills",
+  "private": true,
+  "description": "Engineering and agent-tooling skills for Pi, Claude Code and Codex.",
   "license": "MIT",
   "author": "Taha Bakhit",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "engines": {
-    "node": ">=22.20.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tahabakhit/skills.git"
   },
-  "homepage": "https://github.com/tahabakhit/skills#readme",
-  "bin": {
-    "taha-skills": "bin/skills.mjs"
-  },
-  "keywords": [
-    "pi-package",
-    "agent-skills",
-    "discovery",
-    "specification"
-  ],
-  "files": [
-    "bin",
-    "lib",
-    "scripts",
-    "distribution.json",
-    "INSTALL.md",
-    "CONTRIBUTING.md",
-    "skills",
-    "test",
-    "audits",
-    "research",
-    "evaluations",
-    "catalog.json",
-    "CATALOG.md",
-    "README.md",
-    "ARCHITECTURE.md",
-    "SOURCES.md",
-    "VERIFICATION.md",
-    "LICENSE",
-    "THIRD-PARTY-NOTICES.md"
-  ],
-  "scripts": {
-    "test": "sh test/package.sh && node --test test/*.test.mjs",
-    "lint": "eslint bin lib scripts",
-    "check": "npm run lint && npm test && npm run pack:packages",
-    "build:packages": "node scripts/build-packages.mjs",
-    "pack:packages": "node scripts/release.mjs --pack",
-    "publish:dry-run": "node scripts/release.mjs --dry-run",
-    "publish:packages": "node scripts/release.mjs --publish"
-  },
+  "keywords": ["pi-package", "agent-skills"],
   "pi": {
-    "skills": [
-      "./skills"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "10.14.0"
-  },
-  "overrides": {
-    "minimatch": "11.0.1"
+    "skills": ["./skills"]
   }
 }

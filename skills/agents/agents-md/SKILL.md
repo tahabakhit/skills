@@ -1,24 +1,73 @@
 ---
 name: agents-md
-description: "Read before creating, auditing, or revising an AGENTS.md file."
+description: "Create, audit or trim AGENTS.md (or CLAUDE.md) instruction files for a repository, subdirectory or personal global setup. Not for writing or revising skills; use skill-authoring for those."
 ---
 
-1. Inspect the target scope, applicable ancestor files, relevant nested files, and only enough code or configuration to verify proposed guidance.
-2. Establish whether the target is an ordinary brownfield root, a nested subtree, greenfield product guidance, or personal and global policy.
-3. Put each rule in its nearest durable home.
-   - Prefer code, configuration, or an executable check when it can enforce the rule.
-   - Keep human-facing explanation in README or appropriate documentation.
-   - Use `AGENTS.md` for non-obvious intent, constraints, hazards, ownership boundaries, and pointers that change what an agent should load or do.
-   - Create a nested file only for a genuine local delta: subtree ownership, public API or import boundaries, generated or frozen areas, required wrappers or local tools, placement traps, subtree-only skills or documentation, and recurring mistakes an agent cannot cheaply infer.
-   - Do not use nested files for task history, implementation summaries, directory tours, or repeated ancestor guidance.
-4. Start the target file with its first useful rule or scope statement. Address the reading agent as you. Do not add a filename heading, purpose preamble, frontmatter, or wrapper unless the target harness requires it.
-5. Match the register to the scope.
-   - Ordinary brownfield roots and nested files use compact, machine-first bullets or unambiguous fragments.
-   - Personal and global files, including personal agent repositories, may use first-person prose, humour, metaphor, and distinctive voice when the language carries identity, relationship, taste, autonomy, permission boundaries, or collaboration style.
-   - Greenfield guidance may preserve expressive founder language when it controls product decisions that code cannot yet encode.
-   - Keep expressive passages specific and decision-bearing. Remove generic inspiration, performed personality, and decorative flourishes that change nothing.
-6. Do not inventory the stack, source tree, package scripts, routine commands, task history, or behaviour cheaply visible in code and configuration. Include a command only when its selection, timing, wrapper, exception, or danger changes agent behaviour.
-7. Preserve user-authored intent and local terminology. When deletion could weaken ambiguous root, global, or personal policy, keep it or ask rather than silently deciding.
-8. Verify paths, commands, ownership, tool names, and claimed conventions locally. Do not promote guesses, one-off observations, or current-task details into standing rules.
-9. Judge length by useful local decisions, not a universal line quota. Preserve repository-required structure and existing headings, preambles or imports that carry rules or owner intent. For empirical instruction tuning, load an applicable reusable-instruction authoring skill and its calibration guidance.
-10. Finish when every retained line changes behaviour, preserves intent, or routes necessary context, facts match repository truth, and nested guidance is only a scoped delta.
+Agents load AGENTS.md into every session that touches its directory. A line that
+doesn't change what the agent does still costs tokens on every task and dilutes the
+lines that matter.
+
+## The test for each line
+
+Ask: would a capable agent that has just read the code get this wrong without the
+line? Keep it only if the answer is yes.
+
+Usually yes:
+
+- A trap: the obvious command, file or approach is wrong here.
+- A boundary: code that is generated, vendored, frozen or owned by another team.
+- Intent the code can't show: why something odd is deliberate, what must not change.
+- A pointer: which doc, skill or script to load for a given kind of task.
+- A recurring mistake agents have actually made in this repository.
+
+Usually no:
+
+- The language, framework or test runner (visible in manifests).
+- A tour of the directory tree.
+- Standard commands such as `npm test` when they just work.
+- General advice ("write clean code", "add tests").
+- History of past tasks or summaries of recent changes.
+
+```text
+Bad:  - We use Python 3.12 with pytest. Tests live in tests/.
+Good: - Run tests with `uv run pytest -p no:randomly`; the suite has order-dependent fixtures.
+Good: - `api/schema.graphql` is generated from the server; edit `server/schema/` and run `make schema`.
+```
+
+If a linter, formatter, CI job or config file can enforce a rule, put the rule there
+instead and drop it from AGENTS.md. Prose meant for human readers goes in README or
+docs.
+
+## Root and nested files
+
+Read the root file and every AGENTS.md between it and the target before writing.
+A nested file is loaded on top of its ancestors, so it should only add what differs
+in that subtree, for example a separate build tool, an import rule for a package's
+public API, or a folder agents keep putting files in by mistake. If the subtree
+behaves like the rest of the repository, it doesn't need a file.
+
+## Format and voice
+
+- Open with the first rule. Skip the `# AGENTS.md` title, the "This file
+  describes..." preamble and frontmatter unless a tool requires them.
+- In repository files, use short imperative bullets. Group under headings only
+  once the file is long enough that an agent would need them to find a rule.
+- Personal or global files (one person's instructions across all their projects)
+  can be written in the first person and carry personality. That's useful when it
+  conveys taste, how much autonomy to take, what needs asking first, or how to
+  collaborate. A young project's file may likewise keep the founder's own phrasing
+  for product direction the code doesn't show yet. Delete flourishes that steer
+  nothing.
+
+## Auditing an existing file
+
+1. Check every path, command, tool name and convention against the repository.
+   Fix or delete what is wrong.
+2. Apply the line test above and remove what fails.
+3. Move enforceable rules into tooling and human-facing prose into docs.
+4. Keep the author's terminology, and any headings or imports other tools depend on.
+5. If removing a line from a root, global or personal file might lose an intent you
+   can't confirm, leave it and ask rather than guessing.
+
+Don't add rules based on guesses, a single observation or the task in front of you.
+The file is finished when every line passes the test and every fact checks out.
