@@ -4,7 +4,7 @@ Engineering and agent-tooling skills for [Pi](https://pi.dev), Claude Code and C
 
 | Bundle | Skills |
 | --- | --- |
-| [engineering](skills/engineering) | `ci-maintenance`, `dependency-updates`, `release-packaging` |
+| [engineering](skills/engineering) | `ci-maintenance`, `dependency-updates`, `release-packaging`, `docs` |
 | [agents](skills/agents) | `agents-md`, `skill-authoring`, `agent-tooling-design`, `agent-session-diagnostics`, `harness-audit`, `prompt-caching` |
 
 Skills load on demand when a task matches their description; they add nothing to

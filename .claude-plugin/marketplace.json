@@ -11,9 +11,10 @@
       "skills": [
         "./ci-maintenance",
         "./dependency-updates",
-        "./release-packaging"
+        "./release-packaging",
+        "./docs"
       ],
-      "description": "CI contracts, dependency updates and release artifact checks."
+      "description": "CI contracts, dependency updates, release artifact checks and Diataxis documentation."
     },
     {
       "name": "agents",
