@@ -30,17 +30,17 @@ Cheapest and most authoritative:
 1. The tsk task for the topic, including its `## State` section
    (`tsk list T12 --json`, or `tsk list --json` to find it).
 2. Repository docs for durable facts.
-3. Native memory, read in place, never copied into another store. Run
-   `memory-links` first, then search `~/.agents/memory/` (`rg -L` follows its
-   symlinks). Each link points at the harness's own folder:
+3. Native memory, read in place, never copied into another store. Search the
+   native folders of the harnesses this machine has; skip any that don't exist:
 
-| Link | Native folder |
+| Harness | Native folder |
 | --- | --- |
-| `claude/<folder-slug>` | `~/.claude/projects/<folder-slug>/memory/` (index `MEMORY.md`) |
-| `codex` | `~/.codex/memories/` (`MEMORY.md`, `memory_summary.md`, `rollout_summaries/`) |
-| `pi/<project-key>` | `~/.pi/agent/project-memory/projects/<project-key>/memory/` (pi-project-memory; index `MEMORY.md`) |
+| Claude Code | `~/.claude/projects/<project-slug>/memory/` (index `MEMORY.md`; one store per git repository, shared by its worktrees and subfolders) |
+| Codex | `~/.codex/memories/` (`MEMORY.md`, `memory_summary.md`, `rollout_summaries/`) |
+| Pi | `~/.pi/agent/project-memory/projects/<project-key>/memory/` (pi-project-memory; index `MEMORY.md`) |
 
-If `memory-links` is missing, read the native folders directly. The legacy
+Where `memory-links` is installed, run it and search `~/.agents/memory/`
+instead (`rg -L` follows its symlinks into the same folders). The legacy
 archive `~/.agents/memory-archive/basic-memory/`, where present, is searched
 with `rg` only when the rest falls short.
 
