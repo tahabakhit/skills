@@ -4,7 +4,7 @@ Workflow, engineering and agent-tooling skills for [Pi](https://pi.dev), Claude 
 
 | Bundle | Skills |
 | --- | --- |
-| [workflow](skills/workflow) | `handoff`, `pickup`, `recall`, `reflect`, `triage`, `docs` |
+| [workflow](skills/workflow) | `recall`, `reflect`, `docs` |
 | [engineering](skills/engineering) | `ci-maintenance`, `dependency-updates`, `release-packaging` |
 | [agents](skills/agents) | `agents-md`, `skill-authoring`, `agent-tooling-design`, `agent-session-diagnostics`, `harness-audit`, `prompt-caching` |
 

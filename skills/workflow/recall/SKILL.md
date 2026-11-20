@@ -1,6 +1,6 @@
 ---
 name: recall
-description: Look up prior work from tsk tasks, repository docs, native memory and session history across Claude, Codex, Pi and Copilot (via cass), and rebuild where things stand. Use for "recall my work on X", "catch me up", "where did I leave off", "did we already decide/try X", "what have I been working on", or when missing history could change the current task. Read only. Not for resuming one tsk task (pickup) or a daily to-do list (triage).
+description: Look up prior work from Linear issues, repository docs, native memory and session history across Claude, Codex, Pi and Copilot (via cass), and rebuild where things stand. Use for "recall my work on X", "catch me up", "where did I leave off", "did we already decide/try X", "what have I been working on", or when missing history could change the current task. Read only.
 ---
 
 # Recall
@@ -27,8 +27,9 @@ If the user already gave the state (branch, paths, what changed), skip to step 5
 
 Cheapest and most authoritative:
 
-1. The tsk task for the topic, including its `## State` section
-   (`tsk list T12 --json`, or `tsk list --json` to find it).
+1. The Linear issue for the topic, read through the Linear MCP tools: its
+   description, status and latest comments. Without a Linear MCP server in
+   this session, say Linear was skipped.
 2. Repository docs for durable facts.
 3. Native memory, read in place, never copied into another store. Search the
    native folders of the harnesses this machine has; skip any that don't exist:
@@ -85,30 +86,29 @@ session path. Raw transcripts stay with the subagents.
 ## 4. The shared record
 
 When the topic names a feature, file, ticket or bug, also check what happened
-around it outside your sessions: pull requests and issues with `gh`, and this
-machine's tracker and chat tools if available (the nearest `triage.md` lists
-them). Ask what the current state is, what was tried and
-did not hold, and what is still reported. A source without a working tool gets
+around it outside your sessions: pull requests with `gh`, related Linear
+issues, and chat tools if available. Ask what the current state is, what was
+tried and did not hold, and what is still reported. A source without a working tool gets
 one line saying it was skipped. Skip this step for pure activity recall ("what
 did I do this week").
 
 ## 5. Check against live state
 
-Confirm branches, PRs and tickets from steps 2 to 4 with `git` and `gh` before
-reporting them. A summary that says "merged" or "verified" is a claim until
-the live state agrees.
+Confirm branches and PRs from steps 2 to 4 with `git` and `gh`, and issue
+status through Linear, before reporting them. A summary that says "merged" or
+"verified" is a claim until the live state agrees.
 
 ## 6. Answer
 
-A **lookup**: the answer, its source (tsk task, doc, memory file, session path and
-line, PR or ticket), and its date. Say if the source is stale.
+A **lookup**: the answer, its source (Linear issue, doc, memory file, session
+path and line, PR), and its date. Say if the source is stale.
 
 A **catch-up**, in this order:
 
 - **Capsule:** at most 5 bullets on what the work is and where it stands.
 - **Threads:** one line each with exactly one tag: `[merged #N]`,
   `[open PR #N]`, `[in flight <branch>]`, `[uncommitted]`, `[reverted #N]`,
-  `[tsk T12 <status>]` or `[not started]`.
+  `[Linear ABC-12 <status>]` or `[not started]`.
 - **Problems:** at most 5 recurring ones, including fixes that were reverted,
   so the next attempt starts where the last one failed.
 - **Next move:** the single most useful next action.
@@ -119,8 +119,8 @@ detail before cutting threads.
 ## Where facts go
 
 Recall reads; it does not file. One authoritative copy of each fact:
-repository facts in repository docs, unfinished task state in its tsk task,
-approved personal facts in the writing agent's own memory. Do not copy other
+repository facts in repository docs, unfinished task state in its Linear
+issue, approved personal facts in the writing agent's own memory. Do not copy other
 agents' notes into a second store, delete memories automatically or bulk-import
 old notes. Native memory is written by its own agent; `/reflect` and
 `/reflect memory` only propose changes, which apply after the user approves. For an
