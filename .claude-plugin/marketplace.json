@@ -32,14 +32,11 @@
       "name": "workflow",
       "source": "./skills/workflow",
       "skills": [
-        "./handoff",
-        "./pickup",
         "./recall",
         "./reflect",
-        "./triage",
         "./docs"
       ],
-      "description": "Task handoff and pickup on the tsk board, recall across harnesses, reflection on sessions and memory, triage, and Diataxis docs."
+      "description": "Recall across harnesses, reflection on sessions and memory, and Diataxis docs."
     }
   ]
 }
